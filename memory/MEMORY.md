@@ -1,0 +1,2 @@
+- [User Role: DP-750 App Developer](memory/user_role.md) — Developer role for DP-750 Exam Prep App.
+- [Project: DP-750 App v1](memory/project.md) — Goals and constraints for DP-750 Exam Prep App v1.

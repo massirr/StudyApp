@@ -23,11 +23,13 @@ Run `npm run build` (or `yarn build`).
 ### Common Issues and Solutions
 
 1. **Port already in use**: If you see an error about the port being in use, try:
+
    ```bash
    npm run dev -- --port 3001
    ```
 
 2. **Missing dependencies**: If you encounter errors about missing packages:
+
    ```bash
    rm -rf node_modules package-lock.json
    npm install
@@ -88,16 +90,19 @@ We welcome contributions to the DP-750 Exam Prep App! Here are some guidelines t
 This project is configured for easy deployment to Vercel. Here's how to deploy:
 
 1. **Install Vercel CLI** (if you haven't already):
+
    ```bash
    npm install -g vercel
    ```
 
 2. **Build the project**:
+
    ```bash
    npm run build
    ```
 
 3. **Deploy to Vercel**:
+
    ```bash
    vercel
    ```

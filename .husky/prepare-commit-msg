@@ -1,4 +1,5 @@
 #!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
 
 # Add Co-authored-by line for AI
 echo "\nCo-authored-by: Claude Opus 4.7 <noreply@anthropic.com>" >> "$1"

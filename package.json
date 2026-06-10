@@ -9,7 +9,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{ts,tsx}\" \"docs/**/*.md\"",
-    "prepare": "husky"
+    "prepare": "husky install"
   },
   "dependencies": {
     "react": "^18.2.0",

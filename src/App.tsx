@@ -1,7 +1,9 @@
+import StudyDashboard from './components/StudyDashboard';
+
 function App() {
   return (
     <div>
-      <h1>DP-750 Exam Prep App</h1>
+      <StudyDashboard />
     </div>
   );
 }

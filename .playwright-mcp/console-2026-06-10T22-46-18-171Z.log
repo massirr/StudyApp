@@ -1,0 +1,45 @@
+[     178ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:21548
+[     258ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5174/favicon.ico:0
+[    2581ms] ReferenceError: Cannot access 'labInstructions' before initialization
+    at TopicDetail (http://localhost:5174/src/components/TopicDetail.tsx:18:24)
+    at renderWithHooks (http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:11546:26)
+    at mountIndeterminateComponent (http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:14924:21)
+    at beginWork (http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:15912:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:3672:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:3697:24)
+    at invokeGuardedCallback (http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:3731:39)
+    at beginWork$1 (http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:19763:15)
+    at performUnitOfWork (http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:19196:20)
+    at workLoopSync (http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:19135:13)
+[    2583ms] ReferenceError: Cannot access 'labInstructions' before initialization
+    at TopicDetail (http://localhost:5174/src/components/TopicDetail.tsx:18:24)
+    at renderWithHooks (http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:11546:26)
+    at mountIndeterminateComponent (http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:14924:21)
+    at beginWork (http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:15912:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:3672:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:3697:24)
+    at invokeGuardedCallback (http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:3731:39)
+    at beginWork$1 (http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:19763:15)
+    at performUnitOfWork (http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:19196:20)
+    at workLoopSync (http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:19135:13)
+[    2584ms] [ERROR] The above error occurred in the <TopicDetail> component:
+
+    at TopicDetail (http://localhost:5174/src/components/TopicDetail.tsx:17:24)
+    at div
+    at StudyDashboard (http://localhost:5174/src/components/StudyDashboard.tsx?t=1781131520165:39:31)
+    at div
+    at App
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:14029
+[    2584ms] ReferenceError: Cannot access 'labInstructions' before initialization
+    at TopicDetail (http://localhost:5174/src/components/TopicDetail.tsx:18:24)
+    at renderWithHooks (http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:11546:26)
+    at mountIndeterminateComponent (http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:14924:21)
+    at beginWork (http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:15912:22)
+    at beginWork$1 (http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:19751:22)
+    at performUnitOfWork (http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:19196:20)
+    at workLoopSync (http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:19135:13)
+    at renderRootSync (http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:19114:15)
+    at recoverFromConcurrentError (http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:18734:28)
+    at performSyncWorkOnRoot (http://localhost:5174/node_modules/.vite/deps/chunk-373CG7ZK.js?v=ce08f19f:18877:28)

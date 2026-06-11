@@ -182,6 +182,32 @@ const StudyDashboard: React.FC = () => {
     });
   };
 
+  const handleStepToggle = (id: number) => {
+    setTopics((prevTopics) => {
+      const updated = prevTopics.map((topic) => {
+        if (topic.id !== id) {
+          return topic;
+        }
+
+        const completedSteps = Math.min(topic.completedSteps + 1, topic.steps);
+        return {
+          ...topic,
+          completedSteps,
+          completed: completedSteps === topic.steps,
+        };
+      });
+
+      localStorage.setItem('studyapp_topics', JSON.stringify(updated));
+
+      const updatedCurrentTopic = updated.find((topic) => topic.id === id);
+      if (updatedCurrentTopic) {
+        setCurrentTopic(updatedCurrentTopic);
+      }
+
+      return updated;
+    });
+  };
+
   const completedCount = topics.filter((t) => t.completed).length;
   const totalCount = topics.length;
   const progressPercent =

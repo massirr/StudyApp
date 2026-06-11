@@ -11,7 +11,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "composite": true,
+    "noEmit": true,
 
     /* Linting */
     "strict": true,

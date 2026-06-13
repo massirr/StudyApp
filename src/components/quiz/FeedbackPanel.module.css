@@ -1,0 +1,139 @@
+.feedbackPanel {
+  margin-top: 1rem;
+  padding: 1.25rem 1.25rem 1rem;
+  border-radius: 0;
+  border: 1px solid rgba(7, 7, 7, 0.08);
+  position: relative;
+  animation: fadeIn 0.28s ease-in-out;
+  backdrop-filter: none;
+  box-shadow: 7px 7px 0 rgba(7, 7, 7, 1);
+  background: rgba(246, 234, 215, 0.62);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.correct {
+  background-color: rgba(16, 185, 129, 0.16);
+  border-color: rgba(16, 185, 129, 0.42);
+}
+
+.incorrect {
+  background-color: rgba(239, 68, 68, 0.16);
+  border-color: rgba(239, 68, 68, 0.42);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.badge {
+  font-weight: 600;
+  padding: 0.45rem 0.85rem;
+  border-radius: 0;
+  color: var(--paper);
+  font-size: 0.875rem;
+}
+
+.correct .badge {
+  background-color: #15803d;
+}
+
+.incorrect .badge {
+  background-color: #b91c1c;
+}
+
+.feedbackText {
+  color: var(--ink-soft);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 0.9375rem;
+}
+
+.sourceLinks {
+  border-top: 1px solid rgba(7, 7, 7, 0.12);
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.sourceLinks a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  transition: color 0.15s ease-in-out;
+}
+
+.sourceLinks a:hover {
+  color: #2c2218;
+  text-decoration: underline;
+}
+
+.sourceLinks a:focus {
+  outline: 2px solid #0b0b0b;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.explanation {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.sourceLink {
+  display: inline-block;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.sourceLink:hover {
+  text-decoration: underline;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--ink-soft);
+  padding: 0.2rem;
+  line-height: 1;
+}
+
+.closeButton:hover {
+  color: #0b0b0b;
+}
+
+@media (max-width: 720px) {
+  .feedbackPanel {
+    padding: 1rem 1rem 0.9rem;
+    box-shadow: 5px 5px 0 rgba(7, 7, 7, 1);
+  }
+
+  .header {
+    margin-bottom: 0.7rem;
+  }
+
+  .badge {
+    padding: 0.38rem 0.7rem;
+    font-size: 0.8rem;
+  }
+
+  .feedbackText,
+  .explanation {
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+}

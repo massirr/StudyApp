@@ -1,0 +1,27 @@
+.noMatchMessage {
+  padding: 1rem;
+  background-color: rgba(251, 191, 36, 0.1);
+  color: #fbbf24;
+  border: 1px solid #f59e0b;
+  border-radius: 6px;
+  margin-top: 1rem;
+}
+
+.noMatchMessage p {
+  margin-bottom: 0.75rem;
+  font-size: 0.9375rem;
+}
+
+.noMatchMessage p:last-child {
+  margin-bottom: 0;
+}
+
+.sourceLink {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.sourceLink:hover {
+  text-decoration: underline;
+}

@@ -1,9 +1,0 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-echo "Running pre-commit checks..."
-npm run lint -- --fix
-npm run format -- --write
-git add -u
-echo "Pre-commit checks passed."
-exit 0

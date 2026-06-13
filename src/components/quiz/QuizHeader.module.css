@@ -1,0 +1,70 @@
+.quizHeader {
+  padding: 0;
+  border-bottom: 0;
+  margin-bottom: 0;
+  background: transparent;
+  border-radius: 0;
+}
+
+.quizHeader h1 {
+  display: inline-block;
+  margin: 0 0 12px;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  color: var(--ink);
+  font-weight: 700;
+  background: var(--paper-strong);
+  box-shadow: 7px 7px 0 rgba(7, 7, 7, 1);
+}
+
+.progressContainer {
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.progressContainer span {
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+}
+
+.progressBar {
+  flex-grow: 1;
+  height: 10px;
+  background-color: rgba(7, 7, 7, 0.12);
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--ink);
+  border-radius: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+@media (max-width: 720px) {
+  .quizHeader h1 {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin-bottom: 8px;
+    padding: 0.55rem 0.8rem;
+    font-size: 0.92rem;
+    box-shadow: 5px 5px 0 rgba(7, 7, 7, 1);
+  }
+
+  .progressContainer {
+    gap: 0.5rem;
+  }
+
+  .progressContainer span {
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+
+  .progressBar {
+    height: 8px;
+  }
+}

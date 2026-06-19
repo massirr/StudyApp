@@ -49,8 +49,8 @@ The quiz needs a stable question model that can support both content review and 
 - `topicId`: topic the question belongs to.
 - `prompt`: the question text.
 - `type`: single-select or multi-select.
-- `options`: answer choices.
-- `correctOptionIds`: one or more correct answers.
+- `options`: answer choices; order determines the option letter (A=index 0, B=index 1, C=index 2, D=index 3).
+- `correctOptionIds`: one or more correct answers, referencing the positional id (`'a'`–`'d'`) matching the current `options` array order.
 - `explanation`: short learning-oriented explanation.
 - `sourceUrls`: references to official Microsoft documentation URLs.
 - `codeSnippet` *(optional)*: `{ language: string; code: string }` — a code block displayed as part of the question body.
@@ -107,6 +107,7 @@ The quiz needs a stable question model that can support both content review and 
 - Verify the user cannot submit an empty selection.
 - Verify the next-question flow works after submission.
 - Verify completion state appears after the final question.
+- Verify `correctOptionIds` always matches the positional index of the correct answer text in `options`.
 
 ## Open Questions
 - Should users be able to review previous quiz questions within the same session?

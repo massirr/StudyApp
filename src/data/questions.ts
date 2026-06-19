@@ -73,11 +73,11 @@ const QUESTION_BANK: QuizQuestion[] = [
         prompt: 'What does a metastore in Unity Catalog provide?',
         type: 'single',
         options: [
-            { id: 'a', label: 'A central metadata and governance layer for data assets' },
-            { id: 'b', label: 'A replacement for all SQL queries' },
+            { id: 'a', label: 'A replacement for all SQL queries' },
+            { id: 'b', label: 'A central metadata and governance layer for data assets' },
             { id: 'c', label: 'A browser extension for notebooks' }
         ],
-        correctOptionIds: ['a'],
+        correctOptionIds: ['b'],
         explanation:
             'The metastore is the top-level governance boundary for catalogs and their objects.',
         sourceUrls: [
@@ -90,11 +90,11 @@ const QUESTION_BANK: QuizQuestion[] = [
         prompt: 'Scenario: Your team needs stricter separation of duties across data domains. Which approach best supports this goal?',
         type: 'single',
         options: [
-            { id: 'a', label: 'Use separate catalogs and permissions per domain' },
-            { id: 'b', label: 'Store all assets in one unrestricted schema' },
-            { id: 'c', label: 'Disable access control reviews' }
+            { id: 'a', label: 'Store all assets in one unrestricted schema' },
+            { id: 'b', label: 'Disable access control reviews' },
+            { id: 'c', label: 'Use separate catalogs and permissions per domain' }
         ],
-        correctOptionIds: ['a'],
+        correctOptionIds: ['c'],
         explanation:
             'Domain-based catalogs with scoped permissions support clear ownership and governance boundaries.',
         sourceUrls: [
@@ -107,11 +107,12 @@ const QUESTION_BANK: QuizQuestion[] = [
         prompt: 'Scenario: A production workload must avoid impact from ad-hoc notebook activity. What is the best design choice?',
         type: 'single',
         options: [
-            { id: 'a', label: 'Run production jobs on dedicated job clusters' },
-            { id: 'b', label: 'Share one all-purpose cluster with all developers' },
-            { id: 'c', label: 'Run all workloads manually' }
+            { id: 'a', label: 'Share one all-purpose cluster with all developers' },
+            { id: 'b', label: 'Run all workloads manually' },
+            { id: 'c', label: 'Enable interactive mode on all production clusters' },
+            { id: 'd', label: 'Run production jobs on dedicated job clusters' }
         ],
-        correctOptionIds: ['a'],
+        correctOptionIds: ['d'],
         explanation:
             'Dedicated job clusters isolate production execution from interactive development workloads.',
         sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/jobs/run-classic-jobs']
@@ -223,11 +224,11 @@ const QUESTION_BANK: QuizQuestion[] = [
         prompt: 'Why is schema management important in ingestion pipelines?',
         type: 'single',
         options: [
-            { id: 'a', label: 'To keep data quality and downstream transformations stable' },
-            { id: 'b', label: 'To disable all transformations' },
+            { id: 'a', label: 'To disable all transformations' },
+            { id: 'b', label: 'To keep data quality and downstream transformations stable' },
             { id: 'c', label: 'To avoid using source systems' }
         ],
-        correctOptionIds: ['a'],
+        correctOptionIds: ['b'],
         explanation:
             'Schema handling reduces pipeline failures and supports controlled evolution in production systems.',
         sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/ingestion/cloud-object-storage/auto-loader/']
@@ -238,11 +239,11 @@ const QUESTION_BANK: QuizQuestion[] = [
         prompt: 'Which statement best describes batch ingestion?',
         type: 'single',
         options: [
-            { id: 'a', label: 'Processes data at scheduled intervals' },
-            { id: 'b', label: 'Always processes every event instantly' },
-            { id: 'c', label: 'Cannot be automated' }
+            { id: 'a', label: 'Always processes every event instantly' },
+            { id: 'b', label: 'Cannot be automated' },
+            { id: 'c', label: 'Processes data at scheduled intervals' }
         ],
-        correctOptionIds: ['a'],
+        correctOptionIds: ['c'],
         explanation:
             'Batch ingestion handles data in periodic runs and is commonly used for many enterprise workloads.',
         sourceUrls: [
@@ -256,11 +257,11 @@ const QUESTION_BANK: QuizQuestion[] = [
         prompt: 'Scenario: Business users need near real-time dashboards. Which ingestion pattern should be emphasized?',
         type: 'single',
         options: [
-            { id: 'a', label: 'Streaming ingestion with reliable state handling' },
-            { id: 'b', label: 'Monthly manual CSV uploads only' },
-            { id: 'c', label: 'No ingestion scheduling' }
+            { id: 'a', label: 'Monthly manual CSV uploads only' },
+            { id: 'b', label: 'No ingestion scheduling' },
+            { id: 'c', label: 'Streaming ingestion with reliable state handling' }
         ],
-        correctOptionIds: ['a'],
+        correctOptionIds: ['c'],
         explanation:
             'Near real-time reporting usually requires streaming-oriented ingestion and resilient processing.',
         sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/structured-streaming/concepts']
@@ -289,11 +290,12 @@ const QUESTION_BANK: QuizQuestion[] = [
         prompt: 'Scenario: A source adds optional fields unexpectedly. What should your ingestion design account for?',
         type: 'single',
         options: [
-            { id: 'a', label: 'Controlled schema evolution and validation' },
-            { id: 'b', label: 'Ignore all schema metadata forever' },
-            { id: 'c', label: 'Disable data quality checks permanently' }
+            { id: 'a', label: 'Ignore all schema metadata forever' },
+            { id: 'b', label: 'Disable data quality checks permanently' },
+            { id: 'c', label: 'Reject all writes when source schema changes' },
+            { id: 'd', label: 'Controlled schema evolution and validation' }
         ],
-        correctOptionIds: ['a'],
+        correctOptionIds: ['d'],
         explanation:
             'Schema evolution strategy is critical for resilient ingestion when source contracts change.',
         sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/ingestion/cloud-object-storage/auto-loader/']
@@ -357,11 +359,11 @@ const QUESTION_BANK: QuizQuestion[] = [
         prompt: 'Which approach supports least-privilege governance?',
         type: 'single',
         options: [
-            { id: 'a', label: 'Grant only the minimum required permissions' },
-            { id: 'b', label: 'Assign full admin rights to all users' },
+            { id: 'a', label: 'Assign full admin rights to all users' },
+            { id: 'b', label: 'Grant only the minimum required permissions' },
             { id: 'c', label: 'Use no access controls' }
         ],
-        correctOptionIds: ['a'],
+        correctOptionIds: ['b'],
         explanation:
             'Least privilege limits risk by granting only permissions needed for a role.',
         sourceUrls: [
@@ -391,11 +393,11 @@ const QUESTION_BANK: QuizQuestion[] = [
         prompt: 'Which identity platform is commonly used with Azure services for authentication and authorization?',
         type: 'single',
         options: [
-            { id: 'a', label: 'Microsoft Entra ID' },
-            { id: 'b', label: 'A local spreadsheet only' },
+            { id: 'a', label: 'A local spreadsheet only' },
+            { id: 'b', label: 'Microsoft Entra ID' },
             { id: 'c', label: 'Browser bookmarks' }
         ],
-        correctOptionIds: ['a'],
+        correctOptionIds: ['b'],
         explanation:
             'Microsoft Entra provides identity and access capabilities across Azure workloads.',
         sourceUrls: ['https://learn.microsoft.com/en-us/entra/fundamentals/what-is-entra']
@@ -423,11 +425,11 @@ const QUESTION_BANK: QuizQuestion[] = [
         prompt: 'Scenario: Auditors require clear object ownership and permissions review. Which approach best aligns?',
         type: 'single',
         options: [
-            { id: 'a', label: 'Centralized governance model with explicit grants' },
-            { id: 'b', label: 'Shared credentials and undocumented access' },
-            { id: 'c', label: 'No defined data ownership' }
+            { id: 'a', label: 'Shared credentials and undocumented access' },
+            { id: 'b', label: 'No defined data ownership' },
+            { id: 'c', label: 'Centralized governance model with explicit grants' }
         ],
-        correctOptionIds: ['a'],
+        correctOptionIds: ['c'],
         explanation:
             'Explicit grants and centralized governance simplify auditability and accountability.',
         sourceUrls: [
@@ -440,11 +442,11 @@ const QUESTION_BANK: QuizQuestion[] = [
         prompt: 'Scenario: A new analyst needs read-only access to a specific schema. What principle applies?',
         type: 'single',
         options: [
-            { id: 'a', label: 'Grant minimum required permissions for the role' },
-            { id: 'b', label: 'Grant full admin rights for convenience' },
-            { id: 'c', label: 'Avoid role-based access controls' }
+            { id: 'a', label: 'Grant full admin rights for convenience' },
+            { id: 'b', label: 'Avoid role-based access controls' },
+            { id: 'c', label: 'Grant minimum required permissions for the role' }
         ],
-        correctOptionIds: ['a'],
+        correctOptionIds: ['c'],
         explanation:
             'Least privilege grants only what is required for a defined responsibility.',
         sourceUrls: [
@@ -474,11 +476,12 @@ const QUESTION_BANK: QuizQuestion[] = [
         prompt: 'Scenario: Identity lifecycle and access policies must be centrally managed. Which platform is foundational?',
         type: 'single',
         options: [
-            { id: 'a', label: 'Microsoft Entra ID' },
-            { id: 'b', label: 'A spreadsheet on a shared drive' },
-            { id: 'c', label: 'Local browser settings' }
+            { id: 'a', label: 'A spreadsheet on a shared drive' },
+            { id: 'b', label: 'Local browser settings' },
+            { id: 'c', label: 'Workspace-level user groups without central policy' },
+            { id: 'd', label: 'Microsoft Entra ID' }
         ],
-        correctOptionIds: ['a'],
+        correctOptionIds: ['d'],
         explanation:
             'Microsoft Entra provides centralized identity and access management capabilities.',
         sourceUrls: ['https://learn.microsoft.com/en-us/entra/fundamentals/what-is-entra']
@@ -489,11 +492,12 @@ const QUESTION_BANK: QuizQuestion[] = [
         prompt: 'Scenario: A team requests direct table grants without schema governance. What is the governance risk?',
         type: 'single',
         options: [
-            { id: 'a', label: 'Inconsistent access patterns and weaker control boundaries' },
-            { id: 'b', label: 'Guaranteed stronger governance outcomes' },
-            { id: 'c', label: 'No impact to compliance posture' }
+            { id: 'a', label: 'Guaranteed stronger governance outcomes' },
+            { id: 'b', label: 'No impact to compliance posture' },
+            { id: 'c', label: 'Reduced number of objects to manage in Unity Catalog' },
+            { id: 'd', label: 'Inconsistent access patterns and weaker control boundaries' }
         ],
-        correctOptionIds: ['a'],
+        correctOptionIds: ['d'],
         explanation:
             'Skipping structured governance layers can create fragmented and harder-to-audit access models.',
         sourceUrls: [
@@ -521,11 +525,11 @@ const QUESTION_BANK: QuizQuestion[] = [
         prompt: 'Why are task dependencies useful in pipeline orchestration?',
         type: 'single',
         options: [
-            { id: 'a', label: 'They enforce execution order between related tasks' },
-            { id: 'b', label: 'They eliminate all failures permanently' },
+            { id: 'a', label: 'They eliminate all failures permanently' },
+            { id: 'b', label: 'They enforce execution order between related tasks' },
             { id: 'c', label: 'They remove the need for source data' }
         ],
-        correctOptionIds: ['a'],
+        correctOptionIds: ['b'],
         explanation:
             'Dependencies model data and process order so downstream tasks run only after prerequisites succeed.',
         sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/jobs/run-if']
@@ -536,11 +540,11 @@ const QUESTION_BANK: QuizQuestion[] = [
         prompt: 'Which feature improves reliability for transient failures in scheduled jobs?',
         type: 'single',
         options: [
-            { id: 'a', label: 'Retry policies' },
-            { id: 'b', label: 'Removing monitoring' },
+            { id: 'a', label: 'Removing monitoring' },
+            { id: 'b', label: 'Retry policies' },
             { id: 'c', label: 'Disabling logs' }
         ],
-        correctOptionIds: ['a'],
+        correctOptionIds: ['b'],
         explanation:
             'Retries help recover from temporary issues without manual intervention.',
         sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/jobs/configure-job']
@@ -569,11 +573,11 @@ const QUESTION_BANK: QuizQuestion[] = [
         prompt: 'What is a key objective when operating recurring pipelines?',
         type: 'single',
         options: [
-            { id: 'a', label: 'Consistent, repeatable execution with observability' },
-            { id: 'b', label: 'Frequent manual restarts for every run' },
+            { id: 'a', label: 'Frequent manual restarts for every run' },
+            { id: 'b', label: 'Consistent, repeatable execution with observability' },
             { id: 'c', label: 'No logging to reduce storage' }
         ],
-        correctOptionIds: ['a'],
+        correctOptionIds: ['b'],
         explanation:
             'Production operations prioritize repeatability, reliability, and visibility.',
         sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/jobs/']
@@ -632,11 +636,12 @@ const QUESTION_BANK: QuizQuestion[] = [
         prompt: 'Scenario: Stakeholders request evidence that recurring jobs are meeting SLAs. What should you rely on?',
         type: 'single',
         options: [
-            { id: 'a', label: 'Operational telemetry and job run metrics' },
-            { id: 'b', label: 'Personal memory of past runs' },
-            { id: 'c', label: 'No historical run records' }
+            { id: 'a', label: 'Personal memory of past runs' },
+            { id: 'b', label: 'No historical run records' },
+            { id: 'c', label: 'Manual job logs maintained in a spreadsheet' },
+            { id: 'd', label: 'Operational telemetry and job run metrics' }
         ],
-        correctOptionIds: ['a'],
+        correctOptionIds: ['d'],
         explanation:
             'SLA validation requires reliable telemetry and measurable run-history data.',
         sourceUrls: [
@@ -650,11 +655,12 @@ const QUESTION_BANK: QuizQuestion[] = [
         prompt: 'Scenario: A pipeline has frequent downstream failures due to upstream quality issues. What is the best first improvement?',
         type: 'single',
         options: [
-            { id: 'a', label: 'Add validation gates before dependent tasks run' },
-            { id: 'b', label: 'Increase downstream retries indefinitely' },
-            { id: 'c', label: 'Hide failure alerts from operators' }
+            { id: 'a', label: 'Increase downstream retries indefinitely' },
+            { id: 'b', label: 'Hide failure alerts from operators' },
+            { id: 'c', label: 'Remove data quality checks from the upstream task' },
+            { id: 'd', label: 'Add validation gates before dependent tasks run' }
         ],
-        correctOptionIds: ['a'],
+        correctOptionIds: ['d'],
         explanation:
             'Validation gates prevent bad data from cascading through dependent pipeline stages.',
         sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/jobs/']
@@ -697,11 +703,11 @@ const QUESTION_BANK: QuizQuestion[] = [
         prompt: 'What is the purpose of workload performance tuning in Databricks?',
         type: 'single',
         options: [
-            { id: 'a', label: 'Improve throughput and efficiency for data processing' },
-            { id: 'b', label: 'Make all queries intentionally slower' },
+            { id: 'a', label: 'Make all queries intentionally slower' },
+            { id: 'b', label: 'Improve throughput and efficiency for data processing' },
             { id: 'c', label: 'Avoid using compute resources entirely' }
         ],
-        correctOptionIds: ['a'],
+        correctOptionIds: ['b'],
         explanation:
             'Optimization focuses on improving runtime efficiency, reliability, and resource usage.',
         sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/optimizations/']
@@ -712,11 +718,11 @@ const QUESTION_BANK: QuizQuestion[] = [
         prompt: 'Why are alert rules important in workload operations?',
         type: 'single',
         options: [
-            { id: 'a', label: 'They notify teams when critical thresholds are breached' },
-            { id: 'b', label: 'They replace all logging and dashboards' },
+            { id: 'a', label: 'They replace all logging and dashboards' },
+            { id: 'b', label: 'They notify teams when critical thresholds are breached' },
             { id: 'c', label: 'They only apply to local desktop apps' }
         ],
-        correctOptionIds: ['a'],
+        correctOptionIds: ['b'],
         explanation:
             'Alerts shorten response times by surfacing operational problems quickly.',
         sourceUrls: ['https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview']
@@ -745,11 +751,11 @@ const QUESTION_BANK: QuizQuestion[] = [
         prompt: 'Scenario: Query runtimes increased after a data growth event. What is the best initial action?',
         type: 'single',
         options: [
-            { id: 'a', label: 'Review telemetry and optimize based on measured bottlenecks' },
-            { id: 'b', label: 'Disable all monitoring' },
-            { id: 'c', label: 'Assume the issue resolves itself without analysis' }
+            { id: 'a', label: 'Disable all monitoring' },
+            { id: 'b', label: 'Assume the issue resolves itself without analysis' },
+            { id: 'c', label: 'Review telemetry and optimize based on measured bottlenecks' }
         ],
-        correctOptionIds: ['a'],
+        correctOptionIds: ['c'],
         explanation:
             'Evidence-based tuning starts with telemetry to identify true bottlenecks before changes.',
         sourceUrls: [
@@ -763,11 +769,11 @@ const QUESTION_BANK: QuizQuestion[] = [
         prompt: 'Scenario: Operations wants proactive detection of failing ingestion jobs. What should be added?',
         type: 'single',
         options: [
-            { id: 'a', label: 'Alert rules tied to critical metrics and logs' },
-            { id: 'b', label: 'Manual daily visual checks only' },
-            { id: 'c', label: 'Silencing failure notifications' }
+            { id: 'a', label: 'Manual daily visual checks only' },
+            { id: 'b', label: 'Silencing failure notifications' },
+            { id: 'c', label: 'Alert rules tied to critical metrics and logs' }
         ],
-        correctOptionIds: ['a'],
+        correctOptionIds: ['c'],
         explanation:
             'Proactive alerting is essential for reducing detection and response time.',
         sourceUrls: ['https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview']
@@ -796,11 +802,12 @@ const QUESTION_BANK: QuizQuestion[] = [
         prompt: 'Scenario: You need to reduce mean time to detect workload incidents. What should be prioritized?',
         type: 'single',
         options: [
-            { id: 'a', label: 'Actionable dashboards and well-scoped alerts' },
-            { id: 'b', label: 'Disabling historical logs' },
-            { id: 'c', label: 'Removing all threshold rules' }
+            { id: 'a', label: 'Disabling historical logs' },
+            { id: 'b', label: 'Removing all threshold rules' },
+            { id: 'c', label: 'Sending all metrics to a single email alias without automation' },
+            { id: 'd', label: 'Actionable dashboards and well-scoped alerts' }
         ],
-        correctOptionIds: ['a'],
+        correctOptionIds: ['d'],
         explanation:
             'Focused telemetry views and alerting criteria improve incident detection speed and quality.',
         sourceUrls: ['https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview']

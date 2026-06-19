@@ -16,7 +16,7 @@ const QUESTION_BANK: QuizQuestion[] = [
         explanation:
             'Unity Catalog uses a three-level namespace with catalog, schema, and object.',
         sourceUrls: [
-            'https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/'
+            'https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/securable-objects'
         ]
     },
     {
@@ -32,7 +32,7 @@ const QUESTION_BANK: QuizQuestion[] = [
         correctOptionIds: ['b'],
         explanation:
             'Separate environments improve operational isolation and reduce accidental production impact.',
-        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/']
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/deployment-guide/workspace-strategy']
     },
     {
         id: 'q-t1-3',
@@ -47,7 +47,7 @@ const QUESTION_BANK: QuizQuestion[] = [
         correctOptionIds: ['a'],
         explanation:
             'Job clusters are commonly used for scheduled workloads to improve workload isolation and cost control.',
-        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/jobs/']
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/jobs/run-classic-jobs']
     },
     {
         id: 'q-t1-4',
@@ -64,7 +64,7 @@ const QUESTION_BANK: QuizQuestion[] = [
             'Least privilege and centralized governance are core security design patterns for enterprise data platforms.',
         sourceUrls: [
             'https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/',
-            'https://learn.microsoft.com/en-us/azure/databricks/'
+            'https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/access-control/permissions-concepts'
         ]
     },
     {
@@ -114,7 +114,7 @@ const QUESTION_BANK: QuizQuestion[] = [
         correctOptionIds: ['a'],
         explanation:
             'Dedicated job clusters isolate production execution from interactive development workloads.',
-        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/jobs/']
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/jobs/run-classic-jobs']
     },
     {
         id: 'q-t1-8',
@@ -130,7 +130,7 @@ const QUESTION_BANK: QuizQuestion[] = [
         explanation:
             'Centralized controls and least privilege are key security and governance foundations.',
         sourceUrls: [
-            'https://learn.microsoft.com/en-us/azure/databricks/',
+            'https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/access-control/permissions-concepts',
             'https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/'
         ]
     },
@@ -147,7 +147,7 @@ const QUESTION_BANK: QuizQuestion[] = [
         correctOptionIds: ['a'],
         explanation:
             'Separate environments with controlled promotion reduce risk and improve operational confidence.',
-        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/']
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/deployment-guide/workspace-strategy']
     },
     {
         id: 'q-t1-10',
@@ -197,7 +197,7 @@ const QUESTION_BANK: QuizQuestion[] = [
         correctOptionIds: ['a'],
         explanation:
             'Streaming pipelines prioritize reliable, incremental processing with recoverable state.',
-        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/ingestion/']
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/structured-streaming/concepts']
     },
     {
         id: 'q-t2-3',
@@ -230,7 +230,7 @@ const QUESTION_BANK: QuizQuestion[] = [
         correctOptionIds: ['a'],
         explanation:
             'Schema handling reduces pipeline failures and supports controlled evolution in production systems.',
-        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/ingestion/']
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/ingestion/cloud-object-storage/auto-loader/']
     },
     {
         id: 'q-t2-5',
@@ -263,7 +263,7 @@ const QUESTION_BANK: QuizQuestion[] = [
         correctOptionIds: ['a'],
         explanation:
             'Near real-time reporting usually requires streaming-oriented ingestion and resilient processing.',
-        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/ingestion/']
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/structured-streaming/concepts']
     },
     {
         id: 'q-t2-7',
@@ -296,7 +296,7 @@ const QUESTION_BANK: QuizQuestion[] = [
         correctOptionIds: ['a'],
         explanation:
             'Schema evolution strategy is critical for resilient ingestion when source contracts change.',
-        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/ingestion/']
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/ingestion/cloud-object-storage/auto-loader/']
     },
     {
         id: 'q-t2-9',
@@ -365,7 +365,7 @@ const QUESTION_BANK: QuizQuestion[] = [
         explanation:
             'Least privilege limits risk by granting only permissions needed for a role.',
         sourceUrls: [
-            'https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/'
+            'https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/access-control/permissions-concepts'
         ]
     },
     {
@@ -382,7 +382,7 @@ const QUESTION_BANK: QuizQuestion[] = [
         explanation:
             'Unity Catalog objects are organized under catalogs and schemas before lower-level assets.',
         sourceUrls: [
-            'https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/'
+            'https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/securable-objects'
         ]
     },
     {
@@ -398,7 +398,7 @@ const QUESTION_BANK: QuizQuestion[] = [
         correctOptionIds: ['a'],
         explanation:
             'Microsoft Entra provides identity and access capabilities across Azure workloads.',
-        sourceUrls: ['https://learn.microsoft.com/en-us/entra/']
+        sourceUrls: ['https://learn.microsoft.com/en-us/entra/fundamentals/what-is-entra']
     },
     {
         id: 'q-t3-5',
@@ -448,7 +448,7 @@ const QUESTION_BANK: QuizQuestion[] = [
         explanation:
             'Least privilege grants only what is required for a defined responsibility.',
         sourceUrls: [
-            'https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/'
+            'https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/access-control/permissions-concepts'
         ]
     },
     {
@@ -481,7 +481,7 @@ const QUESTION_BANK: QuizQuestion[] = [
         correctOptionIds: ['a'],
         explanation:
             'Microsoft Entra provides centralized identity and access management capabilities.',
-        sourceUrls: ['https://learn.microsoft.com/en-us/entra/']
+        sourceUrls: ['https://learn.microsoft.com/en-us/entra/fundamentals/what-is-entra']
     },
     {
         id: 'q-t3-10',
@@ -528,7 +528,7 @@ const QUESTION_BANK: QuizQuestion[] = [
         correctOptionIds: ['a'],
         explanation:
             'Dependencies model data and process order so downstream tasks run only after prerequisites succeed.',
-        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/jobs/']
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/jobs/run-if']
     },
     {
         id: 'q-t4-3',
@@ -543,7 +543,7 @@ const QUESTION_BANK: QuizQuestion[] = [
         correctOptionIds: ['a'],
         explanation:
             'Retries help recover from temporary issues without manual intervention.',
-        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/jobs/']
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/jobs/configure-job']
     },
     {
         id: 'q-t4-4',
@@ -591,7 +591,7 @@ const QUESTION_BANK: QuizQuestion[] = [
         correctOptionIds: ['a'],
         explanation:
             'Retry policies can recover transient failures while preserving operational automation.',
-        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/jobs/']
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/jobs/configure-job']
     },
     {
         id: 'q-t4-7',
@@ -606,7 +606,7 @@ const QUESTION_BANK: QuizQuestion[] = [
         correctOptionIds: ['a'],
         explanation:
             'Dependency-aware orchestration ensures correct ordering and guardrails for downstream execution.',
-        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/jobs/']
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/jobs/run-if']
     },
     {
         id: 'q-t4-8',
@@ -822,6 +822,532 @@ const QUESTION_BANK: QuizQuestion[] = [
             'https://learn.microsoft.com/en-us/azure/databricks/optimizations/',
             'https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview'
         ]
+    },
+
+    // ── Topic 01: Code-snippet questions ──────────────────────────────────────
+    {
+        id: 'q-t1-cs1',
+        topicId: 'topic-01',
+        prompt: 'What does this Python code retrieve from the Databricks secret scope?',
+        type: 'single',
+        codeSnippet: {
+            language: 'python',
+            code: 'jdbc_password = dbutils.secrets.get(\n    scope="prod-secrets",\n    key="jdbc-password"\n)'
+        },
+        options: [
+            { id: 'a', label: 'A JDBC connection string stored in a notebook cell' },
+            { id: 'b', label: 'A plaintext password echoed to the notebook output' },
+            { id: 'c', label: 'A secret value retrieved securely without exposing it in plaintext' },
+            { id: 'd', label: 'An environment variable from the host operating system' }
+        ],
+        correctOptionIds: ['c'],
+        explanation:
+            'Databricks Secrets lets you store and access sensitive information securely. The value returned by dbutils.secrets.get() is redacted in logs and notebook outputs, preventing accidental exposure.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/security/secrets/']
+    },
+    {
+        id: 'q-t1-cs2',
+        topicId: 'topic-01',
+        prompt: 'A cluster is configured as shown. What is the effect of setting autotermination_minutes to 0?',
+        type: 'single',
+        codeSnippet: {
+            language: 'python',
+            code: 'cluster_config = {\n    "cluster_name": "dev-shared",\n    "spark_version": "14.3.x-scala2.12",\n    "node_type_id": "Standard_DS3_v2",\n    "num_workers": 2,\n    "autotermination_minutes": 0\n}'
+        },
+        options: [
+            { id: 'a', label: 'The cluster terminates immediately on creation' },
+            { id: 'b', label: 'The cluster auto-terminates after 0 seconds of inactivity' },
+            { id: 'c', label: 'Auto-termination is disabled and the cluster runs indefinitely' },
+            { id: 'd', label: 'The cluster terminates after every job run' }
+        ],
+        correctOptionIds: ['c'],
+        explanation:
+            'Setting autotermination_minutes to 0 disables auto-termination entirely. This is not recommended for cost control; production clusters should use a finite timeout.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/clusters/configure']
+    },
+    {
+        id: 'q-t1-cs3',
+        topicId: 'topic-01',
+        prompt: 'Given this SQL statement run on Databricks, which three-level namespace format does it follow?',
+        type: 'single',
+        codeSnippet: {
+            language: 'sql',
+            code: "SELECT order_id, total\nFROM prod_catalog.sales.orders\nWHERE order_date >= '2024-01-01'"
+        },
+        options: [
+            { id: 'a', label: 'workspace.database.table — the standard Hive metastore format' },
+            { id: 'b', label: 'catalog.schema.table — the Unity Catalog three-level namespace' },
+            { id: 'c', label: 'metastore.catalog.object — the Databricks legacy format' },
+            { id: 'd', label: 'database.schema.view — used only for external tables' }
+        ],
+        correctOptionIds: ['b'],
+        explanation:
+            'Unity Catalog uses a three-level namespace: catalog.schema.object. In this query, prod_catalog is the catalog, sales is the schema, and orders is the table.',
+        sourceUrls: [
+            'https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/'
+        ]
+    },
+    {
+        id: 'q-t1-cs4',
+        topicId: 'topic-01',
+        prompt: 'A team applies these tags when creating a cluster. What is the primary operational benefit?',
+        type: 'single',
+        codeSnippet: {
+            language: 'python',
+            code: 'custom_tags = {\n    "team": "data-engineering",\n    "environment": "production",\n    "cost-center": "DE-001"\n}'
+        },
+        options: [
+            { id: 'a', label: 'Tags enforce network isolation between clusters' },
+            { id: 'b', label: 'Tags restrict which notebooks can attach to the cluster' },
+            { id: 'c', label: 'Tags replace the need for Unity Catalog governance' },
+            { id: 'd', label: 'Tags enable cloud cost attribution and resource tracking per team or project' }
+        ],
+        correctOptionIds: ['d'],
+        explanation:
+            'Cluster tags propagate to cloud resource billing reports, enabling accurate cost attribution by team, environment, or project. They do not affect cluster permissions or network isolation.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/clusters/configure#cluster-tags']
+    },
+    {
+        id: 'q-t1-cs5',
+        topicId: 'topic-01',
+        prompt: 'This code pattern is used in a deployment pipeline. Which design principle does it demonstrate?',
+        type: 'single',
+        codeSnippet: {
+            language: 'python',
+            code: 'import os\nenv = os.getenv("ENV", "dev")\n\ncatalog = f"{env}_catalog"\nschema  = f"{env}_schema"\n\nspark.sql(f"USE CATALOG {catalog}")\nspark.sql(f"USE SCHEMA {schema}")'
+        },
+        options: [
+            { id: 'a', label: 'Environment parity — using identical catalog names in dev and prod' },
+            { id: 'b', label: 'Workspace separation — running dev and prod in distinct Databricks workspaces' },
+            { id: 'c', label: 'Catalog-level environment isolation — routing code to separate catalogs per environment' },
+            { id: 'd', label: 'Schema-less design — avoiding governance boundaries between environments' }
+        ],
+        correctOptionIds: ['c'],
+        explanation:
+            'Using environment-specific catalog and schema names (dev_catalog, prod_catalog) is a Unity Catalog pattern for isolating development and production data assets within the same metastore.',
+        sourceUrls: [
+            'https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/'
+        ]
+    },
+
+    // ── Topic 02: Code-snippet questions ──────────────────────────────────────
+    {
+        id: 'q-t2-cs1',
+        topicId: 'topic-02',
+        prompt: 'What ingestion pattern does this Spark Structured Streaming code use?',
+        type: 'single',
+        codeSnippet: {
+            language: 'python',
+            code: 'df = (spark.readStream\n    .format("cloudFiles")\n    .option("cloudFiles.format", "json")\n    .option("cloudFiles.schemaLocation", "/mnt/checkpoints/schema")\n    .load("/mnt/raw/events/"))'
+        },
+        options: [
+            { id: 'a', label: 'COPY INTO — batch ingestion that deduplicates files already loaded' },
+            { id: 'b', label: 'Auto Loader — incremental streaming ingestion that detects new files automatically' },
+            { id: 'c', label: 'Delta MERGE — upsert-based streaming that replaces matched rows' },
+            { id: 'd', label: 'Kafka connector — reads from a Kafka topic using cloudFiles format' }
+        ],
+        correctOptionIds: ['b'],
+        explanation:
+            'The cloudFiles format is Databricks Auto Loader. It detects new files in cloud storage incrementally using file notifications or directory listing, making it ideal for scalable streaming ingestion.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/ingestion/cloud-object-storage/auto-loader/']
+    },
+    {
+        id: 'q-t2-cs2',
+        topicId: 'topic-02',
+        prompt: 'What does this Delta Lake SQL statement do when a matching customer_id already exists in the target table?',
+        type: 'single',
+        codeSnippet: {
+            language: 'sql',
+            code: 'MERGE INTO silver.customers AS target\nUSING bronze.customer_updates AS source\nON target.customer_id = source.customer_id\nWHEN MATCHED THEN\n    UPDATE SET *\nWHEN NOT MATCHED THEN\n    INSERT *'
+        },
+        options: [
+            { id: 'a', label: 'Inserts a duplicate row alongside the existing record' },
+            { id: 'b', label: 'Updates all columns of the matching target row with source values' },
+            { id: 'c', label: 'Deletes the matching row and inserts a new one' },
+            { id: 'd', label: 'Skips the row because it already exists' }
+        ],
+        correctOptionIds: ['b'],
+        explanation:
+            'In a Delta Lake MERGE, WHEN MATCHED THEN UPDATE SET * updates all columns of the matching row in the target table with the corresponding columns from the source. This is the standard upsert pattern.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/delta/merge']
+    },
+    {
+        id: 'q-t2-cs3',
+        topicId: 'topic-02',
+        prompt: 'A pipeline appends new product records with this code. What does the mergeSchema option control?',
+        type: 'single',
+        codeSnippet: {
+            language: 'python',
+            code: '(df_products\n    .write\n    .format("delta")\n    .option("mergeSchema", "true")\n    .mode("append")\n    .save("/delta/silver/products"))'
+        },
+        options: [
+            { id: 'a', label: 'It replaces the existing schema entirely on every write' },
+            { id: 'b', label: 'It prevents any schema changes from being written to the table' },
+            { id: 'c', label: 'It merges incoming data with existing rows using a primary key' },
+            { id: 'd', label: 'It allows new columns in the source to be added to the existing Delta table schema' }
+        ],
+        correctOptionIds: ['d'],
+        explanation:
+            'The mergeSchema option enables schema evolution in Delta Lake. When new columns are present in the incoming DataFrame, they are added to the existing table schema rather than causing a write failure.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/delta/update-schema']
+    },
+    {
+        id: 'q-t2-cs4',
+        topicId: 'topic-02',
+        prompt: 'Why is the checkpointLocation required in this streaming write?',
+        type: 'single',
+        codeSnippet: {
+            language: 'python',
+            code: '(stream_df\n    .writeStream\n    .format("delta")\n    .outputMode("append")\n    .option("checkpointLocation", "/checkpoints/orders-stream")\n    .trigger(availableNow=True)\n    .start("/delta/silver/orders"))'
+        },
+        options: [
+            { id: 'a', label: 'It stores intermediate Spark shuffle data to improve performance' },
+            { id: 'b', label: 'It locks the output path so no other writer can access the table' },
+            { id: 'c', label: 'It tracks stream progress and processed offsets to enable fault-tolerant restart' },
+            { id: 'd', label: 'It controls partitioning of output files across worker nodes' }
+        ],
+        correctOptionIds: ['c'],
+        explanation:
+            'The checkpointLocation stores stream progress metadata (offsets, committed batches). On restart after a failure, Spark resumes exactly where processing left off, ensuring exactly-once semantics with Delta Lake.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/structured-streaming/delta-lake']
+    },
+    {
+        id: 'q-t2-cs5',
+        topicId: 'topic-02',
+        prompt: 'What does the ZORDER BY clause do in this Delta Lake OPTIMIZE command?',
+        type: 'single',
+        codeSnippet: {
+            language: 'sql',
+            code: 'OPTIMIZE silver.events\nZORDER BY (event_date, user_id);'
+        },
+        options: [
+            { id: 'a', label: 'Partitions the table into directories by event_date and user_id' },
+            { id: 'b', label: 'Creates a composite primary key on event_date and user_id' },
+            { id: 'c', label: 'Sorts data chronologically and removes duplicate rows' },
+            { id: 'd', label: 'Co-locates related values in the same data files to reduce files scanned in queries filtering on those columns' }
+        ],
+        correctOptionIds: ['d'],
+        explanation:
+            'Z-Ordering is a Delta Lake data-skipping technique that co-locates related data in the same files. Queries filtering on Z-Ordered columns can skip large numbers of files, significantly reducing read I/O.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/delta/data-skipping']
+    },
+
+    // ── Topic 03: Code-snippet questions ──────────────────────────────────────
+    {
+        id: 'q-t3-cs1',
+        topicId: 'topic-03',
+        prompt: 'What level of access does this GRANT statement provide to the data-analyst-group?',
+        type: 'single',
+        codeSnippet: {
+            language: 'sql',
+            code: 'GRANT SELECT\nON TABLE prod_catalog.sales.orders\nTO `data-analyst-group`;'
+        },
+        options: [
+            { id: 'a', label: 'Read-only SELECT access to the orders table in Unity Catalog' },
+            { id: 'b', label: 'Full ownership of the orders table including MODIFY and DELETE' },
+            { id: 'c', label: 'Access to all tables in the sales schema' },
+            { id: 'd', label: 'Admin rights over the prod_catalog catalog' }
+        ],
+        correctOptionIds: ['a'],
+        explanation:
+            'GRANT SELECT on a Unity Catalog table provides read-only access. The group can query the table but cannot modify, delete, or manage its permissions without additional grants.',
+        sourceUrls: [
+            'https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/manage-privileges/'
+        ]
+    },
+    {
+        id: 'q-t3-cs2',
+        topicId: 'topic-03',
+        prompt: 'What does this SQL statement return for the finance.transactions table?',
+        type: 'single',
+        codeSnippet: {
+            language: 'sql',
+            code: 'SHOW GRANTS\nON TABLE prod_catalog.finance.transactions;'
+        },
+        options: [
+            { id: 'a', label: 'Removes all existing grants from the table' },
+            { id: 'b', label: 'Lists all principals and their privileges on the table' },
+            { id: 'c', label: 'Transfers ownership of the table to the current user' },
+            { id: 'd', label: 'Grants SELECT to all workspace users' }
+        ],
+        correctOptionIds: ['b'],
+        explanation:
+            'SHOW GRANTS ON TABLE returns all principals (users, groups, service principals) and the privileges they hold on the specified table. This is the audit starting point in Unity Catalog governance workflows.',
+        sourceUrls: [
+            'https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/manage-privileges/'
+        ]
+    },
+    {
+        id: 'q-t3-cs3',
+        topicId: 'topic-03',
+        prompt: 'This Unity Catalog column mask is applied to an employees table. What does a non-privileged user see when querying the ssn column?',
+        type: 'single',
+        codeSnippet: {
+            language: 'sql',
+            code: "CREATE OR REPLACE FUNCTION mask_ssn(ssn STRING)\nRETURNS STRING\nRETURN CASE\n    WHEN is_account_group_member('pii-readers') THEN ssn\n    ELSE '***-**-' || RIGHT(ssn, 4)\nEND;\n\nALTER TABLE prod_catalog.hr.employees\nALTER COLUMN ssn SET MASK mask_ssn;"
+        },
+        options: [
+            { id: 'a', label: 'A permission denied error — the query fails entirely' },
+            { id: 'b', label: 'The full SSN for all users regardless of group membership' },
+            { id: 'c', label: 'The SSN returned as NULL for non-members' },
+            { id: 'd', label: 'A partially masked value showing only the last 4 digits (e.g. ***-**-1234)' }
+        ],
+        correctOptionIds: ['d'],
+        explanation:
+            'Unity Catalog column masks apply a masking function at query time. Users not in the pii-readers group receive ***-**-XXXX instead of the full SSN, implementing dynamic data masking without duplicating the table.',
+        sourceUrls: [
+            'https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/row-and-column-filters'
+        ]
+    },
+    {
+        id: 'q-t3-cs4',
+        topicId: 'topic-03',
+        prompt: 'A developer stores a database password using these Databricks CLI commands. What security principle does this enforce?',
+        type: 'single',
+        codeSnippet: {
+            language: 'bash',
+            code: 'databricks secrets create-scope --scope prod-db-scope\ndatabricks secrets put-secret \\\n    --scope prod-db-scope \\\n    --key db-password'
+        },
+        options: [
+            { id: 'a', label: 'Encryption at rest — the secret file is encrypted on DBFS' },
+            { id: 'b', label: 'Separation of secrets from code — sensitive values never appear in notebooks or source control' },
+            { id: 'c', label: 'Network isolation — secrets are stored in a private VNet' },
+            { id: 'd', label: 'Audit logging — every read of the secret is written to a public log file' }
+        ],
+        correctOptionIds: ['b'],
+        explanation:
+            'Databricks Secret Scopes keep credentials out of notebooks and source control. Code references dbutils.secrets.get() and the resolved value is redacted in outputs, enforcing separation of secrets from application logic.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/security/secrets/']
+    },
+    {
+        id: 'q-t3-cs5',
+        topicId: 'topic-03',
+        prompt: 'This row filter is set on a Unity Catalog table. What do users NOT in the finance-team group see when querying the table?',
+        type: 'single',
+        codeSnippet: {
+            language: 'sql',
+            code: "CREATE OR REPLACE FUNCTION finance_row_filter(owner_region STRING)\nRETURNS BOOLEAN\nRETURN is_account_group_member('finance-team')\n    OR owner_region = current_user();\n\nALTER TABLE prod_catalog.finance.budgets\nSET ROW FILTER finance_row_filter ON (owner_region);"
+        },
+        options: [
+            { id: 'a', label: 'All rows with the owner_region column nulled out' },
+            { id: 'b', label: 'A permission denied error — the table is inaccessible' },
+            { id: 'c', label: 'Only rows where owner_region matches their own username' },
+            { id: 'd', label: 'The full table without any row-level filtering' }
+        ],
+        correctOptionIds: ['c'],
+        explanation:
+            'Unity Catalog row filters evaluate at query time. Non-finance-team users see only rows where owner_region equals their own current_user() value, implementing fine-grained row-level security without view duplication.',
+        sourceUrls: [
+            'https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/row-and-column-filters'
+        ]
+    },
+
+    // ── Topic 04: Code-snippet questions ──────────────────────────────────────
+    {
+        id: 'q-t4-cs1',
+        topicId: 'topic-04',
+        prompt: 'What does the @dlt.expect_or_drop decorator do when a row fails the validation rule in this Delta Live Tables definition?',
+        type: 'single',
+        codeSnippet: {
+            language: 'python',
+            code: "import dlt\n\n@dlt.table(comment='Validated customer records')\n@dlt.expect_or_drop('valid_email', \"email IS NOT NULL AND email LIKE '%@%'\")\ndef cleaned_customers():\n    return dlt.read('raw_customers').filter('is_deleted = false')"
+        },
+        options: [
+            { id: 'a', label: 'The entire pipeline run is stopped with a failure' },
+            { id: 'b', label: 'The violating row is written to a quarantine table' },
+            { id: 'c', label: 'The violating row is silently dropped and the pipeline continues' },
+            { id: 'd', label: 'The row is written as-is and a warning is logged' }
+        ],
+        correctOptionIds: ['c'],
+        explanation:
+            'expect_or_drop is a Delta Live Tables data quality constraint that drops rows failing the expectation without stopping the pipeline. Rows with invalid or null emails are excluded from the output.',
+        sourceUrls: [
+            'https://learn.microsoft.com/en-us/azure/databricks/delta-live-tables/expectations'
+        ]
+    },
+    {
+        id: 'q-t4-cs2',
+        topicId: 'topic-04',
+        prompt: 'This Databricks job task defines retry behavior. What happens after the third consecutive failure of the ingest task?',
+        type: 'single',
+        codeSnippet: {
+            language: 'json',
+            code: '{\n  "task_key": "ingest",\n  "max_retries": 3,\n  "min_retry_interval_millis": 60000,\n  "retry_on_timeout": true\n}'
+        },
+        options: [
+            { id: 'a', label: 'The task retries indefinitely until manually stopped' },
+            { id: 'b', label: 'The task is marked as failed and the job run ends in an error state' },
+            { id: 'c', label: 'The task waits 3 minutes and retries once more' },
+            { id: 'd', label: 'Downstream tasks continue despite the ingest failure' }
+        ],
+        correctOptionIds: ['b'],
+        explanation:
+            'After max_retries (3) consecutive failures, the task is marked as failed and the job run ends in a failed state. Downstream tasks that depend on the failed task will not execute.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/jobs/']
+    },
+    {
+        id: 'q-t4-cs3',
+        topicId: 'topic-04',
+        prompt: 'What execution order does this Databricks job task graph define?',
+        type: 'single',
+        codeSnippet: {
+            language: 'json',
+            code: '{\n  "tasks": [\n    { "task_key": "ingest" },\n    {\n      "task_key": "transform",\n      "depends_on": [{ "task_key": "ingest" }]\n    },\n    {\n      "task_key": "publish",\n      "depends_on": [{ "task_key": "transform" }]\n    }\n  ]\n}'
+        },
+        options: [
+            { id: 'a', label: 'All three tasks run in parallel with no ordering constraints' },
+            { id: 'b', label: 'ingest and publish run in parallel; transform runs last' },
+            { id: 'c', label: 'ingest → transform → publish — a strict linear pipeline' },
+            { id: 'd', label: 'The tasks share a single cluster and run sequentially on the same node' }
+        ],
+        correctOptionIds: ['c'],
+        explanation:
+            'depends_on enforces execution order in Databricks Jobs. Here the workflow is linear: ingest → transform → publish. Each task starts only after the preceding one succeeds.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/jobs/']
+    },
+    {
+        id: 'q-t4-cs4',
+        topicId: 'topic-04',
+        prompt: 'What schedule does this Databricks job cron expression define?',
+        type: 'single',
+        codeSnippet: {
+            language: 'json',
+            code: '{\n  "schedule": {\n    "quartz_cron_expression": "0 0 2 * * ?",\n    "timezone_id": "UTC",\n    "pause_status": "UNPAUSED"\n  }\n}'
+        },
+        options: [
+            { id: 'a', label: 'Every 2 minutes, every hour, every day' },
+            { id: 'b', label: 'At 2:00 AM UTC on the 2nd of every month' },
+            { id: 'c', label: 'Every day at 02:00 UTC' },
+            { id: 'd', label: 'At midnight UTC every 2 hours' }
+        ],
+        correctOptionIds: ['c'],
+        explanation:
+            'The Quartz cron expression "0 0 2 * * ?" means: second 0, minute 0, hour 2, every day of month, every month, any day of week — i.e., 02:00 UTC daily.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/jobs/']
+    },
+    {
+        id: 'q-t4-cs5',
+        topicId: 'topic-04',
+        prompt: 'This DLT streaming table uses expect_or_fail. What happens when the first row with a null event_id arrives?',
+        type: 'single',
+        codeSnippet: {
+            language: 'python',
+            code: "@dlt.table\n@dlt.expect_or_fail('non_null_event_id', 'event_id IS NOT NULL')\ndef validated_events():\n    return (spark.readStream\n        .format('kafka')\n        .option('kafka.bootstrap.servers', 'broker:9092')\n        .option('subscribe', 'events')\n        .load())"
+        },
+        options: [
+            { id: 'a', label: 'The row is dropped and the pipeline continues processing the next record' },
+            { id: 'b', label: 'The row is routed to a quarantine table automatically' },
+            { id: 'c', label: 'A warning is logged but data flow is unaffected' },
+            { id: 'd', label: 'The entire pipeline run is stopped with a failure on that row' }
+        ],
+        correctOptionIds: ['d'],
+        explanation:
+            'expect_or_fail halts the entire pipeline when any row violates the data quality rule. This is appropriate when bad data (e.g., null event IDs) would corrupt downstream consumers and must never reach the next layer.',
+        sourceUrls: [
+            'https://learn.microsoft.com/en-us/azure/databricks/delta-live-tables/expectations'
+        ]
+    },
+
+    // ── Topic 05: Code-snippet questions ──────────────────────────────────────
+    {
+        id: 'q-t5-cs1',
+        topicId: 'topic-05',
+        prompt: 'What is the performance effect of calling .count() immediately after .cache() on this DataFrame?',
+        type: 'single',
+        codeSnippet: {
+            language: 'python',
+            code: 'df_events = spark.read.format("delta").load("/delta/gold/events")\ndf_events.cache()\ndf_events.count()  # force materialisation'
+        },
+        options: [
+            { id: 'a', label: 'No effect — .cache() is eager and materialises without an action' },
+            { id: 'b', label: 'It evicts the cache and forces re-computation on the next action' },
+            { id: 'c', label: 'It writes the DataFrame to DBFS as a persistent cached file' },
+            { id: 'd', label: 'It triggers a full scan that populates the in-memory cache so subsequent actions skip the source read' }
+        ],
+        correctOptionIds: ['d'],
+        explanation:
+            'In Spark, cache() is lazy — it only marks the DataFrame for caching. Calling count() (an action) triggers computation and stores the result in memory. Subsequent actions on df_events then skip the Delta source read entirely.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/optimizations/']
+    },
+    {
+        id: 'q-t5-cs2',
+        topicId: 'topic-05',
+        prompt: 'What does the VACUUM command with RETAIN 168 HOURS do to this Delta table?',
+        type: 'single',
+        codeSnippet: {
+            language: 'sql',
+            code: 'OPTIMIZE gold.events ZORDER BY (event_date);\n\nVACUUM gold.events RETAIN 168 HOURS;'
+        },
+        options: [
+            { id: 'a', label: 'Deletes all live data rows older than 168 hours from the table' },
+            { id: 'b', label: 'Retains the last 168 versions of the table for time travel' },
+            { id: 'c', label: 'Removes orphaned data files no longer in the Delta log that are older than 7 days' },
+            { id: 'd', label: 'Compacts all files into one Parquet file and keeps 168 backup copies' }
+        ],
+        correctOptionIds: ['c'],
+        explanation:
+            'VACUUM removes orphaned data files (no longer referenced in the Delta transaction log) older than the retention threshold. 168 hours = 7 days, so time travel within that window remains possible.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/delta/vacuum']
+    },
+    {
+        id: 'q-t5-cs3',
+        topicId: 'topic-05',
+        prompt: 'These Spark configuration settings are applied before a large aggregation. What do they collectively enable?',
+        type: 'single',
+        codeSnippet: {
+            language: 'python',
+            code: 'spark.conf.set("spark.sql.adaptive.enabled", "true")\nspark.conf.set("spark.sql.adaptive.coalescePartitions.enabled", "true")\nspark.conf.set("spark.sql.adaptive.skewJoin.enabled", "true")'
+        },
+        options: [
+            { id: 'a', label: 'Adaptive Query Execution — re-optimises the query plan at runtime based on actual partition statistics' },
+            { id: 'b', label: 'Broadcast joins for all tables regardless of size' },
+            { id: 'c', label: 'Static partition pruning based on compile-time metadata' },
+            { id: 'd', label: 'Delta Lake change data capture on the output table' }
+        ],
+        correctOptionIds: ['a'],
+        explanation:
+            'Adaptive Query Execution (AQE) collects runtime statistics from each stage and re-optimises the remainder of the query. coalescePartitions merges small shuffle partitions; skewJoin splits skewed partitions to reduce stragglers.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/optimizations/aqe']
+    },
+    {
+        id: 'q-t5-cs4',
+        topicId: 'topic-05',
+        prompt: 'What performance optimisation does the broadcast() hint provide in this Spark join?',
+        type: 'single',
+        codeSnippet: {
+            language: 'python',
+            code: 'from pyspark.sql.functions import broadcast\n\nresult = df_orders.join(\n    broadcast(df_lookup_codes),\n    on="status_code",\n    how="left"\n)'
+        },
+        options: [
+            { id: 'a', label: 'Shuffles df_orders across all worker nodes for a sort-merge join' },
+            { id: 'b', label: 'Sends the smaller df_lookup_codes to every executor, avoiding a shuffle of the large table' },
+            { id: 'c', label: 'Caches df_lookup_codes to DBFS for reuse across multiple jobs' },
+            { id: 'd', label: 'Partitions df_orders by status_code to co-locate matching rows' }
+        ],
+        correctOptionIds: ['b'],
+        explanation:
+            'A broadcast join sends the smaller DataFrame to all executors in-memory, eliminating the expensive shuffle of the large df_orders table. Effective when the smaller table fits in executor memory (< 200 MB by default).',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/optimizations/']
+    },
+    {
+        id: 'q-t5-cs5',
+        topicId: 'topic-05',
+        prompt: 'A cluster uses the Photon runtime as shown. Which workload type benefits most from Photon?',
+        type: 'single',
+        codeSnippet: {
+            language: 'python',
+            code: 'cluster = {\n    "cluster_name": "photon-prod",\n    "spark_version": "14.3.x-photon-scala2.12",\n    "node_type_id": "Standard_DS4_v2",\n    "num_workers": 8\n}'
+        },
+        options: [
+            { id: 'a', label: 'Python UDFs and pandas-based transformations running on the driver' },
+            { id: 'b', label: 'Machine learning model training using MLflow autologging' },
+            { id: 'c', label: 'Streaming micro-batch jobs processing fewer than 100 records per second' },
+            { id: 'd', label: 'SQL queries, DataFrame operations, and Delta Lake reads/writes using vectorised execution' }
+        ],
+        correctOptionIds: ['d'],
+        explanation:
+            'Photon is a vectorised query engine implemented in C++ that accelerates SQL and DataFrame operations on Delta Lake. It does not accelerate Python UDFs or ML training workloads, which execute outside the Photon engine.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/runtime/photon']
     }
 ];
 

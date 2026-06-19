@@ -52,7 +52,8 @@ The quiz needs a stable question model that can support both content review and 
 - `options`: answer choices.
 - `correctOptionIds`: one or more correct answers.
 - `explanation`: short learning-oriented explanation.
-- `sourceIds`: references back to the underlying content items.
+- `sourceUrls`: references to official Microsoft documentation URLs.
+- `codeSnippet` *(optional)*: `{ language: string; code: string }` — a code block displayed as part of the question body.
 
 ### QuizOption
 - `id`: stable option identifier.

@@ -55,6 +55,60 @@ export const SOURCES: SourceReference[] = [
         label: 'Azure Databricks Performance',
         url: 'https://learn.microsoft.com/en-us/azure/databricks/optimizations/',
         usageNote: 'Performance and cost optimization guidance for Databricks workloads.'
+    },
+    {
+        id: 'src-databricks-unity-catalog-securable',
+        label: 'Unity Catalog Securable Objects',
+        url: 'https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/securable-objects',
+        usageNote: 'Three-level namespace (catalog.schema.object) and securable object hierarchy in Unity Catalog.'
+    },
+    {
+        id: 'src-databricks-unity-catalog-permissions',
+        label: 'Unity Catalog Permissions Model',
+        url: 'https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/access-control/permissions-concepts',
+        usageNote: 'Least-privilege access control, privilege inheritance, and permission grants in Unity Catalog.'
+    },
+    {
+        id: 'src-databricks-workspace-strategy',
+        label: 'Azure Databricks Workspace Strategy',
+        url: 'https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/deployment-guide/workspace-strategy',
+        usageNote: 'Dev/prod workspace separation, SDLC isolation, and workspace architecture design.'
+    },
+    {
+        id: 'src-databricks-jobs-classic',
+        label: 'Configure Classic Compute for Jobs',
+        url: 'https://learn.microsoft.com/en-us/azure/databricks/jobs/run-classic-jobs',
+        usageNote: 'Job clusters vs all-purpose clusters for production pipelines; compute isolation guidance.'
+    },
+    {
+        id: 'src-databricks-jobs-run-if',
+        label: 'Databricks Jobs Task Dependencies',
+        url: 'https://learn.microsoft.com/en-us/azure/databricks/jobs/run-if',
+        usageNote: 'Task dependencies and conditional execution flow in Databricks Jobs.'
+    },
+    {
+        id: 'src-databricks-jobs-configure',
+        label: 'Configure Lakeflow Jobs',
+        url: 'https://learn.microsoft.com/en-us/azure/databricks/jobs/configure-job',
+        usageNote: 'Job creation, retry policies, scheduling, and production job configuration.'
+    },
+    {
+        id: 'src-databricks-streaming-concepts',
+        label: 'Structured Streaming Concepts',
+        url: 'https://learn.microsoft.com/en-us/azure/databricks/structured-streaming/concepts',
+        usageNote: 'Near real-time streaming, checkpointing, fault tolerance, and streaming pipeline design.'
+    },
+    {
+        id: 'src-databricks-autoloader',
+        label: 'Auto Loader for Cloud Object Storage',
+        url: 'https://learn.microsoft.com/en-us/azure/databricks/ingestion/cloud-object-storage/auto-loader/',
+        usageNote: 'Schema inference, schema evolution, and incremental file ingestion with Auto Loader.'
+    },
+    {
+        id: 'src-entra-fundamentals',
+        label: 'What is Microsoft Entra?',
+        url: 'https://learn.microsoft.com/en-us/entra/fundamentals/what-is-entra',
+        usageNote: 'Microsoft Entra ID fundamentals: identity lifecycle, authentication, and access management.'
     }
 ];
 

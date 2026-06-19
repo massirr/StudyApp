@@ -6,6 +6,7 @@ interface Props {
     prompt: string;
     sourceUrls: string[];
     mediaUrl?: string;
+    codeSnippet?: { language: string; code: string };
   };
   onSourceClick: (url: string) => void;
 }
@@ -16,6 +17,13 @@ const QuestionDisplay: React.FC<Props> = ({ question, onSourceClick }) => {
   return (
     <div className={styles.questionDisplay}>
       <p className={styles.questionText}>{question.prompt}</p>
+      {question.codeSnippet && (
+        <div className={styles.codeBlock} role="region" aria-label="Code snippet">
+          <pre className={styles.pre}>
+            <code>{question.codeSnippet.code}</code>
+          </pre>
+        </div>
+      )}
       {question.mediaUrl && (
         <div className={styles.mediaContainer}>
           <img src={question.mediaUrl} alt="Quiz media" className={styles.media} />

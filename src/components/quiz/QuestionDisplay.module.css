@@ -16,6 +16,24 @@
   max-width: 22ch;
 }
 
+.codeBlock {
+  margin-bottom: 1.25rem;
+}
+
+.pre {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  background: rgba(7, 7, 7, 0.05);
+  border: 1px solid rgba(7, 7, 7, 0.12);
+  border-left: 3px solid var(--ink);
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  white-space: pre;
+  color: var(--ink);
+  margin: 0;
+}
+
 .mediaContainer {
   margin-bottom: 1rem;
   text-align: center;
@@ -54,6 +72,15 @@
     font-size: 1.15rem;
     max-width: none;
     margin-bottom: 0.75rem;
+  }
+
+  .codeBlock {
+    margin-bottom: 1rem;
+  }
+
+  .pre {
+    font-size: 0.78rem;
+    padding: 0.75rem 1rem;
   }
 
   .mediaContainer {

@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './FeedbackPanel.module.css';
+import { getSourceByUrl } from '../../data/sources';
 
 interface Props {
   isCorrect: boolean;
@@ -23,17 +24,20 @@ const FeedbackPanel: React.FC<Props> = ({
         </button>
       </div>
       <p className={styles.explanation}>{explanation}</p>
-      {sourceUrls.map((sourceUrl) => (
-        <a
-          key={sourceUrl}
-          href={sourceUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.sourceLink}
-        >
-          View Official Source
-        </a>
-      ))}
+      {sourceUrls.map((sourceUrl) => {
+        const source = getSourceByUrl(sourceUrl);
+        return (
+          <a
+            key={sourceUrl}
+            href={sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.sourceLink}
+          >
+            {source?.label ?? 'View Official Source'}
+          </a>
+        );
+      })}
     </div>
   );
 };

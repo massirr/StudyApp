@@ -14,6 +14,7 @@ export interface QuizQuestion {
     correctOptionIds: string[];
     explanation: string;
     sourceUrls: string[];
+    codeSnippet?: { language: string; code: string };
 }
 
 export interface QuizResult {

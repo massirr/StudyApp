@@ -49,6 +49,72 @@
   opacity: 0.5;
 }
 
+.scoreScreen {
+  margin-top: 1.5rem;
+  padding: 2rem;
+  background: rgba(230, 190, 144, 0.86);
+  box-shadow: 7px 7px 0 rgba(7, 7, 7, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  max-width: 480px;
+}
+
+.scoreLabel {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(7, 7, 7, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.scoreBig {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+}
+
+.scorePercent {
+  font-size: 1.4rem;
+  font-weight: 650;
+  color: var(--ink-soft);
+  letter-spacing: -0.02em;
+}
+
+.scoreMessage {
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+}
+
+.pass {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.fail {
+  background: rgba(7, 7, 7, 0.08);
+  color: var(--ink-soft);
+}
+
+.autoCompleteNote {
+  margin: 0;
+  font-size: 0.85rem;
+  color: rgba(7, 7, 7, 0.55);
+  font-style: italic;
+}
+
+.scoreActions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
 @media (max-width: 720px) {
   .quizPageContainer {
     width: 100%;
@@ -57,6 +123,20 @@
   .quizMain {
     gap: 0.75rem;
     margin-top: 0.75rem;
+  }
+
+  .scoreScreen {
+    padding: 1.5rem;
+    max-width: 100%;
+    box-shadow: 5px 5px 0 rgba(7, 7, 7, 1);
+  }
+
+  .scoreBig {
+    font-size: 2.8rem;
+  }
+
+  .scoreActions {
+    flex-direction: column;
   }
 
   .submitButton {

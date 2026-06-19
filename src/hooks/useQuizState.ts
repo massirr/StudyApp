@@ -19,6 +19,7 @@ export const useQuizState = (questions: QuizQuestion[]) => {
     const [selectedOptionIds, setSelectedOptionIds] = useState<string[]>([]);
     const [submitted, setSubmitted] = useState(false);
     const [completedQuestionIds, setCompletedQuestionIds] = useState<string[]>([]);
+    const [correctQuestionIds, setCorrectQuestionIds] = useState<string[]>([]);
 
     const currentQuestion = questions[index];
 
@@ -54,6 +55,11 @@ export const useQuizState = (questions: QuizQuestion[]) => {
         setCompletedQuestionIds((prev) =>
             prev.includes(currentQuestion.id) ? prev : [...prev, currentQuestion.id]
         );
+        if (isSelectionCorrect(selectedOptionIds, currentQuestion.correctOptionIds)) {
+            setCorrectQuestionIds((prev) =>
+                prev.includes(currentQuestion.id) ? prev : [...prev, currentQuestion.id]
+            );
+        }
     };
 
     const next = () => {
@@ -81,6 +87,7 @@ export const useQuizState = (questions: QuizQuestion[]) => {
         setSelectedOptionIds([]);
         setSubmitted(false);
         setCompletedQuestionIds([]);
+        setCorrectQuestionIds([]);
     };
 
     const isComplete = questions.length > 0 && completedQuestionIds.length === questions.length;
@@ -93,6 +100,7 @@ export const useQuizState = (questions: QuizQuestion[]) => {
         submitted,
         isCorrect,
         isComplete,
+        correctCount: correctQuestionIds.length,
         hasNext: index < questions.length - 1,
         hasPrevious: index > 0,
         selectOption,

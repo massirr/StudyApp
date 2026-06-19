@@ -10,6 +10,7 @@ import {
 interface ProgressContextValue {
     progress: ProgressState;
     toggleTopicComplete: (topicId: string) => void;
+    markTopicComplete: (topicId: string) => void;
     setLastVisitedTopic: (topicSlug: string) => void;
     resetProgress: () => void;
 }
@@ -51,6 +52,19 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
         [commit, progress]
     );
 
+    const markTopicComplete = useCallback(
+        (topicId: string) => {
+            if (progress.completedTopicIds.includes(topicId)) {
+                return;
+            }
+            commit({
+                ...progress,
+                completedTopicIds: [...progress.completedTopicIds, topicId]
+            });
+        },
+        [commit, progress]
+    );
+
     const setLastVisitedTopic = useCallback(
         (topicSlug: string) => {
             if (progress.lastVisitedTopicSlug === topicSlug) {
@@ -71,8 +85,8 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
     }, []);
 
     const value = useMemo(
-        () => ({ progress, toggleTopicComplete, setLastVisitedTopic, resetProgress }),
-        [progress, toggleTopicComplete, setLastVisitedTopic, resetProgress]
+        () => ({ progress, toggleTopicComplete, markTopicComplete, setLastVisitedTopic, resetProgress }),
+        [progress, toggleTopicComplete, markTopicComplete, setLastVisitedTopic, resetProgress]
     );
 
     return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;

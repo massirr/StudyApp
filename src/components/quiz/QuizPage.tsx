@@ -1,7 +1,8 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { TOPICS } from '../../data/topics';
 import { getAllQuestions, getCodeSnippetQuestionsForTopic, getQuestionsForTopic } from '../../data/questions';
 import { useQuizState } from '../../hooks/useQuizState';
+import { useProgress } from '../../hooks/useProgress';
 import AnswerPicker from './AnswerPicker';
 import FeedbackPanel from './FeedbackPanel';
 import QuizHeader from './QuizHeader';
@@ -16,6 +17,7 @@ interface QuizPageProps {
 
 const QuizPage: React.FC<QuizPageProps> = ({ topicSlug, level = 1 }) => {
   const [showFeedback, setShowFeedback] = useState(false);
+  const { progress, markTopicComplete } = useProgress();
 
   const topic = useMemo(
     () => TOPICS.find((item) => item.slug === topicSlug),
@@ -42,6 +44,7 @@ const QuizPage: React.FC<QuizPageProps> = ({ topicSlug, level = 1 }) => {
     submitted,
     isCorrect,
     isComplete,
+    correctCount,
     hasNext,
     hasPrevious,
     selectOption,
@@ -50,6 +53,13 @@ const QuizPage: React.FC<QuizPageProps> = ({ topicSlug, level = 1 }) => {
     previous,
     restart
   } = useQuizState(questions);
+
+  useEffect(() => {
+    if (isComplete && topicSlug && topic) {
+      markTopicComplete(topic.id);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isComplete]);
 
   const handleSubmit = () => {
     submit();
@@ -90,17 +100,42 @@ const QuizPage: React.FC<QuizPageProps> = ({ topicSlug, level = 1 }) => {
   }
 
   if (isComplete && !showFeedback) {
+    const pct = total > 0 ? Math.round((correctCount / total) * 100) : 0;
+    const passed = pct >= 80;
+    const scoreMessage =
+      pct >= 80
+        ? 'Excellent — you passed!'
+        : pct >= 60
+        ? 'Good effort. Review the weak spots and try again.'
+        : 'Keep studying. Go back to the topic notes and retake.';
+    const alreadyCompleted = topic
+      ? progress.completedTopicIds.includes(topic.id)
+      : false;
+
     return (
       <section className={styles.quizPageContainer}>
-        <h1>DP-750 Quiz</h1>
-        <p>You completed this quiz set.</p>
-        <div className={styles.quizMain}>
-          <button className={styles.submitButton} onClick={handleRestart}>
-            Restart Quiz
-          </button>
-          <a className={styles.submitButton} href="/" style={{ marginLeft: 8 }}>
-            Back to Dashboard
-          </a>
+        <div className={styles.scoreScreen}>
+          <p className={styles.scoreLabel}>
+            {topic ? `DP-750 Quiz: ${topic.title}` : 'DP-750 Quiz'}
+          </p>
+          <div className={styles.scoreBig}>
+            {correctCount} / {total}
+          </div>
+          <div className={styles.scorePercent}>{pct}%</div>
+          <p className={`${styles.scoreMessage} ${passed ? styles.pass : styles.fail}`}>
+            {scoreMessage}
+          </p>
+          {topicSlug && alreadyCompleted && (
+            <p className={styles.autoCompleteNote}>Topic marked as complete.</p>
+          )}
+          <div className={styles.scoreActions}>
+            <button className={styles.submitButton} onClick={handleRestart}>
+              Retake Quiz
+            </button>
+            <a className={styles.submitButton} href="/">
+              Back to Dashboard
+            </a>
+          </div>
         </div>
       </section>
     );

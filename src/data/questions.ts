@@ -831,530 +831,514 @@ const QUESTION_BANK: QuizQuestion[] = [
         ]
     },
 
-    // ── Topic 01: Code-snippet questions ──────────────────────────────────────
+    // ── Topic 01: Lab-scenario code-snippet questions (Labs 1 & 2) ───────────
     {
         id: 'q-t1-cs1',
         topicId: 'topic-01',
-        prompt: 'What does this Python code retrieve from the Databricks secret scope?',
+        prompt: 'Lab 1 — You create a cluster for the workspace exploration exercise. The config below uses autoscaling between 1 and 8 workers. What triggers the cluster to add worker nodes?',
         type: 'single',
         codeSnippet: {
             language: 'python',
-            code: 'jdbc_password = dbutils.secrets.get(\n    scope="prod-secrets",\n    key="jdbc-password"\n)'
+            code: 'cluster_config = {\n    "cluster_name": "lab1-cluster",\n    "spark_version": "14.3.x-scala2.12",\n    "node_type_id": "Standard_DS3_v2",\n    "autoscale": {\n        "min_workers": 1,\n        "max_workers": 8\n    },\n    "autotermination_minutes": 30\n}'
         },
         options: [
-            { id: 'a', label: 'A JDBC connection string stored in a notebook cell' },
-            { id: 'b', label: 'A plaintext password echoed to the notebook output' },
-            { id: 'c', label: 'A secret value retrieved securely without exposing it in plaintext' },
-            { id: 'd', label: 'An environment variable from the host operating system' }
+            { id: 'a', label: 'Spark detects pending tasks that current workers cannot handle and adds nodes up to max_workers' },
+            { id: 'b', label: 'The cluster scales up at a fixed 5-minute interval regardless of workload' },
+            { id: 'c', label: 'Autoscaling only applies to all-purpose clusters attached to SQL warehouses' },
+            { id: 'd', label: 'The cluster adds workers whenever a new notebook is attached to it' }
         ],
-        correctOptionIds: ['c'],
+        correctOptionIds: ['a'],
         explanation:
-            'Databricks Secrets lets you store and access sensitive information securely. The value returned by dbutils.secrets.get() is redacted in logs and notebook outputs, preventing accidental exposure.',
-        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/security/secrets/']
+            'Autoscaling monitors pending Spark tasks. When current workers are overloaded, Databricks adds nodes up to max_workers. When idle, it scales back down to min_workers, balancing cost and performance automatically.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/clusters/configure']
     },
     {
         id: 'q-t1-cs2',
         topicId: 'topic-01',
-        prompt: 'A cluster is configured as shown. What is the effect of setting autotermination_minutes to 0?',
+        prompt: 'Lab 2 — Your notebook needs to mount Azure Data Lake. A teammate hardcoded the storage key directly. You refactor it to use a secret scope. If you accidentally call print() on the retrieved value, what appears in the notebook cell output?',
         type: 'single',
         codeSnippet: {
             language: 'python',
-            code: 'cluster_config = {\n    "cluster_name": "dev-shared",\n    "spark_version": "14.3.x-scala2.12",\n    "node_type_id": "Standard_DS3_v2",\n    "num_workers": 2,\n    "autotermination_minutes": 0\n}'
+            code: 'storage_key = dbutils.secrets.get(\n    scope="lab-workspace-secrets",\n    key="adls-storage-key"\n)\n\nprint(storage_key)  # what appears here?'
         },
         options: [
-            { id: 'a', label: 'The cluster terminates immediately on creation' },
-            { id: 'b', label: 'The cluster auto-terminates after 0 seconds of inactivity' },
-            { id: 'c', label: 'Auto-termination is disabled and the cluster runs indefinitely' },
-            { id: 'd', label: 'The cluster terminates after every job run' }
+            { id: 'a', label: 'The full storage key in plaintext — secrets are decrypted for the calling notebook' },
+            { id: 'b', label: '[REDACTED] — Databricks masks secret values in all notebook outputs and driver logs' },
+            { id: 'c', label: 'A Python PermissionError because print() is blocked for secret-backed variables' },
+            { id: 'd', label: 'An empty string because the key was not yet assigned a value in the scope' }
         ],
-        correctOptionIds: ['c'],
+        correctOptionIds: ['b'],
         explanation:
-            'Setting autotermination_minutes to 0 disables auto-termination entirely. This is not recommended for cost control; production clusters should use a finite timeout.',
-        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/clusters/configure']
+            'Databricks Secrets redacts resolved values in notebook outputs, replacing them with [REDACTED]. This prevents accidental exposure in cell output, driver logs, and notebook revision history regardless of how the value is used.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/security/secrets/']
     },
     {
         id: 'q-t1-cs3',
         topicId: 'topic-01',
-        prompt: 'Given this SQL statement run on Databricks, which three-level namespace format does it follow?',
+        prompt: 'Lab 2 — During workspace exploration you query a table that was registered in Unity Catalog during lab setup. Which three-level namespace format does this SQL statement use?',
         type: 'single',
         codeSnippet: {
             language: 'sql',
-            code: "SELECT order_id, total\nFROM prod_catalog.sales.orders\nWHERE order_date >= '2024-01-01'"
+            code: "SELECT student_id, course_code, enrolled_at\nFROM training_catalog.academic.enrollments\nWHERE academic_year = 2024\nORDER BY enrolled_at DESC;"
         },
         options: [
-            { id: 'a', label: 'workspace.database.table — the standard Hive metastore format' },
-            { id: 'b', label: 'catalog.schema.table — the Unity Catalog three-level namespace' },
-            { id: 'c', label: 'metastore.catalog.object — the Databricks legacy format' },
-            { id: 'd', label: 'database.schema.view — used only for external tables' }
+            { id: 'a', label: 'workspace.database.table — the legacy Hive metastore three-level format' },
+            { id: 'b', label: 'metastore.catalog.object — used only for cross-workspace federation queries' },
+            { id: 'c', label: 'catalog.schema.table — the Unity Catalog three-level namespace' },
+            { id: 'd', label: 'catalog.database.view — used exclusively for external and materialized tables' }
         ],
-        correctOptionIds: ['b'],
+        correctOptionIds: ['c'],
         explanation:
-            'Unity Catalog uses a three-level namespace: catalog.schema.object. In this query, prod_catalog is the catalog, sales is the schema, and orders is the table.',
-        sourceUrls: [
-            'https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/'
-        ]
+            'Unity Catalog organizes data assets in a three-level hierarchy: catalog.schema.object. Here training_catalog is the catalog, academic is the schema, and enrollments is the table.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/']
     },
     {
         id: 'q-t1-cs4',
         topicId: 'topic-01',
-        prompt: 'A team applies these tags when creating a cluster. What is the primary operational benefit?',
+        prompt: 'Lab 1 — Before provisioning your lab cluster, your organization requires cost attribution metadata on all compute. You add the tags below to the cluster config. Where do these tags appear after the cluster runs workloads?',
         type: 'single',
         codeSnippet: {
             language: 'python',
-            code: 'custom_tags = {\n    "team": "data-engineering",\n    "environment": "production",\n    "cost-center": "DE-001"\n}'
+            code: 'custom_tags = {\n    "project": "dp-750-training",\n    "environment": "lab",\n    "cost-center": "TRAINING-001"\n}'
         },
         options: [
-            { id: 'a', label: 'Tags enforce network isolation between clusters' },
-            { id: 'b', label: 'Tags restrict which notebooks can attach to the cluster' },
-            { id: 'c', label: 'Tags replace the need for Unity Catalog governance' },
-            { id: 'd', label: 'Tags enable cloud cost attribution and resource tracking per team or project' }
+            { id: 'a', label: 'In the Databricks audit log as an access-control event for each cluster start' },
+            { id: 'b', label: 'As metadata columns automatically added to every Delta table written by the cluster' },
+            { id: 'c', label: 'In Unity Catalog lineage graphs to trace which cluster produced each table' },
+            { id: 'd', label: 'In Azure cost management and billing reports, enabling spend attribution by project or team' }
         ],
         correctOptionIds: ['d'],
         explanation:
-            'Cluster tags propagate to cloud resource billing reports, enabling accurate cost attribution by team, environment, or project. They do not affect cluster permissions or network isolation.',
-        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/clusters/configure#cluster-tags']
+            'Cluster tags propagate to Azure resource billing data. Teams use them to attribute cloud spend by environment, team, or cost center. They do not affect permissions, table metadata, or lineage tracking.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/clusters/configure']
     },
     {
         id: 'q-t1-cs5',
         topicId: 'topic-01',
-        prompt: 'This code pattern is used in a deployment pipeline. Which design principle does it demonstrate?',
+        prompt: 'Lab 2 — Your deployment notebook uses a widget to route code to different Unity Catalog assets depending on the target environment. What architectural principle does this pattern demonstrate?',
         type: 'single',
         codeSnippet: {
             language: 'python',
-            code: 'import os\nenv = os.getenv("ENV", "dev")\n\ncatalog = f"{env}_catalog"\nschema  = f"{env}_schema"\n\nspark.sql(f"USE CATALOG {catalog}")\nspark.sql(f"USE SCHEMA {schema}")'
+            code: 'env = dbutils.widgets.get("environment")  # "dev" or "prod"\n\ncatalog = f"{env}_catalog"\nschema  = f"{env}_bronze"\n\nspark.sql(f"USE CATALOG {catalog}")\nspark.sql(f"USE SCHEMA {schema}")\nprint(f"Targeting: {catalog}.{schema}")'
         },
         options: [
-            { id: 'a', label: 'Environment parity — using identical catalog names in dev and prod' },
-            { id: 'b', label: 'Workspace separation — running dev and prod in distinct Databricks workspaces' },
-            { id: 'c', label: 'Catalog-level environment isolation — routing code to separate catalogs per environment' },
-            { id: 'd', label: 'Schema-less design — avoiding governance boundaries between environments' }
+            { id: 'a', label: 'Catalog-level environment isolation — the same code targets separate data assets per environment within Unity Catalog' },
+            { id: 'b', label: 'Workspace parity — dev and prod share one workspace and differ only in schema names' },
+            { id: 'c', label: 'Schema-less design — catalogs are bypassed and objects are referenced by short name only' },
+            { id: 'd', label: 'Metastore federation — the widget selects which external metastore to query' }
         ],
-        correctOptionIds: ['c'],
+        correctOptionIds: ['a'],
         explanation:
-            'Using environment-specific catalog and schema names (dev_catalog, prod_catalog) is a Unity Catalog pattern for isolating development and production data assets within the same metastore.',
-        sourceUrls: [
-            'https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/'
-        ]
+            'Using environment-prefixed catalog names (dev_catalog, prod_catalog) is a Unity Catalog pattern that isolates development and production data assets within the same metastore. The same notebook runs in both environments without code changes.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/']
     },
 
-    // ── Topic 02: Code-snippet questions ──────────────────────────────────────
+    // ── Topic 02: Lab-scenario code-snippet questions (Labs 7 & 8) ───────────
     {
         id: 'q-t2-cs1',
         topicId: 'topic-02',
-        prompt: 'What ingestion pattern does this Spark Structured Streaming code use?',
+        prompt: 'Lab 7 — You build an incremental ingestion pipeline that picks up new JSON event files dropped into ADLS by an upstream system. Your instructor asks why cloudFiles is preferred over a scheduled full directory read. What is the main advantage?',
         type: 'single',
         codeSnippet: {
             language: 'python',
-            code: 'df = (spark.readStream\n    .format("cloudFiles")\n    .option("cloudFiles.format", "json")\n    .option("cloudFiles.schemaLocation", "/mnt/checkpoints/schema")\n    .load("/mnt/raw/events/"))'
+            code: 'df_raw = (spark.readStream\n    .format("cloudFiles")\n    .option("cloudFiles.format", "json")\n    .option("cloudFiles.schemaLocation",\n            "/checkpoints/lab7/schema")\n    .option("cloudFiles.inferColumnTypes", "true")\n    .load("abfss://raw@labstorage.dfs.core.windows.net/events/"))'
         },
         options: [
-            { id: 'a', label: 'COPY INTO — batch ingestion that deduplicates files already loaded' },
-            { id: 'b', label: 'Auto Loader — incremental streaming ingestion that detects new files automatically' },
-            { id: 'c', label: 'Delta MERGE — upsert-based streaming that replaces matched rows' },
-            { id: 'd', label: 'Kafka connector — reads from a Kafka topic using cloudFiles format' }
+            { id: 'a', label: 'cloudFiles deduplicates rows by content hash; a full directory read does not' },
+            { id: 'b', label: 'Auto Loader uses Azure Event Grid or incremental listing to track new files, eliminating expensive full directory scans at scale' },
+            { id: 'c', label: 'cloudFiles automatically applies Delta MERGE to upsert events rather than appending duplicates' },
+            { id: 'd', label: 'Auto Loader requires no schemaLocation; schema is inferred from a static JSON manifest each run' }
         ],
         correctOptionIds: ['b'],
         explanation:
-            'The cloudFiles format is Databricks Auto Loader. It detects new files in cloud storage incrementally using file notifications or directory listing, making it ideal for scalable streaming ingestion.',
+            'Auto Loader (cloudFiles format) tracks which files have been processed using file notifications or incremental directory listing. At scale this is far more efficient than listing millions of files on every microbatch, and the schemaLocation enables incremental schema evolution.',
         sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/ingestion/cloud-object-storage/auto-loader/']
     },
     {
         id: 'q-t2-cs2',
         topicId: 'topic-02',
-        prompt: 'What does this Delta Lake SQL statement do when a matching customer_id already exists in the target table?',
+        prompt: 'Lab 8 — You load daily sales CSV files from ADLS into a bronze Delta table using COPY INTO. A colleague runs the same statement twice and asks whether data will be duplicated. What actually happens on the second run?',
         type: 'single',
         codeSnippet: {
             language: 'sql',
-            code: 'MERGE INTO silver.customers AS target\nUSING bronze.customer_updates AS source\nON target.customer_id = source.customer_id\nWHEN MATCHED THEN\n    UPDATE SET *\nWHEN NOT MATCHED THEN\n    INSERT *'
+            code: "COPY INTO bronze.daily_sales\nFROM 'abfss://raw@labstorage.dfs.core.windows.net/sales/2024/'\nFILEFORMAT = CSV\nFORMAT_OPTIONS (\n    'header' = 'true',\n    'inferSchema' = 'true'\n);"
         },
         options: [
-            { id: 'a', label: 'Inserts a duplicate row alongside the existing record' },
-            { id: 'b', label: 'Updates all columns of the matching target row with source values' },
-            { id: 'c', label: 'Deletes the matching row and inserts a new one' },
-            { id: 'd', label: 'Skips the row because it already exists' }
+            { id: 'a', label: 'Only files not yet successfully loaded are ingested; already-processed files are skipped, making COPY INTO idempotent' },
+            { id: 'b', label: 'The second run re-ingests all files and creates duplicate rows in bronze.daily_sales' },
+            { id: 'c', label: 'The second run fails with a FilesAlreadyLoadedException and rolls back the first load' },
+            { id: 'd', label: 'COPY INTO truncates the target table before each run and reloads all source files from scratch' }
         ],
-        correctOptionIds: ['b'],
+        correctOptionIds: ['a'],
         explanation:
-            'In a Delta Lake MERGE, WHEN MATCHED THEN UPDATE SET * updates all columns of the matching row in the target table with the corresponding columns from the source. This is the standard upsert pattern.',
-        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/delta/merge']
+            'COPY INTO tracks which files have already been loaded in the Delta transaction log. Running it again is safe — new files are ingested and already-loaded files are skipped. This idempotency makes it reliable for scheduled batch jobs.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/ingestion/copy-into']
     },
     {
         id: 'q-t2-cs3',
         topicId: 'topic-02',
-        prompt: 'A pipeline appends new product records with this code. What does the mergeSchema option control?',
+        prompt: 'Lab 7 — Your Auto Loader stream writes parsed events to a Delta silver table. The cluster restarts mid-batch. On recovery you observe no duplicate rows. What makes fault-tolerant exactly-once delivery possible here?',
         type: 'single',
         codeSnippet: {
             language: 'python',
-            code: '(df_products\n    .write\n    .format("delta")\n    .option("mergeSchema", "true")\n    .mode("append")\n    .save("/delta/silver/products"))'
+            code: '(df_parsed\n    .writeStream\n    .format("delta")\n    .outputMode("append")\n    .option("checkpointLocation",\n            "/checkpoints/lab7/silver-events")\n    .trigger(availableNow=True)\n    .start("abfss://silver@labstorage.dfs.core.windows.net/events"))'
         },
         options: [
-            { id: 'a', label: 'It replaces the existing schema entirely on every write' },
-            { id: 'b', label: 'It prevents any schema changes from being written to the table' },
-            { id: 'c', label: 'It merges incoming data with existing rows using a primary key' },
-            { id: 'd', label: 'It allows new columns in the source to be added to the existing Delta table schema' }
+            { id: 'a', label: 'Delta Lake locks the output path preventing any concurrent write that could cause duplication' },
+            { id: 'b', label: 'trigger(availableNow=True) replays only the last batch on restart and discards partial writes' },
+            { id: 'c', label: 'The checkpointLocation stores committed offsets and processed file state so the stream resumes exactly where it stopped, preventing data loss or duplication' },
+            { id: 'd', label: 'outputMode("append") automatically deduplicates rows via Delta MERGE on restart' }
         ],
-        correctOptionIds: ['d'],
+        correctOptionIds: ['c'],
         explanation:
-            'The mergeSchema option enables schema evolution in Delta Lake. When new columns are present in the incoming DataFrame, they are added to the existing table schema rather than causing a write failure.',
-        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/delta/update-schema']
+            'The checkpointLocation persists stream progress — which offsets and source files were committed. On restart Spark reads this state and continues from the last successful commit, delivering exactly-once semantics with Delta Lake.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/structured-streaming/delta-lake']
     },
     {
         id: 'q-t2-cs4',
         topicId: 'topic-02',
-        prompt: 'Why is the checkpointLocation required in this streaming write?',
+        prompt: 'Lab 8 — Joining three DataFrames, you apply a broadcast hint only to the small regions lookup (200 rows), not to df_customers (5 M rows). Join time drops from 4 minutes to 18 seconds. Why does broadcasting only df_regions give the best result?',
         type: 'single',
         codeSnippet: {
             language: 'python',
-            code: '(stream_df\n    .writeStream\n    .format("delta")\n    .outputMode("append")\n    .option("checkpointLocation", "/checkpoints/orders-stream")\n    .trigger(availableNow=True)\n    .start("/delta/silver/orders"))'
+            code: 'from pyspark.sql.functions import broadcast\n\ndf_result = (df_orders\n    .join(df_customers, on="customer_id", how="left")\n    .join(broadcast(df_regions), on="region_code", how="left"))'
         },
         options: [
-            { id: 'a', label: 'It stores intermediate Spark shuffle data to improve performance' },
-            { id: 'b', label: 'It locks the output path so no other writer can access the table' },
-            { id: 'c', label: 'It tracks stream progress and processed offsets to enable fault-tolerant restart' },
-            { id: 'd', label: 'It controls partitioning of output files across worker nodes' }
+            { id: 'a', label: 'Spark allows only one broadcast per query; df_regions is chosen because it has fewer columns' },
+            { id: 'b', label: 'Broadcasting requires Delta Lake format; df_customers is stored as Parquet and cannot be broadcast' },
+            { id: 'c', label: 'df_customers has a primary key enabling a sort-merge join that is faster than broadcasting it' },
+            { id: 'd', label: 'df_regions fits in executor memory so it is replicated to all workers, eliminating the shuffle of df_orders; df_customers at 5 M rows would exhaust executor memory if broadcast' }
         ],
-        correctOptionIds: ['c'],
+        correctOptionIds: ['d'],
         explanation:
-            'The checkpointLocation stores stream progress metadata (offsets, committed batches). On restart after a failure, Spark resumes exactly where processing left off, ensuring exactly-once semantics with Delta Lake.',
-        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/structured-streaming/delta-lake']
+            'A broadcast join copies the small table to every executor, so the large table never shuffles across the network. Broadcasting a 200-row lookup is safe and eliminates an expensive exchange stage. Attempting to broadcast a 5 M-row table risks out-of-memory errors on executors.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/optimizations/']
     },
     {
         id: 'q-t2-cs5',
         topicId: 'topic-02',
-        prompt: 'What does the ZORDER BY clause do in this Delta Lake OPTIMIZE command?',
+        prompt: 'Lab 8 — The reporting team needs one row per product with a separate revenue column for each quarter. You use a Spark pivot. What is the shape of df_quarterly compared with the original df_sales?',
         type: 'single',
         codeSnippet: {
-            language: 'sql',
-            code: 'OPTIMIZE silver.events\nZORDER BY (event_date, user_id);'
+            language: 'python',
+            code: 'df_quarterly = (df_sales\n    .groupBy("product_name")\n    .pivot("quarter", ["Q1", "Q2", "Q3", "Q4"])\n    .agg({"net_revenue": "sum"}))\n\ndf_quarterly.show()'
         },
         options: [
-            { id: 'a', label: 'Partitions the table into directories by event_date and user_id' },
-            { id: 'b', label: 'Creates a composite primary key on event_date and user_id' },
-            { id: 'c', label: 'Sorts data chronologically and removes duplicate rows' },
-            { id: 'd', label: 'Co-locates related values in the same data files to reduce files scanned in queries filtering on those columns' }
+            { id: 'a', label: 'Same shape as df_sales — pivot is a display transformation that does not change the DataFrame structure' },
+            { id: 'b', label: 'One row per unique product_name with columns Q1, Q2, Q3, and Q4 each containing the summed revenue for that quarter' },
+            { id: 'c', label: 'One row per (product_name, quarter) pair — the same granularity as df_sales but sorted by quarter' },
+            { id: 'd', label: 'The DataFrame is transposed so product names become column headers and quarters become the row index' }
         ],
-        correctOptionIds: ['d'],
+        correctOptionIds: ['b'],
         explanation:
-            'Z-Ordering is a Delta Lake data-skipping technique that co-locates related data in the same files. Queries filtering on Z-Ordered columns can skip large numbers of files, significantly reducing read I/O.',
-        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/delta/data-skipping']
+            'Pivot rotates the distinct values of the pivot column (quarter) into separate output columns. The result has one row per product_name and four revenue columns (Q1–Q4), reducing row count but widening the schema.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/getting-started/dataframes-python']
     },
 
-    // ── Topic 03: Code-snippet questions ──────────────────────────────────────
+    // ── Topic 03: Lab-scenario code-snippet questions (Labs 3, 4 & 5) ─────────
     {
         id: 'q-t3-cs1',
         topicId: 'topic-03',
-        prompt: 'What level of access does this GRANT statement provide to the data-analyst-group?',
+        prompt: 'Lab 3 — You set up the data namespace for a university student platform. After running the SQL below, which Unity Catalog hierarchy has been established?',
         type: 'single',
         codeSnippet: {
             language: 'sql',
-            code: 'GRANT SELECT\nON TABLE prod_catalog.sales.orders\nTO `data-analyst-group`;'
+            code: 'CREATE CATALOG IF NOT EXISTS university_prod;\n\nCREATE SCHEMA IF NOT EXISTS university_prod.student_data;\n\nCREATE TABLE IF NOT EXISTS university_prod.student_data.enrollments (\n    student_id  STRING NOT NULL,\n    course_id   STRING NOT NULL,\n    status      STRING,\n    enrolled_at TIMESTAMP\n)\nUSING DELTA;'
         },
         options: [
-            { id: 'a', label: 'Read-only SELECT access to the orders table in Unity Catalog' },
-            { id: 'b', label: 'Full ownership of the orders table including MODIFY and DELETE' },
-            { id: 'c', label: 'Access to all tables in the sales schema' },
-            { id: 'd', label: 'Admin rights over the prod_catalog catalog' }
+            { id: 'a', label: 'university_prod (metastore) → student_data (database) → enrollments (external table)' },
+            { id: 'b', label: 'student_data (catalog) → university_prod (schema) → enrollments (managed table)' },
+            { id: 'c', label: 'university_prod (catalog) → student_data (schema) → enrollments (Delta table)' },
+            { id: 'd', label: 'university_prod (workspace) → student_data (volume) → enrollments (view)' }
         ],
-        correctOptionIds: ['a'],
+        correctOptionIds: ['c'],
         explanation:
-            'GRANT SELECT on a Unity Catalog table provides read-only access. The group can query the table but cannot modify, delete, or manage its permissions without additional grants.',
-        sourceUrls: [
-            'https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/manage-privileges/'
-        ]
+            'Unity Catalog uses a three-level hierarchy: catalog → schema → table. The DDL creates university_prod as the catalog, student_data as the schema inside it, and enrollments as a managed Delta table in that schema.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/']
     },
     {
         id: 'q-t3-cs2',
         topicId: 'topic-03',
-        prompt: 'What does this SQL statement return for the finance.transactions table?',
+        prompt: 'Lab 4 — You implement row-level security so department advisors can only see students in their own department. A CS advisor (not in registrar-admin) queries the table. What rows are returned?',
         type: 'single',
         codeSnippet: {
             language: 'sql',
-            code: 'SHOW GRANTS\nON TABLE prod_catalog.finance.transactions;'
+            code: "CREATE OR REPLACE FUNCTION dept_row_filter(dept_code STRING)\nRETURNS BOOLEAN\nRETURN is_account_group_member('registrar-admin')\n    OR dept_code = session_context('current_department');\n\nALTER TABLE university_prod.student_data.enrollments\nSET ROW FILTER dept_row_filter ON (dept_code);"
         },
         options: [
-            { id: 'a', label: 'Removes all existing grants from the table' },
-            { id: 'b', label: 'Lists all principals and their privileges on the table' },
-            { id: 'c', label: 'Transfers ownership of the table to the current user' },
-            { id: 'd', label: 'Grants SELECT to all workspace users' }
+            { id: 'a', label: 'Only rows where dept_code = \'CS\' — matching the advisor\'s own department' },
+            { id: 'b', label: 'All rows in the table regardless of dept_code' },
+            { id: 'c', label: 'No rows — non-admin users are blocked from querying row-filtered tables entirely' },
+            { id: 'd', label: 'All rows except those where dept_code = \'CS\', as the filter excludes the current user\'s own department' }
         ],
-        correctOptionIds: ['b'],
+        correctOptionIds: ['a'],
         explanation:
-            'SHOW GRANTS ON TABLE returns all principals (users, groups, service principals) and the privileges they hold on the specified table. This is the audit starting point in Unity Catalog governance workflows.',
-        sourceUrls: [
-            'https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/manage-privileges/'
-        ]
+            'Unity Catalog row filters are evaluated at query time. Non-admin users see only rows where the filter function returns TRUE — here, rows where dept_code matches their session department. The CS advisor sees only CS enrollments.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/row-and-column-filters']
     },
     {
         id: 'q-t3-cs3',
         topicId: 'topic-03',
-        prompt: 'This Unity Catalog column mask is applied to an employees table. What does a non-privileged user see when querying the ssn column?',
+        prompt: 'Lab 4 — You protect the national_id column so only members of the pii-access group can see full values. A member of that group queries the column for a student with national_id = \'NID-123456\'. What value do they receive?',
         type: 'single',
         codeSnippet: {
             language: 'sql',
-            code: "CREATE OR REPLACE FUNCTION mask_ssn(ssn STRING)\nRETURNS STRING\nRETURN CASE\n    WHEN is_account_group_member('pii-readers') THEN ssn\n    ELSE '***-**-' || RIGHT(ssn, 4)\nEND;\n\nALTER TABLE prod_catalog.hr.employees\nALTER COLUMN ssn SET MASK mask_ssn;"
+            code: "CREATE OR REPLACE FUNCTION mask_national_id(nid STRING)\nRETURNS STRING\nRETURN CASE\n    WHEN is_account_group_member('pii-access') THEN nid\n    ELSE CONCAT('****-', RIGHT(nid, 4))\nEND;\n\nALTER TABLE university_prod.student_data.enrollments\nALTER COLUMN national_id SET MASK mask_national_id;"
         },
         options: [
-            { id: 'a', label: 'A permission denied error — the query fails entirely' },
-            { id: 'b', label: 'The full SSN for all users regardless of group membership' },
-            { id: 'c', label: 'The SSN returned as NULL for non-members' },
-            { id: 'd', label: 'A partially masked value showing only the last 4 digits (e.g. ***-**-1234)' }
+            { id: 'a', label: '\'****-3456\' — pii-access members still see the masked version for auditing purposes' },
+            { id: 'b', label: '\'NID-123456\' — the full unmasked value, because the member is in the pii-access group' },
+            { id: 'c', label: 'NULL — column masks return NULL for all users including privileged groups' },
+            { id: 'd', label: 'A PermissionError — the query fails because masked columns block access at the SQL layer' }
         ],
-        correctOptionIds: ['d'],
+        correctOptionIds: ['b'],
         explanation:
-            'Unity Catalog column masks apply a masking function at query time. Users not in the pii-readers group receive ***-**-XXXX instead of the full SSN, implementing dynamic data masking without duplicating the table.',
-        sourceUrls: [
-            'https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/row-and-column-filters'
-        ]
+            'The CASE in the mask function returns the original nid when the caller is in pii-access. Unity Catalog column masks are evaluated per caller at query time, so privileged users receive unmasked data while others see \'****-3456\'.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/row-and-column-filters']
     },
     {
         id: 'q-t3-cs4',
         topicId: 'topic-03',
-        prompt: 'A developer stores a database password using these Databricks CLI commands. What security principle does this enforce?',
+        prompt: 'Lab 5 — You create a secret scope to store the university database connection string so it never appears in notebooks or Git history. What security risk does this pattern eliminate compared with hardcoding the credential?',
         type: 'single',
         codeSnippet: {
             language: 'bash',
-            code: 'databricks secrets create-scope --scope prod-db-scope\ndatabricks secrets put-secret \\\n    --scope prod-db-scope \\\n    --key db-password'
+            code: '# Databricks CLI\ndatabricks secrets create-scope --scope uni-db-scope\n\ndatabricks secrets put-secret \\\n    --scope uni-db-scope \\\n    --key postgres-conn-string'
         },
         options: [
-            { id: 'a', label: 'Encryption at rest — the secret file is encrypted on DBFS' },
-            { id: 'b', label: 'Separation of secrets from code — sensitive values never appear in notebooks or source control' },
-            { id: 'c', label: 'Network isolation — secrets are stored in a private VNet' },
-            { id: 'd', label: 'Audit logging — every read of the secret is written to a public log file' }
+            { id: 'a', label: 'Network interception — the secret scope stores credentials behind a private VNet endpoint' },
+            { id: 'b', label: 'Audit gap — secret scope reads are now written to a detailed public access log' },
+            { id: 'c', label: 'Encryption at rest — the secret file is separately encrypted on DBFS beyond standard storage encryption' },
+            { id: 'd', label: 'Credential exposure in notebook cell output, driver logs, cluster event history, and Git repository commits' }
         ],
-        correctOptionIds: ['b'],
+        correctOptionIds: ['d'],
         explanation:
-            'Databricks Secret Scopes keep credentials out of notebooks and source control. Code references dbutils.secrets.get() and the resolved value is redacted in outputs, enforcing separation of secrets from application logic.',
+            'Hardcoded credentials appear in notebook revision history, cluster logs, and Git commits. Databricks Secret Scopes keep the value out of code; dbutils.secrets.get() returns the value at runtime with the result redacted in all outputs.',
         sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/security/secrets/']
     },
     {
         id: 'q-t3-cs5',
         topicId: 'topic-03',
-        prompt: 'This row filter is set on a Unity Catalog table. What do users NOT in the finance-team group see when querying the table?',
+        prompt: 'Lab 5 — The compliance team asks you to document who has access to the enrollments table before the semester audit. You run the SQL below. What information does it return?',
         type: 'single',
         codeSnippet: {
             language: 'sql',
-            code: "CREATE OR REPLACE FUNCTION finance_row_filter(owner_region STRING)\nRETURNS BOOLEAN\nRETURN is_account_group_member('finance-team')\n    OR owner_region = current_user();\n\nALTER TABLE prod_catalog.finance.budgets\nSET ROW FILTER finance_row_filter ON (owner_region);"
+            code: 'SHOW GRANTS ON TABLE university_prod.student_data.enrollments;'
         },
         options: [
-            { id: 'a', label: 'All rows with the owner_region column nulled out' },
-            { id: 'b', label: 'A permission denied error — the table is inaccessible' },
-            { id: 'c', label: 'Only rows where owner_region matches their own username' },
-            { id: 'd', label: 'The full table without any row-level filtering' }
+            { id: 'a', label: 'The table\'s owner, creation timestamp, last modified date, and storage location' },
+            { id: 'b', label: 'The row-level filter functions and column masks currently applied to the table' },
+            { id: 'c', label: 'All principals (users, groups, service principals) and the specific privileges each holds on the table' },
+            { id: 'd', label: 'The Delta transaction log history showing who performed the most recent DML operations' }
         ],
         correctOptionIds: ['c'],
         explanation:
-            'Unity Catalog row filters evaluate at query time. Non-finance-team users see only rows where owner_region equals their own current_user() value, implementing fine-grained row-level security without view duplication.',
-        sourceUrls: [
-            'https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/row-and-column-filters'
-        ]
+            'SHOW GRANTS ON TABLE returns a result set listing every principal and the privilege they hold on the specified table — SELECT, MODIFY, ALL PRIVILEGES, etc. This is the starting point for access audits in Unity Catalog.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/manage-privileges/']
     },
 
-    // ── Topic 04: Code-snippet questions ──────────────────────────────────────
+    // ── Topic 04: Lab-scenario code-snippet questions (Labs 9, 10 & 11) ───────
     {
         id: 'q-t4-cs1',
         topicId: 'topic-04',
-        prompt: 'What does the @dlt.expect_or_drop decorator do when a row fails the validation rule in this Delta Live Tables definition?',
+        prompt: 'Lab 9 — You build the bronze layer of a Lakeflow Declarative Pipeline that incrementally ingests enrollment JSON files from ADLS. What is the role of the @dlt.table decorator on this function?',
         type: 'single',
         codeSnippet: {
             language: 'python',
-            code: "import dlt\n\n@dlt.table(comment='Validated customer records')\n@dlt.expect_or_drop('valid_email', \"email IS NOT NULL AND email LIKE '%@%'\")\ndef cleaned_customers():\n    return dlt.read('raw_customers').filter('is_deleted = false')"
+            code: 'import dlt\n\n@dlt.table(\n    comment="Raw enrollment events — bronze layer",\n    table_properties={"quality": "bronze"}\n)\ndef bronze_enrollments():\n    return (spark.readStream\n        .format("cloudFiles")\n        .option("cloudFiles.format", "json")\n        .option("cloudFiles.schemaLocation",\n                "/pipelines/lab9/checkpoints/schema")\n        .load("abfss://raw@labstorage.dfs.core.windows.net/enrollments/"))'
         },
         options: [
-            { id: 'a', label: 'The entire pipeline run is stopped with a failure' },
-            { id: 'b', label: 'The violating row is written to a quarantine table' },
-            { id: 'c', label: 'The violating row is silently dropped and the pipeline continues' },
-            { id: 'd', label: 'The row is written as-is and a warning is logged' }
+            { id: 'a', label: 'Creates a standard PySpark RDD transformation that runs on each executor independently' },
+            { id: 'b', label: 'Marks the function as a Databricks Jobs task that can be scheduled independently of the pipeline' },
+            { id: 'c', label: 'Defines a DLT live view that is not persisted and exists only during the pipeline run' },
+            { id: 'd', label: 'Registers the function as a DLT pipeline dataset — managed, versioned, and monitored by the DLT runtime with lineage tracking' }
         ],
-        correctOptionIds: ['c'],
+        correctOptionIds: ['d'],
         explanation:
-            'expect_or_drop is a Delta Live Tables data quality constraint that drops rows failing the expectation without stopping the pipeline. Rows with invalid or null emails are excluded from the output.',
-        sourceUrls: [
-            'https://learn.microsoft.com/en-us/azure/databricks/delta-live-tables/expectations'
-        ]
+            '@dlt.table declares the function as a Delta Live Tables dataset. The DLT runtime manages its execution order, tracks lineage, enforces expectations, and exposes run metrics in the pipeline graph — none of which a plain PySpark function provides.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/delta-live-tables/']
     },
     {
         id: 'q-t4-cs2',
         topicId: 'topic-04',
-        prompt: 'This Databricks job task defines retry behavior. What happens after the third consecutive failure of the ingest task?',
+        prompt: 'Lab 10 — You add a silver layer table that validates incoming enrollment records. A record with student_id = NULL arrives in the stream. What does the pipeline do?',
         type: 'single',
         codeSnippet: {
-            language: 'json',
-            code: '{\n  "task_key": "ingest",\n  "max_retries": 3,\n  "min_retry_interval_millis": 60000,\n  "retry_on_timeout": true\n}'
+            language: 'python',
+            code: '@dlt.table(comment="Valid enrollment records — silver layer")\n@dlt.expect_or_drop(\n    "valid_student_id",\n    "student_id IS NOT NULL AND LENGTH(student_id) = 10"\n)\ndef silver_enrollments():\n    return dlt.read_stream("bronze_enrollments")'
         },
         options: [
-            { id: 'a', label: 'The task retries indefinitely until manually stopped' },
-            { id: 'b', label: 'The task is marked as failed and the job run ends in an error state' },
-            { id: 'c', label: 'The task waits 3 minutes and retries once more' },
-            { id: 'd', label: 'Downstream tasks continue despite the ingest failure' }
+            { id: 'a', label: 'Stops the entire pipeline run and surfaces a quality failure alert in the pipeline graph' },
+            { id: 'b', label: 'Drops the invalid record silently and continues processing all remaining records' },
+            { id: 'c', label: 'Routes the invalid record to an auto-generated quarantine table for manual review' },
+            { id: 'd', label: 'Logs a data quality warning but writes the NULL record to silver_enrollments anyway' }
         ],
         correctOptionIds: ['b'],
         explanation:
-            'After max_retries (3) consecutive failures, the task is marked as failed and the job run ends in a failed state. Downstream tasks that depend on the failed task will not execute.',
-        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/jobs/']
+            'expect_or_drop removes rows that fail the quality rule without halting the pipeline. The null-student_id record is excluded from silver_enrollments and counted as a dropped record in the DLT event log, while valid records continue flowing.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/delta-live-tables/expectations']
     },
     {
         id: 'q-t4-cs3',
         topicId: 'topic-04',
-        prompt: 'What execution order does this Databricks job task graph define?',
+        prompt: 'Lab 11 — You model a four-task medallion pipeline as a Databricks Job. The transform_silver task fails. What happens to aggregate_gold and notify_team?',
         type: 'single',
         codeSnippet: {
             language: 'json',
-            code: '{\n  "tasks": [\n    { "task_key": "ingest" },\n    {\n      "task_key": "transform",\n      "depends_on": [{ "task_key": "ingest" }]\n    },\n    {\n      "task_key": "publish",\n      "depends_on": [{ "task_key": "transform" }]\n    }\n  ]\n}'
+            code: '{\n  "tasks": [\n    { "task_key": "ingest_bronze" },\n    {\n      "task_key": "transform_silver",\n      "depends_on": [{ "task_key": "ingest_bronze" }]\n    },\n    {\n      "task_key": "aggregate_gold",\n      "depends_on": [{ "task_key": "transform_silver" }]\n    },\n    {\n      "task_key": "notify_team",\n      "depends_on": [{ "task_key": "aggregate_gold" }]\n    }\n  ]\n}'
         },
         options: [
-            { id: 'a', label: 'All three tasks run in parallel with no ordering constraints' },
-            { id: 'b', label: 'ingest and publish run in parallel; transform runs last' },
-            { id: 'c', label: 'ingest → transform → publish — a strict linear pipeline' },
-            { id: 'd', label: 'The tasks share a single cluster and run sequentially on the same node' }
+            { id: 'a', label: 'Both aggregate_gold and notify_team are skipped and marked as failed due to the unmet upstream dependency' },
+            { id: 'b', label: 'aggregate_gold runs using cached data from the last successful run; notify_team is skipped' },
+            { id: 'c', label: 'notify_team runs immediately to alert the team while aggregate_gold is skipped' },
+            { id: 'd', label: 'aggregate_gold retries transform_silver automatically before attempting to run' }
         ],
-        correctOptionIds: ['c'],
+        correctOptionIds: ['a'],
         explanation:
-            'depends_on enforces execution order in Databricks Jobs. Here the workflow is linear: ingest → transform → publish. Each task starts only after the preceding one succeeds.',
+            'Databricks Jobs propagates failures through the dependency graph. When transform_silver fails, any task with a transitive depends_on relationship to it — aggregate_gold and notify_team — is marked as Skipped/Failed. No downstream task executes.',
         sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/jobs/']
     },
     {
         id: 'q-t4-cs4',
         topicId: 'topic-04',
-        prompt: 'What schedule does this Databricks job cron expression define?',
+        prompt: 'Lab 10 — The gold layer requires that every enrollment record has a non-null course_id; a NULL would corrupt downstream reports. The team chooses expect_or_fail. How does expect_or_fail differ from expect_or_drop when a quality violation occurs?',
         type: 'single',
         codeSnippet: {
-            language: 'json',
-            code: '{\n  "schedule": {\n    "quartz_cron_expression": "0 0 2 * * ?",\n    "timezone_id": "UTC",\n    "pause_status": "UNPAUSED"\n  }\n}'
+            language: 'python',
+            code: '@dlt.table(comment="Gold enrollment aggregates")\n@dlt.expect_or_fail(\n    "non_null_course_id",\n    "course_id IS NOT NULL"\n)\ndef gold_enrollment_summary():\n    return (\n        dlt.read("silver_enrollments")\n        .groupBy("course_id", "academic_year")\n        .count()\n    )'
         },
         options: [
-            { id: 'a', label: 'Every 2 minutes, every hour, every day' },
-            { id: 'b', label: 'At 2:00 AM UTC on the 2nd of every month' },
-            { id: 'c', label: 'Every day at 02:00 UTC' },
-            { id: 'd', label: 'At midnight UTC every 2 hours' }
+            { id: 'a', label: 'expect_or_fail routes the violating row to a quarantine table; expect_or_drop drops it from the dataset' },
+            { id: 'b', label: 'Both decorators behave identically — the naming difference is only cosmetic' },
+            { id: 'c', label: 'expect_or_fail stops the entire pipeline run on the first quality violation; expect_or_drop removes only the violating rows and continues' },
+            { id: 'd', label: 'expect_or_fail drops the violating row silently; expect_or_drop halts the pipeline' }
         ],
         correctOptionIds: ['c'],
         explanation:
-            'The Quartz cron expression "0 0 2 * * ?" means: second 0, minute 0, hour 2, every day of month, every month, any day of week — i.e., 02:00 UTC daily.',
-        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/jobs/']
+            'expect_or_fail is a strict gate: one bad row stops the whole pipeline run, signalling a data contract breach that must be resolved before output is produced. expect_or_drop is lenient: it filters out bad rows and lets the pipeline continue with clean data.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/delta-live-tables/expectations']
     },
     {
         id: 'q-t4-cs5',
         topicId: 'topic-04',
-        prompt: 'This DLT streaming table uses expect_or_fail. What happens when the first row with a null event_id arrives?',
+        prompt: 'Lab 11 — The ingest_bronze task connects to an external API that returns HTTP 503 intermittently. You configure retry behavior as shown. The API returns 503 on every attempt. After the initial run plus 2 retries all fail, what happens?',
         type: 'single',
         codeSnippet: {
-            language: 'python',
-            code: "@dlt.table\n@dlt.expect_or_fail('non_null_event_id', 'event_id IS NOT NULL')\ndef validated_events():\n    return (spark.readStream\n        .format('kafka')\n        .option('kafka.bootstrap.servers', 'broker:9092')\n        .option('subscribe', 'events')\n        .load())"
+            language: 'json',
+            code: '{\n  "task_key": "ingest_bronze",\n  "max_retries": 2,\n  "min_retry_interval_millis": 120000,\n  "retry_on_timeout": true,\n  "timeout_seconds": 300\n}'
         },
         options: [
-            { id: 'a', label: 'The row is dropped and the pipeline continues processing the next record' },
-            { id: 'b', label: 'The row is routed to a quarantine table automatically' },
-            { id: 'c', label: 'A warning is logged but data flow is unaffected' },
-            { id: 'd', label: 'The entire pipeline run is stopped with a failure on that row' }
+            { id: 'a', label: 'The task retries indefinitely with exponential backoff until the API becomes available' },
+            { id: 'b', label: 'The task falls back to reading a cached dataset from the most recent successful run' },
+            { id: 'c', label: 'Databricks pages the on-call engineer and waits for manual approval before any further attempt' },
+            { id: 'd', label: 'The task is marked as failed after max_retries is exhausted; dependent downstream tasks do not execute' }
         ],
         correctOptionIds: ['d'],
         explanation:
-            'expect_or_fail halts the entire pipeline when any row violates the data quality rule. This is appropriate when bad data (e.g., null event IDs) would corrupt downstream consumers and must never reach the next layer.',
-        sourceUrls: [
-            'https://learn.microsoft.com/en-us/azure/databricks/delta-live-tables/expectations'
-        ]
+            'After max_retries (2) consecutive failures — meaning 3 total attempts (1 initial + 2 retries) — Databricks marks the task as Failed. The job run ends in a failed state and any tasks with depends_on on ingest_bronze are skipped.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/jobs/']
     },
 
-    // ── Topic 05: Code-snippet questions ──────────────────────────────────────
+    // ── Topic 05: Lab-scenario code-snippet questions (Lab 13) ────────────────
     {
         id: 'q-t5-cs1',
         topicId: 'topic-05',
-        prompt: 'What is the performance effect of calling .count() immediately after .cache() on this DataFrame?',
+        prompt: 'Lab 13 — Inspecting the Spark UI you see a large sort-merge join taking 8 minutes. You add a broadcast hint to the small course lookup table (200 rows). In the revised Spark UI stage plan, what change do you observe?',
         type: 'single',
         codeSnippet: {
             language: 'python',
-            code: 'df_events = spark.read.format("delta").load("/delta/gold/events")\ndf_events.cache()\ndf_events.count()  # force materialisation'
+            code: 'from pyspark.sql.functions import broadcast\n\ndf_result = (\n    df_enrollment_facts        # 50 M rows\n    .join(\n        broadcast(df_course_lookup),   # 200 rows\n        on="course_id",\n        how="left"\n    )\n)'
         },
         options: [
-            { id: 'a', label: 'No effect — .cache() is eager and materialises without an action' },
-            { id: 'b', label: 'It evicts the cache and forces re-computation on the next action' },
-            { id: 'c', label: 'It writes the DataFrame to DBFS as a persistent cached file' },
-            { id: 'd', label: 'It triggers a full scan that populates the in-memory cache so subsequent actions skip the source read' }
+            { id: 'a', label: 'The Exchange (shuffle) stage for df_course_lookup is replaced by a BroadcastHashJoin, eliminating network data movement for that table' },
+            { id: 'b', label: 'The join still appears as SortMergeJoin but with a BroadcastHashJoin as a fallback stage' },
+            { id: 'c', label: 'The stage count doubles because broadcasting adds an extra data-preparation stage before the join' },
+            { id: 'd', label: 'The plan shows CartesianProduct because broadcasting removes the join key constraint' }
         ],
-        correctOptionIds: ['d'],
+        correctOptionIds: ['a'],
         explanation:
-            'In Spark, cache() is lazy — it only marks the DataFrame for caching. Calling count() (an action) triggers computation and stores the result in memory. Subsequent actions on df_events then skip the Delta source read entirely.',
+            'Broadcast joins send the small table to every executor in-memory, removing the Exchange (shuffle) stage entirely for that table. In the Spark UI physical plan you see BroadcastHashJoin instead of SortMergeJoin with two Exchange stages, which is the source of the 8-minute bottleneck.',
         sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/optimizations/']
     },
     {
         id: 'q-t5-cs2',
         topicId: 'topic-05',
-        prompt: 'What does the VACUUM command with RETAIN 168 HOURS do to this Delta table?',
+        prompt: 'Lab 13 — You enable AQE before running a large enrollment aggregation. The Spark UI shows some tasks taking 45 seconds while others finish in 2 seconds — a classic data-skew pattern. What does AQE\'s skewJoin feature do when it detects one partition is 5× larger than the median?',
         type: 'single',
         codeSnippet: {
-            language: 'sql',
-            code: 'OPTIMIZE gold.events ZORDER BY (event_date);\n\nVACUUM gold.events RETAIN 168 HOURS;'
+            language: 'python',
+            code: 'spark.conf.set("spark.sql.adaptive.enabled", "true")\nspark.conf.set("spark.sql.adaptive.skewJoin.enabled", "true")\nspark.conf.set("spark.sql.adaptive.coalescePartitions.enabled", "true")\n\ndf_agg = (\n    df_enrollments\n    .groupBy("course_id")\n    .agg({"student_id": "count"})\n)'
         },
         options: [
-            { id: 'a', label: 'Deletes all live data rows older than 168 hours from the table' },
-            { id: 'b', label: 'Retains the last 168 versions of the table for time travel' },
-            { id: 'c', label: 'Removes orphaned data files no longer in the Delta log that are older than 7 days' },
-            { id: 'd', label: 'Compacts all files into one Parquet file and keeps 168 backup copies' }
+            { id: 'a', label: 'Moves the skewed partition to the driver node for single-threaded processing to avoid executor OOM' },
+            { id: 'b', label: 'Drops the skewed partition and logs a DataSkewWarning in the Spark event log' },
+            { id: 'c', label: 'Splits the skewed partition into smaller sub-partitions and replicates matching keys, distributing the load across more tasks and reducing straggler time' },
+            { id: 'd', label: 'Forces all partitions to exactly equal size before the join begins, preventing future skew' }
         ],
         correctOptionIds: ['c'],
         explanation:
-            'VACUUM removes orphaned data files (no longer referenced in the Delta transaction log) older than the retention threshold. 168 hours = 7 days, so time travel within that window remains possible.',
-        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/delta/vacuum']
+            'AQE\'s skew join optimization detects oversized partitions at runtime and splits them into smaller pieces, replicating the matching side as needed. This converts one slow 45-second task into many fast sub-tasks, eliminating the straggler bottleneck.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/optimizations/aqe']
     },
     {
         id: 'q-t5-cs3',
         topicId: 'topic-05',
-        prompt: 'These Spark configuration settings are applied before a large aggregation. What do they collectively enable?',
+        prompt: 'Lab 13 — After months of streaming appends, the gold enrollments table has thousands of small files. You run OPTIMIZE followed by VACUUM. What does VACUUM RETAIN 168 HOURS specifically do?',
         type: 'single',
         codeSnippet: {
-            language: 'python',
-            code: 'spark.conf.set("spark.sql.adaptive.enabled", "true")\nspark.conf.set("spark.sql.adaptive.coalescePartitions.enabled", "true")\nspark.conf.set("spark.sql.adaptive.skewJoin.enabled", "true")'
+            language: 'sql',
+            code: 'OPTIMIZE gold.enrollments\nZORDER BY (academic_year, course_id);\n\nVACUUM gold.enrollments RETAIN 168 HOURS;'
         },
         options: [
-            { id: 'a', label: 'Adaptive Query Execution — re-optimises the query plan at runtime based on actual partition statistics' },
-            { id: 'b', label: 'Broadcast joins for all tables regardless of size' },
-            { id: 'c', label: 'Static partition pruning based on compile-time metadata' },
-            { id: 'd', label: 'Delta Lake change data capture on the output table' }
+            { id: 'a', label: 'Deletes all live data rows in gold.enrollments that were inserted more than 7 days ago' },
+            { id: 'b', label: 'Removes orphaned data files no longer referenced in the Delta transaction log that are older than 7 days, while preserving time-travel access within that window' },
+            { id: 'c', label: 'Retains exactly 168 historical table versions for time travel and deletes all older versions' },
+            { id: 'd', label: 'Compacts all table files into one Parquet file and keeps 168 backup copies of the pre-compaction state' }
         ],
-        correctOptionIds: ['a'],
+        correctOptionIds: ['b'],
         explanation:
-            'Adaptive Query Execution (AQE) collects runtime statistics from each stage and re-optimises the remainder of the query. coalescePartitions merges small shuffle partitions; skewJoin splits skewed partitions to reduce stragglers.',
-        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/optimizations/aqe']
+            'VACUUM removes orphaned files — data files that are no longer referenced by the Delta transaction log — older than the retention threshold (168 h = 7 days). Live data rows are untouched. Time travel to any commit within the 7-day window still works.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/delta/vacuum']
     },
     {
         id: 'q-t5-cs4',
         topicId: 'topic-05',
-        prompt: 'What performance optimisation does the broadcast() hint provide in this Spark join?',
+        prompt: 'Lab 13 — You compare the same SQL aggregation on a standard cluster versus a Photon-enabled cluster configured as shown. Which workload type benefits most from the Photon runtime?',
         type: 'single',
         codeSnippet: {
             language: 'python',
-            code: 'from pyspark.sql.functions import broadcast\n\nresult = df_orders.join(\n    broadcast(df_lookup_codes),\n    on="status_code",\n    how="left"\n)'
+            code: 'photon_cluster = {\n    "cluster_name": "lab13-photon",\n    "spark_version": "14.3.x-photon-scala2.12",\n    "node_type_id": "Standard_DS4_v2",\n    "num_workers": 4\n}'
         },
         options: [
-            { id: 'a', label: 'Shuffles df_orders across all worker nodes for a sort-merge join' },
-            { id: 'b', label: 'Sends the smaller df_lookup_codes to every executor, avoiding a shuffle of the large table' },
-            { id: 'c', label: 'Caches df_lookup_codes to DBFS for reuse across multiple jobs' },
-            { id: 'd', label: 'Partitions df_orders by status_code to co-locate matching rows' }
+            { id: 'a', label: 'Python UDFs and custom pandas transformations that run on the driver node' },
+            { id: 'b', label: 'MLflow model training jobs using scikit-learn or PyTorch estimators' },
+            { id: 'c', label: 'Kafka consumer microservices that process fewer than 100 events per second' },
+            { id: 'd', label: 'SQL aggregations, DataFrame operations, and Delta Lake reads/writes using vectorised native execution' }
         ],
-        correctOptionIds: ['b'],
+        correctOptionIds: ['d'],
         explanation:
-            'A broadcast join sends the smaller DataFrame to all executors in-memory, eliminating the expensive shuffle of the large df_orders table. Effective when the smaller table fits in executor memory (< 200 MB by default).',
-        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/optimizations/']
+            'Photon is a vectorised C++ query engine that accelerates SQL and DataFrame operations on Delta Lake. It does not accelerate Python UDFs (which run in the Python interpreter), ML training, or low-throughput streaming workloads.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/runtime/photon']
     },
     {
         id: 'q-t5-cs5',
         topicId: 'topic-05',
-        prompt: 'A cluster uses the Photon runtime as shown. Which workload type benefits most from Photon?',
+        prompt: 'Lab 13 — You profile a notebook that reads the same gold Delta table three times across different cells. Your instructor shows you how caching eliminates redundant scans. Why is df_gold.count() called immediately after .cache()?',
         type: 'single',
         codeSnippet: {
             language: 'python',
-            code: 'cluster = {\n    "cluster_name": "photon-prod",\n    "spark_version": "14.3.x-photon-scala2.12",\n    "node_type_id": "Standard_DS4_v2",\n    "num_workers": 8\n}'
+            code: 'df_gold = spark.read.format("delta").load(\n    "abfss://gold@labstorage.dfs.core.windows.net/enrollments"\n)\n\ndf_gold.cache()\ndf_gold.count()  # materialise the cache\n\n# Later cells reuse df_gold without re-reading Delta\nagg_by_year = df_gold.groupBy("academic_year").count()\nagg_by_dept = df_gold.groupBy("dept_code").count()'
         },
         options: [
-            { id: 'a', label: 'Python UDFs and pandas-based transformations running on the driver' },
-            { id: 'b', label: 'Machine learning model training using MLflow autologging' },
-            { id: 'c', label: 'Streaming micro-batch jobs processing fewer than 100 records per second' },
-            { id: 'd', label: 'SQL queries, DataFrame operations, and Delta Lake reads/writes using vectorised execution' }
+            { id: 'a', label: '.count() is required by the Spark API to register a DataFrame for caching — without it, .cache() has no effect' },
+            { id: 'b', label: '.cache() is lazy and only marks the DataFrame for caching; .count() is an action that triggers the full scan and loads data into executor memory so later actions skip the Delta source read' },
+            { id: 'c', label: '.count() validates that the Delta table has no null rows before allowing the cache to be populated' },
+            { id: 'd', label: 'Calling .count() after .cache() flushes any stale cached data and forces a fresh re-read from Delta' }
         ],
-        correctOptionIds: ['d'],
+        correctOptionIds: ['b'],
         explanation:
-            'Photon is a vectorised query engine implemented in C++ that accelerates SQL and DataFrame operations on Delta Lake. It does not accelerate Python UDFs or ML training workloads, which execute outside the Photon engine.',
-        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/runtime/photon']
+            'Spark transformations including .cache() are lazy — they describe a computation plan without executing it. Only an action such as .count() triggers actual execution. The .count() scan populates the in-memory cache so agg_by_year and agg_by_dept reuse cached data instead of re-reading the Delta source.',
+        sourceUrls: ['https://learn.microsoft.com/en-us/azure/databricks/optimizations/']
     }
 ];
 

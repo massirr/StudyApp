@@ -19,6 +19,16 @@
   letter-spacing: 0.05em;
 }
 
+.multiSelectHint {
+  margin: -0.25rem 0 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  opacity: 0.55;
+}
+
 .optionLabel {
   display: flex;
   align-items: center;

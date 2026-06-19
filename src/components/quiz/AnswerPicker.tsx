@@ -51,6 +51,9 @@ const AnswerPicker: React.FC<Props> = ({
   return (
     <fieldset className={styles.answerPicker} aria-labelledby="quiz-legend">
       <legend id="quiz-legend" className={styles.legend}>Choose your answer:</legend>
+      {question.type === 'multiple' && (
+        <p className={styles.multiSelectHint}>Select all that apply</p>
+      )}
       {renderOptions()}
     </fieldset>
   );

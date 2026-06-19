@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { TOPICS } from '../../data/topics';
-import { getAllQuestions, getQuestionsForTopic } from '../../data/questions';
+import { getAllQuestions, getCodeSnippetQuestionsForTopic, getQuestionsForTopic } from '../../data/questions';
 import { useQuizState } from '../../hooks/useQuizState';
 import AnswerPicker from './AnswerPicker';
 import FeedbackPanel from './FeedbackPanel';
@@ -11,9 +11,10 @@ import styles from './QuizPage.module.css';
 
 interface QuizPageProps {
   topicSlug?: string;
+  level?: 1 | 2;
 }
 
-const QuizPage: React.FC<QuizPageProps> = ({ topicSlug }) => {
+const QuizPage: React.FC<QuizPageProps> = ({ topicSlug, level = 1 }) => {
   const [showFeedback, setShowFeedback] = useState(false);
 
   const topic = useMemo(
@@ -25,9 +26,13 @@ const QuizPage: React.FC<QuizPageProps> = ({ topicSlug }) => {
 
   const questions = useMemo(() => {
     if (topicNotFound) return [];
-    if (topic) return getQuestionsForTopic(topic.id);
+    if (topic) {
+      return level === 2
+        ? getCodeSnippetQuestionsForTopic(topic.id)
+        : getQuestionsForTopic(topic.id);
+    }
     return getAllQuestions();
-  }, [topic, topicNotFound]);
+  }, [topic, topicNotFound, level]);
 
   const {
     currentQuestion,

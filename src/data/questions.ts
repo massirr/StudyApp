@@ -1476,9 +1476,13 @@ QUESTION_BANK.forEach((question) => {
 const NORMALIZED_QUESTION_BANK = QUESTION_BANK.map(enrichQuestion);
 
 export const getQuestionsForTopic = (topicId: string): QuizQuestion[] =>
-    NORMALIZED_QUESTION_BANK.filter((question) => question.topicId === topicId);
+    NORMALIZED_QUESTION_BANK.filter((q) => q.topicId === topicId && !q.codeSnippet);
+
+export const getCodeSnippetQuestionsForTopic = (topicId: string): QuizQuestion[] =>
+    NORMALIZED_QUESTION_BANK.filter((q) => q.topicId === topicId && !!q.codeSnippet);
 
 export const getQuestionCountForTopic = (topicId: string): number =>
     getQuestionsForTopic(topicId).length;
 
-export const getAllQuestions = (): QuizQuestion[] => NORMALIZED_QUESTION_BANK;
+export const getAllQuestions = (): QuizQuestion[] =>
+    NORMALIZED_QUESTION_BANK.filter((q) => !q.codeSnippet);

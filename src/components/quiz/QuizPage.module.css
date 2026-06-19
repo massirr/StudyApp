@@ -108,6 +108,37 @@
   font-style: italic;
 }
 
+.level2Button {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  box-shadow: 7px 7px 0 rgba(230, 190, 144, 1);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  align-self: flex-start;
+}
+
+.level2Button:hover {
+  transform: translateY(-2px);
+  box-shadow: 9px 9px 0 rgba(230, 190, 144, 1);
+}
+
+.level2Hint {
+  margin: 0.25rem 0 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(7, 7, 7, 0.55);
+  font-style: italic;
+}
+
 .scoreActions {
   display: flex;
   gap: 12px;

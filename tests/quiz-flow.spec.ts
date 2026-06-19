@@ -51,7 +51,7 @@ test('score screen shows after completing all topic questions', async ({ page })
     }
 
     await expect(page.getByText(/\d+ \/ \d+/)).toBeVisible();
-    await expect(page.getByText(/%/)).toBeVisible();
+    await expect(page.getByText(/^\d+%$/)).toBeVisible();
     await expect(page.getByRole('button', { name: 'Retake Quiz' })).toBeVisible();
     await expect(page.getByRole('link', { name: 'Back to Dashboard' })).toBeVisible();
 });

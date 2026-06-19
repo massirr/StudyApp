@@ -102,6 +102,7 @@ const QuizPage: React.FC<QuizPageProps> = ({ topicSlug, level = 1 }) => {
   if (isComplete && !showFeedback) {
     const pct = total > 0 ? Math.round((correctCount / total) * 100) : 0;
     const passed = pct >= 80;
+    const unlocksLevel2 = pct >= 70;
     const scoreMessage =
       pct >= 80
         ? 'Excellent — you passed!'
@@ -111,6 +112,7 @@ const QuizPage: React.FC<QuizPageProps> = ({ topicSlug, level = 1 }) => {
     const alreadyCompleted = topic
       ? progress.completedTopicIds.includes(topic.id)
       : false;
+    const showLevel2Cta = !!topicSlug && level !== 2;
 
     return (
       <section className={styles.quizPageContainer}>
@@ -127,6 +129,20 @@ const QuizPage: React.FC<QuizPageProps> = ({ topicSlug, level = 1 }) => {
           </p>
           {topicSlug && alreadyCompleted && (
             <p className={styles.autoCompleteNote}>Topic marked as complete.</p>
+          )}
+          {showLevel2Cta && (
+            unlocksLevel2 ? (
+              <a
+                className={styles.level2Button}
+                href={`/quiz?topic=${topicSlug}&level=2`}
+              >
+                Try Level 2: Code Questions →
+              </a>
+            ) : (
+              <p className={styles.level2Hint}>
+                Score 70% or higher to unlock code questions.
+              </p>
+            )
           )}
           <div className={styles.scoreActions}>
             <button className={styles.submitButton} onClick={handleRestart}>

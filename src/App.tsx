@@ -7,8 +7,15 @@ import QuizPage from './pages/QuizPage';
 import TopicPage from './pages/TopicPage';
 
 const normalizePathname = (pathname: string): string => {
-  const normalized = pathname.replace(/\/+$/, '');
-  return normalized === '' ? '/' : normalized;
+  let normalized = pathname.replace(/\/+$/, '');
+  if (normalized === '') normalized = '/';
+  // Redirect /topic/ (singular) → /topics/ (plural)
+  if (normalized.startsWith('/topic/') && !normalized.startsWith('/topics/')) {
+    const newPath = '/topics/' + normalized.slice('/topic/'.length);
+    window.history.replaceState(null, '', newPath);
+    return newPath;
+  }
+  return normalized;
 };
 
 function App() {

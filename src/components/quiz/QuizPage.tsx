@@ -21,13 +21,13 @@ const QuizPage: React.FC<QuizPageProps> = ({ topicSlug }) => {
     [topicSlug]
   );
 
-  const questions = useMemo(() => {
-    if (topic) {
-      return getQuestionsForTopic(topic.id);
-    }
+  const topicNotFound = topicSlug !== undefined && topic === undefined;
 
+  const questions = useMemo(() => {
+    if (topicNotFound) return [];
+    if (topic) return getQuestionsForTopic(topic.id);
     return getAllQuestions();
-  }, [topic]);
+  }, [topic, topicNotFound]);
 
   const {
     currentQuestion,
@@ -65,6 +65,15 @@ const QuizPage: React.FC<QuizPageProps> = ({ topicSlug }) => {
     setShowFeedback(false);
     restart();
   };
+
+  if (topicNotFound) {
+    return (
+      <section className={styles.quizPageContainer}>
+        <h1>DP-750 Quiz</h1>
+        <p>No topic found for <strong>"{topicSlug}"</strong>. Check the URL or return to the <a href="/">Dashboard</a>.</p>
+      </section>
+    );
+  }
 
   if (!currentQuestion) {
     return (

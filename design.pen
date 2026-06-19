@@ -841,7 +841,7 @@
           "y": 66.99687214804896,
           "fill": "#e6be90ff",
           "width": 275,
-          "height": 38
+          "height": 50
         },
         {
           "type": "text",
@@ -863,7 +863,7 @@
           "textGrowth": "fixed-width-height",
           "width": 349,
           "height": 9,
-          "content": "Plan and Design Azure Databricks Workloads",
+          "content": "Plan and Design Azure Databricks\n Workloads",
           "fontFamily": "Inter",
           "fontSize": 16,
           "fontWeight": "600"

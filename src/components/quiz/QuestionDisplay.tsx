@@ -19,6 +19,7 @@ const QuestionDisplay: React.FC<Props> = ({ question, onSourceClick }) => {
       <p className={styles.questionText}>{question.prompt}</p>
       {question.codeSnippet && (
         <div className={styles.codeBlock} role="region" aria-label="Code snippet">
+          <span className={styles.codeLabel}>{question.codeSnippet.language}</span>
           <pre className={styles.pre}>
             <code>{question.codeSnippet.code}</code>
           </pre>

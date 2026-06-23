@@ -18,13 +18,7 @@ export function PixelLogo() {
       stagger: { each: 0.008, from: 'random' },
       ease: 'none',
       onComplete: () => {
-        gsap.to(svg, {
-          y: -3,
-          duration: 1.5,
-          repeat: -1,
-          yoyo: true,
-          ease: 'sine.inOut',
-        });
+        gsap.to(svg, { y: -4, duration: 1.5, repeat: -1, yoyo: true, ease: 'sine.inOut' });
         cursor.style.opacity = '1';
         cursor.classList.add('pixel-cursor-blink');
       },
@@ -38,12 +32,17 @@ export function PixelLogo() {
 
   return (
     <div style={{ display: 'flex', alignItems: 'center' }}>
+      {/*
+        viewBox cropped to content bounds: x=0..57, y=8..23
+        Pixel art lives at x=9..52, y=12..19 — 4px padding each side.
+        At 6× scale: width = 58×6 = 348px, height = 16×6 = 96px
+      */}
       <svg
         ref={svgRef}
         xmlns="http://www.w3.org/2000/svg"
-        width={480}
-        height={192}
-        viewBox="0 0 80 32"
+        width={348}
+        height={96}
+        viewBox="0 8 58 16"
         shapeRendering="crispEdges"
         style={{ imageRendering: 'pixelated', display: 'block', maxWidth: '100%', height: 'auto' }}
       >
@@ -192,10 +191,11 @@ export function PixelLogo() {
           opacity: 0,
           color: '#d58400',
           fontFamily: 'monospace',
-          fontSize: '3rem',
+          fontSize: '48px',
           lineHeight: 1,
           userSelect: 'none',
           flexShrink: 0,
+          marginLeft: '4px',
         }}
       >▌</span>
     </div>

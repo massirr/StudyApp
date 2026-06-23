@@ -16,6 +16,7 @@
 
 body {
   margin: 0;
+  min-height: 100vh;
   min-height: 100svh;
   background:
     radial-gradient(circle at top left, rgba(236, 193, 137, 0.66), transparent 30%),
@@ -159,6 +160,7 @@ a:hover {
   font-size: clamp(1.85rem, 3.5vw, 3rem);
   line-height: 1;
   max-width: 16ch;
+  margin-top: 20px;
 }
 
 .dashboard-stats {

@@ -3,6 +3,7 @@ import { TOPICS } from '../data/topics';
 import { getQuestionCountForTopic } from '../data/questions';
 import { useProgress } from '../hooks/useProgress';
 import { getResumeTopicSlug } from '../utils/resumeTopic';
+import { PixelLogo } from '../components/common/PixelLogo';
 
 const DashboardPage: React.FC = () => {
     const { progress, toggleTopicComplete, resetProgress } = useProgress();
@@ -21,6 +22,7 @@ const DashboardPage: React.FC = () => {
     return (
         <section aria-label="Dashboard" className="dashboard-page">
             <header>
+                <PixelLogo />
                 <h1>DP-750 Study Dashboard</h1>
                 <p className="dashboard-subtitle">
                     Follow your topic path, resume where you left off, and keep progress in this browser.

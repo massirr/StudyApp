@@ -46,7 +46,7 @@ type Pos = React.CSSProperties;
 
 export function DashboardBg() {
   return (
-    <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', overflow: 'hidden', zIndex: -1 }}>
+    <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', overflow: 'visible', zIndex: -1 }}>
 
       {/* ── Delta triangles ── */}
       <div style={{ position: 'absolute', top: -20, right: -30, opacity: 0.07 } as Pos}>

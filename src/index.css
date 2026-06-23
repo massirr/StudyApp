@@ -58,13 +58,9 @@ a:hover {
   width: fit-content;
   margin: 0 auto;
   position: relative;
-  background: var(--paper-strong);
-  color: var(--ink);
-  font-weight: 700;
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
-  text-transform: none;
-  padding: 0.6rem 1rem;
+  padding: 0;
+  background: none;
+  line-height: 0;
 }
 
 .app-main {

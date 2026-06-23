@@ -23,7 +23,6 @@ const DashboardPage: React.FC = () => {
         <section aria-label="Dashboard" className="dashboard-page">
             <header>
                 <PixelLogo />
-                <h1>DP-750 Study Dashboard</h1>
                 <p className="dashboard-subtitle">
                     Follow your topic path, resume where you left off, and keep progress in this browser.
                 </p>

@@ -151,7 +151,7 @@ a:hover {
 }
 
 .dashboard-subtitle {
-  margin-top: 0;
+  margin-top: 12px;
   color: var(--ink-soft);
   font-size: 1rem;
 }
@@ -160,8 +160,17 @@ a:hover {
   font-size: clamp(1.85rem, 3.5vw, 3rem);
   line-height: 1;
   max-width: 16ch;
-  margin-top: 20px;
 }
+
+@keyframes pixel-cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.pixel-cursor-blink {
+  animation: pixel-cursor-blink 1s step-start infinite;
+}
+
 
 .dashboard-stats {
   display: grid;
@@ -172,7 +181,7 @@ a:hover {
 
 .stat-card {
   background: linear-gradient(180deg, rgba(230, 190, 144, 0.9), rgba(230, 190, 144, 0.92));
-  border: 0;
+  border: 2px solid #070707;
   border-radius: 0;
   padding: 18px 16px;
   display: flex;

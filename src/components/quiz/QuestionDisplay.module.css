@@ -19,6 +19,8 @@
 .codeBlock {
   margin-bottom: 1.25rem;
   border-radius: 0;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .codeLabel {
@@ -46,6 +48,8 @@
   white-space: pre;
   color: #e8ddd0;
   margin: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .mediaContainer {
@@ -95,6 +99,31 @@
   .pre {
     font-size: 0.75rem;
     padding: 0.75rem 1rem;
+  }
+
+  .mediaContainer {
+    margin-bottom: 0.75rem;
+  }
+
+  .sourceButton {
+    padding: 0.5rem 0.85rem;
+    font-size: 0.85rem;
+    box-shadow: 5px 5px 0 rgba(7, 7, 7, 1);
+  }
+}
+
+@media (max-width: 480px) {
+  .questionText {
+    font-size: 1.05rem;
+  }
+
+  .pre {
+    font-size: 0.7rem;
+    padding: 0.65rem 0.85rem;
+  }
+
+  .codeBlock {
+    margin-bottom: 0.75rem;
   }
 
   .mediaContainer {

@@ -68,3 +68,19 @@
     height: 8px;
   }
 }
+
+@media (max-width: 480px) {
+  .quizHeader h1 {
+    font-size: 0.82rem;
+    padding: 0.42rem 0.6rem;
+    margin-bottom: 6px;
+  }
+
+  .progressBar {
+    height: 6px;
+  }
+
+  .progressContainer span {
+    font-size: 0.73rem;
+  }
+}

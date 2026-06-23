@@ -44,6 +44,9 @@
   color: var(--ink);
   font-size: clamp(0.875rem, 2.5vw + 0.25rem, 1rem);
   line-height: 1.5;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  min-width: 0;
 }
 
 .optionLabel:hover {

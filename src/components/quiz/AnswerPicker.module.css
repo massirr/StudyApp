@@ -42,6 +42,8 @@
     box-shadow 0.18s ease;
   background: rgba(255, 250, 241, 0.86);
   color: var(--ink);
+  font-size: clamp(0.875rem, 2.5vw + 0.25rem, 1rem);
+  line-height: 1.5;
 }
 
 .optionLabel:hover {

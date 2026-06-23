@@ -7,14 +7,17 @@
 }
 
 .quizHeader h1 {
-  display: inline-block;
+  display: block;
+  width: fit-content;
+  max-width: 100%;
   margin: 0 0 12px;
   padding: 0.7rem 1rem;
-  font-size: 1rem;
+  font-size: clamp(0.8rem, 2vw + 0.4rem, 1rem);
   color: var(--ink);
   font-weight: 700;
   background: var(--paper-strong);
   box-shadow: 7px 7px 0 rgba(7, 7, 7, 1);
+  box-sizing: border-box;
 }
 
 .progressContainer {

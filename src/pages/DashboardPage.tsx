@@ -4,7 +4,6 @@ import { getQuestionCountForTopic } from '../data/questions';
 import { useProgress } from '../hooks/useProgress';
 import { getResumeTopicSlug } from '../utils/resumeTopic';
 import { PixelLogo } from '../components/common/PixelLogo';
-import { DashboardBg } from '../components/common/DashboardBg';
 
 const DashboardPage: React.FC = () => {
     const { progress, toggleTopicComplete, resetProgress } = useProgress();
@@ -21,8 +20,7 @@ const DashboardPage: React.FC = () => {
     });
 
     return (
-        <section aria-label="Dashboard" className="dashboard-page" style={{ position: 'relative', zIndex: 0 }}>
-            <DashboardBg />
+        <section aria-label="Dashboard" className="dashboard-page">
             <header>
                 <PixelLogo />
                 <p className="dashboard-subtitle">

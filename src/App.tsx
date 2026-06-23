@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import AppShell from './components/AppShell';
+import { DashboardBg } from './components/common/DashboardBg';
 import { getTopicBySlug } from './data/topics';
 import DashboardPage from './pages/DashboardPage';
 import NotFoundPage from './pages/NotFoundPage';
@@ -46,7 +47,14 @@ function App() {
     content = <NotFoundPage />;
   }
 
-  return <AppShell>{content}</AppShell>;
+  return (
+    <>
+      <DashboardBg />
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        <AppShell>{content}</AppShell>
+      </div>
+    </>
+  );
 }
 
 export default App;

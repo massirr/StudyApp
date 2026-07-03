@@ -63,6 +63,24 @@ a:hover {
   line-height: 0;
 }
 
+.github-link {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ink);
+  opacity: 0.45;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.18s ease;
+  text-decoration: none;
+}
+
+.github-link:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
 .app-main {
   padding: 18px 24px max(48px, calc(24px + env(safe-area-inset-bottom, 0px)));
 }

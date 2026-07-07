@@ -176,7 +176,7 @@ export function validateSubject(raw: unknown): Subject {
 Files: create `scripts/migrate-dp750-to-json.mjs` (throwaway), `src/data/subjects/dp-750.json`, `src/data/subjects/index.ts`, `src/data/subjects/index.test.ts`; modify `tsconfig.json`.
 Produces: `getSubjects(): Subject[]`, `getSubjectBySlug(slug): Subject | undefined`, and subject-scoped helpers.
 
-- [ ] 3.1 Write `scripts/migrate-dp750-to-json.mjs` (run via `npx tsx`). Per **D8**, bake enrichment: the exported helpers already return the enriched (padded, 4-option) questions, and preserve the `codeSnippet` field. Build the full bank as the union over topics of regular + code-snippet questions so both tiers are captured with enrichment baked in.
+- [x] 3.1 Write `scripts/migrate-dp750-to-json.mjs` (run via `npx tsx`). Per **D8**, bake enrichment: the exported helpers already return the enriched (padded, 4-option) questions, and preserve the `codeSnippet` field. Build the full bank as the union over topics of regular + code-snippet questions so both tiers are captured with enrichment baked in.
 
 ```js
 import { writeFileSync } from 'node:fs';
@@ -202,8 +202,8 @@ writeFileSync(new URL('../src/data/subjects/dp-750.json', import.meta.url), JSON
 console.log(`Wrote dp-750.json: ${TOPICS.length} topics, ${questions.length} questions`);
 ```
 
-- [ ] 3.2 Run `npx tsx scripts/migrate-dp750-to-json.mjs` — expect `5 topics, N questions` and a new `dp-750.json`.
-- [ ] 3.3 Write failing loader test `src/data/subjects/index.test.ts`:
+- [x] 3.2 Run `npx tsx scripts/migrate-dp750-to-json.mjs` — expect `5 topics, N questions` and a new `dp-750.json`.
+- [x] 3.3 Write failing loader test `src/data/subjects/index.test.ts`:
 
 ```ts
 import { describe, expect, it } from 'vitest';
@@ -225,8 +225,8 @@ describe('subject registry', () => {
 });
 ```
 
-- [ ] 3.4 Run `npm run test:unit` — expect FAIL (no `./index`).
-- [ ] 3.5 Implement `src/data/subjects/index.ts` and add `"resolveJsonModule": true` to `tsconfig.json` if absent:
+- [x] 3.4 Run `npm run test:unit` — expect FAIL (no `./index`).
+- [x] 3.5 Implement `src/data/subjects/index.ts` and add `"resolveJsonModule": true` to `tsconfig.json` if absent:
 
 ```ts
 import { Subject } from '../../types/study';
@@ -253,8 +253,8 @@ export const getAllQuestions = (subject: Subject) =>
   subject.questions.filter((q) => !q.codeSnippet);
 ```
 
-- [ ] 3.6 Run `npm run test:unit && npm run build` — expect PASS. (Physical deletion of old `.ts` data files is deferred to §5 so the app keeps compiling; §3 only ADDs JSON + loader.)
-- [ ] 3.7 Commit: `feat(content): migrate DP-750 to JSON + subject registry loader`.
+- [x] 3.6 Run `npm run test:unit && npm run build` — expect PASS. (Physical deletion of old `.ts` data files is deferred to §5 so the app keeps compiling; §3 only ADDs JSON + loader.)
+- [x] 3.7 Commit: `feat(content): migrate DP-750 to JSON + subject registry loader`.
 
 ## 4. Route parsing + subject picker page
 

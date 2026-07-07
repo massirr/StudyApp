@@ -69,7 +69,7 @@ export interface ProgressStateV2 {
 Files: create `src/data/subjects/schema.ts`, `src/data/subjects/schema.test.ts`; modify `vite.config.ts`, `package.json`.
 Produces: `SUPPORTED_GLYPHS: Set<string>`, `validateSubject(raw: unknown): Subject` (throws), `isSupportedLabel(label): boolean`.
 
-- [ ] 2.1 Add vitest: `npm i -D vitest@^2`; add script `"test:unit": "vitest run"` (keep `"test": "playwright test"`); enable in `vite.config.ts`:
+- [x] 2.1 Add vitest: `npm i -D vitest@^2`; add script `"test:unit": "vitest run"` (keep `"test": "playwright test"`); enable in `vite.config.ts`:
 
 ```ts
 /// <reference types="vitest/config" />
@@ -83,7 +83,7 @@ export default defineConfig({
 })
 ```
 
-- [ ] 2.2 Write failing test `src/data/subjects/schema.test.ts`:
+- [x] 2.2 Write failing test `src/data/subjects/schema.test.ts`:
 
 ```ts
 import { describe, expect, it } from 'vitest';
@@ -125,8 +125,8 @@ describe('isSupportedLabel', () => {
 });
 ```
 
-- [ ] 2.3 Run `npm run test:unit` — expect FAIL (no exports).
-- [ ] 2.4 Implement `src/data/subjects/schema.ts`:
+- [x] 2.3 Run `npm run test:unit` — expect FAIL (no exports).
+- [x] 2.4 Implement `src/data/subjects/schema.ts`:
 
 ```ts
 import { Subject, SourcePolicy } from '../../types/study';
@@ -168,8 +168,8 @@ export function validateSubject(raw: unknown): Subject {
 }
 ```
 
-- [ ] 2.5 Run `npm run test:unit` — expect PASS.
-- [ ] 2.6 Commit: `feat(content): add subject schema validation + vitest`.
+- [x] 2.5 Run `npm run test:unit` — expect PASS.
+- [x] 2.6 Commit: `feat(content): add subject schema validation + vitest`.
 
 ## 3. Migrate DP-750 content to JSON + registry loader
 

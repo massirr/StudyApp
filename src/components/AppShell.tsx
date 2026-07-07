@@ -25,6 +25,12 @@ const AppShell: React.FC<AppShellProps> = ({ children }) => {
                 </a>
             </header>
             <main className="app-main">{children}</main>
+            <footer className="app-footer">
+                {/* ponytail: "Microsoft" is DP-750-specific; make subject-driven in the multi-subject generalization (#3) */}
+                <p>Unofficial study aid — not affiliated with or endorsed by Microsoft.</p>
+                <p>No account needed · Anonymous analytics via Vercel.</p>
+                <p>© {new Date().getFullYear()} · Irakoze</p>
+            </footer>
         </div>
     );
 };

@@ -27,8 +27,8 @@ Implementation plan for this change. Execute top to bottom; each numbered sectio
 Files: modify `src/types/study.ts`, `src/types/quiz.ts`.
 Produces: `SourcePolicy = 'microsoft-only' | 'any'`; `Subject`; `QuizQuestion.level?: number`; `SubjectProgress`, `ProgressStateV2`.
 
-- [ ] 1.1 Add `level?: number` to `QuizQuestion` in `src/types/quiz.ts` (below `codeSnippet?`), commented "reserved for future tiered quizzes; unused in this release".
-- [ ] 1.2 Add to `src/types/study.ts`:
+- [x] 1.1 Add `level?: number` to `QuizQuestion` in `src/types/quiz.ts` (below `codeSnippet?`), commented "reserved for future tiered quizzes; unused in this release".
+- [x] 1.2 Add to `src/types/study.ts`:
 
 ```ts
 import { QuizQuestion } from './quiz';
@@ -61,8 +61,8 @@ export interface ProgressStateV2 {
 }
 ```
 
-- [ ] 1.3 Run `npx tsc --noEmit` — expect PASS (old `ProgressState` stays until §9).
-- [ ] 1.4 Commit: `feat(types): add Subject, SourcePolicy, progress v2, optional level`.
+- [x] 1.3 Run `npx tsc --noEmit` — expect PASS (old `ProgressState` stays until §9).
+- [x] 1.4 Commit: `feat(types): add Subject, SourcePolicy, progress v2, optional level`.
 
 ## 2. Subject schema validation + vitest setup
 

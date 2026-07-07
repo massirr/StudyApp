@@ -261,7 +261,7 @@ export const getAllQuestions = (subject: Subject) =>
 Files: create `src/lib/route.ts`, `src/lib/route.test.ts`, `src/pages/SubjectPickerPage.tsx`; modify `src/App.tsx`.
 Produces: `parseRoute(pathname): Route`.
 
-- [ ] 4.1 Write failing test `src/lib/route.test.ts`:
+- [x] 4.1 Write failing test `src/lib/route.test.ts`:
 
 ```ts
 import { describe, expect, it } from 'vitest';
@@ -278,8 +278,8 @@ describe('parseRoute', () => {
 });
 ```
 
-- [ ] 4.2 Run `npm run test:unit` — expect FAIL.
-- [ ] 4.3 Implement `src/lib/route.ts`:
+- [x] 4.2 Run `npm run test:unit` — expect FAIL.
+- [x] 4.3 Implement `src/lib/route.ts`:
 
 ```ts
 export type Route =
@@ -303,8 +303,8 @@ export function parseRoute(pathname: string): Route {
 }
 ```
 
-- [ ] 4.4 Run `npm run test:unit` — expect PASS.
-- [ ] 4.5 Create `src/pages/SubjectPickerPage.tsx` (lists `getSubjects()` as links to `/${slug}`), add minimal `.subject-picker*` styles to `index.css` reusing the dashboard card pattern:
+- [x] 4.4 Run `npm run test:unit` — expect PASS.
+- [x] 4.5 Create `src/pages/SubjectPickerPage.tsx` (lists `getSubjects()` as links to `/${slug}`), add minimal `.subject-picker*` styles to `index.css` reusing the dashboard card pattern:
 
 ```tsx
 import React from 'react';
@@ -328,7 +328,7 @@ const SubjectPickerPage: React.FC = () => (
 export default SubjectPickerPage;
 ```
 
-- [ ] 4.6 Rewrite the matcher in `src/App.tsx` to `switch (parseRoute(pathname).kind)`; resolve subject via `getSubjectBySlug`; unknown subject → `NotFoundPage`; `redirect` → `window.history.replaceState(null,'',route.to)` then re-read pathname (mirror existing normalize/popstate). Keep `DashboardBg` + `AppShell`. Pages gain a `subject: Subject` prop — make it **optional** here, required in §5, so the build stays green between sections.
+- [x] 4.6 Rewrite the matcher in `src/App.tsx` to `switch (parseRoute(pathname).kind)`; resolve subject via `getSubjectBySlug`; unknown subject → `NotFoundPage`; `redirect` → `window.history.replaceState(null,'',route.to)` then re-read pathname (mirror existing normalize/popstate). Keep `DashboardBg` + `AppShell`. Pages gain a `subject: Subject` prop — make it **optional** here, required in §5, so the build stays green between sections.
 
 ```tsx
 const route = parseRoute(pathname);
@@ -343,25 +343,25 @@ switch (route.kind) {
 }
 ```
 
-- [ ] 4.7 Run `npm run test:unit` — route tests PASS.
-- [ ] 4.8 Commit: `feat(routing): subject-scoped routes + subject picker`.
+- [x] 4.7 Run `npm run test:unit` — route tests PASS.
+- [x] 4.8 Commit: `feat(routing): subject-scoped routes + subject picker`.
 
 ## 5. Scope pages to the active subject
 
 Files: modify `src/pages/{DashboardPage,TopicPage,QuizPage}.tsx`, `src/components/quiz/QuizPage.tsx`; delete `src/data/{topics,questions,sources,contentNotes}.ts`.
 
-- [ ] 5.1 `DashboardPage({ subject })`: read `subject.topics`/`subject.tagline`; topic links → `/${subject.slug}/topics/${t.slug}`; quiz/resume links → `/${subject.slug}/quiz`. (Hero pixel logo wired in §8.)
-- [ ] 5.2 `TopicPage({ subject, topic })`: "Open Quiz" CTA → `/${subject.slug}/quiz?topic=${topic.slug}`.
-- [ ] 5.3 `src/pages/QuizPage.tsx` wrapper `({ subject })`: read `?topic` from `window.location.search`; pass `subject` + `topicSlug` to `components/quiz/QuizPage`, which loads via `getQuestionsForTopic(subject, id)` / `getAllQuestions(subject)`.
-- [ ] 5.4 Delete old data modules and the script:
+- [x] 5.1 `DashboardPage({ subject })`: read `subject.topics`/`subject.tagline`; topic links → `/${subject.slug}/topics/${t.slug}`; quiz/resume links → `/${subject.slug}/quiz`. (Hero pixel logo wired in §8.)
+- [x] 5.2 `TopicPage({ subject, topic })`: "Open Quiz" CTA → `/${subject.slug}/quiz?topic=${topic.slug}`.
+- [x] 5.3 `src/pages/QuizPage.tsx` wrapper `({ subject })`: read `?topic` from `window.location.search`; pass `subject` + `topicSlug` to `components/quiz/QuizPage`, which loads via `getQuestionsForTopic(subject, id)` / `getAllQuestions(subject)`.
+- [x] 5.4 Delete old data modules and the script:
 
 ```bash
 rm src/data/topics.ts src/data/questions.ts src/data/sources.ts src/data/contentNotes.ts scripts/migrate-dp750-to-json.mjs
 grep -rn "data/topics\|data/questions\|data/sources\|data/contentNotes" src   # must be empty
 ```
 
-- [ ] 5.5 Run `npm run build && npm run test:unit` — expect PASS.
-- [ ] 5.6 Commit: `feat(pages): scope dashboard/topic/quiz to active subject; drop TS data modules`.
+- [x] 5.5 Run `npm run build && npm run test:unit` — expect PASS.
+- [x] 5.6 Commit: `feat(pages): scope dashboard/topic/quiz to active subject; drop TS data modules`.
 
 ## 6. Header ☰ subject switcher
 
@@ -493,7 +493,7 @@ Files: modify `src/components/AppShell.tsx`, `src/pages/DashboardPage.tsx`, `src
 
 - [ ] 8.1 `AppShell`: `<PixelLogo text={subject.shortLabel} scale={2} animated={false} showCursor={false} />` when a subject is active; app-brand text on the picker route.
 - [ ] 8.2 `DashboardPage`: hero `<PixelLogo text={subject.shortLabel} />`.
-- [ ] 8.3 `components/quiz/QuizPage.tsx`: replace the 4 `"DP-750 Quiz"` literals with `` `${subject.shortLabel} Quiz` `` (and `` `${subject.shortLabel} Quiz: ${topic.title}` `` where a topic is set).
+- [x] 8.3 `components/quiz/QuizPage.tsx`: replace the 4 `"DP-750 Quiz"` literals with `` `${subject.shortLabel} Quiz` `` (and `` `${subject.shortLabel} Quiz: ${topic.title}` `` where a topic is set).
 - [ ] 8.4 `grep -rn "DP-750" src` — expect hits only inside `src/data/subjects/dp-750.json`.
 - [ ] 8.5 Run `npm run build` — expect PASS.
 - [ ] 8.6 Commit: `feat(branding): drive wordmark, hero, quiz titles from active subject`.
@@ -503,7 +503,7 @@ Files: modify `src/components/AppShell.tsx`, `src/pages/DashboardPage.tsx`, `src
 Files: modify `src/utils/progressStorage.ts`; create `src/utils/progressStorage.test.ts`.
 Produces: `migrate(raw): ProgressStateV2`, `loadProgressState()`, `saveProgressState()`, `createDefaultProgressState()`, `emptySubjectProgress()`, `getSubjectProgress(state, id)`, `resetProgressState()`.
 
-- [ ] 9.1 Write failing test `src/utils/progressStorage.test.ts`:
+- [x] 9.1 Write failing test `src/utils/progressStorage.test.ts`:
 
 ```ts
 import { describe, expect, it } from 'vitest';
@@ -528,8 +528,8 @@ describe('progress migration', () => {
 });
 ```
 
-- [ ] 9.2 Run `npm run test:unit` — expect FAIL.
-- [ ] 9.3 Rewrite `src/utils/progressStorage.ts` to v2 (key stays `studyapp_progress`):
+- [x] 9.2 Run `npm run test:unit` — expect FAIL.
+- [x] 9.3 Rewrite `src/utils/progressStorage.ts` to v2 (key stays `studyapp_progress`):
 
 ```ts
 import { ProgressStateV2, SubjectProgress } from '../types/study';
@@ -567,15 +567,15 @@ export const resetProgressState = (): ProgressStateV2 => { const n = createDefau
 export const getSubjectProgress = (s: ProgressStateV2, id: string): SubjectProgress => s.subjects[id] ?? emptySubjectProgress();
 ```
 
-- [ ] 9.4 Run `npm run test:unit` — expect PASS.
-- [ ] 9.5 Commit: `feat(progress): subject-scoped v2 store with lossless v1 migration`.
+- [x] 9.4 Run `npm run test:unit` — expect PASS.
+- [x] 9.5 Commit: `feat(progress): subject-scoped v2 store with lossless v1 migration`.
 
 ## 10. Subject-scoped ProgressContext + useProgress
 
 Files: modify `src/context/ProgressContext.tsx`, `src/hooks/useProgress.ts`, `src/pages/{DashboardPage,TopicPage}.tsx`.
 Produces: `useProgress(subjectId)` → `{ progress, toggleTopicComplete, markTopicComplete, setLastVisitedTopic }`.
 
-- [ ] 10.1 `ProgressContext.tsx`: hold full `ProgressStateV2`; expose `state`, `updateSubject(id, fn)`, `resetProgress`:
+- [x] 10.1 `ProgressContext.tsx`: hold full `ProgressStateV2`; expose `state`, `updateSubject(id, fn)`, `resetProgress`:
 
 ```tsx
 const updateSubject = useCallback((subjectId: string, fn: (p: SubjectProgress) => SubjectProgress) => {
@@ -588,7 +588,7 @@ const updateSubject = useCallback((subjectId: string, fn: (p: SubjectProgress) =
 }, []);
 ```
 
-- [ ] 10.2 `useProgress.ts` binds one subject:
+- [x] 10.2 `useProgress.ts` binds one subject:
 
 ```ts
 export function useProgress(subjectId: string) {
@@ -611,9 +611,9 @@ export function useProgress(subjectId: string) {
 }
 ```
 
-- [ ] 10.3 `DashboardPage`/`TopicPage` call `useProgress(subject.id)`; stats compute against `subject.topics`; `TopicPage` calls `setLastVisitedTopic(topic.slug)` on mount.
-- [ ] 10.4 Run `npm run build && npm run test:unit` — expect PASS.
-- [ ] 10.5 Commit: `feat(progress): subject-scoped context + useProgress(subjectId)`.
+- [x] 10.3 `DashboardPage`/`TopicPage` call `useProgress(subject.id)`; stats compute against `subject.topics`; `TopicPage` calls `setLastVisitedTopic(topic.slug)` on mount.
+- [x] 10.4 Run `npm run build && npm run test:unit` — expect PASS.
+- [x] 10.5 Commit: `feat(progress): subject-scoped context + useProgress(subjectId)`.
 
 ## 11. E2e updates + Playwright webServer + final verification
 

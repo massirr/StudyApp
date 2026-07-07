@@ -107,6 +107,58 @@ a:hover {
   margin: 0;
 }
 
+.subject-picker {
+  width: min(100%, 1200px);
+  margin: 0 auto;
+}
+
+.subject-picker-intro {
+  color: var(--ink-soft);
+  margin: 6px 0 24px;
+}
+
+.subject-picker-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.subject-picker-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 20px;
+  background: rgba(230, 190, 144, 0.86);
+  box-shadow: 7px 7px 0 rgba(7, 7, 7, 1);
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform 0.18s ease, background-color 0.18s ease;
+}
+
+.subject-picker-card:hover {
+  transform: translateY(-2px);
+  background: rgba(230, 190, 144, 0.94);
+  text-decoration: none;
+}
+
+.subject-picker-label {
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+}
+
+.subject-picker-name {
+  font-weight: 600;
+}
+
+.subject-picker-tagline {
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
 .dashboard-page,
 .topic-page,
 .not-found-page {

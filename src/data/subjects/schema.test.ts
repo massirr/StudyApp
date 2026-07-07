@@ -12,7 +12,8 @@ describe('validateSubject', () => {
     expect(validateSubject(valid).slug).toBe('demo');
   });
   it('throws when a required field is missing', () => {
-    const { name, ...rest } = valid;
+    const rest: Record<string, unknown> = { ...valid };
+    delete rest.name;
     expect(() => validateSubject(rest)).toThrow(/name/);
   });
   it('throws when shortLabel has an unsupported glyph', () => {

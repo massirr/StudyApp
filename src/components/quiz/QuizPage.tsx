@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { TOPICS } from '../../data/topics';
-import { getAllQuestions, getCodeSnippetQuestionsForTopic, getQuestionsForTopic } from '../../data/questions';
+import { Subject } from '../../types/study';
+import { getAllQuestions, getCodeSnippetQuestionsForTopic, getQuestionsForTopic } from '../../data/subjects';
 import { useQuizState } from '../../hooks/useQuizState';
 import { useProgress } from '../../hooks/useProgress';
 import AnswerPicker from './AnswerPicker';
@@ -11,17 +11,21 @@ import QuestionDisplay from './QuestionDisplay';
 import styles from './QuizPage.module.css';
 
 interface QuizPageProps {
+  subject: Subject;
   topicSlug?: string;
   level?: 1 | 2;
 }
 
-const QuizPage: React.FC<QuizPageProps> = ({ topicSlug, level = 1 }) => {
+const QuizPage: React.FC<QuizPageProps> = ({ subject, topicSlug, level = 1 }) => {
   const [showFeedback, setShowFeedback] = useState(false);
-  const { progress, markTopicComplete } = useProgress();
+  const { progress, markTopicComplete } = useProgress(subject.id);
+
+  const quizTitle = `${subject.shortLabel} Quiz`;
+  const dashboardHref = `/${subject.slug}`;
 
   const topic = useMemo(
-    () => TOPICS.find((item) => item.slug === topicSlug),
-    [topicSlug]
+    () => subject.topics.find((item) => item.slug === topicSlug),
+    [subject, topicSlug]
   );
 
   const topicNotFound = topicSlug !== undefined && topic === undefined;
@@ -30,11 +34,11 @@ const QuizPage: React.FC<QuizPageProps> = ({ topicSlug, level = 1 }) => {
     if (topicNotFound) return [];
     if (topic) {
       return level === 2
-        ? getCodeSnippetQuestionsForTopic(topic.id)
-        : getQuestionsForTopic(topic.id);
+        ? getCodeSnippetQuestionsForTopic(subject, topic.id)
+        : getQuestionsForTopic(subject, topic.id);
     }
-    return getAllQuestions();
-  }, [topic, topicNotFound, level]);
+    return getAllQuestions(subject);
+  }, [subject, topic, topicNotFound, level]);
 
   const {
     currentQuestion,
@@ -84,8 +88,8 @@ const QuizPage: React.FC<QuizPageProps> = ({ topicSlug, level = 1 }) => {
   if (topicNotFound) {
     return (
       <section className={styles.quizPageContainer}>
-        <h1>DP-750 Quiz</h1>
-        <p>No topic found for <strong>"{topicSlug}"</strong>. Check the URL or return to the <a href="/">Dashboard</a>.</p>
+        <h1>{quizTitle}</h1>
+        <p>No topic found for <strong>"{topicSlug}"</strong>. Check the URL or return to the <a href={dashboardHref}>Dashboard</a>.</p>
       </section>
     );
   }
@@ -93,7 +97,7 @@ const QuizPage: React.FC<QuizPageProps> = ({ topicSlug, level = 1 }) => {
   if (!currentQuestion) {
     return (
       <section className={styles.quizPageContainer}>
-        <h1>DP-750 Quiz</h1>
+        <h1>{quizTitle}</h1>
         <p>No quiz questions are available for this selection yet.</p>
       </section>
     );
@@ -118,7 +122,7 @@ const QuizPage: React.FC<QuizPageProps> = ({ topicSlug, level = 1 }) => {
       <section className={styles.quizPageContainer}>
         <div className={styles.scoreScreen}>
           <p className={styles.scoreLabel}>
-            {topic ? `DP-750 Quiz: ${topic.title}` : 'DP-750 Quiz'}
+            {topic ? `${quizTitle}: ${topic.title}` : quizTitle}
           </p>
           <div className={styles.scoreBig}>
             {correctCount} / {total}
@@ -134,7 +138,7 @@ const QuizPage: React.FC<QuizPageProps> = ({ topicSlug, level = 1 }) => {
             unlocksLevel2 ? (
               <a
                 className={styles.level2Button}
-                href={`/quiz?topic=${topicSlug}&level=2`}
+                href={`${dashboardHref}/quiz?topic=${topicSlug}&level=2`}
               >
                 Try Level 2: Code Questions →
               </a>
@@ -148,7 +152,7 @@ const QuizPage: React.FC<QuizPageProps> = ({ topicSlug, level = 1 }) => {
             <button className={styles.submitButton} onClick={handleRestart}>
               Retake Quiz
             </button>
-            <a className={styles.submitButton} href="/">
+            <a className={styles.submitButton} href={dashboardHref}>
               Back to Dashboard
             </a>
           </div>
@@ -160,7 +164,7 @@ const QuizPage: React.FC<QuizPageProps> = ({ topicSlug, level = 1 }) => {
   return (
     <section className={styles.quizPageContainer}>
       <QuizHeader
-        title={topic ? `DP-750 Quiz: ${topic.title}` : 'DP-750 Quiz'}
+        title={topic ? `${quizTitle}: ${topic.title}` : quizTitle}
         current={index + 1}
         total={total}
       />
@@ -196,6 +200,7 @@ const QuizPage: React.FC<QuizPageProps> = ({ topicSlug, level = 1 }) => {
 
         {submitted && showFeedback && (
           <FeedbackPanel
+            subject={subject}
             isCorrect={isCorrect}
             explanation={currentQuestion.explanation}
             sourceUrls={currentQuestion.sourceUrls}

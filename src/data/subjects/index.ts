@@ -29,3 +29,9 @@ export const getQuestionCountForTopic = (subject: Subject, topicId: string) =>
 
 export const getAllQuestions = (subject: Subject) =>
   subject.questions.filter((q) => !q.codeSnippet);
+
+export const getContentNotesForTopic = (subject: Subject, topicId: string) =>
+  subject.notes.filter((n) => n.topicId === topicId);
+
+export const getSourceByUrl = (subject: Subject, url: string) =>
+  subject.sources.find((s) => s.url === url);

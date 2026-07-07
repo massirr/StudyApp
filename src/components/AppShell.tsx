@@ -3,6 +3,7 @@ import { PixelLogo } from './common/PixelLogo';
 
 interface AppShellProps {
     children: React.ReactNode;
+    subjectSlug?: string; // active subject; drives wordmark + switcher (wired in later tasks)
 }
 
 const AppShell: React.FC<AppShellProps> = ({ children }) => {

@@ -1,20 +1,24 @@
 import React from 'react';
-import { TOPICS } from '../data/topics';
-import { getQuestionCountForTopic } from '../data/questions';
+import { Subject } from '../types/study';
+import { getQuestionCountForTopic } from '../data/subjects';
 import { useProgress } from '../hooks/useProgress';
 import { getResumeTopicSlug } from '../utils/resumeTopic';
 import { PixelLogo } from '../components/common/PixelLogo';
 
-const DashboardPage: React.FC = () => {
-    const { progress, toggleTopicComplete, resetProgress } = useProgress();
+interface DashboardPageProps {
+    subject: Subject;
+}
+
+const DashboardPage: React.FC<DashboardPageProps> = ({ subject }) => {
+    const { progress, toggleTopicComplete, resetProgress } = useProgress(subject.id);
 
     const completedCount = progress.completedTopicIds.length;
-    const totalCount = TOPICS.length;
+    const totalCount = subject.topics.length;
     const remainingCount = totalCount - completedCount;
     const completionPercent = totalCount > 0 ? Math.round((completedCount / totalCount) * 100) : 0;
 
     const resumeTopicSlug = getResumeTopicSlug({
-        topics: TOPICS,
+        topics: subject.topics,
         completedTopicIds: progress.completedTopicIds,
         lastVisitedTopicSlug: progress.lastVisitedTopicSlug
     });
@@ -22,10 +26,9 @@ const DashboardPage: React.FC = () => {
     return (
         <section aria-label="Dashboard" className="dashboard-page">
             <header>
+                {/* ponytail: hardcoded logo until §7 pixel-font + §8 branding wire subject.shortLabel */}
                 <PixelLogo />
-                <p className="dashboard-subtitle">
-                    Follow your topic path, resume where you left off, and keep progress in this browser.
-                </p>
+                <p className="dashboard-subtitle">{subject.tagline}</p>
             </header>
 
             <div className="dashboard-stats" role="status" aria-live="polite">
@@ -45,7 +48,7 @@ const DashboardPage: React.FC = () => {
 
             <div className="dashboard-actions">
                 {resumeTopicSlug ? (
-                    <a className="primary-button" href={`/topics/${resumeTopicSlug}`}>
+                    <a className="primary-button" href={`/${subject.slug}/topics/${resumeTopicSlug}`}>
                         Resume Study
                     </a>
                 ) : (
@@ -57,14 +60,14 @@ const DashboardPage: React.FC = () => {
             </div>
 
             <ul className="topics-list">
-                {TOPICS.map((topic) => {
+                {subject.topics.map((topic) => {
                     const completed = progress.completedTopicIds.includes(topic.id);
-                    const questionCount = getQuestionCountForTopic(topic.id);
+                    const questionCount = getQuestionCountForTopic(subject, topic.id);
                     return (
                         <li key={topic.id} className="topic-card">
                             <div>
                                 <h2>
-                                    <a href={`/topics/${topic.slug}`}>{topic.title}</a>
+                                    <a href={`/${subject.slug}/topics/${topic.slug}`}>{topic.title}</a>
                                 </h2>
                                 <p>{topic.summary}</p>
                                 <p>

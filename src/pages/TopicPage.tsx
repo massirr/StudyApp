@@ -1,27 +1,27 @@
 import React, { useEffect } from 'react';
-import { getContentNotesForTopic } from '../data/contentNotes';
-import { getQuestionCountForTopic } from '../data/questions';
-import { getSourceByUrl } from '../data/sources';
-import { Topic } from '../types/study';
+import { getContentNotesForTopic, getQuestionCountForTopic, getSourceByUrl } from '../data/subjects';
+import { Subject, Topic } from '../types/study';
 import { useProgress } from '../hooks/useProgress';
 
 interface TopicPageProps {
+    subject: Subject;
     topic: Topic;
 }
 
-const TopicPage: React.FC<TopicPageProps> = ({ topic }) => {
-    const { setLastVisitedTopic } = useProgress();
-    const notes = getContentNotesForTopic(topic.id);
-    const questionCount = getQuestionCountForTopic(topic.id);
+const TopicPage: React.FC<TopicPageProps> = ({ subject, topic }) => {
+    const { setLastVisitedTopic } = useProgress(subject.id);
+    const notes = getContentNotesForTopic(subject, topic.id);
+    const questionCount = getQuestionCountForTopic(subject, topic.id);
 
     useEffect(() => {
         setLastVisitedTopic(topic.slug);
-    }, [setLastVisitedTopic, topic.slug]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [topic.slug]);
 
     return (
         <section className="topic-page" aria-label={`Topic ${topic.title}`}>
             <nav className="breadcrumbs" aria-label="Breadcrumbs">
-                <a href="/">Dashboard</a>
+                <a href={`/${subject.slug}`}>Dashboard</a>
                 <span>/</span>
                 <span>{topic.title}</span>
             </nav>
@@ -47,7 +47,7 @@ const TopicPage: React.FC<TopicPageProps> = ({ topic }) => {
                 <h2>Official Microsoft Sources</h2>
                 <ul className="source-list">
                     {topic.sourceLinks.map((source) => {
-                        const sourceRef = getSourceByUrl(source.url);
+                        const sourceRef = getSourceByUrl(subject, source.url);
                         return (
                             <li key={source.url}>
                                 <a href={source.url} target="_blank" rel="noreferrer">
@@ -79,7 +79,10 @@ const TopicPage: React.FC<TopicPageProps> = ({ topic }) => {
                 <p>
                     This topic will have {questionCount} {questionCount === 1 ? 'question' : 'questions'}.
                 </p>
-                <a className="primary-button" href={`/quiz?topic=${encodeURIComponent(topic.slug)}`}>
+                <a
+                    className="primary-button"
+                    href={`/${subject.slug}/quiz?topic=${encodeURIComponent(topic.slug)}`}
+                >
                     Open Quiz
                 </a>
             </section>

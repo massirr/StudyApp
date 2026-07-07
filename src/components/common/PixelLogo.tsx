@@ -1,19 +1,30 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { GLYPH_H, glyphRectsFor, labelWidth } from '../../lib/pixelFont';
 
 interface PixelLogoProps {
+  text: string;
   scale?: number;
   animated?: boolean;
   showCursor?: boolean;
+  fill?: string;
 }
 
-export function PixelLogo({ scale = 6, animated = true, showCursor = true }: PixelLogoProps) {
+export function PixelLogo({
+  text,
+  scale = 6,
+  animated = true,
+  showCursor = true,
+  fill = '#d58400'
+}: PixelLogoProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const cursorRef = useRef<HTMLSpanElement>(null);
 
-  const width = 58 * scale;
-  const height = 16 * scale;
-  const cursorSize = 8 * scale;
+  const unitWidth = labelWidth(text);
+  const width = unitWidth * scale;
+  const height = GLYPH_H * scale;
+  const cursorSize = 4 * scale;
+  const rects = glyphRectsFor(text);
 
   useEffect(() => {
     if (!animated) return;
@@ -21,27 +32,33 @@ export function PixelLogo({ scale = 6, animated = true, showCursor = true }: Pix
     const cursor = cursorRef.current;
     if (!svg) return;
 
-    const rects = svg.querySelectorAll('rect');
-
-    gsap.from(rects, {
-      opacity: 0,
-      duration: 0.02,
-      stagger: { each: 0.008, from: 'random' },
-      ease: 'none',
-      onComplete: () => {
-        gsap.to(svg, { y: -4, duration: 1.5, repeat: -1, yoyo: true, ease: 'sine.inOut' });
-        if (cursor) {
-          cursor.style.opacity = '1';
-          cursor.classList.add('pixel-cursor-blink');
+    // gsap.context + ctx.revert() is the StrictMode-safe pattern: revert()
+    // restores rects to their original (visible) inline state on cleanup, so
+    // the dev double-invoke can't leave pixels stuck at opacity 0.
+    const ctx = gsap.context(() => {
+      const rectEls = svg.querySelectorAll('rect');
+      gsap.fromTo(
+        rectEls,
+        { opacity: 0 },
+        {
+          opacity: 1,
+          duration: 0.02,
+          stagger: { each: 0.008, from: 'random' },
+          ease: 'none',
+          onComplete: () => {
+            gsap.to(svg, { y: -4, duration: 1.5, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+            if (cursor) {
+              cursor.style.opacity = '1';
+              cursor.classList.add('pixel-cursor-blink');
+            }
+          }
         }
-      },
-    });
+      );
+    }, svgRef);
 
-    return () => {
-      gsap.killTweensOf(rects);
-      gsap.killTweensOf(svg);
-    };
-  }, [animated]);
+    return () => ctx.revert();
+    // Re-run when the rendered text changes so a switched subject re-animates.
+  }, [animated, text]);
 
   return (
     <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
@@ -51,147 +68,15 @@ export function PixelLogo({ scale = 6, animated = true, showCursor = true }: Pix
           xmlns="http://www.w3.org/2000/svg"
           width={width}
           height={height}
-          viewBox="0 8 58 16"
+          viewBox={`0 0 ${unitWidth} ${GLYPH_H}`}
           shapeRendering="crispEdges"
+          role="img"
+          aria-label={text}
           style={{ imageRendering: 'pixelated', display: 'block', maxWidth: '100%', height: 'auto' }}
         >
-          <rect x={9} y={12} width={2} height={1} fill="#d58400" />
-          <rect x={11} y={12} width={1} height={1} fill="#000000" />
-          <rect x={14} y={12} width={4} height={1} fill="#d58400" />
-          <rect x={18} y={12} width={1} height={1} fill="#000000" />
-          <rect x={23} y={12} width={3} height={1} fill="#d58400" />
-          <rect x={26} y={12} width={1} height={1} fill="#000000" />
-          <rect x={27} y={12} width={3} height={1} fill="#d58400" />
-          <rect x={30} y={12} width={1} height={1} fill="#000000" />
-          <rect x={31} y={12} width={3} height={1} fill="#d58400" />
-          <rect x={34} y={12} width={1} height={1} fill="#000000" />
-          <rect x={43} y={12} width={1} height={1} fill="#d58400" />
-          <rect x={44} y={12} width={1} height={1} fill="#000000" />
-          <rect x={9} y={13} width={4} height={1} fill="#d58400" />
-          <rect x={13} y={13} width={1} height={1} fill="#000000" />
-          <rect x={14} y={13} width={1} height={1} fill="#d58400" />
-          <rect x={15} y={13} width={1} height={1} fill="#000000" />
-          <rect x={17} y={13} width={1} height={1} fill="#d58400" />
-          <rect x={18} y={13} width={1} height={1} fill="#000000" />
-          <rect x={25} y={13} width={1} height={1} fill="#d58400" />
-          <rect x={26} y={13} width={1} height={1} fill="#000000" />
-          <rect x={27} y={13} width={1} height={1} fill="#d58400" />
-          <rect x={28} y={13} width={1} height={1} fill="#000000" />
-          <rect x={31} y={13} width={1} height={1} fill="#d58400" />
-          <rect x={32} y={13} width={1} height={1} fill="#000000" />
-          <rect x={33} y={13} width={1} height={1} fill="#d58400" />
-          <rect x={34} y={13} width={1} height={1} fill="#000000" />
-          <rect x={43} y={13} width={1} height={1} fill="#d58400" />
-          <rect x={44} y={13} width={1} height={1} fill="#000000" />
-          <rect x={51} y={13} width={1} height={1} fill="#63c74d" />
-          <rect x={52} y={13} width={1} height={1} fill="#000000" />
-          <rect x={9} y={14} width={1} height={1} fill="#d58400" />
-          <rect x={10} y={14} width={1} height={1} fill="#000000" />
-          <rect x={12} y={14} width={1} height={1} fill="#d58400" />
-          <rect x={13} y={14} width={1} height={1} fill="#000000" />
-          <rect x={14} y={14} width={1} height={1} fill="#d58400" />
-          <rect x={15} y={14} width={1} height={1} fill="#000000" />
-          <rect x={17} y={14} width={1} height={1} fill="#d58400" />
-          <rect x={18} y={14} width={1} height={1} fill="#000000" />
-          <rect x={25} y={14} width={1} height={1} fill="#d58400" />
-          <rect x={26} y={14} width={1} height={1} fill="#000000" />
-          <rect x={27} y={14} width={1} height={1} fill="#d58400" />
-          <rect x={28} y={14} width={1} height={1} fill="#000000" />
-          <rect x={31} y={14} width={1} height={1} fill="#d58400" />
-          <rect x={32} y={14} width={1} height={1} fill="#000000" />
-          <rect x={33} y={14} width={1} height={1} fill="#d58400" />
-          <rect x={34} y={14} width={1} height={1} fill="#000000" />
-          <rect x={43} y={14} width={1} height={1} fill="#d58400" />
-          <rect x={44} y={14} width={1} height={1} fill="#000000" />
-          <rect x={50} y={14} width={1} height={1} fill="#63c74d" />
-          <rect x={51} y={14} width={1} height={1} fill="#000000" />
-          <rect x={9} y={15} width={1} height={1} fill="#d58400" />
-          <rect x={10} y={15} width={1} height={1} fill="#000000" />
-          <rect x={12} y={15} width={1} height={1} fill="#d58400" />
-          <rect x={13} y={15} width={1} height={1} fill="#000000" />
-          <rect x={14} y={15} width={4} height={1} fill="#d58400" />
-          <rect x={18} y={15} width={1} height={1} fill="#000000" />
-          <rect x={25} y={15} width={1} height={1} fill="#d58400" />
-          <rect x={26} y={15} width={1} height={1} fill="#000000" />
-          <rect x={27} y={15} width={3} height={1} fill="#d58400" />
-          <rect x={30} y={15} width={1} height={1} fill="#000000" />
-          <rect x={31} y={15} width={1} height={1} fill="#d58400" />
-          <rect x={32} y={15} width={1} height={1} fill="#000000" />
-          <rect x={33} y={15} width={1} height={1} fill="#d58400" />
-          <rect x={34} y={15} width={1} height={1} fill="#000000" />
-          <rect x={43} y={15} width={1} height={1} fill="#d58400" />
-          <rect x={44} y={15} width={1} height={1} fill="#000000" />
-          <rect x={49} y={15} width={1} height={1} fill="#63c74d" />
-          <rect x={50} y={15} width={1} height={1} fill="#000000" />
-          <rect x={9} y={16} width={1} height={1} fill="#d58400" />
-          <rect x={10} y={16} width={1} height={1} fill="#000000" />
-          <rect x={12} y={16} width={1} height={1} fill="#d58400" />
-          <rect x={13} y={16} width={1} height={1} fill="#000000" />
-          <rect x={14} y={16} width={1} height={1} fill="#d58400" />
-          <rect x={15} y={16} width={1} height={1} fill="#000000" />
-          <rect x={19} y={16} width={3} height={1} fill="#d58400" />
-          <rect x={22} y={16} width={1} height={1} fill="#000000" />
-          <rect x={25} y={16} width={1} height={1} fill="#d58400" />
-          <rect x={26} y={16} width={1} height={1} fill="#000000" />
-          <rect x={29} y={16} width={1} height={1} fill="#d58400" />
-          <rect x={30} y={16} width={1} height={1} fill="#000000" />
-          <rect x={31} y={16} width={1} height={1} fill="#d58400" />
-          <rect x={32} y={16} width={1} height={1} fill="#000000" />
-          <rect x={33} y={16} width={1} height={1} fill="#d58400" />
-          <rect x={34} y={16} width={1} height={1} fill="#000000" />
-          <rect x={43} y={16} width={1} height={1} fill="#d58400" />
-          <rect x={44} y={16} width={1} height={1} fill="#000000" />
-          <rect x={46} y={16} width={1} height={1} fill="#63c74d" />
-          <rect x={47} y={16} width={1} height={1} fill="#000000" />
-          <rect x={48} y={16} width={1} height={1} fill="#63c74d" />
-          <rect x={49} y={16} width={1} height={1} fill="#000000" />
-          <rect x={9} y={17} width={1} height={1} fill="#d58400" />
-          <rect x={10} y={17} width={1} height={1} fill="#000000" />
-          <rect x={12} y={17} width={1} height={1} fill="#d58400" />
-          <rect x={13} y={17} width={1} height={1} fill="#000000" />
-          <rect x={14} y={17} width={1} height={1} fill="#d58400" />
-          <rect x={15} y={17} width={1} height={1} fill="#000000" />
-          <rect x={25} y={17} width={1} height={1} fill="#d58400" />
-          <rect x={26} y={17} width={1} height={1} fill="#000000" />
-          <rect x={29} y={17} width={1} height={1} fill="#d58400" />
-          <rect x={30} y={17} width={1} height={1} fill="#000000" />
-          <rect x={31} y={17} width={1} height={1} fill="#d58400" />
-          <rect x={32} y={17} width={1} height={1} fill="#000000" />
-          <rect x={33} y={17} width={1} height={1} fill="#d58400" />
-          <rect x={34} y={17} width={1} height={1} fill="#000000" />
-          <rect x={43} y={17} width={1} height={1} fill="#d58400" />
-          <rect x={44} y={17} width={1} height={1} fill="#000000" />
-          <rect x={45} y={17} width={1} height={1} fill="#63c74d" />
-          <rect x={46} y={17} width={1} height={1} fill="#000000" />
-          <rect x={47} y={17} width={1} height={1} fill="#63c74d" />
-          <rect x={48} y={17} width={1} height={1} fill="#000000" />
-          <rect x={9} y={18} width={4} height={1} fill="#d58400" />
-          <rect x={13} y={18} width={1} height={1} fill="#000000" />
-          <rect x={14} y={18} width={1} height={1} fill="#d58400" />
-          <rect x={15} y={18} width={1} height={1} fill="#000000" />
-          <rect x={25} y={18} width={1} height={1} fill="#d58400" />
-          <rect x={26} y={18} width={1} height={1} fill="#000000" />
-          <rect x={29} y={18} width={1} height={1} fill="#d58400" />
-          <rect x={30} y={18} width={1} height={1} fill="#000000" />
-          <rect x={31} y={18} width={1} height={1} fill="#d58400" />
-          <rect x={32} y={18} width={1} height={1} fill="#000000" />
-          <rect x={33} y={18} width={1} height={1} fill="#d58400" />
-          <rect x={34} y={18} width={1} height={1} fill="#000000" />
-          <rect x={43} y={18} width={1} height={1} fill="#d58400" />
-          <rect x={44} y={18} width={1} height={1} fill="#63c74d" />
-          <rect x={45} y={18} width={1} height={1} fill="#000000" />
-          <rect x={9} y={19} width={2} height={1} fill="#d58400" />
-          <rect x={11} y={19} width={1} height={1} fill="#000000" />
-          <rect x={14} y={19} width={1} height={1} fill="#d58400" />
-          <rect x={15} y={19} width={1} height={1} fill="#000000" />
-          <rect x={25} y={19} width={1} height={1} fill="#d58400" />
-          <rect x={26} y={19} width={1} height={1} fill="#000000" />
-          <rect x={27} y={19} width={3} height={1} fill="#d58400" />
-          <rect x={30} y={19} width={1} height={1} fill="#000000" />
-          <rect x={31} y={19} width={3} height={1} fill="#d58400" />
-          <rect x={34} y={19} width={1} height={1} fill="#000000" />
-          <rect x={43} y={19} width={9} height={1} fill="#d58400" />
-          <rect x={52} y={19} width={1} height={1} fill="#000000" />
+          {rects.map((r) => (
+            <rect key={`${r.x}-${r.y}`} x={r.x} y={r.y} width={1} height={1} fill={fill} />
+          ))}
         </svg>
         {showCursor && (
           <span
@@ -199,13 +84,13 @@ export function PixelLogo({ scale = 6, animated = true, showCursor = true }: Pix
             aria-hidden="true"
             style={{
               opacity: 0,
-              color: '#d58400',
+              color: fill,
               fontFamily: 'monospace',
               fontSize: `${cursorSize}px`,
               lineHeight: 1,
               userSelect: 'none',
               flexShrink: 0,
-              marginLeft: `${scale}px`,
+              marginLeft: `${scale}px`
             }}
           >▌</span>
         )}

@@ -3,6 +3,7 @@ import AppShell from './components/AppShell';
 import { DashboardBg } from './components/common/DashboardBg';
 import { getSubjectBySlug, getTopicBySlug } from './data/subjects';
 import { parseRoute } from './lib/route';
+import { Subject } from './types/study';
 import DashboardPage from './pages/DashboardPage';
 import NotFoundPage from './pages/NotFoundPage';
 import QuizPage from './pages/QuizPage';
@@ -30,7 +31,7 @@ function App() {
     }, [pathname]);
 
     let content: React.ReactNode;
-    let subjectSlug: string | undefined;
+    let activeSubject: Subject | undefined;
 
     switch (route.kind) {
         case 'picker':
@@ -40,22 +41,19 @@ function App() {
             content = <div />;
             break;
         case 'dashboard': {
-            const subject = getSubjectBySlug(route.subject);
-            subjectSlug = subject?.slug;
-            content = subject ? <DashboardPage subject={subject} /> : <NotFoundPage />;
+            activeSubject = getSubjectBySlug(route.subject);
+            content = activeSubject ? <DashboardPage subject={activeSubject} /> : <NotFoundPage />;
             break;
         }
         case 'topic': {
-            const subject = getSubjectBySlug(route.subject);
-            const topic = subject && getTopicBySlug(subject, route.topicSlug);
-            subjectSlug = subject?.slug;
-            content = subject && topic ? <TopicPage subject={subject} topic={topic} /> : <NotFoundPage />;
+            activeSubject = getSubjectBySlug(route.subject);
+            const topic = activeSubject && getTopicBySlug(activeSubject, route.topicSlug);
+            content = activeSubject && topic ? <TopicPage subject={activeSubject} topic={topic} /> : <NotFoundPage />;
             break;
         }
         case 'quiz': {
-            const subject = getSubjectBySlug(route.subject);
-            subjectSlug = subject?.slug;
-            content = subject ? <QuizPage subject={subject} /> : <NotFoundPage />;
+            activeSubject = getSubjectBySlug(route.subject);
+            content = activeSubject ? <QuizPage subject={activeSubject} /> : <NotFoundPage />;
             break;
         }
         default:
@@ -66,7 +64,7 @@ function App() {
         <>
             <DashboardBg />
             <div style={{ position: 'relative', zIndex: 1 }}>
-                <AppShell subjectSlug={subjectSlug}>{content}</AppShell>
+                <AppShell subject={activeSubject}>{content}</AppShell>
             </div>
         </>
     );

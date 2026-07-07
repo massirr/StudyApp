@@ -425,7 +425,7 @@ test('header switcher lists subjects and navigates', async ({ page }) => {
 Files: create `src/lib/pixelFont.ts`, `src/lib/pixelFont.test.ts`; modify `src/components/common/PixelLogo.tsx`.
 Produces: `GLYPHS`, `glyphRectsFor(text)`, `labelWidth(text)`, `GLYPH_W`, `GLYPH_H`; `PixelLogo` gains `text: string`.
 
-- [ ] 7.1 Write failing test `src/lib/pixelFont.test.ts`:
+- [x] 7.1 Write failing test `src/lib/pixelFont.test.ts`:
 
 ```ts
 import { describe, expect, it } from 'vitest';
@@ -449,8 +449,8 @@ describe('pixelFont', () => {
 });
 ```
 
-- [ ] 7.2 Run `npm run test:unit` — expect FAIL.
-- [ ] 7.3 Implement `src/lib/pixelFont.ts`. Author a 5×7 bitmap per glyph (A–Z, 0–9, `-`), keeping DP-750's glyphs visually close to the current hand-drawn logo:
+- [x] 7.2 Run `npm run test:unit` — expect FAIL.
+- [x] 7.3 Implement `src/lib/pixelFont.ts`. Author a 5×7 bitmap per glyph (A–Z, 0–9, `-`), keeping DP-750's glyphs visually close to the current hand-drawn logo:
 
 ```ts
 import { isSupportedLabel } from '../data/subjects/schema';
@@ -482,21 +482,21 @@ export function glyphRectsFor(text: string): { x: number; y: number }[] {
 export function labelWidth(text: string): number { return text.length * (GLYPH_W + GAP) - GAP; }
 ```
 
-- [ ] 7.4 Run `npm run test:unit` — expect PASS (after all glyphs authored; the glyph-coverage test is the correctness gate).
-- [ ] 7.5 Refactor `PixelLogo.tsx` to `PixelLogo({ text, scale = 6, animated = true, showCursor = true })`: build `<rect>`s from `glyphRectsFor(text)`; viewBox `0 0 {labelWidth(text)} {GLYPH_H}`; keep the identical GSAP effect (selects `svg.querySelectorAll('rect')`) and the existing fill colour.
-- [ ] 7.6 Run `npm run build && npm run test:unit` — expect PASS.
-- [ ] 7.7 Commit: `feat(hero): pixel-font renderer for arbitrary short labels`.
+- [x] 7.4 Run `npm run test:unit` — expect PASS (after all glyphs authored; the glyph-coverage test is the correctness gate).
+- [x] 7.5 Refactor `PixelLogo.tsx` to `PixelLogo({ text, scale = 6, animated = true, showCursor = true })`: build `<rect>`s from `glyphRectsFor(text)`; viewBox `0 0 {labelWidth(text)} {GLYPH_H}`; keep the identical GSAP effect (selects `svg.querySelectorAll('rect')`) and the existing fill colour.
+- [x] 7.6 Run `npm run build && npm run test:unit` — expect PASS.
+- [x] 7.7 Commit: `feat(hero): pixel-font renderer for arbitrary short labels`.
 
 ## 8. Drive branding from the active subject
 
 Files: modify `src/components/AppShell.tsx`, `src/pages/DashboardPage.tsx`, `src/components/quiz/QuizPage.tsx`.
 
-- [ ] 8.1 `AppShell`: `<PixelLogo text={subject.shortLabel} scale={2} animated={false} showCursor={false} />` when a subject is active; app-brand text on the picker route.
-- [ ] 8.2 `DashboardPage`: hero `<PixelLogo text={subject.shortLabel} />`.
+- [x] 8.1 `AppShell`: `<PixelLogo text={subject.shortLabel} scale={2} animated={false} showCursor={false} />` when a subject is active; app-brand text on the picker route.
+- [x] 8.2 `DashboardPage`: hero `<PixelLogo text={subject.shortLabel} />`.
 - [x] 8.3 `components/quiz/QuizPage.tsx`: replace the 4 `"DP-750 Quiz"` literals with `` `${subject.shortLabel} Quiz` `` (and `` `${subject.shortLabel} Quiz: ${topic.title}` `` where a topic is set).
-- [ ] 8.4 `grep -rn "DP-750" src` — expect hits only inside `src/data/subjects/dp-750.json`.
-- [ ] 8.5 Run `npm run build` — expect PASS.
-- [ ] 8.6 Commit: `feat(branding): drive wordmark, hero, quiz titles from active subject`.
+- [x] 8.4 `grep -rn "DP-750" src` — expect hits only inside `src/data/subjects/dp-750.json`.
+- [x] 8.5 Run `npm run build` — expect PASS.
+- [x] 8.6 Commit: `feat(branding): drive wordmark, hero, quiz titles from active subject`.
 
 ## 9. Progress storage v2 + migration
 

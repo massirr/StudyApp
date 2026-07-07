@@ -1,21 +1,24 @@
 import React from 'react';
+import { Subject } from '../types/study';
 import { PixelLogo } from './common/PixelLogo';
 import { SubjectSwitcher } from './common/SubjectSwitcher';
 
 interface AppShellProps {
     children: React.ReactNode;
-    subjectSlug?: string; // active subject; drives the switcher's active indicator
+    subject?: Subject; // active subject; drives the wordmark + switcher (absent on the picker)
 }
 
-const AppShell: React.FC<AppShellProps> = ({ children, subjectSlug }) => {
+const AppShell: React.FC<AppShellProps> = ({ children, subject }) => {
+    const wordmark = subject ? subject.shortLabel : 'STUDYAPP';
+    const homeHref = subject ? `/${subject.slug}` : '/';
     return (
         <div className="app-shell">
             <header className="app-header">
-                <a className="app-home-link" href="/" aria-label="Home">
-                    <PixelLogo scale={2} animated={false} showCursor={false} />
+                <a className="app-home-link" href={homeHref} aria-label="Home">
+                    <PixelLogo text={wordmark} scale={2} animated={false} showCursor={false} />
                 </a>
                 <div className="app-header-right">
-                    <SubjectSwitcher activeSlug={subjectSlug} />
+                    <SubjectSwitcher activeSlug={subject?.slug} />
                     <a
                         className="github-link"
                         href="https://github.com/massirr/StudyApp"
@@ -31,8 +34,11 @@ const AppShell: React.FC<AppShellProps> = ({ children, subjectSlug }) => {
             </header>
             <main className="app-main">{children}</main>
             <footer className="app-footer">
-                {/* ponytail: "Microsoft" is DP-750-specific; make subject-driven in the multi-subject generalization (#3) */}
-                <p>Unofficial study aid — not affiliated with or endorsed by Microsoft.</p>
+                {subject?.sourcePolicy === 'microsoft-only' ? (
+                    <p>Unofficial study aid — not affiliated with or endorsed by Microsoft.</p>
+                ) : (
+                    <p>Unofficial study aid.</p>
+                )}
                 <p>No account needed · Anonymous analytics via Vercel.</p>
                 <p>© {new Date().getFullYear()} · Irakoze</p>
             </footer>

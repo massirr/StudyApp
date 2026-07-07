@@ -26,8 +26,7 @@ const DashboardPage: React.FC<DashboardPageProps> = ({ subject }) => {
     return (
         <section aria-label="Dashboard" className="dashboard-page">
             <header>
-                {/* ponytail: hardcoded logo until §7 pixel-font + §8 branding wire subject.shortLabel */}
-                <PixelLogo />
+                <PixelLogo text={subject.shortLabel} />
                 <p className="dashboard-subtitle">{subject.tagline}</p>
             </header>
 

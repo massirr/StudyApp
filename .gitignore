@@ -23,3 +23,9 @@ test-results/
 .DS_Store
 Thumbs.db
 node_modules
+
+# macOS AppleDouble junk
+._*
+
+# Test screenshot artifact
+quiz-page.png

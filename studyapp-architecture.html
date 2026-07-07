@@ -237,7 +237,7 @@
     <div class="card-title">File Structure · src/</div>
     <div class="tree">
       <ul>
-        <li><span class="file">main.tsx</span><span class="file-note">entry point, mounts React + providers</span></li>
+        <li><span class="file">main.tsx</span><span class="file-note">entry point, mounts React + providers + Vercel &lt;Analytics/&gt;</span></li>
         <li><span class="file">App.tsx</span><span class="file-note">manual router (no react-router)</span></li>
         <li><span class="file">index.css</span></li>
 
@@ -263,6 +263,11 @@
         <li style="margin-top:10px"><span class="dir">components/</span></li>
         <ul>
           <li><span class="file">AppShell.tsx</span><span class="file-note">header + layout</span></li>
+          <li><span class="dir">common/</span></li>
+          <ul>
+            <li><span class="file">DashboardBg.tsx</span><span class="file-note">fixed decorative background</span></li>
+            <li><span class="file">PixelLogo.tsx</span><span class="file-note">animated header logo</span></li>
+          </ul>
           <li><span class="dir">quiz/</span></li>
           <ul>
             <li><span class="file">QuizPage.tsx</span><span class="file-note">main quiz orchestrator</span></li>
@@ -366,7 +371,7 @@
       <div class="flow-row">
         <div class="flow-box">
           <div class="label">⚛ ProgressContext</div>
-          <div class="detail">React useState holds ProgressState. Provider wraps entire app in main.tsx. Exposes: <code>progress</code>, <code>toggleTopicComplete</code>, <code>setLastVisitedTopic</code>, <code>resetProgress</code></div>
+          <div class="detail">React useState holds ProgressState. Provider wraps entire app in main.tsx. Exposes: <code>progress</code>, <code>toggleTopicComplete</code>, <code>markTopicComplete</code>, <code>setLastVisitedTopic</code>, <code>resetProgress</code></div>
         </div>
       </div>
       <div class="flow-connector"></div>
@@ -556,7 +561,7 @@
       <div class="quiz-step">
         <div class="step-label">User submits</div>
         <div class="step-action">submit()</div>
-        <div class="step-state">submitted=true<br>id added to completedIds</div>
+        <div class="step-state">submitted=true<br>id → completedQuestionIds<br>if correct → correctQuestionIds</div>
       </div>
       <div class="quiz-arrow">→</div>
 
@@ -586,7 +591,7 @@
       <div class="legend-item"><div class="legend-dot" style="background:#34d399"></div>React Hook state (local to component tree)</div>
       <div class="legend-item"><div class="legend-dot" style="background:#a78bfa"></div>LocalStorage (browser-level persistence)</div>
       <div class="legend-item"><div class="legend-dot" style="background:#f59e0b"></div>Static TypeScript data (bundled at build time)</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#64748b"></div>No backend · No auth · No database</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#64748b"></div>No backend · No auth · No database · Vercel Analytics (client-side only)</div>
     </div>
   </div>
 

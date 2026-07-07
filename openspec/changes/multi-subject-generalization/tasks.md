@@ -176,24 +176,30 @@ export function validateSubject(raw: unknown): Subject {
 Files: create `scripts/migrate-dp750-to-json.mjs` (throwaway), `src/data/subjects/dp-750.json`, `src/data/subjects/index.ts`, `src/data/subjects/index.test.ts`; modify `tsconfig.json`.
 Produces: `getSubjects(): Subject[]`, `getSubjectBySlug(slug): Subject | undefined`, and subject-scoped helpers.
 
-- [ ] 3.1 Write `scripts/migrate-dp750-to-json.mjs` (run via `npx tsx`). Confirm export names first: `grep -nE "export const (TOPICS|QUESTION_BANK|SOURCES|CONTENT_NOTES)" src/data/*.ts`.
+- [ ] 3.1 Write `scripts/migrate-dp750-to-json.mjs` (run via `npx tsx`). Per **D8**, bake enrichment: the exported helpers already return the enriched (padded, 4-option) questions, and preserve the `codeSnippet` field. Build the full bank as the union over topics of regular + code-snippet questions so both tiers are captured with enrichment baked in.
 
 ```js
 import { writeFileSync } from 'node:fs';
 import { TOPICS } from '../src/data/topics.ts';
-import { QUESTION_BANK } from '../src/data/questions.ts';
 import { SOURCES } from '../src/data/sources.ts';
 import { CONTENT_NOTES } from '../src/data/contentNotes.ts';
+import { getQuestionsForTopic, getCodeSnippetQuestionsForTopic } from '../src/data/questions.ts';
+
+// Enriched union: regular (padded to 4 options) + code-snippet questions, per topic.
+const questions = TOPICS.flatMap((t) => [
+  ...getQuestionsForTopic(t.id),
+  ...getCodeSnippetQuestionsForTopic(t.id),
+]);
 
 const subject = {
   id: 'dp-750', slug: 'dp-750',
   name: 'DP-750: Azure Databricks Data Engineering', shortLabel: 'DP-750',
   tagline: 'Follow your topic path, resume where you left off, and keep progress in this browser.',
   sourcePolicy: 'microsoft-only',
-  sources: SOURCES, topics: TOPICS, questions: QUESTION_BANK, notes: CONTENT_NOTES,
+  sources: SOURCES, topics: TOPICS, questions, notes: CONTENT_NOTES,
 };
 writeFileSync(new URL('../src/data/subjects/dp-750.json', import.meta.url), JSON.stringify(subject, null, 2) + '\n');
-console.log(`Wrote dp-750.json: ${TOPICS.length} topics, ${QUESTION_BANK.length} questions`);
+console.log(`Wrote dp-750.json: ${TOPICS.length} topics, ${questions.length} questions`);
 ```
 
 - [ ] 3.2 Run `npx tsx scripts/migrate-dp750-to-json.mjs` — expect `5 topics, N questions` and a new `dp-750.json`.
@@ -236,9 +242,15 @@ export function getSubjectBySlug(slug: string): Subject | undefined {
 }
 export const getTopicBySlug = (subject: Subject, slug: string) =>
   subject.topics.find((t) => t.slug === slug);
+// Preserve the code-snippet tier split (D8): regular vs code questions.
 export const getQuestionsForTopic = (subject: Subject, topicId: string) =>
-  subject.questions.filter((q) => q.topicId === topicId);
-export const getAllQuestions = (subject: Subject) => subject.questions;
+  subject.questions.filter((q) => q.topicId === topicId && !q.codeSnippet);
+export const getCodeSnippetQuestionsForTopic = (subject: Subject, topicId: string) =>
+  subject.questions.filter((q) => q.topicId === topicId && !!q.codeSnippet);
+export const getQuestionCountForTopic = (subject: Subject, topicId: string) =>
+  getQuestionsForTopic(subject, topicId).length;
+export const getAllQuestions = (subject: Subject) =>
+  subject.questions.filter((q) => !q.codeSnippet);
 ```
 
 - [ ] 3.6 Run `npm run test:unit && npm run build` — expect PASS. (Physical deletion of old `.ts` data files is deferred to §5 so the app keeps compiling; §3 only ADDs JSON + loader.)

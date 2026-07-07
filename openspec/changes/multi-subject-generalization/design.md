@@ -62,6 +62,17 @@ Rationale: 1,818 lines converted by hand is error-prone. Scripting the conversio
 
 Rationale: the MCP's planned "level 2 quizzes" would otherwise force a schema + data migration later. Adding the optional field now is free and forward-compatible.
 
+### D8: Bake question enrichment into JSON; preserve the code-snippet tier; reuse existing MS validation
+
+The current `questions.ts` pads any question with <4 options with a machine-generated distractor (`enrichQuestion` + `topicDistractors`/`keywordDistractors`/`pickDiverseDistractor`, ~120 lines), and splits a per-topic code-snippet tier (`getCodeSnippetQuestionsForTopic`, gated behind a 70% score) from regular questions. Existing source validation (`isOfficialMicrosoftUrl`) allows `learn.microsoft.com`, `microsoft.com`, and `*.microsoft.com`.
+
+Decisions:
+- **Bake enrichment during migration:** run `enrichQuestion` once so `dp-750.json` stores final 4-option questions as literal data; delete the distractor-generation logic. Content becomes self-contained and honest — the JSON is exactly what renders, which is what the MCP will read/edit.
+- **Preserve the code-snippet tier as a loader behavior:** subject helpers keep the split — `getQuestionsForTopic`/`getAllQuestions` return regular (`!codeSnippet`) questions, `getCodeSnippetQuestionsForTopic` returns code ones. The `codeSnippet` field drives the split; no separate storage.
+- **Reuse `isOfficialMicrosoftUrl`** for the `microsoft-only` policy instead of a stricter `learn.microsoft.com`-only check, so behavior matches today.
+
+Rationale: baking keeps runtime honest and MCP-friendly (per D1); the split and MS-host allowlist are existing behavior that must not regress. (Surfaced during implementation of §3 and confirmed by the user.)
+
 ### D7: Subjects are arbitrary; switch via a header menu and a home picker
 
 Subjects are unrelated study domains — DP-750 (a Microsoft exam) and, say, "Dutch" (a language, non-Microsoft sources) are peers. Switching happens two ways: a header switcher control (☰) on every page for jumping between subjects without leaving the current one, and the full picker landing at `/`.

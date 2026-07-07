@@ -1,4 +1,5 @@
 import { Subject, SourcePolicy } from '../../types/study';
+import { isOfficialMicrosoftUrl } from '../../utils/contentValidation';
 
 export const SUPPORTED_GLYPHS = new Set(
   'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789- '.split('')
@@ -40,7 +41,7 @@ export function validateSubject(raw: unknown): Subject {
       ...s.sources.map((x) => x.url),
       ...s.questions.flatMap((q) => q.sourceUrls),
     ];
-    const bad = urls.find((u) => !u.startsWith('https://learn.microsoft.com/'));
+    const bad = urls.find((u) => !isOfficialMicrosoftUrl(u));
     if (bad) throw new Error(`microsoft-only subject has non-Microsoft source URL: ${bad}`);
   }
 

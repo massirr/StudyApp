@@ -53,6 +53,10 @@ a:hover {
 .app-shell {
   width: min(100%, 1320px);
   margin: 0 auto;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
 }
 
 .app-home-link {
@@ -80,6 +84,7 @@ a:hover {
 }
 
 .app-main {
+  flex: 1 0 auto;
   padding: 18px 24px max(48px, calc(24px + env(safe-area-inset-bottom, 0px)));
 }
 

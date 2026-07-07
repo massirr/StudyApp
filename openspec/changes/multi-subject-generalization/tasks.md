@@ -619,7 +619,7 @@ export function useProgress(subjectId: string) {
 
 Files: create `playwright.config.ts`; modify `tests/dashboard.spec.ts`, `tests/quiz-flow.spec.ts`, `tests/quiz-page.screenshot.test.ts`.
 
-- [ ] 11.1 Add `playwright.config.ts`:
+- [x] 11.1 Add `playwright.config.ts`:
 
 ```ts
 import { defineConfig } from '@playwright/test';
@@ -630,10 +630,10 @@ export default defineConfig({
 });
 ```
 
-- [ ] 11.2 Update specs to subject routes: `/quiz` → `/dp-750/quiz`, `/quiz?topic=...` → `/dp-750/quiz?topic=...`, dashboard `/` → `/dp-750`. Screenshot test URL → `/dp-750/quiz` (path already `test-results/quiz-page.png`). Use relative paths now that `baseURL` is set.
-- [ ] 11.3 Run `npm run test:unit && npm run test` — unit PASS; Playwright PASS (webServer auto-starts). Fix any selector drift.
-- [ ] 11.4 Build + visual smoke: `npm run build && npm run preview -- --port 4173`; screenshot `/` (picker), `/dp-750` (pixel hero), open ☰ switcher, run one quiz question; confirm previously-completed DP-750 topics still show complete (migration worked).
-- [ ] 11.5 Commit: `test: subject-scoped e2e routes + playwright webServer config`.
+- [x] 11.2 Update specs to subject routes: `/quiz` → `/dp-750/quiz`, `/quiz?topic=...` → `/dp-750/quiz?topic=...`, dashboard `/` → `/dp-750`. Screenshot test URL → `/dp-750/quiz` (path already `test-results/quiz-page.png`). Use relative paths now that `baseURL` is set.
+- [x] 11.3 Run `npm run test:unit && npm run test` — unit PASS; Playwright PASS (webServer auto-starts). Fix any selector drift.
+- [x] 11.4 Build + visual smoke: `npm run build && npm run preview -- --port 4173`; screenshot `/` (picker), `/dp-750` (pixel hero), open ☰ switcher, run one quiz question; confirm previously-completed DP-750 topics still show complete (migration worked).
+- [x] 11.5 Commit: `test: subject-scoped e2e routes + playwright webServer config`.
 
 ---
 

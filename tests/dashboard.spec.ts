@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 const consoleErrors: string[] = [];
 
 test('dashboard loads correctly', async ({ page }) => {
-  await page.goto('http://localhost:5174/');
+  await page.goto('/dp-750');
   await page.waitForSelector('.topics-list', { timeout: 10000 });
   await expect(page).toHaveTitle('DP-750 Study Dashboard');
   await expect(page.locator('.topics-list')).toBeVisible();

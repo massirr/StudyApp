@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 
 test('quiz requires selection before submit', async ({ page }) => {
-    await page.goto('http://localhost:5174/quiz');
+    await page.goto('/dp-750/quiz');
 
     const submit = page.getByRole('button', { name: 'Submit Answer' });
     await expect(submit).toBeDisabled();
@@ -12,7 +12,7 @@ test('quiz requires selection before submit', async ({ page }) => {
 });
 
 test('multi-select question validates combined answer', async ({ page }) => {
-    await page.goto('http://localhost:5174/quiz?topic=ingest-and-transform-data');
+    await page.goto('/dp-750/quiz?topic=ingest-and-transform-data');
 
     // Navigate past the first two single-select questions to reach q-t2-3 (multi-select)
     for (let i = 0; i < 2; i++) {
@@ -36,7 +36,7 @@ test('multi-select question validates combined answer', async ({ page }) => {
 });
 
 test('score screen shows after completing all topic questions', async ({ page }) => {
-    await page.goto('http://localhost:5174/quiz?topic=ingest-and-transform-data');
+    await page.goto('/dp-750/quiz?topic=ingest-and-transform-data');
 
     let questionsRemaining = true;
     while (questionsRemaining) {

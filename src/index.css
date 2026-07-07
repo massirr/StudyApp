@@ -164,6 +164,67 @@ a:hover {
   font-size: 0.85rem;
 }
 
+.app-header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.subject-switcher {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.subject-switcher-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--ink);
+  opacity: 0.55;
+  padding: 4px;
+  transition: opacity 0.18s ease;
+}
+
+.subject-switcher-btn:hover,
+.subject-switcher-btn[aria-expanded='true'] {
+  opacity: 1;
+}
+
+.subject-switcher-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  min-width: 240px;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  box-shadow: 5px 5px 0 rgba(7, 7, 7, 1);
+  z-index: 50;
+}
+
+.subject-switcher-menu a {
+  display: block;
+  padding: 8px 10px;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.subject-switcher-menu a:hover {
+  background: rgba(230, 190, 144, 0.6);
+  text-decoration: none;
+}
+
+.subject-switcher-menu a[aria-current] {
+  font-weight: 700;
+}
+
 .dashboard-page,
 .topic-page,
 .not-found-page {

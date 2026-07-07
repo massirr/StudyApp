@@ -367,7 +367,7 @@ grep -rn "data/topics\|data/questions\|data/sources\|data/contentNotes" src   # 
 
 Files: create `src/components/common/SubjectSwitcher.tsx`; modify `src/components/AppShell.tsx`, `src/index.css`; create `tests/switcher.spec.ts`.
 
-- [ ] 6.1 Implement `SubjectSwitcher.tsx` — accessible disclosure menu (`aria-haspopup="menu"`, `aria-expanded`, `<ul role="menu">` of subject links; close on outside-click / Escape):
+- [x] 6.1 Implement `SubjectSwitcher.tsx` — accessible disclosure menu (`aria-haspopup="menu"`, `aria-expanded`, `<ul role="menu">` of subject links; close on outside-click / Escape):
 
 ```tsx
 import React, { useEffect, useRef, useState } from 'react';
@@ -402,9 +402,9 @@ export const SubjectSwitcher: React.FC<{ activeSlug?: string }> = ({ activeSlug 
 };
 ```
 
-- [ ] 6.2 Mount in `AppShell.tsx`: give it optional `subject?: Subject` (supplied by `App.tsx` per route). Left = home link (subject wordmark via `PixelLogo` when present, else app brand); right = `<SubjectSwitcher activeSlug={subject?.slug} />` then the existing GitHub link.
-- [ ] 6.3 Add `.subject-switcher*` styles to `index.css` (absolute menu under the button, paper/ink palette, `--border`, small shadow).
-- [ ] 6.4 Add `tests/switcher.spec.ts`:
+- [x] 6.2 Mount in `AppShell.tsx`: give it optional `subject?: Subject` (supplied by `App.tsx` per route). Left = home link (subject wordmark via `PixelLogo` when present, else app brand); right = `<SubjectSwitcher activeSlug={subject?.slug} />` then the existing GitHub link.
+- [x] 6.3 Add `.subject-switcher*` styles to `index.css` (absolute menu under the button, paper/ink palette, `--border`, small shadow).
+- [x] 6.4 Add `tests/switcher.spec.ts`:
 
 ```ts
 import { expect, test } from '@playwright/test';
@@ -417,8 +417,8 @@ test('header switcher lists subjects and navigates', async ({ page }) => {
 });
 ```
 
-- [ ] 6.5 Run `npm run build && npm run test:unit` — expect PASS (Playwright runs in §11).
-- [ ] 6.6 Commit: `feat(nav): header subject switcher menu`.
+- [x] 6.5 Run `npm run build && npm run test:unit` — expect PASS (Playwright runs in §11).
+- [x] 6.6 Commit: `feat(nav): header subject switcher menu`.
 
 ## 7. Pixel-font renderer
 

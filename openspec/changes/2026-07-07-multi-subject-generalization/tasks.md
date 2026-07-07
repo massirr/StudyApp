@@ -12,6 +12,7 @@
 - [ ] 2.2 Update `App.tsx` to parse a leading subject segment: `/` → picker, `/:subject` → Dashboard, `/:subject/topics/:slug` → Topic, `/:subject/quiz` → Quiz, unknown → NotFound
 - [ ] 2.3 Preserve the `/topic/` → `/topics/` redirect, now under the subject segment
 - [ ] 2.4 Make `DashboardPage`, `TopicPage`, `QuizPage` resolve the active subject from the URL and pass it down; scope all internal links to include the subject slug
+- [ ] 2.5 Add a header ☰ switcher menu in `AppShell` (available on every page) that lists all subjects, indicates the active one, and navigates to `/:subject` on select; keyboard- and screen-reader-accessible (button with `aria-expanded`, focusable menu items)
 
 ## 3. Pixel-font hero
 

@@ -40,3 +40,18 @@ The header wordmark, dashboard hero, and quiz titles SHALL reflect the active su
 #### Scenario: Switching subjects re-brands
 - **WHEN** the user navigates from one subject to another
 - **THEN** the header wordmark and hero SHALL re-render to the new subject's short label
+
+### Requirement: Header switcher menu available on every page
+The header SHALL include a switcher control (☰) available on every page. Opening it SHALL list all available subjects; selecting one SHALL navigate to that subject's dashboard (`/:subject`). The home picker at `/` SHALL remain as a full landing page.
+
+#### Scenario: Switch from within a subject
+- **WHEN** the user is under `/dp-750` and opens the header switcher and selects another subject
+- **THEN** the app SHALL navigate to that subject's dashboard without first returning to `/`
+
+#### Scenario: Switcher lists all subjects
+- **WHEN** the switcher is open
+- **THEN** every subject returned by `getSubjects()` SHALL be listed, with the active subject indicated
+
+#### Scenario: Home picker still available
+- **WHEN** the user visits `/`
+- **THEN** the full subject picker landing SHALL render (independent of the header switcher)

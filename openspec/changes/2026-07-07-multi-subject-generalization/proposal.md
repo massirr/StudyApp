@@ -5,7 +5,7 @@ StudyApp is hardcoded to DP-750. Content lives in flat TypeScript arrays (`src/d
 ## What Changes
 
 - Introduce a `Subject` entity. Content is grouped **per subject as JSON files** (`src/data/subjects/<slug>.json`), validated against a schema at load, replacing the flat `src/data/*.ts` arrays. Existing DP-750 content is migrated by a one-time script.
-- Add a **subject picker** at `/` and scope all routes under a subject segment: `/:subject`, `/:subject/topics/:slug`, `/:subject/quiz?topic=:slug`. The `/topic/` → `/topics/` redirect is preserved, now subject-scoped.
+- Add a **subject picker** landing at `/` and a **header ☰ switcher** (available on every page) for jumping between subjects. Scope all routes under a subject segment: `/:subject`, `/:subject/topics/:slug`, `/:subject/quiz?topic=:slug`. The `/topic/` → `/topics/` redirect is preserved, now subject-scoped. Subjects are arbitrary study domains (e.g. DP-750, a language) — nothing subject-specific lives outside a subject's own data.
 - Make **progress subject-scoped** in localStorage (`version: 2`) with an automatic migration that wraps existing v1 single-subject data under `dp-750`, losing nothing.
 - Replace the hardcoded "DP-750" pixel SVG with a **pixel-font renderer** that draws any subject's short label (A–Z, 0–9, hyphen, space) using the same GSAP random-stagger + float animation.
 - Drive the header wordmark, dashboard hero, and quiz titles from the **active subject**. Replace the global Microsoft-only source rule with a per-subject `sourcePolicy` (`dp-750` keeps `microsoft-only`).
@@ -36,6 +36,6 @@ StudyApp is hardcoded to DP-750. Content lives in flat TypeScript arrays (`src/d
 - `src/pages/DashboardPage.tsx`, `TopicPage.tsx`, `QuizPage.tsx` — read active subject; scoped links
 - `src/components/quiz/QuizPage.tsx` — quiz titles from `subject.shortLabel`
 - `src/components/common/PixelLogo.tsx` — pixel-font renderer with a `text` prop
-- `src/components/AppShell.tsx` — subject wordmark + "Subjects" link
+- `src/components/AppShell.tsx` — subject wordmark + header ☰ subject switcher menu
 - `src/context/ProgressContext.tsx`, `src/hooks/useProgress.ts`, `src/utils/progressStorage.ts` — subject-scoped state + v1→v2 migration
 - `tests/*.spec.ts` — updated to subject-scoped routes; new pixel-font + migration checks

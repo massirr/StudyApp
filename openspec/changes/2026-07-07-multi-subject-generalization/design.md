@@ -62,6 +62,12 @@ Rationale: 1,818 lines converted by hand is error-prone. Scripting the conversio
 
 Rationale: the MCP's planned "level 2 quizzes" would otherwise force a schema + data migration later. Adding the optional field now is free and forward-compatible.
 
+### D7: Subjects are arbitrary; switch via a header menu and a home picker
+
+Subjects are unrelated study domains — DP-750 (a Microsoft exam) and, say, "Dutch" (a language, non-Microsoft sources) are peers. Switching happens two ways: a header switcher control (☰) on every page for jumping between subjects without leaving the current one, and the full picker landing at `/`.
+
+Rationale: the platform is subject-agnostic, so nothing Microsoft-specific may live outside a subject's own data (`sourcePolicy` per D2 handles source rules). A persistent header switcher matches the mental model of "pick what I'm studying right now"; the home picker remains the discoverable landing. The two share `getSubjects()` and are not in conflict.
+
 ## Rollout (phased, each phase keeps the app working)
 
 1. Content model: schema/types, loader/registry, scripted DP-750 migration, validation, remove old `.ts`.

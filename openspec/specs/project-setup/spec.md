@@ -1,37 +1,25 @@
-# Project Setup Design
+# Spec: Project Setup
 
-## Project Structure
+## Purpose
 
-```
-/Volumes/Koze_disk/Projects/Projects-Fun/StudyApp
-├── src/
-│   ├── components/
-│   ├── context/
-│   ├── hooks/
-│   ├── pages/
-│   └── utils/
-├── docs/
-│   ├── design.md
-│   ├── architecture.md
-│   └── setup.md
-└── public/
-```
+Define the frontend project structure so code has a consistent, discoverable home. The app is a frontend-only React + Vite + TypeScript project with no backend, deployed to Vercel; content is bundled at build time and state persists in the browser.
 
-## Frontend
+## Requirements
 
-- React components in `src/components/`
-- Context providers in `src/context/`
-- Hooks in `src/hooks/`
-- Pages in `src/pages/`
-- Utilities in `src/utils/`
+### Requirement: Source is organized by responsibility
+The application source SHALL live under `src/`, organized by responsibility: `components/` (UI), `context/` (React context providers), `hooks/` (reusable hooks), `pages/` (route-level screens), `utils/` (pure helpers), `lib/` (framework-agnostic logic), `types/` (shared types), and `data/` (study content).
 
-## Data
+#### Scenario: A new component has a home
+- **WHEN** a new presentational component is added
+- **THEN** it SHALL be placed under `src/components/` (or a subfolder) rather than inline in a page or util
 
-- DP-750 content in `src/data/`
-- LocalStorage utilities in `src/utils/storage.ts`
+#### Scenario: Pure logic is separated from UI
+- **WHEN** framework-agnostic logic (e.g. routing parse, pixel font) is added
+- **THEN** it SHALL live under `src/lib/` and be unit-testable without rendering
 
-## Documentation
+### Requirement: Study content lives in the data layer
+Study content SHALL live under `src/data/` as structured data (per-subject JSON in `src/data/subjects/`), not hardcoded inside component logic.
 
-- `docs/design.md`: Design decisions
-- `docs/architecture.md`: Architecture overview
-- `docs/setup.md`: Setup instructions
+#### Scenario: Content is not hardcoded in components
+- **WHEN** a page needs topics or questions
+- **THEN** it SHALL read them from the `src/data/subjects` loader rather than embedding content literals

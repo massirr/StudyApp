@@ -1,114 +1,50 @@
-# Quiz Flow Spec
+# Spec: Quiz Flow
 
-## Goal
-Define a simple, reliable quiz experience for each DP-750 topic page so users can check understanding without adding unnecessary complexity.
+## Purpose
 
-## User Problem
-The app can show topics and track progress, but users also need a lightweight way to confirm what they learned. If quiz behavior is not clearly defined, answer states, feedback, and retry behavior will drift into ad hoc component logic.
+Provide a simple, learning-focused quiz for each topic: one question at a time, select then submit, immediate feedback with a grounded explanation, and a completion state. Supports single-select and multi-select questions without branching into separate flows.
 
-## Proposed Solution
-Add a topic-level quiz flow that lives inside each topic page and follows the same interaction pattern everywhere.
+## Requirements
 
-The quiz should present one question at a time, allow the user to select an answer, submit it, and see immediate feedback. After feedback is shown, the user can move to the next question or retry the current one depending on the question state. The quiz flow should stay simple enough to support both multiple-choice and multi-select questions without branching into separate mini-apps.
+### Requirement: One question at a time with select-then-submit
+The quiz SHALL present one question at a time and require the user to submit a selection before feedback is shown. It SHALL NOT auto-submit on selection, and users MAY change their selection before submitting.
 
-The quiz experience should be focused on learning, not scoring. It should explain why answers are right or wrong using official Microsoft source grounding from the content layer.
+#### Scenario: Selection can change before submit
+- **WHEN** the user picks an option and then picks another before submitting
+- **THEN** only the latest selection SHALL be submitted
 
-## User Flow
-1. The user opens a topic page and scrolls to the quiz section.
-2. The app shows one question with answer options.
-3. The user selects one or more answers depending on the question type.
-4. The user submits the answer.
-5. The app shows correctness feedback and a short explanation.
-6. The user moves to the next question or retries.
-7. When the topic quiz is complete, the app shows a completion state and a path back to the dashboard.
+#### Scenario: No auto-submit
+- **WHEN** the user selects an option
+- **THEN** the answer SHALL NOT be submitted until the user activates submit
 
-## Page / Component Structure
-### Pages
-- `TopicPage`: hosts the topic overview and quiz section.
+### Requirement: Empty selection cannot be submitted
+The submit action SHALL be disabled until at least one option is selected.
 
-### Components
-- `QuizSection`: wraps the quiz state for a topic.
-- `QuestionCard`: renders the current question and its prompt.
-- `AnswerPicker`: handles single-select and multi-select answer selection.
-- `SubmitButton`: submits the current selection.
-- `FeedbackPanel`: shows correct/incorrect state and explanation.
-- `QuestionNavigator`: moves to the next question or retries the current one.
-- `QuizCompletionState`: appears when the quiz deck is finished.
+#### Scenario: Submit disabled with no selection
+- **WHEN** no option is selected
+- **THEN** the submit control SHALL be disabled
 
-### Files and Responsibilities
-- `src/components/quiz/*`: quiz UI and interaction pieces.
-- `src/data/questions.ts`: question definitions for each topic.
-- `src/hooks/useQuizState.ts`: quiz interaction state and transitions.
-- `src/context/QuizContext.tsx`: optional shared quiz state for the active topic.
+### Requirement: Single-select and multi-select are supported
+Single-select questions SHALL allow exactly one active answer; multi-select questions SHALL allow more than one and SHALL evaluate the full selection against `correctOptionIds`.
 
-## Data Model
-The quiz needs a stable question model that can support both content review and answer feedback.
+#### Scenario: Multi-select evaluates the full set
+- **WHEN** a multi-select question is submitted
+- **THEN** correctness SHALL require the selected set to match the correct set exactly
 
-### QuizQuestion
-- `id`: stable question identifier.
-- `topicId`: topic the question belongs to.
-- `prompt`: the question text.
-- `type`: single-select or multi-select.
-- `options`: answer choices; order determines the option letter (A=index 0, B=index 1, C=index 2, D=index 3).
-- `correctOptionIds`: one or more correct answers, referencing the positional id (`'a'`–`'d'`) matching the current `options` array order.
-- `explanation`: short learning-oriented explanation.
-- `sourceUrls`: references to official Microsoft documentation URLs.
-- `codeSnippet` *(optional)*: `{ language: string; code: string }` — a code block displayed as part of the question body.
+### Requirement: Feedback shows after submission and gates advancing
+After submission, correctness and a short explanation SHALL be visible, and the user SHALL NOT advance to the next question until the current one is submitted.
 
-### QuizOption
-- `id`: stable option identifier.
-- `label`: answer text.
+#### Scenario: Feedback appears on submit
+- **WHEN** the user submits an answer
+- **THEN** correct/incorrect state and an explanation SHALL be shown
 
-### Quiz State
-- `currentQuestionId`: the active question.
-- `selectedOptionIds`: current user selection.
-- `submitted`: whether the current question has been submitted.
-- `isCorrect`: derived correctness value after submission.
-- `completedQuestionIds`: questions the user has finished in the current topic session.
+#### Scenario: Cannot advance before submit
+- **WHEN** the current question has not been submitted
+- **THEN** the next control SHALL be unavailable
 
-## Interaction Rules
-- Users can change their selection before submission.
-- After submission, the selected answers and correct answers are both visible.
-- Single-select questions only allow one active answer.
-- Multi-select questions allow more than one answer and must treat the full selection as the submitted response.
-- Feedback must be visible immediately after submission.
-- The user cannot advance to the next question until the current question has been submitted.
-- The quiz should not auto-submit on selection.
+### Requirement: Completion state after the final question
+When all questions in the deck are finished, the quiz SHALL show a completion state with a score and a path back to the dashboard.
 
-## Source Requirements
-- All quiz questions, correct answers, and explanations must be grounded in official Microsoft sources only.
-- Explanations should cite the content items or source links used to create the question.
-- The quiz must not contain unsupported claims, guessed facts, or community-derived shortcuts.
-- If a question cannot be grounded in official sources, it should not be added.
-
-## Acceptance Criteria
-- Each topic page can render a quiz section without duplicating unrelated topics.
-- The quiz supports both single-select and multi-select questions.
-- The user can select answers, submit them, and see feedback.
-- Correct and incorrect answers are clearly indicated after submission.
-- The user can move through the quiz in order.
-- The quiz shows a completion state when all questions for a topic are finished.
-- Quiz questions and explanations come from the shared content layer, not hardcoded component text.
-
-## Non-Goals
-- Timed exams.
-- Leaderboards.
-- Authentication.
-- Backend APIs.
-- Cloud sync.
-- Adaptive difficulty.
-- Randomized question pools.
-- AI chat inside the app.
-
-## Test Plan
-- Verify single-select questions allow one answer and submit correctly.
-- Verify multi-select questions allow multiple answers and evaluate the full selection.
-- Verify feedback appears after submission.
-- Verify the user cannot submit an empty selection.
-- Verify the next-question flow works after submission.
-- Verify completion state appears after the final question.
-- Verify `correctOptionIds` always matches the positional index of the correct answer text in `options`.
-
-## Open Questions
-- Should users be able to review previous quiz questions within the same session?
-- Should incorrect answers stay visible after moving to the next question, or reset immediately?
+#### Scenario: Completion state appears
+- **WHEN** the final question is submitted
+- **THEN** a completion state with score and a dashboard link SHALL be shown

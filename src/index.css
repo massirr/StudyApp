@@ -225,6 +225,18 @@ a:hover {
   font-weight: 700;
 }
 
+.subject-switcher-home {
+  color: var(--ink-soft) !important;
+  font-weight: 600;
+}
+
+.subject-switcher-sep {
+  height: 0;
+  margin: 4px 6px;
+  border-top: 1px solid var(--border);
+  list-style: none;
+}
+
 .dashboard-page,
 .topic-page,
 .not-found-page {

@@ -36,6 +36,12 @@ export const SubjectSwitcher: React.FC<{ activeSlug?: string }> = ({ activeSlug 
             </button>
             {open && (
                 <ul className="subject-switcher-menu" role="menu">
+                    <li role="none">
+                        <a role="menuitem" href="/" className="subject-switcher-home">
+                            ← All subjects
+                        </a>
+                    </li>
+                    <li role="separator" className="subject-switcher-sep" aria-hidden="true" />
                     {subjects.map((s) => (
                         <li key={s.id} role="none">
                             <a

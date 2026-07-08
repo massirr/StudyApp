@@ -1,64 +1,67 @@
-import { ProgressState } from '../types/study';
+import { ProgressStateV2, SubjectProgress } from '../types/study';
 
 const STORAGE_KEY = 'studyapp_progress';
-const STORAGE_VERSION = 1;
+const DEFAULT_SUBJECT = 'dp-750';
 
-export const createDefaultProgressState = (): ProgressState => ({
-    version: STORAGE_VERSION,
+export const emptySubjectProgress = (): SubjectProgress => ({
     completedTopicIds: [],
-    completedSubtopicIds: {},
-    lastVisitedTopicSlug: undefined,
-    preferences: {
-        compactMode: false,
-        showCompletedTopics: true
-    }
+    completedSubtopicIds: {}
 });
 
-const normalize = (value: unknown): ProgressState => {
-    if (!value || typeof value !== 'object') {
-        return createDefaultProgressState();
+export const createDefaultProgressState = (): ProgressStateV2 => ({
+    version: 2,
+    subjects: {}
+});
+
+// Migrate any stored payload to v2. v1 (flat, single-subject) is wrapped under dp-750.
+export function migrate(raw: unknown): ProgressStateV2 {
+    if (typeof raw !== 'object' || raw === null) return createDefaultProgressState();
+    const o = raw as Record<string, unknown>;
+
+    if (o.version === 2 && typeof o.subjects === 'object' && o.subjects !== null) {
+        return o as unknown as ProgressStateV2;
     }
 
-    const incoming = value as Partial<ProgressState>;
-    return {
-        version: STORAGE_VERSION,
-        completedTopicIds: Array.isArray(incoming.completedTopicIds)
-            ? incoming.completedTopicIds.filter((id): id is string => typeof id === 'string')
-            : [],
-        completedSubtopicIds:
-            incoming.completedSubtopicIds && typeof incoming.completedSubtopicIds === 'object'
-                ? incoming.completedSubtopicIds
-                : {},
-        lastVisitedTopicSlug:
-            typeof incoming.lastVisitedTopicSlug === 'string'
-                ? incoming.lastVisitedTopicSlug
-                : undefined,
-        preferences:
-            incoming.preferences && typeof incoming.preferences === 'object'
-                ? incoming.preferences
-                : createDefaultProgressState().preferences
-    };
-};
+    // v1 (flat) → wrap under dp-750
+    if (Array.isArray(o.completedTopicIds)) {
+        return {
+            version: 2,
+            subjects: {
+                [DEFAULT_SUBJECT]: {
+                    completedTopicIds: (o.completedTopicIds as unknown[]).filter(
+                        (id): id is string => typeof id === 'string'
+                    ),
+                    completedSubtopicIds:
+                        (o.completedSubtopicIds as Record<string, string[]>) ?? {},
+                    lastVisitedTopicSlug:
+                        typeof o.lastVisitedTopicSlug === 'string' ? o.lastVisitedTopicSlug : undefined
+                }
+            },
+            preferences: o.preferences as ProgressStateV2['preferences']
+        };
+    }
 
-export const loadProgressState = (): ProgressState => {
+    return createDefaultProgressState();
+}
+
+export const loadProgressState = (): ProgressStateV2 => {
     try {
         const raw = localStorage.getItem(STORAGE_KEY);
-        if (!raw) {
-            return createDefaultProgressState();
-        }
-
-        return normalize(JSON.parse(raw));
+        return migrate(raw ? JSON.parse(raw) : null);
     } catch {
         return createDefaultProgressState();
     }
 };
 
-export const saveProgressState = (state: ProgressState): void => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(normalize(state)));
+export const saveProgressState = (state: ProgressStateV2): void => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
 };
 
-export const resetProgressState = (): ProgressState => {
+export const resetProgressState = (): ProgressStateV2 => {
     const next = createDefaultProgressState();
     saveProgressState(next);
     return next;
 };
+
+export const getSubjectProgress = (state: ProgressStateV2, subjectId: string): SubjectProgress =>
+    state.subjects[subjectId] ?? emptySubjectProgress();

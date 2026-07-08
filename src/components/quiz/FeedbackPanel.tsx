@@ -1,8 +1,10 @@
 import React from 'react';
 import styles from './FeedbackPanel.module.css';
-import { getSourceByUrl } from '../../data/sources';
+import { getSourceByUrl } from '../../data/subjects';
+import { Subject } from '../../types/study';
 
 interface Props {
+  subject: Subject;
   isCorrect: boolean;
   explanation: string;
   sourceUrls: string[];
@@ -10,6 +12,7 @@ interface Props {
 }
 
 const FeedbackPanel: React.FC<Props> = ({
+  subject,
   isCorrect,
   explanation,
   sourceUrls,
@@ -25,7 +28,7 @@ const FeedbackPanel: React.FC<Props> = ({
       </div>
       <p className={styles.explanation}>{explanation}</p>
       {sourceUrls.map((sourceUrl) => {
-        const source = getSourceByUrl(sourceUrl);
+        const source = getSourceByUrl(subject, sourceUrl);
         return (
           <a
             key={sourceUrl}

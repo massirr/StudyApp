@@ -1,3 +1,5 @@
+import { QuizQuestion } from './quiz';
+
 export interface SourceLink {
     label: string;
     url: string;
@@ -43,5 +45,32 @@ export interface ProgressState {
     completedTopicIds: string[];
     completedSubtopicIds: Record<string, string[]>;
     lastVisitedTopicSlug?: string;
+    preferences?: ProgressPreferences;
+}
+
+export type SourcePolicy = 'microsoft-only' | 'any';
+
+export interface Subject {
+    id: string;
+    slug: string;
+    name: string;
+    shortLabel: string; // pixel hero; A-Z 0-9 hyphen space only
+    tagline: string;
+    sourcePolicy?: SourcePolicy; // defaults to 'any'
+    sources: SourceReference[];
+    topics: Topic[];
+    questions: QuizQuestion[];
+    notes: ContentNote[];
+}
+
+export interface SubjectProgress {
+    completedTopicIds: string[];
+    completedSubtopicIds: Record<string, string[]>;
+    lastVisitedTopicSlug?: string;
+}
+
+export interface ProgressStateV2 {
+    version: 2;
+    subjects: Record<string, SubjectProgress>;
     preferences?: ProgressPreferences;
 }

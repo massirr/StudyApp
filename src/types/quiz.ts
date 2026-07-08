@@ -15,6 +15,7 @@ export interface QuizQuestion {
     explanation: string;
     sourceUrls: string[];
     codeSnippet?: { language: string; code: string };
+    level?: number; // reserved for future tiered quizzes; unused in this release
 }
 
 export interface QuizResult {

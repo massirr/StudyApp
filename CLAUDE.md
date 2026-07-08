@@ -58,6 +58,12 @@ Implementation rule:
 - If a request is vague, create or update a spec before coding.
 - Keep specs small enough to implement and test in focused changes.
 
+Tooling rule — OpenSpec is the single home for specs and plans:
+- All spec-driven artifacts live under `openspec/changes/<slug>/` (active change names must start with a letter — the archive date prefix is added automatically by `openspec archive`): `proposal.md`, `design.md`, `tasks.md` (the implementation plan), and `specs/<capability>/spec.md` deltas. Published specs live in `openspec/specs/`.
+- The implementation plan IS the change's `tasks.md`. Do NOT create plans under `docs/superpowers/plans/` or any other location.
+- Brainstorming/exploration skills may be used to think, but their written outputs (specs, plans) MUST be saved into the OpenSpec change folder, never a skill's default directory.
+- Use the OpenSpec skills (propose, apply, archive) to create, implement, and archive changes.
+
 ## Success Criteria (v1)
 Users can:
 - Access the application publicly

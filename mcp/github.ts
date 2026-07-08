@@ -28,6 +28,19 @@ export async function readSubject(slug: string): Promise<{ subject: unknown; sha
   return { subject: JSON.parse(json), sha: data.sha };
 }
 
+export async function listSubjectSlugs(): Promise<string[]> {
+  const { token, repo, branch } = cfg();
+  const url = `${API}/repos/${repo}/git/trees/${branch}?recursive=1`;
+  const res = await fetch(url, { headers: headers(token) });
+  if (!res.ok) throw new Error(`GitHub tree fetch failed (${res.status})`);
+  const data = (await res.json()) as { tree: { path: string }[] };
+  return data.tree
+    .map((e) => e.path)
+    .filter((p) => /^src\/data\/subjects\/[^/]+\.json$/.test(p))
+    .filter((p) => !/\/(schema|index)/.test(p))
+    .map((p) => p.replace('src/data/subjects/', '').replace('.json', ''));
+}
+
 // sha omitted => create new file; provided => update existing.
 export async function commitSubject(
   slug: string, subject: unknown, sha: string | undefined, message: string,

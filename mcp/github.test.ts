@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { readSubject, commitSubject } from './github';
+import { readSubject, commitSubject, listSubjectSlugs } from './github';
 
 const realFetch = globalThis.fetch;
 afterEach(() => { globalThis.fetch = realFetch; vi.restoreAllMocks(); });
@@ -17,6 +17,20 @@ describe('github layer', () => {
     const out = await readSubject('dp-750');
     expect(out.sha).toBe('abc123');
     expect((out.subject as any).slug).toBe('dp-750');
+  });
+
+  it('listSubjectSlugs returns slugs from git tree, excluding schema/index', async () => {
+    mockFetchOnce({
+      tree: [
+        { path: 'src/data/subjects/dp-750.json' },
+        { path: 'src/data/subjects/az-900.json' },
+        { path: 'src/data/subjects/schema.ts' },
+        { path: 'src/data/subjects/index.ts' },
+        { path: 'src/components/Foo.tsx' },
+      ],
+    });
+    const slugs = await listSubjectSlugs();
+    expect(slugs).toEqual(['dp-750', 'az-900']);
   });
 
   it('commitSubject PUTs base64 content with the sha', async () => {

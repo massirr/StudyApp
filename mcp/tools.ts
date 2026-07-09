@@ -1,8 +1,8 @@
 import { z } from 'zod';
 import { Subject } from '../src/types/study';
-import { validateSubject } from '../src/data/subjects/schema';
-import { readSubject, commitSubject, listSubjectSlugs } from './github';
-import * as m from './core/mutations';
+import { validateSubject } from '../src/data/subjects/schema.js';
+import { readSubject, commitSubject, listSubjectSlugs } from './github.js';
+import * as m from './core/mutations.js';
 
 // ponytail: own minimal interface so this file is unit-testable without mcp-handler
 type Server = {

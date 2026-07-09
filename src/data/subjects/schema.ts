@@ -1,5 +1,5 @@
 import { Subject, SourcePolicy } from '../../types/study';
-import { isOfficialMicrosoftUrl } from '../../utils/contentValidation';
+import { isOfficialMicrosoftUrl } from '../../utils/contentValidation.js';
 
 export const SUPPORTED_GLYPHS = new Set(
   'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789- '.split('')

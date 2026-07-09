@@ -32,6 +32,10 @@ export function validateSubject(raw: unknown): Subject {
     notes: req(o, 'notes'),
   };
 
+  for (const key of ['topics', 'questions', 'sources', 'notes'] as const) {
+    if (!Array.isArray(s[key])) throw new Error(`Subject ${key} must be an array`);
+  }
+
   if (!isSupportedLabel(s.shortLabel)) {
     throw new Error(`shortLabel "${s.shortLabel}" contains an unsupported glyph (allowed: A-Z 0-9 hyphen space)`);
   }

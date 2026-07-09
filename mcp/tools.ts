@@ -68,7 +68,15 @@ export function registerTools(server: Server) {
     });
 
   server.tool('update_subject', 'Update top-level fields on a subject',
-    { subject: z.string(), patch: z.record(z.any()) },
+    {
+      subject: z.string(),
+      patch: z.object({
+        name: z.string().optional(),
+        shortLabel: z.string().optional(),
+        tagline: z.string().optional(),
+        sourcePolicy: z.enum(['microsoft-only', 'any']).optional(),
+      }),
+    },
     async ({ subject, patch }) => {
       try { return ok(await edit(subject, `mcp: update subject ${subject}`, (s) => m.updateSubject(s, patch))); }
       catch (e: any) { return fail(e.message); }
@@ -94,7 +102,18 @@ export function registerTools(server: Server) {
     });
 
   server.tool('update_topic', 'Update fields on a topic',
-    { subject: z.string(), id: z.string(), patch: z.record(z.any()) },
+    {
+      subject: z.string(),
+      id: z.string(),
+      patch: z.object({
+        slug: z.string().optional(),
+        title: z.string().optional(),
+        summary: z.string().optional(),
+        studyOrder: z.number().optional(),
+        subtopics: z.array(z.object({ id: z.string(), title: z.string(), summary: z.string() })).optional(),
+        sourceLinks: z.array(z.object({ label: z.string(), url: z.string() })).optional(),
+      }),
+    },
     async ({ subject, id, patch }) => {
       try { return ok(await edit(subject, `mcp: update topic ${id}`, (s) => m.updateTopic(s, id, patch))); }
       catch (e: any) { return fail(e.message); }
@@ -110,7 +129,20 @@ export function registerTools(server: Server) {
     });
 
   server.tool('update_question', 'Update fields on a question',
-    { subject: z.string(), id: z.string(), patch: z.record(z.any()) },
+    {
+      subject: z.string(),
+      id: z.string(),
+      patch: z.object({
+        prompt: z.string().optional(),
+        type: z.enum(['single', 'multiple']).optional(),
+        options: z.array(z.object({ id: z.string(), label: z.string() })).optional(),
+        correctOptionIds: z.array(z.string()).optional(),
+        explanation: z.string().optional(),
+        sourceUrls: z.array(z.string()).optional(),
+        codeSnippet: z.object({ language: z.string(), code: z.string() }).optional(),
+        level: z.number().optional(),
+      }),
+    },
     async ({ subject, id, patch }) => {
       try { return ok(await edit(subject, `mcp: update question ${id}`, (s) => m.updateQuestion(s, id, patch))); }
       catch (e: any) { return fail(e.message); }
@@ -133,7 +165,15 @@ export function registerTools(server: Server) {
     });
 
   server.tool('update_source', 'Update fields on a source',
-    { subject: z.string(), id: z.string(), patch: z.record(z.any()) },
+    {
+      subject: z.string(),
+      id: z.string(),
+      patch: z.object({
+        label: z.string().optional(),
+        url: z.string().optional(),
+        usageNote: z.string().optional(),
+      }),
+    },
     async ({ subject, id, patch }) => {
       try { return ok(await edit(subject, `mcp: update source ${id}`, (s) => m.updateSource(s, id, patch))); }
       catch (e: any) { return fail(e.message); }
@@ -156,7 +196,14 @@ export function registerTools(server: Server) {
     });
 
   server.tool('update_note', 'Update fields on a note',
-    { subject: z.string(), id: z.string(), patch: z.record(z.any()) },
+    {
+      subject: z.string(),
+      id: z.string(),
+      patch: z.object({
+        text: z.string().optional(),
+        sourceUrls: z.array(z.string()).optional(),
+      }),
+    },
     async ({ subject, id, patch }) => {
       try { return ok(await edit(subject, `mcp: update note ${id}`, (s) => m.updateNote(s, id, patch))); }
       catch (e: any) { return fail(e.message); }

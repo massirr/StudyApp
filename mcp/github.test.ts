@@ -43,4 +43,18 @@ describe('github layer', () => {
     expect(body.sha).toBe('abc123');
     expect(Buffer.from(body.content, 'base64').toString()).toContain('dp-750');
   });
+
+  it('readSubject rejects path-traversal slug and makes no fetch', async () => {
+    const spy = vi.fn();
+    globalThis.fetch = spy as unknown as typeof fetch;
+    await expect(readSubject('../../etc/passwd')).rejects.toThrow(/Invalid subject slug/);
+    expect(spy).not.toHaveBeenCalled();
+  });
+
+  it('commitSubject rejects dotdot slug and makes no fetch', async () => {
+    const spy = vi.fn();
+    globalThis.fetch = spy as unknown as typeof fetch;
+    await expect(commitSubject('..', {}, 'sha', 'm')).rejects.toThrow(/Invalid subject slug/);
+    expect(spy).not.toHaveBeenCalled();
+  });
 });

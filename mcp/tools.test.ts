@@ -1,4 +1,5 @@
 import { describe, expect, it, vi, beforeEach } from 'vitest';
+import { z } from 'zod';
 import { registerTools } from './tools';
 import { validateSubject } from '../src/data/subjects/schema';
 
@@ -34,6 +35,24 @@ function makeFakeServer() {
     },
   };
   return { server, handlers };
+}
+
+// Schema-validating server: mimics real MCP behavior (schema parsed before handler runs)
+function makeValidatingServer() {
+  const handlers: Record<string, (args: any) => Promise<any>> = {};
+  const schemas: Record<string, z.ZodTypeAny> = {};
+  const server = {
+    tool(_name: string, _desc: string, _schema: unknown, run: (args: any) => Promise<any>) {
+      handlers[_name] = run;
+      schemas[_name] = z.object(_schema as Record<string, z.ZodTypeAny>);
+    },
+  };
+  const call = async (name: string, args: any) => {
+    const parsed = schemas[name].safeParse(args);
+    if (!parsed.success) return { content: [{ type: 'text', text: parsed.error.message }], isError: true };
+    return handlers[name](parsed.data);
+  };
+  return { server, call };
 }
 
 beforeEach(() => {
@@ -128,6 +147,21 @@ describe('registerTools', () => {
       subject: 'test-subject',
       id: 'q-nonexistent',
       patch: { prompt: 'Updated?' },
+    });
+
+    expect(result.isError).toBe(true);
+    expect(vi.mocked(commitSubject)).not.toHaveBeenCalled();
+  });
+
+  it('update_question with wrong-typed correctOptionIds is rejected by zod schema and does NOT commit', async () => {
+    const { server, call } = makeValidatingServer();
+    registerTools(server);
+
+    // correctOptionIds must be array of string; passing a plain string is rejected by the typed patch schema
+    const result = await call('update_question', {
+      subject: 'test-subject',
+      id: 'q1',
+      patch: { correctOptionIds: 'x' },
     });
 
     expect(result.isError).toBe(true);

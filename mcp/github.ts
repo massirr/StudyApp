@@ -1,5 +1,9 @@
 const API = 'https://api.github.com';
 
+function assertSlug(slug: string): void {
+  if (!/^[a-z0-9-]+$/.test(slug)) throw new Error(`Invalid subject slug: ${slug}`);
+}
+
 function cfg() {
   const token = process.env.GITHUB_TOKEN;
   const repo = process.env.GITHUB_REPO; // "owner/repo"
@@ -19,6 +23,7 @@ function headers(token: string) {
 }
 
 export async function readSubject(slug: string): Promise<{ subject: unknown; sha: string }> {
+  assertSlug(slug);
   const { token, repo, branch } = cfg();
   const url = `${API}/repos/${repo}/contents/${filePath(slug)}?ref=${branch}`;
   const res = await fetch(url, { headers: headers(token) });
@@ -45,6 +50,7 @@ export async function listSubjectSlugs(): Promise<string[]> {
 export async function commitSubject(
   slug: string, subject: unknown, sha: string | undefined, message: string,
 ): Promise<void> {
+  assertSlug(slug);
   const { token, repo, branch } = cfg();
   const url = `${API}/repos/${repo}/contents/${filePath(slug)}`;
   const content = Buffer.from(JSON.stringify(subject, null, 2) + '\n').toString('base64');

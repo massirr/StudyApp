@@ -6,5 +6,9 @@ export default defineConfig({
   plugins: [react()],
   appType: 'spa',
   // Unit tests live in src/**; Playwright e2e lives in tests/** (run via `npm run test`).
-  test: { environment: 'node', include: ['src/**/*.test.ts'] },
+  test: {
+    environment: 'node',
+    include: ['src/**/*.test.ts', 'mcp/**/*.test.ts'],
+    env: { GITHUB_TOKEN: 'test-token', GITHUB_REPO: 'owner/repo' },
+  },
 })

@@ -30,6 +30,9 @@ describe('validateSubject', () => {
     const ok = { ...valid, sources: [{ id: 's', label: 'x', url: 'https://example.com', usageNote: '' }] };
     expect(validateSubject(ok).sources).toHaveLength(1);
   });
+  it('throws when topics is not an array', () => {
+    expect(() => validateSubject({ ...valid, topics: 'x' })).toThrow(/topics must be an array/);
+  });
 });
 
 describe('isSupportedLabel', () => {

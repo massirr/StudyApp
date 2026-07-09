@@ -1,5 +1,5 @@
 import { Subject } from '../../src/types/study';
-import { nextId } from './ids';
+import { nextId } from './ids.js';
 import {
   NewSubject, SubjectPatch, NewTopic, TopicPatch, NewQuestion, QuestionPatch,
   NewSource, SourcePatch, NewNote, NotePatch,

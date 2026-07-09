@@ -9,8 +9,8 @@
 // │ https://vercel.com/docs/mcp/deploy-mcp-servers-to-vercel                  │
 // └──────────────────────────────────────────────────────────────────────────┘
 import { createMcpHandler, withMcpAuth } from 'mcp-handler';
-import { registerTools } from '../mcp/tools';
-import { verifyToken } from '../mcp/auth';
+import { registerTools } from '../mcp/tools.js';
+import { verifyToken } from '../mcp/auth.js';
 
 // createMcpHandler wires our tools onto an MCP server exposed over
 // streamable-HTTP. withMcpAuth rejects any request whose bearer token does not

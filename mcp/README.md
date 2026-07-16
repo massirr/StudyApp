@@ -13,6 +13,23 @@ content by chatting with the Claude app, including from your phone.
   (`validateSubject`) before it commits. A commit triggers a Vercel rebuild, so
   the change is live in ~1 minute.
 
+## In plain English
+
+You chat with Claude on your phone. Claude sends your request to a small program
+of yours running on Vercel. That program checks the secret token in the URL (so
+only you can use it), makes the change to your quiz content stored on GitHub, and
+GitHub redeploys the site — the change is live in about a minute.
+
+**Four steps:** you ask → your server checks the token → GitHub saves it → the
+site updates.
+
+You did **not** have to write the "streaming"/protocol code the Microsoft repo
+teaches: a library (`mcp-handler`) implements all of that inside the one
+`createMcpHandler(...)` call. That repo was the textbook that explains what's
+happening under the hood; the library is the pre-built engine. You only wrote the
+two things unique to your app: the **tools** (`mcp/tools.ts`) and the **auth
+guard** (`mcp/auth.ts`).
+
 ## How it works
 
 ```

@@ -17,7 +17,7 @@ content by chatting with the Claude app, including from your phone.
 
 ```
 Claude (phone/desktop)  ──MCP/HTTPS──▶  api/mcp.ts (Vercel Function)
-                                          │  verifyToken (bearer)
+                                          │  guard (header OR ?token=)
                                           │  read subject JSON  ◀─┐
                                           │  mutate + validateSubject
                                           └─ commit to GitHub ────┘ ──▶ Vercel redeploy
@@ -33,7 +33,7 @@ the GitHub Contents API against `master`; it never uses a database.
 | `GITHUB_TOKEN` | A **fine-grained** GitHub PAT scoped to **this repo only**, with **Contents: Read and write**. Nothing else. Create at GitHub → Settings → Developer settings → Fine-grained tokens. |
 | `GITHUB_REPO` | `massirr/StudyApp` |
 | `GITHUB_BRANCH` | `master` |
-| `MCP_AUTH_TOKEN` | A long random secret (e.g. `openssl rand -hex 32`). The bearer token the MCP client must send. Keep it private. |
+| `MCP_AUTH_TOKEN` | A long random secret (e.g. `openssl rand -hex 32`). The token the MCP client must send — as an `Authorization: Bearer` header **or** a `?token=` query param on the URL. Keep it private. |
 
 ## Deploy
 
@@ -48,17 +48,21 @@ The endpoint will be `https://<your-app>.vercel.app/api/mcp`.
 
 ## Connect from the Claude app (phone or desktop)
 
+Claude's custom-connector UI only supports OAuth and has **no field for a static
+bearer token**, so the token rides in the URL instead:
+
 1. Claude → Settings → **Connectors** → **Add custom connector**.
-2. URL: `https://<your-app>.vercel.app/api/mcp`.
-3. Provide the bearer token (`MCP_AUTH_TOKEN`) when prompted for authentication.
+2. URL: `https://<your-app>.vercel.app/api/mcp?token=<MCP_AUTH_TOKEN>`.
+3. Leave the OAuth Client ID / Secret fields **blank**.
 4. Ask Claude e.g. *"List my study subjects"* → it calls `list_subjects`.
 
-**If the Claude connector requires full OAuth** (rather than a bearer token):
-the bearer guard in `mcp/auth.ts` still secures clients that send an
-`Authorization` header, but for Claude's OAuth flow follow the WorkOS AuthKit +
-Vercel MCP template — a ~5-minute setup:
-https://workos.com/blog/vercel-mcp-workos-authkit-template — and swap
-`verifyToken` for the provider's verifier in `api/mcp.ts`.
+> **Security note:** the `?token=` URL is the credential (single-user grade — it
+> lands in server logs). Rotate by changing `MCP_AUTH_TOKEN` in Vercel. Clients
+> that can set headers may instead send `Authorization: Bearer <MCP_AUTH_TOKEN>`.
+
+**To go multi-user,** swap the `guard` in `api/mcp.ts` for full OAuth via the
+WorkOS AuthKit + Vercel MCP template (~5-minute setup):
+https://workos.com/blog/vercel-mcp-workos-authkit-template
 
 ## Tools
 

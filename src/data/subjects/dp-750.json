@@ -3189,6 +3189,37 @@
         "code": "GRANT SELECT ON SCHEMA prod_sales.gold TO `analytics_team`"
       },
       "id": "q-14"
+    },
+    {
+      "topicId": "topic-03",
+      "prompt": "A `customers` table contains a `ssn` column that only the compliance team should see, and EU-based analysts should only see rows where `region = 'EU'`. Both restrictions must be enforced centrally so every query — notebook, SQL warehouse, or BI tool — respects them automatically. What's the right Unity Catalog mechanism?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Create separate physical tables per region and per privilege level, and grant access to the matching copy"
+        },
+        {
+          "id": "b",
+          "label": "Apply a column mask function to `ssn` and a row filter function on `region`, both defined once on the table in Unity Catalog"
+        },
+        {
+          "id": "c",
+          "label": "Rely on each BI tool's own row-level security feature, configured separately per tool"
+        },
+        {
+          "id": "d",
+          "label": "Encrypt the ssn column client-side and distribute decryption keys only to compliance team laptops"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Unity Catalog supports column masks (functions that redact/transform a column's value based on the querying user's group membership) and row filters (functions that restrict which rows are visible), both defined once at the table level. Because enforcement happens in Unity Catalog itself, it applies uniformly across every compute path — notebooks, SQL warehouses, and connected BI tools — with no per-tool configuration.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/row-and-column-filters"
+      ],
+      "id": "q-15"
     }
   ],
   "notes": [

@@ -5191,6 +5191,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/admin/system-tables/audit-logs"
       ],
       "id": "q-76"
+    },
+    {
+      "topicId": "topic-05",
+      "prompt": "The on-call team wants to be paged automatically within 5 minutes if average job failure rate across the workspace exceeds 10% in a rolling hour, using existing Azure infrastructure rather than a third-party tool. What should be configured?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "An Azure Monitor alert rule based on a metric/log query (e.g. against job run data streamed via diagnostic settings) with a threshold condition and an action group that pages on-call via the team's existing incident tooling"
+        },
+        {
+          "id": "b",
+          "label": "A manually refreshed dashboard that someone must remember to check every hour"
+        },
+        {
+          "id": "c",
+          "label": "Job-level email notifications only, with no aggregation across jobs or workspace-wide thresholds"
+        },
+        {
+          "id": "d",
+          "label": "Azure Monitor cannot alert based on custom thresholds derived from log data; only fixed built-in metrics are supported"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Azure Monitor alert rules can be built on log queries (KQL over data ingested via diagnostic settings, such as job run outcomes) with a custom threshold condition and a defined evaluation window, then wired to an action group for paging/notification — directly satisfying a workspace-wide, threshold-based, near-real-time alerting requirement without needing a per-job-only or third-party solution.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-log"
+      ],
+      "id": "q-77"
     }
   ],
   "notes": [

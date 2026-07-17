@@ -3018,6 +3018,41 @@
         "code": "CREATE VOLUME IF NOT EXISTS prod_sales.finance.contract_scans\nCOMMENT 'PDF contract scans for OCR pipeline';"
       },
       "id": "q-9"
+    },
+    {
+      "topicId": "topic-01",
+      "prompt": "Five dashboards run the same expensive multi-join aggregation query against a 2 TB fact table every few minutes, driving up compute cost and query latency. The result set only needs to reflect data as of the last hourly ETL run. What's the best fix?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Replace it with a regular VIEW, which caches results automatically"
+        },
+        {
+          "id": "b",
+          "label": "Use a materialized view: the aggregation is precomputed and refreshed on a schedule, so dashboards read a small precomputed table instead of recomputing the join/aggregation each time"
+        },
+        {
+          "id": "c",
+          "label": "There is no way to avoid recomputation short of manually writing to a new table with a scheduled job"
+        },
+        {
+          "id": "d",
+          "label": "Materialized views recompute on every query just like regular views, so this wouldn't help"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Unlike a regular view (computed at query time on every read), a materialized view precomputes and stores its result, refreshing on a defined schedule or trigger. This is exactly suited to expensive, repeatedly-queried aggregations where slightly-stale (hourly) data is acceptable — dashboards then read a small precomputed table instead of re-running the join.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/sql/user/materialized-views"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "CREATE MATERIALIZED VIEW prod_sales.gold.hourly_revenue_summary\nSCHEDULE CRON '0 0 * * * ?'\nAS\nSELECT region, product_category, SUM(revenue) AS total_revenue\nFROM prod_sales.silver.orders\nJOIN prod_sales.silver.products USING (product_id)\nGROUP BY region, product_category;"
+      },
+      "id": "q-10"
     }
   ],
   "notes": [

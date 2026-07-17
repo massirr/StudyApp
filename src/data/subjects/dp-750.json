@@ -4582,6 +4582,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/jobs/settings"
       ],
       "id": "q-57"
+    },
+    {
+      "topicId": "topic-04",
+      "prompt": "A team builds a notebook-based pipeline where notebook B must only run after notebook A completes successfully, and notebook C must only run after both A and B complete. They want this expressed as a single orchestrated Job rather than notebooks calling each other directly. How should this be built?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Use dbutils.notebook.run() inside notebook A to call B, and inside B to call C, chaining everything from within notebook code"
+        },
+        {
+          "id": "b",
+          "label": "Create a Lakeflow Job with three tasks (A, B, C), each pointing to its respective notebook, and configure task dependencies so B depends on A, and C depends on both A and B"
+        },
+        {
+          "id": "c",
+          "label": "Merge all three notebooks into one large notebook to avoid needing dependencies at all"
+        },
+        {
+          "id": "d",
+          "label": "Schedule three completely separate jobs at staggered times and hope the timing lines up"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Lakeflow Jobs support multi-task workflows where each task (which can be a notebook) declares explicit dependencies on other tasks, forming a DAG with proper precedence constraints (B after A; C after both A and B). This is the standard, maintainable way to orchestrate multi-notebook pipelines — preferable to nested dbutils.notebook.run() calls, which couple notebooks together and complicate monitoring/retries per stage.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/how-to/use-task-dependencies"
+      ],
+      "id": "q-58"
     }
   ],
   "notes": [

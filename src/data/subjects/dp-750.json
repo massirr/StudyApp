@@ -3596,6 +3596,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/ingestion/lakeflow-connect/"
       ],
       "id": "q-27"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A fraud-detection use case needs to react to new transactions within seconds of them occurring. A separate monthly financial reconciliation report only needs data as of the end of each day. Both read from the same underlying transaction source. What data loading method should each use?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both should use streaming, since streaming is strictly better than batch in every scenario"
+        },
+        {
+          "id": "b",
+          "label": "Fraud detection should use streaming ingestion (low latency, continuous processing); the monthly reconciliation report can use batch ingestion (e.g. a daily scheduled job), since near-real-time freshness isn't required"
+        },
+        {
+          "id": "c",
+          "label": "Both should use batch loading once per month to minimize compute cost"
+        },
+        {
+          "id": "d",
+          "label": "Loading method should be identical for both since they share the same source table"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Loading method should be chosen per use case's latency requirement, not per source. Streaming (e.g. Structured Streaming/Auto Loader) fits low-latency needs like fraud detection where seconds matter. Batch loading is more cost-efficient and operationally simpler when eventual, periodic freshness (like end-of-day) is sufficient — as with the monthly reconciliation report.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/ingestion/"
+      ],
+      "id": "q-28"
     }
   ],
   "notes": [

@@ -3844,6 +3844,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/create-tables"
       ],
       "id": "q-35"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "You need to stand up a production-grade ingestion pipeline from Salesforce into Unity Catalog with minimal custom code, automatic schema evolution handling, and built-in incremental extraction — without writing a custom connector. Which approach fits?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lakeflow Connect's managed Salesforce connector, configured to run in batch or streaming mode as needed"
+        },
+        {
+          "id": "b",
+          "label": "A hand-written Python notebook using the raw Salesforce REST API and manual pagination/state tracking"
+        },
+        {
+          "id": "c",
+          "label": "Spark Structured Streaming reading directly from Salesforce's database files"
+        },
+        {
+          "id": "d",
+          "label": "COPY INTO pointed at the Salesforce web UI export URL"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Lakeflow Connect provides managed, low-code connectors for common SaaS/enterprise sources like Salesforce, handling extraction, incremental/CDC-style updates, and schema evolution with minimal custom code — supporting both batch and streaming ingestion modes. Hand-rolled REST integrations require far more maintenance for the same outcome.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/ingestion/lakeflow-connect/"
+      ],
+      "id": "q-36"
     }
   ],
   "notes": [

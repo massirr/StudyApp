@@ -3317,6 +3317,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/connect/unity-catalog/cloud-storage/azure-managed-identities"
       ],
       "id": "q-18"
+    },
+    {
+      "topicId": "topic-03",
+      "prompt": "A new analyst joins the data team and needs to understand what the `net_revenue` column in `prod_sales.gold.orders` actually represents — whether it's before or after refunds — without pinging the original author. What should have been set up in advance to make this self-service?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "A README file stored separately in a Confluence page linked from the team wiki"
+        },
+        {
+          "id": "b",
+          "label": "Column and table comments/descriptions set via Unity Catalog DDL (or Catalog Explorer), which surface directly in the catalog's metadata for anyone browsing the table"
+        },
+        {
+          "id": "c",
+          "label": "A Slack channel dedicated to answering schema questions"
+        },
+        {
+          "id": "d",
+          "label": "Naming the column net_revenue_after_refunds instead, since column names alone are sufficient documentation"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Unity Catalog lets you attach persistent comments/descriptions to catalogs, schemas, tables, and individual columns. These surface directly in Catalog Explorer and query tools, making tribal knowledge discoverable in place rather than relying on external docs or asking a person — exactly the self-service data discovery UC governance is meant to enable.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/catalog-explorer/"
+      ],
+      "id": "q-19"
     }
   ],
   "notes": [

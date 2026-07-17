@@ -3379,6 +3379,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/abac/"
       ],
       "id": "q-20"
+    },
+    {
+      "topicId": "topic-03",
+      "prompt": "Support engineers need to see customer support tickets including the customer's email address, but must see only the last 4 digits of any stored payment card number. The underlying table has both columns. Which combination of governance features applies here?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "A row filter on the email column and a column mask on the card number column"
+        },
+        {
+          "id": "b",
+          "label": "A column mask function on the card number column that redacts all but the last 4 digits for the support group, while other columns remain visible to them as normal"
+        },
+        {
+          "id": "c",
+          "label": "Two separate physical tables, one with the full card number and one without"
+        },
+        {
+          "id": "d",
+          "label": "Row-level security keyed on the customer's card number value"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "This scenario needs column-level redaction, not row filtering — support engineers should see every row (row filters restrict which rows are visible, not appropriate here) but a transformed version of one column. A column mask function conditionally applies masking logic (e.g., show only last 4 digits) based on the querying user's group membership, leaving other columns like email untouched.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/row-and-column-filters"
+      ],
+      "id": "q-21"
     }
   ],
   "notes": [

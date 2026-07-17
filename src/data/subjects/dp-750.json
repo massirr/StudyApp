@@ -2882,6 +2882,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/security/auth/access-control/cluster-acl"
       ],
       "id": "q-5"
+    },
+    {
+      "topicId": "topic-01",
+      "prompt": "A company needs strict isolation between dev, staging, and prod data — including separate access-control boundaries and the ability to promote objects between environments without renaming everything. Which naming/isolation strategy best fits Unity Catalog's model?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "One catalog for the whole company, with schema name prefixes like dev_sales, stg_sales, prod_sales"
+        },
+        {
+          "id": "b",
+          "label": "Separate catalogs per environment (e.g. dev, staging, prod), each containing the same schema names underneath"
+        },
+        {
+          "id": "c",
+          "label": "One schema per environment inside a single catalog, relying on table-level grants for isolation"
+        },
+        {
+          "id": "d",
+          "label": "A single catalog and schema, isolating environments purely through workspace-level network rules"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Catalog is the top-level container and primary isolation/access-control boundary in Unity Catalog. Modeling environments as separate catalogs (dev/staging/prod) with identical schema structure underneath gives clean privilege boundaries, simple environment promotion (same relative paths), and avoids leaking permissions across environments the way schema- or table-level naming conventions inside one catalog would.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/best-practices"
+      ],
+      "id": "q-6"
     }
   ],
   "notes": [

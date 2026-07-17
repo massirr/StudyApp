@@ -4217,6 +4217,41 @@
         "code": "gold_df = (\n    orders_df\n    .filter(F.col(\"status\") == \"completed\")\n    .groupBy(\"region\", F.date_trunc(\"month\", \"order_date\").alias(\"month\"))\n    .agg(F.sum(\"amount\").alias(\"total_revenue\"))\n)"
       },
       "id": "q-46"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "You need a list of customer_ids that exist in this month's active_customers table but did NOT exist in last month's active_customers table (i.e., newly active customers). Which set operation is the correct fit?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "INTERSECT, which returns rows present in both tables"
+        },
+        {
+          "id": "b",
+          "label": "EXCEPT (also called MINUS in some SQL dialects), which returns rows in the first result set that are not present in the second — exactly \"new this month\""
+        },
+        {
+          "id": "c",
+          "label": "UNION, which combines and deduplicates rows from both tables"
+        },
+        {
+          "id": "d",
+          "label": "A LEFT JOIN with no WHERE clause filtering, which returns the same result as EXCEPT by default"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "EXCEPT returns rows from the first query that don't appear in the second — precisely the \"present now, absent before\" semantics needed to find newly active customers. INTERSECT would find customers active in both months; UNION would combine all customers from both months, not isolate the difference.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/sql-ref-syntax-qry-select-setops"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "SELECT customer_id FROM this_month_active\nEXCEPT\nSELECT customer_id FROM last_month_active"
+      },
+      "id": "q-47"
     }
   ],
   "notes": [

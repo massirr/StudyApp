@@ -3441,6 +3441,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/tables/delta/vacuum"
       ],
       "id": "q-22"
+    },
+    {
+      "topicId": "topic-03",
+      "prompt": "A data engineer wants to understand which downstream dashboards would break if column `customer_id` were renamed in `prod_sales.silver.customers`, before making the change. Where should they look?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Catalog Explorer's lineage graph, which shows upstream/downstream tables, notebooks, jobs, and dashboards derived from this table/column"
+        },
+        {
+          "id": "b",
+          "label": "The cluster event log, which records every read/write operation against the table"
+        },
+        {
+          "id": "c",
+          "label": "The audit log, filtered to GRANT/REVOKE events on this table"
+        },
+        {
+          "id": "d",
+          "label": "There is no built-in way to trace this; it must be tracked manually in a spreadsheet"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Unity Catalog automatically captures data lineage — tracking dependencies between tables, columns, notebooks, jobs, dashboards, and other assets — and surfaces it visually in Catalog Explorer, including column-level lineage. This is exactly the tool for impact analysis before a breaking schema change, rather than the audit log (which tracks access/permission events) or manual tracking.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/data-lineage"
+      ],
+      "id": "q-23"
     }
   ],
   "notes": [

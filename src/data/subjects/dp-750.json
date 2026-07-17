@@ -5094,6 +5094,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/optimizations/skew-join"
       ],
       "id": "q-73"
+    },
+    {
+      "topicId": "topic-05",
+      "prompt": "A query's execution plan shows a large shuffle stage where a huge fact table is repartitioned to join with a very small (2 MB) dimension table, and this shuffle dominates the query's runtime. Using the query profile, what optimization would most directly address this?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Increase the number of shuffle partitions, since more partitions always reduce shuffle time"
+        },
+        {
+          "id": "b",
+          "label": "Ensure a broadcast join is used for the small dimension table (letting Spark send the small table to every executor instead of shuffling the large fact table), avoiding the expensive shuffle entirely"
+        },
+        {
+          "id": "c",
+          "label": "Convert the join to a UNION, which never requires a shuffle"
+        },
+        {
+          "id": "d",
+          "label": "Disable Photon, since Photon is incompatible with joins involving small tables"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "When one side of a join is small enough to fit in memory, a broadcast join sends that small table to every executor so the large table never needs to be shuffled — directly eliminating the expensive shuffle stage seen in the query profile/DAG. Spark's cost-based optimizer often does this automatically below a size threshold, but it can also be hinted explicitly when needed.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/optimizations/join-strategy-hints"
+      ],
+      "id": "q-74"
     }
   ],
   "notes": [

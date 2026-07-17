@@ -4182,6 +4182,41 @@
         "code": "from pyspark.sql import functions as F\n\nclean_df = (\n    raw_df\n    .dropDuplicates([\"order_id\"])\n    .withColumn(\"customer_email\", F.coalesce(F.col(\"customer_email\"), F.lit(\"unknown@example.com\")))\n)"
       },
       "id": "q-45"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A gold table needs total revenue per region per month, computed from a silver orders table with one row per order. Which transformation is required?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "filter narrows rows to completed orders, groupBy establishes the region/month grouping, and agg(sum) computes the aggregate — the standard filter/group/aggregate pattern"
+        },
+        {
+          "id": "b",
+          "label": "groupBy alone is sufficient; filter and agg have no effect on the result"
+        },
+        {
+          "id": "c",
+          "label": "This requires a join, not a groupBy, since revenue aggregation always needs a second table"
+        },
+        {
+          "id": "d",
+          "label": "date_trunc is invalid inside groupBy and must be computed in a separate step first"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "This is the canonical filter → group → aggregate transformation pattern: filtering rows down to what should be counted, grouping by the dimensions of interest (region and month), then aggregating the measure (sum of amount) per group. date_trunc can be used directly as a groupBy expression, and no join is needed since everything comes from one orders table.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/pyspark/basics"
+      ],
+      "codeSnippet": {
+        "language": "python",
+        "code": "gold_df = (\n    orders_df\n    .filter(F.col(\"status\") == \"completed\")\n    .groupBy(\"region\", F.date_trunc(\"month\", \"order_date\").alias(\"month\"))\n    .agg(F.sum(\"amount\").alias(\"total_revenue\"))\n)"
+      },
+      "id": "q-46"
     }
   ],
   "notes": [

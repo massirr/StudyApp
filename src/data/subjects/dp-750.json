@@ -3875,6 +3875,41 @@
         "https://learn.microsoft.com/en-us/azure/databricks/ingestion/lakeflow-connect/"
       ],
       "id": "q-36"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A data engineer wants a notebook cell that ingests new files from a cloud storage path incrementally on each run, without manually tracking which files were already processed, and that stays robust to new files continuously arriving. Which pattern accomplishes this within a notebook?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "This uses Auto Loader (cloudFiles) with trigger(availableNow=True), which incrementally discovers and processes only new files each run using its own file-tracking state, then stops — giving batch-like scheduling with streaming-style incremental file tracking"
+        },
+        {
+          "id": "b",
+          "label": "This re-reads every file in the directory on every run, since readStream always performs a full scan"
+        },
+        {
+          "id": "c",
+          "label": "The checkpointLocation is optional decoration and has no effect on which files get reprocessed"
+        },
+        {
+          "id": "d",
+          "label": "This pattern only works for Parquet files, not JSON"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Auto Loader (cloudFiles format) incrementally and efficiently discovers new files in cloud storage using its own scalable file-tracking state (backed by the checkpoint location), avoiding full directory listings on every run. `trigger(availableNow=True)` processes all currently available new data then stops — a common pattern for running incremental ingestion on a schedule (e.g., inside a notebook task) rather than as an always-on stream.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/ingestion/cloud-object-storage/auto-loader/"
+      ],
+      "codeSnippet": {
+        "language": "python",
+        "code": "df = (spark.readStream\n      .format(\"cloudFiles\")\n      .option(\"cloudFiles.format\", \"json\")\n      .option(\"cloudFiles.schemaLocation\", \"/mnt/schemas/orders\")\n      .load(\"/mnt/raw/orders/\"))\n\n(df.writeStream\n   .option(\"checkpointLocation\", \"/mnt/checkpoints/orders\")\n   .trigger(availableNow=True)\n   .table(\"prod_sales.bronze.orders\"))"
+      },
+      "id": "q-37"
     }
   ],
   "notes": [

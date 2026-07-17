@@ -4551,6 +4551,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/jobs/task-run-if"
       ],
       "id": "q-56"
+    },
+    {
+      "topicId": "topic-04",
+      "prompt": "A notebook task in a pipeline occasionally fails due to a transient upstream API timeout, but succeeds when simply retried a moment later. The team wants this handled automatically without manual intervention, but doesn't want infinite silent retries masking a real persistent failure. What's the appropriate error-handling design?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Configure a bounded number of automatic task retries (e.g. 2–3) with the job/task retry policy, so transient failures self-heal but a persistent failure still surfaces after retries are exhausted"
+        },
+        {
+          "id": "b",
+          "label": "Wrap the entire notebook in an infinite while-loop retry with no limit, guaranteeing it always eventually succeeds"
+        },
+        {
+          "id": "c",
+          "label": "Disable all error handling so failures are immediately visible with no retry"
+        },
+        {
+          "id": "d",
+          "label": "Manually re-run the job by hand every time it fails, since automatic retries aren't supported in Lakeflow Jobs"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Lakeflow Jobs support configuring a bounded retry policy per task (number of retries and optional delay), which is the correct pattern for transient, self-resolving failures like network timeouts — automatic recovery without manual intervention, while still surfacing genuinely persistent failures once retries are exhausted rather than masking them indefinitely.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/settings"
+      ],
+      "id": "q-57"
     }
   ],
   "notes": [

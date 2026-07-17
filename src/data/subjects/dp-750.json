@@ -4287,6 +4287,41 @@
         "code": "SELECT product_id, month, sales\nFROM wide_sales\nUNPIVOT (\n  sales FOR month IN (jan_sales, feb_sales, mar_sales, apr_sales)\n)"
       },
       "id": "q-48"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A silver customers table needs to be kept in sync with an upstream source: existing customers should have their attributes updated if changed, new customers should be added, and no existing rows should be duplicated. Which load operation directly supports this in one statement?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "INSERT INTO, which appends all source rows regardless of whether they already exist in the target"
+        },
+        {
+          "id": "b",
+          "label": "MERGE, which performs conditional update-if-matched / insert-if-not-matched (an upsert) in a single atomic statement based on the join key"
+        },
+        {
+          "id": "c",
+          "label": "APPEND, a dedicated SQL keyword for upserts"
+        },
+        {
+          "id": "d",
+          "label": "CREATE OR REPLACE TABLE, which is the only way to merge new and existing data"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "MERGE INTO is Delta Lake's upsert primitive: it joins source to target on a key and applies different logic per match outcome — UPDATE for matched rows (existing customers with changes), INSERT for unmatched source rows (new customers) — all atomically. Plain INSERT INTO would create duplicates for existing customers rather than updating them.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/delta/merge"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "MERGE INTO prod_sales.silver.customers AS target\nUSING staging_customers AS source\nON target.customer_id = source.customer_id\nWHEN MATCHED THEN UPDATE SET *\nWHEN NOT MATCHED THEN INSERT *"
+      },
+      "id": "q-49"
     }
   ],
   "notes": [

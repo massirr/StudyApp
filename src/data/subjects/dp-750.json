@@ -4458,6 +4458,37 @@
         "code": "import dlt\n\n@dlt.table\n@dlt.expect_all_or_drop({\"valid_total\": \"order_total >= 0\"})\ndef silver_orders():\n    return dlt.read_stream(\"bronze_orders\")"
       },
       "id": "q-53"
+    },
+    {
+      "topicId": "topic-04",
+      "prompt": "A pipeline has three stages: ingest raw orders, validate and clean them into silver, then compute gold aggregates. The gold step must never run against an incomplete or still-updating silver table. How should the order of operations be enforced?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Run all three stages concurrently and rely on Delta Lake's ACID guarantees to sort out timing automatically"
+        },
+        {
+          "id": "b",
+          "label": "Define explicit task dependencies (e.g. gold task depends on silver task completing successfully) so the orchestrator only starts gold after silver finishes cleanly"
+        },
+        {
+          "id": "c",
+          "label": "Add a fixed 10-minute sleep between stages, assuming that's always enough time for silver to finish"
+        },
+        {
+          "id": "d",
+          "label": "Order doesn't matter since Unity Catalog automatically serializes access to dependent tables"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Order of operations in a multi-stage pipeline should be enforced through explicit dependency declarations between tasks (e.g. Lakeflow Jobs task dependencies, or DLT's automatic dependency inference from table references), guaranteeing gold only runs after silver completes successfully — not through concurrency, arbitrary sleeps, or assumptions about implicit serialization.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/how-to/use-task-dependencies"
+      ],
+      "id": "q-54"
     }
   ],
   "notes": [

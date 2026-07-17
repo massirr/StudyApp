@@ -3658,6 +3658,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/delta/"
       ],
       "id": "q-29"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A 5 TB events table is queried almost exclusively with filters on `event_date`, and daily batch jobs only touch the current day's partition. Query performance on old, unfiltered full-table scans is not a concern. Which partitioning approach is most appropriate?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "No partitioning at all, relying purely on file statistics"
+        },
+        {
+          "id": "b",
+          "label": "Partition by event_date, since queries consistently filter on it and daily jobs naturally align with day-sized partitions, enabling partition pruning"
+        },
+        {
+          "id": "c",
+          "label": "Partition by a random hash column to maximize write parallelism regardless of query patterns"
+        },
+        {
+          "id": "d",
+          "label": "Partition by every high-cardinality column in the table to maximize granularity"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Partitioning should align with dominant query filter patterns and natural write/access granularity. Here, queries consistently filter on event_date and jobs process one day at a time, so partitioning by event_date enables partition pruning (skipping irrelevant files) and matches operational patterns. Over-partitioning on high-cardinality columns instead creates the classic 'small files' problem and hurts performance.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/tables/partitions"
+      ],
+      "id": "q-30"
     }
   ],
   "notes": [

@@ -4679,6 +4679,41 @@
         "https://learn.microsoft.com/en-us/azure/databricks/jobs/job-parameters"
       ],
       "id": "q-60"
+    },
+    {
+      "topicId": "topic-04",
+      "prompt": "A finance report must run at exactly 6:00 AM local time in New York every business day, and must not run on weekends or company holidays defined in an external calendar. Which trigger configuration best satisfies this?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "A cron-based schedule trigger with a Mon-Fri expression and the correct timezone_id handles the weekday/time requirement; holiday exclusion requires additional logic (e.g. a holiday-check task that skips downstream work) since cron alone can't reference an external calendar"
+        },
+        {
+          "id": "b",
+          "label": "A file-arrival trigger, since cron schedules cannot specify a fixed local time"
+        },
+        {
+          "id": "c",
+          "label": "A continuous trigger, running the job in a tight loop and checking the clock manually inside the notebook"
+        },
+        {
+          "id": "d",
+          "label": "Cron expressions in Databricks are always evaluated in UTC and cannot honor America/New_York as a timezone"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Lakeflow Jobs support cron-based schedule triggers with an explicit `timezone_id`, correctly handling recurring weekday/time requirements including daylight saving adjustments. However, cron alone has no concept of a company holiday calendar — that requires pipeline logic (e.g. a task that checks a holiday reference table/API and skips or short-circuits the run) layered on top of the schedule trigger.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/scheduled"
+      ],
+      "codeSnippet": {
+        "language": "json",
+        "code": "{\n  \"trigger\": {\n    \"periodic\": null\n  },\n  \"schedule\": {\n    \"quartz_cron_expression\": \"0 0 6 ? * MON-FRI\",\n    \"timezone_id\": \"America/New_York\",\n    \"pause_status\": \"UNPAUSED\"\n  }\n}"
+      },
+      "id": "q-61"
     }
   ],
   "notes": [

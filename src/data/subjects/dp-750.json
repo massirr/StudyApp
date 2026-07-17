@@ -2948,6 +2948,41 @@
         "code": "CREATE CATALOG IF NOT EXISTS prod_sales\nMANAGED LOCATION 'abfss://prod-sales@mystorageacct.dfs.core.windows.net/';"
       },
       "id": "q-7"
+    },
+    {
+      "topicId": "topic-01",
+      "prompt": "The finance team's schema must keep its managed table data in a separate storage container from the rest of the `prod_sales` catalog, for a compliance requirement specific to that team. What is the correct approach?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "This is invalid — all schemas in a catalog must share the catalog's managed location"
+        },
+        {
+          "id": "b",
+          "label": "This overrides the catalog-level managed location for this schema only; managed tables created in prod_sales.finance will use the schema's storage path instead of the catalog default"
+        },
+        {
+          "id": "c",
+          "label": "This creates an external schema, meaning every table inside it must also declare its own LOCATION"
+        },
+        {
+          "id": "d",
+          "label": "The MANAGED LOCATION clause only affects volumes created in the schema, not tables"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Unity Catalog resolves managed storage location hierarchically: schema-level MANAGED LOCATION overrides the catalog default, which itself overrides the metastore root. This lets a single catalog host schemas with different storage/compliance boundaries without needing separate catalogs.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/create-schemas"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "CREATE SCHEMA IF NOT EXISTS prod_sales.finance\nMANAGED LOCATION 'abfss://finance-restricted@mystorageacct.dfs.core.windows.net/';"
+      },
+      "id": "q-8"
     }
   ],
   "notes": [

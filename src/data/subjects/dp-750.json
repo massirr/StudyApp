@@ -5160,6 +5160,37 @@
         "code": "OPTIMIZE prod_sales.silver.events;\n\nVACUUM prod_sales.silver.events RETAIN 168 HOURS;"
       },
       "id": "q-75"
+    },
+    {
+      "topicId": "topic-05",
+      "prompt": "A security team requires that all Databricks cluster and notebook activity logs be retained for 2 years in a centralized, queryable system outside of Databricks itself, for compliance purposes. Which Azure-native approach satisfies this?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stream Databricks logs (cluster logs, audit logs) to a Log Analytics workspace via Azure Monitor diagnostic settings, where they can be retained per a configured retention policy and queried with KQL"
+        },
+        {
+          "id": "b",
+          "label": "Rely on the default 30-day in-workspace notebook history, since Databricks retains all logs indefinitely by default"
+        },
+        {
+          "id": "c",
+          "label": "Manually export the Spark UI HTML pages every day and store them in a file share"
+        },
+        {
+          "id": "d",
+          "label": "Logs cannot be exported outside of Databricks; compliance retention isn't possible for cluster activity"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Azure Databricks integrates with Azure Monitor: diagnostic settings can stream cluster logs, audit logs, and other event categories into a Log Analytics workspace, where retention policies (e.g. 2 years) can be configured independently of Databricks' own retention, and logs become queryable via KQL — the standard pattern for centralized, compliant log retention.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/admin/system-tables/audit-logs"
+      ],
+      "id": "q-76"
     }
   ],
   "notes": [

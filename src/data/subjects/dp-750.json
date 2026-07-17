@@ -4011,6 +4011,41 @@
         "code": "from pyspark.sql.functions import window, avg\n\n(spark.readStream.table(\"prod_iot.bronze.sensor_readings\")\n  .withWatermark(\"event_time\", \"10 minutes\")\n  .groupBy(window(\"event_time\", \"5 minutes\"), \"sensor_id\")\n  .agg(avg(\"temperature\").alias(\"avg_temp\"))\n  .writeStream\n  .outputMode(\"append\")\n  .table(\"prod_iot.silver.temp_5min_avg\"))"
       },
       "id": "q-40"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A team needs to ingest a continuous stream of clickstream events published to an Azure Event Hubs namespace, landing them into a bronze Delta table in near-real-time. Which approach is correct?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Use the Structured Streaming Event Hubs connector to read the stream directly, then write it into the bronze Delta table with writeStream"
+        },
+        {
+          "id": "b",
+          "label": "Export Event Hubs data to CSV files hourly and use COPY INTO, since Event Hubs cannot be read directly by Spark"
+        },
+        {
+          "id": "c",
+          "label": "Use Auto Loader's cloudFiles format directly against the Event Hubs namespace endpoint"
+        },
+        {
+          "id": "d",
+          "label": "Event Hubs data must first be manually copied into ADLS Gen2 before Databricks can process it"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Azure Databricks reads Event Hubs streams directly via the Structured Streaming Event Hubs connector (`format(\"eventhubs\")`), enabling low-latency, near-real-time ingestion straight into a bronze Delta table with writeStream — no intermediate file export or manual copy step is needed. Auto Loader/cloudFiles is for cloud object storage, not message streaming services like Event Hubs.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/structured-streaming/streaming-event-hubs"
+      ],
+      "codeSnippet": {
+        "language": "python",
+        "code": "connectionString = dbutils.secrets.get(\"kv-eventhubs\", \"clickstream-conn-str\")\nehConf = {\n  'eventhubs.connectionString': sc._jvm.org.apache.spark.eventhubs.EventHubsUtils.encrypt(connectionString)\n}\n\ndf = spark.readStream.format(\"eventhubs\").options(**ehConf).load()"
+      },
+      "id": "q-41"
     }
   ],
   "notes": [

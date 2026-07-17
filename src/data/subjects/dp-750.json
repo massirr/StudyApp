@@ -3503,6 +3503,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/admin/account-settings/audit-logs"
       ],
       "id": "q-24"
+    },
+    {
+      "topicId": "topic-03",
+      "prompt": "Your company wants to give an external partner organization read access to three specific Delta tables, refreshed continuously, without giving them a Databricks workspace login, a copy of your storage credentials, or requiring them to run Databricks at all. What should you design?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Export the tables to CSV and email them a new file weekly"
+        },
+        {
+          "id": "b",
+          "label": "A Delta Sharing share containing exactly those three tables, granted to a recipient defined by the partner's sharing identifier — no workspace account or credential sharing required"
+        },
+        {
+          "id": "c",
+          "label": "Create a guest workspace account for the partner with SELECT grants on the three tables"
+        },
+        {
+          "id": "d",
+          "label": "Give the partner the storage account's SAS token scoped to the three tables' underlying files"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Delta Sharing is Databricks' open protocol for sharing live data across organizational and platform boundaries without copying it or requiring the recipient to use Databricks. A secure share can be scoped to exactly the needed tables and granted to an external recipient, avoiding the security and operational downsides of guest accounts, raw credential sharing, or manual file exports.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/delta-sharing/"
+      ],
+      "id": "q-25"
     }
   ],
   "notes": [

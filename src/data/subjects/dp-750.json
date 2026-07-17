@@ -3053,6 +3053,41 @@
         "code": "CREATE MATERIALIZED VIEW prod_sales.gold.hourly_revenue_summary\nSCHEDULE CRON '0 0 * * * ?'\nAS\nSELECT region, product_category, SUM(revenue) AS total_revenue\nFROM prod_sales.silver.orders\nJOIN prod_sales.silver.products USING (product_id)\nGROUP BY region, product_category;"
       },
       "id": "q-10"
+    },
+    {
+      "topicId": "topic-01",
+      "prompt": "Analysts need to run SQL joins between Databricks tables and live data in an external Snowflake database, without building an ETL pipeline to copy the Snowflake data into Databricks first. What Unity Catalog feature enables this?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Delta Sharing, which requires the Snowflake side to export a share first"
+        },
+        {
+          "id": "b",
+          "label": "Lakehouse Federation: a CONNECTION plus FOREIGN CATALOG lets Databricks query the external Snowflake database directly, governed by Unity Catalog, with no data copy"
+        },
+        {
+          "id": "c",
+          "label": "Auto Loader, pointed at Snowflake's internal stage"
+        },
+        {
+          "id": "d",
+          "label": "A materialized view that pulls from an external table nightly"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Lakehouse Federation lets Unity Catalog register a CONNECTION to an external system (Snowflake, SQL Server, MySQL, PostgreSQL, etc.) and expose it as a FOREIGN CATALOG, so users can query external data directly through Databricks compute — governed like any other UC object — without ETL-ing it in first.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/query-federation/"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "CREATE CONNECTION snowflake_conn TYPE snowflake\nOPTIONS (\n  host 'myaccount.snowflakecomputing.com',\n  port '443',\n  user secret('kv_scope', 'sf_user'),\n  password secret('kv_scope', 'sf_password')\n);\n\nCREATE FOREIGN CATALOG snowflake_sales\nUSING CONNECTION snowflake_conn\nOPTIONS (database 'SALES_DB');"
+      },
+      "id": "q-11"
     }
   ],
   "notes": [

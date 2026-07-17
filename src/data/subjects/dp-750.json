@@ -5032,6 +5032,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/compute/cluster-metrics"
       ],
       "id": "q-71"
+    },
+    {
+      "topicId": "topic-05",
+      "prompt": "A Lakeflow Job run failed at its final task after the first four tasks succeeded and took 40 minutes total. The bug causing the failure has now been fixed in the notebook. The team wants to resume from the failed task rather than re-running the entire 40-minute job from the start. What should they do?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Use the Repair Run feature, which re-runs only the failed (and downstream) tasks while reusing the successful upstream tasks' results, avoiding a full re-run"
+        },
+        {
+          "id": "b",
+          "label": "Manually re-trigger the entire job from scratch, since Lakeflow Jobs cannot resume partially"
+        },
+        {
+          "id": "c",
+          "label": "Delete the job and recreate it, which automatically resumes from the last successful task"
+        },
+        {
+          "id": "d",
+          "label": "Stop the job permanently, since a failed run can never be repaired once the underlying bug is fixed"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Lakeflow Jobs' Repair Run capability re-runs only the failed task(s) and anything downstream of them, while leaving successfully completed upstream tasks' results intact — avoiding the cost and time of a full 40-minute re-run when only the last task needed a fix.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/repair-job-failures"
+      ],
+      "id": "q-72"
     }
   ],
   "notes": [

@@ -3720,6 +3720,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/dlt/dlt-cdc"
       ],
       "id": "q-31"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A gold-layer table currently stores one row per individual transaction. A finance dashboard only ever needs daily totals per store, and the transaction-level detail is never queried directly by that dashboard. What granularity decision would most improve the dashboard's efficiency?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Keep transaction-level granularity everywhere and let the dashboard's BI tool aggregate on every query"
+        },
+        {
+          "id": "b",
+          "label": "Create a coarser-grained aggregate table (or materialized view) at store/day granularity specifically for the dashboard, while retaining the transaction-level table for use cases that need it"
+        },
+        {
+          "id": "c",
+          "label": "Delete the transaction-level table entirely once the aggregate exists, since finer granularity is never useful"
+        },
+        {
+          "id": "d",
+          "label": "Increase granularity further by adding an hour-of-day dimension, since more granularity always improves performance"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Granularity should be chosen per consumer's actual query pattern. A dashboard that only needs store/day totals benefits from a pre-aggregated table at that granularity (avoiding repeated aggregation of transaction-level data on every query), while other consumers that need transaction-level detail still have that table available — granularity choices aren't one-size-fits-all across a whole platform.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/lakehouse/medallion"
+      ],
+      "id": "q-32"
     }
   ],
   "notes": [

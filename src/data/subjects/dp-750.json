@@ -4046,6 +4046,41 @@
         "code": "connectionString = dbutils.secrets.get(\"kv-eventhubs\", \"clickstream-conn-str\")\nehConf = {\n  'eventhubs.connectionString': sc._jvm.org.apache.spark.eventhubs.EventHubsUtils.encrypt(connectionString)\n}\n\ndf = spark.readStream.format(\"eventhubs\").options(**ehConf).load()"
       },
       "id": "q-41"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A team wants a declarative ingestion pipeline where they only describe the desired bronze/silver/gold tables and transformations, and the platform automatically manages incremental file discovery, dependency ordering, and orchestration — rather than hand-writing Structured Streaming checkpoint/trigger logic themselves. What should they use?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lakeflow Spark Declarative Pipelines (using Auto Loader as the ingestion source within @dlt.table definitions), which manages orchestration, incremental processing, and dependency graphs declaratively"
+        },
+        {
+          "id": "b",
+          "label": "A raw Structured Streaming job with manually configured checkpoints, which is the only way to get incremental ingestion"
+        },
+        {
+          "id": "c",
+          "label": "Azure Data Factory copy activities exclusively, since Databricks has no declarative pipeline concept"
+        },
+        {
+          "id": "d",
+          "label": "A single monolithic notebook using dbutils.notebook.run() to chain bronze/silver/gold steps"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Lakeflow Spark Declarative Pipelines (formerly Delta Live Tables) let engineers declare table definitions and transformations, with the platform handling incremental processing, task orchestration, and dependency resolution automatically. Auto Loader is commonly used as the ingestion source inside these pipelines, removing the need to hand-manage Structured Streaming checkpoint/trigger plumbing directly.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/dlt/"
+      ],
+      "codeSnippet": {
+        "language": "python",
+        "code": "import dlt\n\n@dlt.table\ndef bronze_orders():\n    return (\n        spark.readStream.format(\"cloudFiles\")\n        .option(\"cloudFiles.format\", \"json\")\n        .load(\"/mnt/raw/orders/\")\n    )"
+      },
+      "id": "q-42"
     }
   ],
   "notes": [

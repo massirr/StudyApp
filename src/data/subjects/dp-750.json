@@ -4714,6 +4714,37 @@
         "code": "{\n  \"trigger\": {\n    \"periodic\": null\n  },\n  \"schedule\": {\n    \"quartz_cron_expression\": \"0 0 6 ? * MON-FRI\",\n    \"timezone_id\": \"America/New_York\",\n    \"pause_status\": \"UNPAUSED\"\n  }\n}"
       },
       "id": "q-61"
+    },
+    {
+      "topicId": "topic-04",
+      "prompt": "The on-call data engineer wants an automatic Slack/email notification the moment a nightly Lakeflow Job fails, but no notification on success (to avoid noise), and a separate notification if the job runs more than 3x longer than its usual duration (possible stuck job). What should be configured?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Job-level failure notifications (email/webhook/Slack integration) for the failure case, plus a duration threshold alert configured on the job for the \"running too long\" case — both configured independently, with success notifications left off"
+        },
+        {
+          "id": "b",
+          "label": "A single generic notification setting that fires on every run outcome, requiring manual filtering afterward"
+        },
+        {
+          "id": "c",
+          "label": "Notifications are only available via a third-party monitoring tool; Lakeflow Jobs has no native alerting"
+        },
+        {
+          "id": "d",
+          "label": "Enable notifications for success only, since failures are always visible in the Jobs UI without alerting"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Lakeflow Jobs support configuring notifications per outcome type (start, success, failure) independently, so you can enable only failure notifications to reduce noise. Separately, jobs support a duration threshold setting that triggers an alert when a run exceeds an expected runtime — directly addressing the \"stuck job\" detection case alongside failure alerts.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/notifications"
+      ],
+      "id": "q-62"
     }
   ],
   "notes": [

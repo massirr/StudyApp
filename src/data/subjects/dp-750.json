@@ -5222,6 +5222,37 @@
         "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-log"
       ],
       "id": "q-77"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A gold table must be queryable both by Databricks (via Delta Lake) and by an external Trino cluster that only understands Apache Iceberg, without maintaining two separate copies of the data. Which table format capability addresses this?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Delta Lake UniForm, which automatically generates Iceberg-compatible metadata alongside the Delta log so the same physical data can be read by Iceberg-only engines without duplicating storage"
+        },
+        {
+          "id": "b",
+          "label": "Store the data twice: once as Delta, once as a separate Iceberg copy kept in sync by a nightly job"
+        },
+        {
+          "id": "c",
+          "label": "Convert the table to plain CSV, since CSV is the only format both engines can read"
+        },
+        {
+          "id": "d",
+          "label": "Iceberg and Delta tables can never be reconciled; the team must standardize on one engine"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "UniForm (Universal Format) lets a Delta table also expose Iceberg (and Hudi) metadata pointing at the same underlying Parquet files, so external engines that only speak Iceberg can read it directly — avoiding data duplication while still writing through Delta Lake. This is the relevant table-format decision when multi-engine interoperability with Iceberg is required.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/delta/uniform"
+      ],
+      "id": "q-78"
     }
   ],
   "notes": [

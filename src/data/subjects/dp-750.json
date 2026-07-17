@@ -147,30 +147,40 @@
     },
     {
       "id": "topic-02",
-      "slug": "ingest-and-transform-data",
-      "title": "Ingest and Transform Data",
-      "summary": "Build batch and streaming ingestion pipelines and transform data with Databricks tools and SQL.",
+      "slug": "prepare-and-process-data",
+      "title": "Prepare and process data",
+      "summary": "Official exam domain 3 (30–35% of questions, the largest domain). Covers data modeling, ingestion, cleansing/transformation, and data quality constraints in Unity Catalog.",
       "studyOrder": 2,
       "subtopics": [
         {
           "id": "t2-s1",
-          "title": "Batch and Streaming Ingestion",
-          "summary": "Compare ingestion patterns and select the right approach for workload needs."
+          "title": "Design and implement data modeling in Unity Catalog",
+          "summary": "Ingestion logic/source config (extraction & file type); ingestion tool choice (Lakeflow Connect, notebooks, ADF); batch vs streaming load; table format (Parquet/Delta/CSV/JSON/Iceberg); partitioning scheme; SCD type; granularity; temporal/history tables; clustering strategy (liquid clustering, Z-ordering, deletion vectors); managed vs unmanaged tables."
         },
         {
           "id": "t2-s2",
-          "title": "Transformation Patterns",
-          "summary": "Apply joins, aggregations, and schema evolution safely."
+          "title": "Ingest data into Unity Catalog",
+          "summary": "Lakeflow Connect (batch/streaming); notebooks (batch/streaming); SQL methods (CTAS, CREATE OR REPLACE TABLE, COPY INTO); CDC feed ingestion; Spark Structured Streaming; Azure Event Hubs streaming; Lakeflow Spark Declarative Pipelines incl. Auto Loader."
+        },
+        {
+          "id": "t2-s3",
+          "title": "Cleanse, transform, and load data into Unity Catalog",
+          "summary": "Data profiling/summary stats; choosing column data types; resolving duplicate/missing/null values; filter/group/aggregate; join/union/intersect/except; denormalize/pivot/unpivot; load via merge/insert/append."
+        },
+        {
+          "id": "t2-s4",
+          "title": "Implement and manage data quality constraints in Unity Catalog",
+          "summary": "Validation checks (nullability, cardinality, range); data type checks; schema enforcement and schema drift; data quality via pipeline expectations in Lakeflow Spark Declarative Pipelines."
         }
       ],
       "sourceLinks": [
         {
-          "label": "Azure Databricks Ingestion",
+          "label": "Ingestion overview",
           "url": "https://learn.microsoft.com/en-us/azure/databricks/ingestion/"
         },
         {
-          "label": "Azure Data Factory Introduction",
-          "url": "https://learn.microsoft.com/en-us/azure/data-factory/introduction"
+          "label": "Lakeflow Declarative Pipelines",
+          "url": "https://learn.microsoft.com/en-us/azure/databricks/dlt/"
         }
       ]
     },

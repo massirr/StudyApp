@@ -3813,6 +3813,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/delta/clustering"
       ],
       "id": "q-34"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A team is registering a table backed by data another department already produces and owns in their own ADLS Gen2 container. The team must never accidentally delete that department's underlying files, even if their own table is dropped for cleanup. Which table type should they create, and why?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "A managed table, because managed tables are always safer for shared data"
+        },
+        {
+          "id": "b",
+          "label": "An unmanaged (external) table pointing at the other department's storage path — Unity Catalog governs metadata/access only, so dropping the table never deletes the underlying files"
+        },
+        {
+          "id": "c",
+          "label": "Either type works identically in terms of data deletion risk"
+        },
+        {
+          "id": "d",
+          "label": "A managed table with a manual reminder process to back up the data before any drop operation"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "This is the core distinction between managed and unmanaged (external) tables: dropping a managed table deletes its underlying data, while dropping an unmanaged/external table only removes the catalog entry — the files remain exactly as they were. For data owned and physically managed by another team, external/unmanaged is the safe choice.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/create-tables"
+      ],
+      "id": "q-35"
     }
   ],
   "notes": [

@@ -3627,6 +3627,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/ingestion/"
       ],
       "id": "q-28"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A pipeline lands raw JSON logs, then needs to support fast MERGE-based upserts, ACID transactions, and time travel for auditing, while remaining fully compatible with the Databricks lakehouse ecosystem. Which table format should the curated (silver/gold) layers use?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Raw JSON, kept as-is through every layer to avoid conversion overhead"
+        },
+        {
+          "id": "b",
+          "label": "CSV, since it's universally readable by any tool"
+        },
+        {
+          "id": "c",
+          "label": "Delta Lake (built on Parquet), which natively provides ACID transactions, efficient MERGE/upserts, and time travel"
+        },
+        {
+          "id": "d",
+          "label": "Plain Parquet without a transaction log, since Parquet alone provides ACID guarantees"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "Delta Lake is the table format purpose-built for exactly these requirements: ACID transactions, efficient MERGE for upserts, and time travel via its transaction log — layered on top of Parquet's columnar storage. JSON and CSV are fine as raw landing formats but lack these transactional guarantees; plain Parquet without a transaction log also lacks ACID/time-travel support on its own.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/delta/"
+      ],
+      "id": "q-29"
     }
   ],
   "notes": [

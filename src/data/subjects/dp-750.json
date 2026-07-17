@@ -4935,6 +4935,41 @@
         "code": "bundle:\n  name: sales_pipeline\n\ntargets:\n  dev:\n    workspace:\n      host: https://dev-workspace.azuredatabricks.net\n    variables:\n      catalog: dev_sales\n  prod:\n    workspace:\n      host: https://prod-workspace.azuredatabricks.net\n    variables:\n      catalog: prod_sales\n\nresources:\n  jobs:\n    sales_etl:\n      name: sales_etl_job\n      tasks:\n        - task_key: main\n          notebook_task:\n            notebook_path: ./notebooks/etl.py"
       },
       "id": "q-68"
+    },
+    {
+      "topicId": "topic-05",
+      "prompt": "A developer has finished testing a Databricks Asset Bundle locally against the dev target and now needs to deploy it to the prod target from their terminal, as part of a manual release step. Which command is correct?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "This deploys the bundle's resources (jobs, pipelines, etc.) to the prod target's workspace as defined in databricks.yml, using that target's variables and workspace host"
+        },
+        {
+          "id": "b",
+          "label": "This command only validates the bundle syntax; a separate 'databricks bundle apply' command is required to actually deploy"
+        },
+        {
+          "id": "c",
+          "label": "The --target flag is ignored by the CLI, which always deploys to whichever workspace the developer is currently authenticated against"
+        },
+        {
+          "id": "d",
+          "label": "Bundles can only be deployed through the Databricks UI, never via CLI"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "`databricks bundle deploy --target <name>` is the Databricks CLI command that deploys a bundle's defined resources to the specified target environment, resolving that target's workspace host and variable overrides from databricks.yml — the standard CLI-driven deployment path for Asset Bundles.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/dev-tools/cli/bundle-commands"
+      ],
+      "codeSnippet": {
+        "language": "bash",
+        "code": "databricks bundle deploy --target prod"
+      },
+      "id": "q-69"
     }
   ],
   "notes": [

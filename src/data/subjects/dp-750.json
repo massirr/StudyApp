@@ -3910,6 +3910,41 @@
         "code": "df = (spark.readStream\n      .format(\"cloudFiles\")\n      .option(\"cloudFiles.format\", \"json\")\n      .option(\"cloudFiles.schemaLocation\", \"/mnt/schemas/orders\")\n      .load(\"/mnt/raw/orders/\"))\n\n(df.writeStream\n   .option(\"checkpointLocation\", \"/mnt/checkpoints/orders\")\n   .trigger(availableNow=True)\n   .table(\"prod_sales.bronze.orders\"))"
       },
       "id": "q-37"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A gold table needs to be rebuilt every night from a large staging table using a single, all-at-once SQL statement (not incremental appends), where the output table's schema should exactly match the SELECT's output. Which SQL method fits?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "CREATE OR REPLACE TABLE ... AS (CRAS) atomically replaces the table's data and schema with the query result each run, which is exactly suited for a full nightly rebuild"
+        },
+        {
+          "id": "b",
+          "label": "COPY INTO, since it's the only method that supports SELECT-based transformations"
+        },
+        {
+          "id": "c",
+          "label": "MERGE INTO with no matching condition, which behaves identically to a full table replace"
+        },
+        {
+          "id": "d",
+          "label": "INSERT INTO, since it automatically clears the target table before every load"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "CREATE OR REPLACE TABLE ... AS SELECT (sometimes called CRAS) atomically swaps the table's contents and schema with a query's output — ideal for full, deterministic nightly rebuilds where you always want the target to exactly reflect the latest computed result. COPY INTO is for incrementally loading files into an existing table, not query-driven full rebuilds; INSERT INTO appends rather than replacing.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/sql-ref-syntax-ddl-create-table-using"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "CREATE OR REPLACE TABLE prod_sales.gold.daily_summary AS\nSELECT store_id, order_date, SUM(amount) AS total_sales\nFROM prod_sales.silver.orders\nGROUP BY store_id, order_date"
+      },
+      "id": "q-38"
     }
   ],
   "notes": [

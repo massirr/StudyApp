@@ -3534,6 +3534,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/delta-sharing/"
       ],
       "id": "q-25"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A source system exports full-file CSV snapshots nightly (no change tracking available), while another source is a transactional database with a native CDC feed available. Both need to land in Unity Catalog. Which statement about designing the ingestion logic is correct?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both sources should use the exact same extraction pattern for consistency, ignoring what each source system actually offers"
+        },
+        {
+          "id": "b",
+          "label": "The CSV source is best handled as a full/batch extraction with file-based ingestion (e.g. Auto Loader), while the CDC-capable source should use change-based extraction to avoid reprocessing entire tables"
+        },
+        {
+          "id": "c",
+          "label": "CSV files cannot be ingested incrementally under any circumstances, so they must always be loaded as one giant historical batch"
+        },
+        {
+          "id": "d",
+          "label": "CDC feeds should be treated as full snapshots and reloaded in their entirety on every run to guarantee correctness"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Ingestion design should match what each source can actually provide: a snapshot-only CSV export is naturally suited to file-based batch/incremental ingestion (e.g. Auto Loader tracking new files), while a CDC-capable source should be ingested via its change feed so only deltas are processed — avoiding full reprocessing and reducing cost/latency.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/ingestion/"
+      ],
+      "id": "q-26"
     }
   ],
   "notes": [

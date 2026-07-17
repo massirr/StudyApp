@@ -8,7 +8,14 @@ function cfg() {
   const token = process.env.GITHUB_TOKEN;
   const repo = process.env.GITHUB_REPO; // "owner/repo"
   const branch = process.env.GITHUB_BRANCH ?? 'master';
-  if (!token || !repo) throw new Error('GITHUB_TOKEN and GITHUB_REPO are required');
+  const missing = [!token && 'GITHUB_TOKEN', !repo && 'GITHUB_REPO'].filter(Boolean);
+  if (missing.length) {
+    const seen = Object.keys(process.env)
+      .filter((k) => /^(GITHUB|MCP)_/.test(k))
+      .sort()
+      .join(', ');
+    throw new Error(`Missing env var(s): ${missing.join(', ')}. Env keys present: [${seen}]`);
+  }
   return { token, repo, branch };
 }
 

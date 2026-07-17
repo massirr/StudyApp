@@ -215,30 +215,30 @@
     },
     {
       "id": "topic-04",
-      "slug": "build-and-operate-data-pipelines",
-      "title": "Build and Operate Data Pipelines",
-      "summary": "Create, schedule, and operate robust data engineering workflows using Databricks jobs and pipeline patterns.",
+      "slug": "design-data-pipelines-and-lakeflow-jobs",
+      "title": "Deploy data pipelines and Lakeflow Jobs (Domain 4, part 1)",
+      "summary": "Part of official exam domain 4, Deploy and maintain data pipelines and workloads (30–35% combined with the other Domain 4 topic). Covers pipeline design and Lakeflow Jobs implementation.",
       "studyOrder": 4,
       "subtopics": [
         {
           "id": "t4-s1",
-          "title": "Job Orchestration",
-          "summary": "Configure dependencies, retries, and operational safeguards."
+          "title": "Design and implement data pipelines",
+          "summary": "Order of operations; notebook vs Lakeflow Spark Declarative Pipelines; task logic design for Lakeflow Jobs; error handling in pipelines/notebooks/jobs; building a notebook pipeline with precedence constraints; building a Lakeflow Declarative Pipeline."
         },
         {
           "id": "t4-s2",
-          "title": "Operational Reliability",
-          "summary": "Design for recoverability and maintainability in recurring pipelines."
+          "title": "Implement Lakeflow Jobs",
+          "summary": "Creating a job (setup/config); configuring triggers; scheduling; configuring alerts; configuring automatic restarts for a job or pipeline."
         }
       ],
       "sourceLinks": [
         {
-          "label": "Azure Databricks Jobs",
+          "label": "Lakeflow Jobs",
           "url": "https://learn.microsoft.com/en-us/azure/databricks/jobs/"
         },
         {
-          "label": "Azure Monitor Overview",
-          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview"
+          "label": "Lakeflow Declarative Pipelines",
+          "url": "https://learn.microsoft.com/en-us/azure/databricks/dlt/"
         }
       ]
     },

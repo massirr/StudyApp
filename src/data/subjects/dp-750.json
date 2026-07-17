@@ -3565,6 +3565,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/ingestion/"
       ],
       "id": "q-26"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "You need to ingest data from Salesforce, SQL Server, and a set of REST APIs into Unity Catalog. Salesforce and SQL Server are both supported natively; the REST APIs are bespoke internal services with custom auth. Which ingestion tool choice best fits each?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Use custom notebooks with Spark/Python for everything, since it's the most flexible option regardless of source type"
+        },
+        {
+          "id": "b",
+          "label": "Use Lakeflow Connect for the natively supported Salesforce/SQL Server connectors (managed, low-maintenance ingestion), and custom notebooks (or Azure Data Factory) for the bespoke REST APIs that need custom auth/logic"
+        },
+        {
+          "id": "c",
+          "label": "Use Azure Data Factory exclusively, since Lakeflow Connect cannot ingest from SaaS applications like Salesforce"
+        },
+        {
+          "id": "d",
+          "label": "Use Lakeflow Connect for the REST APIs too, since it supports arbitrary custom HTTP endpoints out of the box"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Lakeflow Connect provides managed, low-code connectors for common enterprise sources (Salesforce, SQL Server, and other SaaS/database systems), reducing operational overhead versus hand-rolled ingestion. For bespoke internal REST APIs with custom auth/logic that no managed connector covers, notebooks (or orchestrated via Azure Data Factory) remain the right tool — matching ingestion tool choice to what each source actually needs.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/ingestion/lakeflow-connect/"
+      ],
+      "id": "q-27"
     }
   ],
   "notes": [

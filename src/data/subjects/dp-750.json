@@ -4648,6 +4648,37 @@
         "code": "import dlt\n\n@dlt.table\ndef silver_orders():\n    return dlt.read_stream(\"bronze_orders\").filter(\"amount > 0\")\n\n@dlt.table\ndef gold_daily_revenue():\n    return dlt.read(\"silver_orders\").groupBy(\"order_date\").sum(\"amount\")"
       },
       "id": "q-59"
+    },
+    {
+      "topicId": "topic-04",
+      "prompt": "A team wants to run the same notebook against three different regions (US, EU, APAC) every night, each with its own input path and output table, without duplicating the job definition three times. What's the most maintainable way to set this up in Lakeflow Jobs?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Create one job definition with a single task, and use job parameters (widgets/parameters passed at task level) so the same notebook logic runs three times — once per region — via separate scheduled runs or a for-each task passing different parameter values"
+        },
+        {
+          "id": "b",
+          "label": "Copy-paste the entire job definition three times, hardcoding the region into each notebook's source code"
+        },
+        {
+          "id": "c",
+          "label": "Use three separate Databricks workspaces, one per region, each running an identical unparameterized job"
+        },
+        {
+          "id": "d",
+          "label": "Parameters are not supported in Lakeflow Jobs; each variation must be a separate notebook"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Lakeflow Jobs support parameterization (job/task parameters, or a For Each task that iterates a task over a list of values) so one job definition can run the same logic multiple times with different inputs — avoiding job/notebook duplication and the maintenance burden of keeping copies in sync.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/job-parameters"
+      ],
+      "id": "q-60"
     }
   ],
   "notes": [

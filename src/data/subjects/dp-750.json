@@ -2785,6 +2785,37 @@
         "code": "{\n  \"cluster_name\": \"nightly-etl\",\n  \"spark_version\": \"14.3.x-scala2.12\",\n  \"node_type_id\": \"Standard_DS4_v2\",\n  \"autoscale\": {\n    \"min_workers\": 2,\n    \"max_workers\": 20\n  },\n  \"instance_pool_id\": \"1107-155000-abcd123\",\n  \"autotermination_minutes\": 30\n}"
       },
       "id": "q-2"
+    },
+    {
+      "topicId": "topic-01",
+      "prompt": "An existing Spark SQL and DataFrame-heavy ETL pipeline needs a performance boost with no code changes. The team enables Photon on the cluster. Which statement correctly describes what happens?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Photon replaces the Spark driver with a GPU-based scheduler, requiring GPU-enabled node types"
+        },
+        {
+          "id": "b",
+          "label": "Photon is a native vectorized query engine that accelerates SQL and DataFrame operations on Parquet/Delta data without requiring any code rewrites"
+        },
+        {
+          "id": "c",
+          "label": "Photon only accelerates RDD-based code and has no effect on DataFrame or SQL workloads"
+        },
+        {
+          "id": "d",
+          "label": "Photon must be paired with a downgrade to an older Databricks Runtime version to function"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Photon is a C++-based vectorized execution engine, API-compatible with Spark SQL/DataFrames. Enabling it (via a Photon-enabled runtime) speeds up eligible SQL and DataFrame operations transparently — no query or code changes are needed, and it doesn't require GPU hardware.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/compute/photon"
+      ],
+      "id": "q-3"
     }
   ],
   "notes": [

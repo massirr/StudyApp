@@ -5001,6 +5001,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/dev-tools/bundles/ci-cd"
       ],
       "id": "q-70"
+    },
+    {
+      "topicId": "topic-05",
+      "prompt": "The platform team notices Databricks costs have grown 40% month-over-month with no corresponding growth in data volume or job count. They suspect idle or oversized clusters. Where should they look first to investigate cluster cost efficiency across the workspace?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "The account/workspace-level usage and cluster utilization views (e.g. cluster event logs, DBU usage dashboards, and per-cluster metrics) to identify clusters running idle, oversized, or without autoscaling/auto-termination configured"
+        },
+        {
+          "id": "b",
+          "label": "The Delta table transaction log, which records every cluster's cost per query"
+        },
+        {
+          "id": "c",
+          "label": "There's no way to investigate cost drivers; costs can only be reduced by cutting the number of jobs"
+        },
+        {
+          "id": "d",
+          "label": "The Unity Catalog audit log exclusively, since it tracks all cost-relevant cluster activity"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Cluster consumption monitoring for cost/performance optimization starts with usage and utilization data — DBU consumption dashboards, cluster event logs, and per-cluster metrics — to spot patterns like clusters lacking autoscaling/auto-termination, oversized node types for the workload, or long idle periods, which are the typical drivers of unexplained cost growth.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/compute/cluster-metrics"
+      ],
+      "id": "q-71"
     }
   ],
   "notes": [

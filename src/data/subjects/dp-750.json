@@ -5385,6 +5385,41 @@
         "code": "SELECT c.customer_id, c.email\nFROM customers c\nLEFT ANTI JOIN orders o\n  ON c.customer_id = o.customer_id"
       },
       "id": "q-82"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A BI tool needs a single flat table with order details, customer name, and product category all in one place — it cannot perform joins itself. The source data is normalized across three separate silver tables (orders, customers, products). What transformation approach is needed for the gold layer?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Denormalization: joining the normalized tables together into one wide gold table so the BI tool can query a single flat structure without needing to perform joins itself"
+        },
+        {
+          "id": "b",
+          "label": "Normalization: splitting the flat structure into more tables, which is what the BI tool actually needs"
+        },
+        {
+          "id": "c",
+          "label": "Pivoting, since the requirement is about columns-to-rows transformation, not joining"
+        },
+        {
+          "id": "d",
+          "label": "The three silver tables should be left as-is; BI tools can always join across tables even without join support"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Denormalization — joining normalized source tables into a single wide table — is exactly the transformation needed when a downstream consumer (here, a BI tool without join capability) requires one flat structure. This is a common gold-layer pattern: normalized silver tables for storage efficiency and integrity, denormalized gold tables for consumption simplicity.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/lakehouse/medallion"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "CREATE OR REPLACE TABLE prod_sales.gold.orders_flat AS\nSELECT o.order_id, o.order_date, o.amount,\n       c.customer_name, c.region,\n       p.product_name, p.category\nFROM prod_sales.silver.orders o\nJOIN prod_sales.silver.customers c ON o.customer_id = c.customer_id\nJOIN prod_sales.silver.products p ON o.product_id = p.product_id"
+      },
+      "id": "q-83"
     }
   ],
   "notes": [

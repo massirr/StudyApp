@@ -3751,6 +3751,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/lakehouse/medallion"
       ],
       "id": "q-32"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "Auditors need to be able to answer \"what did the customer's loyalty tier look like as of any date in the last 3 years\", not just today. The team decides to build a table that records every tier value along with the time range it was valid. What is this pattern called, and what should the table include?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "A snapshot table containing only today's tier per customer, refreshed daily"
+        },
+        {
+          "id": "b",
+          "label": "A temporal (history) table: one row per tier-change event per customer, with valid_from/valid_to timestamps, enabling point-in-time reconstruction for any historical date"
+        },
+        {
+          "id": "c",
+          "label": "A materialized view recomputed from scratch on every query, since materialized views inherently store full history"
+        },
+        {
+          "id": "d",
+          "label": "A simple UPDATE-in-place table, since Delta Lake's time travel alone satisfies this requirement without any schema design"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "A temporal/history table explicitly models validity periods (valid_from/valid_to) per record version, letting queries reconstruct \"what was true as of date X\" without relying on Delta's time-travel feature (which reflects table snapshot history, not necessarily business-meaningful validity periods, and has retention limits). This is the standard pattern for long-term point-in-time auditability.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/dlt/dlt-cdc"
+      ],
+      "id": "q-33"
     }
   ],
   "notes": [

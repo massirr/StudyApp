@@ -176,30 +176,30 @@
     },
     {
       "id": "topic-03",
-      "slug": "implement-and-manage-data-governance",
-      "title": "Implement and Manage Data Governance",
-      "summary": "Use Unity Catalog and access controls to secure data assets and enforce governance standards.",
+      "slug": "secure-and-govern-unity-catalog-objects",
+      "title": "Secure and govern Unity Catalog objects",
+      "summary": "Official exam domain 2 (15–20% of questions). Covers securing UC objects (privileges, ACL, secrets, identities) and governing them (descriptions, ABAC, lineage, audit, Delta Sharing).",
       "studyOrder": 3,
       "subtopics": [
         {
           "id": "t3-s1",
-          "title": "Unity Catalog Fundamentals",
-          "summary": "Understand catalog, schema, table, and permission structures."
+          "title": "Secure Unity Catalog objects",
+          "summary": "Grant privileges to principals (user/service principal/group); table- and column-level access control and row-level security; Azure Key Vault secrets from Databricks; service principal auth; managed identity auth."
         },
         {
           "id": "t3-s2",
-          "title": "Access Controls and Secrets",
-          "summary": "Apply role-based permissions and secure sensitive configuration data."
+          "title": "Govern Unity Catalog objects",
+          "summary": "Table/column definitions and descriptions for discovery; attribute-based access control (ABAC) via tags/policies; row filters and column masks; data retention policies; lineage tracking via Catalog Explorer; audit logging; secure Delta Sharing strategy."
         }
       ],
       "sourceLinks": [
         {
-          "label": "Unity Catalog Overview",
-          "url": "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/"
+          "label": "Unity Catalog privileges",
+          "url": "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/manage-privileges/"
         },
         {
-          "label": "Microsoft Entra Overview",
-          "url": "https://learn.microsoft.com/en-us/entra/"
+          "label": "Delta Sharing",
+          "url": "https://learn.microsoft.com/en-us/azure/databricks/delta-sharing/"
         }
       ]
     },

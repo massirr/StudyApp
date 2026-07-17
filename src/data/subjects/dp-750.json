@@ -3286,6 +3286,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/dev-tools/service-principals"
       ],
       "id": "q-17"
+    },
+    {
+      "topicId": "topic-03",
+      "prompt": "A Databricks notebook needs to read files from an ADLS Gen2 storage account. The security team's policy forbids storing any storage account keys or SAS tokens anywhere in workspace configuration. Which authentication approach satisfies this policy?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hardcode the storage account access key in the notebook, since notebooks are only visible to authorized workspace users"
+        },
+        {
+          "id": "b",
+          "label": "Use a managed identity (assigned to the Databricks access connector or compute) that Azure AD authenticates automatically, with RBAC roles granted on the storage account — no keys or tokens stored anywhere"
+        },
+        {
+          "id": "c",
+          "label": "Generate a long-lived SAS token and store it in a workspace notebook parameter"
+        },
+        {
+          "id": "d",
+          "label": "Mount the storage account using the account key via dbutils.fs.mount, which encrypts the key automatically at rest"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Managed identities let Azure AD authenticate the Databricks access connector (or compute) directly against the storage account via RBAC role assignments (e.g., Storage Blob Data Reader). No credential — key, SAS token, or secret — needs to be stored or managed anywhere, satisfying a no-stored-keys policy while still allowing fine-grained, revocable access.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/connect/unity-catalog/cloud-storage/azure-managed-identities"
+      ],
+      "id": "q-18"
     }
   ],
   "notes": [

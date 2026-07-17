@@ -4900,6 +4900,41 @@
         "https://learn.microsoft.com/en-us/azure/databricks/dev-tools/ci-cd"
       ],
       "id": "q-67"
+    },
+    {
+      "topicId": "topic-05",
+      "prompt": "A team wants to package a set of notebooks, a job definition, and cluster configuration as a single deployable unit that can be validated and deployed consistently across dev/staging/prod, with environment-specific values (like catalog name) parameterized. What is the Databricks-native tool for this, and how is it configured?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Databricks Asset Bundles, configured via a databricks.yml file defining resources (jobs, pipelines, etc.) and per-target variables/workspace settings for each environment"
+        },
+        {
+          "id": "b",
+          "label": "A plain shell script that manually copies notebook files between workspaces using the CLI's workspace import command"
+        },
+        {
+          "id": "c",
+          "label": "Cluster policies, which are designed to package and deploy entire jobs and notebooks across environments"
+        },
+        {
+          "id": "d",
+          "label": "Unity Catalog volumes, used to store and version the bundle contents directly"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Databricks Asset Bundles (DABs) are the native infrastructure-as-code tool for packaging jobs, pipelines, notebooks, and related resources into one YAML-defined bundle, with per-target (dev/staging/prod) configuration for workspace and variables — enabling consistent, repeatable deployment across environments instead of manual file copying.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/dev-tools/bundles/"
+      ],
+      "codeSnippet": {
+        "language": "yaml",
+        "code": "bundle:\n  name: sales_pipeline\n\ntargets:\n  dev:\n    workspace:\n      host: https://dev-workspace.azuredatabricks.net\n    variables:\n      catalog: dev_sales\n  prod:\n    workspace:\n      host: https://prod-workspace.azuredatabricks.net\n    variables:\n      catalog: prod_sales\n\nresources:\n  jobs:\n    sales_etl:\n      name: sales_etl_job\n      tasks:\n        - task_key: main\n          notebook_task:\n            notebook_path: ./notebooks/etl.py"
+      },
+      "id": "q-68"
     }
   ],
   "notes": [

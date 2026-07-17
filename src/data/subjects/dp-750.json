@@ -3154,6 +3154,41 @@
         "code": "CREATE TABLE prod_sales.bronze.legacy_orders USING PARQUET LOCATION 'abfss://legacy@mystorageacct.dfs.core.windows.net/orders/'"
       },
       "id": "q-13"
+    },
+    {
+      "topicId": "topic-03",
+      "prompt": "You need to grant the `analytics_team` group SELECT access to every current and future table in the `prod_sales.gold` schema, without re-running a grant every time a new table is added. Which approach is correct in Unity Catalog?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "This is sufficient on its own — schema-level grants automatically cover all current and future tables"
+        },
+        {
+          "id": "b",
+          "label": "Grants in Unity Catalog only apply to objects that exist at grant time; new tables need either a fresh grant or a schema-level default/future-object grant policy to be covered automatically"
+        },
+        {
+          "id": "c",
+          "label": "SELECT cannot be granted at the schema level; it must be granted per table"
+        },
+        {
+          "id": "d",
+          "label": "Group-based grants are not supported; only individual users and service principals can be granted privileges"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "A schema-level GRANT SELECT applies to objects that exist at the time it's issued. Unity Catalog does not retroactively or automatically extend that grant to tables created afterward unless you use a mechanism intended for future objects; otherwise each new table needs its own grant (or a repeated schema grant). Group-based grants to principals like `analytics_team` are fully supported.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/manage-privileges/"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "GRANT SELECT ON SCHEMA prod_sales.gold TO `analytics_team`"
+      },
+      "id": "q-14"
     }
   ],
   "notes": [

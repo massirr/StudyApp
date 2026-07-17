@@ -3689,6 +3689,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/tables/partitions"
       ],
       "id": "q-30"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A `customers` dimension table needs to preserve full history of address changes for accurate historical reporting (e.g. \"what region was this customer in when they placed order #4521?\"), while still supporting an easy \"current address\" lookup. Which SCD (slowly changing dimension) type fits best?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "SCD Type 1 — overwrite the old value with the new one"
+        },
+        {
+          "id": "b",
+          "label": "SCD Type 2 — insert a new row for each change, with effective/expiry dates (or a current-flag) so historical joins resolve to the address that was valid at that point in time"
+        },
+        {
+          "id": "c",
+          "label": "SCD Type 0 — never allow the address to change once set"
+        },
+        {
+          "id": "d",
+          "label": "Store only the current address and reconstruct history from application logs on demand"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "SCD Type 2 preserves full history by inserting a new versioned row per change (typically with effective_date/end_date or a current flag), which is exactly what's needed to answer point-in-time historical questions correctly. SCD Type 1 (overwrite) would lose the historical address entirely, breaking the \"region at time of order\" use case.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/dlt/dlt-cdc"
+      ],
+      "id": "q-31"
     }
   ],
   "notes": [

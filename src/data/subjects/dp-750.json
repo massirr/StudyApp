@@ -2719,6 +2719,37 @@
       "sourceUrls": [
         "https://learn.microsoft.com/en-us/azure/databricks/optimizations/"
       ]
+    },
+    {
+      "topicId": "topic-01",
+      "prompt": "A BI team needs a dashboard that runs ad-hoc SQL against Unity Catalog tables. Queries must return in under 2 seconds during business hours, spin down automatically outside those hours, and require zero cluster management from the data team. Which compute type should you provision?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "A classic all-purpose cluster shared by the whole BI team"
+        },
+        {
+          "id": "b",
+          "label": "A serverless SQL warehouse with auto-stop enabled"
+        },
+        {
+          "id": "c",
+          "label": "A job compute cluster triggered per dashboard refresh"
+        },
+        {
+          "id": "d",
+          "label": "A single-node classic cluster with autoscaling disabled"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Serverless SQL warehouses are purpose-built for BI/SQL workloads: they start in seconds, scale automatically with concurrent query load, and require no cluster administration — Databricks manages the underlying compute. Classic clusters (all-purpose or job) require capacity planning and startup time that don't fit a sub-2-second, zero-ops dashboard requirement.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/compute/sql-warehouse/"
+      ],
+      "id": "q-1"
     }
   ],
   "notes": [

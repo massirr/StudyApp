@@ -2851,6 +2851,37 @@
         "code": "# Works fine when run interactively in a notebook:\n%pip install great_expectations==0.18.7\n\n# But the scheduled Job fails with ModuleNotFoundError"
       },
       "id": "q-4"
+    },
+    {
+      "topicId": "topic-01",
+      "prompt": "A workspace admin wants the `data-engineers` group to be able to attach notebooks to a shared cluster and view its Spark UI, but must prevent them from restarting the cluster or editing its configuration (which could disrupt other teams' running jobs). Which cluster permission level should be granted?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "CAN MANAGE"
+        },
+        {
+          "id": "b",
+          "label": "CAN RESTART"
+        },
+        {
+          "id": "c",
+          "label": "CAN ATTACH TO"
+        },
+        {
+          "id": "d",
+          "label": "Workspace admin role, scoped to that cluster only"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "Azure Databricks cluster permissions have three levels: CAN ATTACH TO (attach notebooks/run commands, view Spark UI — no restart or edit), CAN RESTART (adds restart/terminate), and CAN MANAGE (full control including edit, permissions, and delete). CAN ATTACH TO is the least-privilege option that satisfies the requirement.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/security/auth/access-control/cluster-acl"
+      ],
+      "id": "q-5"
     }
   ],
   "notes": [

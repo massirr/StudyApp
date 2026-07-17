@@ -5125,6 +5125,41 @@
         "https://learn.microsoft.com/en-us/azure/databricks/optimizations/join-strategy-hints"
       ],
       "id": "q-74"
+    },
+    {
+      "topicId": "topic-05",
+      "prompt": "A Delta table receiving frequent small streaming writes has accumulated tens of thousands of small files, causing query performance to degrade over the past month, along with growing storage costs from old file versions no longer needed for time travel. Which two maintenance commands directly address these two issues respectively?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "OPTIMIZE compacts small files into larger ones to improve query performance; VACUUM removes old, unreferenced data files beyond the retention window to reclaim storage — each solving a different one of the two problems"
+        },
+        {
+          "id": "b",
+          "label": "OPTIMIZE and VACUUM both do the same thing: compact small files. Running either alone is sufficient for both problems"
+        },
+        {
+          "id": "c",
+          "label": "VACUUM compacts small files, while OPTIMIZE reclaims storage from old versions"
+        },
+        {
+          "id": "d",
+          "label": "Neither command is relevant to file count or storage; both only affect table statistics"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "OPTIMIZE compacts many small files into fewer, larger ones (directly addressing the small-file query performance problem, and can be combined with Z-ordering or liquid clustering for better data layout). VACUUM removes files no longer referenced by the current table state beyond the retention threshold (addressing the storage cost of accumulated old file versions) — they solve distinct problems and are typically run together as regular maintenance.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/delta/optimize"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "OPTIMIZE prod_sales.silver.events;\n\nVACUUM prod_sales.silver.events RETAIN 168 HOURS;"
+      },
+      "id": "q-75"
     }
   ],
   "notes": [

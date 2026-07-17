@@ -5350,6 +5350,41 @@
         "https://learn.microsoft.com/en-us/azure/databricks/ingestion/lakeflow-connect/"
       ],
       "id": "q-81"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "The marketing team needs a list of customers who have never placed a single order, to target them with a welcome promotion. There's a `customers` table and an `orders` table keyed by customer_id. Which join type directly produces this?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "INNER JOIN, which returns only customers who have matching orders"
+        },
+        {
+          "id": "b",
+          "label": "LEFT ANTI JOIN, which returns rows from the left table (customers) that have no matching row at all in the right table (orders) — exactly \"customers with zero orders\""
+        },
+        {
+          "id": "c",
+          "label": "FULL OUTER JOIN, which is required to find non-matches and cannot be done any other way"
+        },
+        {
+          "id": "d",
+          "label": "RIGHT JOIN, since it naturally excludes matched left-side rows"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "LEFT ANTI JOIN returns only rows from the left table that have no corresponding match in the right table — precisely the \"exists in customers but never appears in orders\" semantics needed here. INNER JOIN would give the opposite (customers who HAVE ordered); FULL OUTER JOIN could get there too but requires an extra NULL filter, making ANTI JOIN the more direct choice.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/sql-ref-syntax-qry-select-join"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "SELECT c.customer_id, c.email\nFROM customers c\nLEFT ANTI JOIN orders o\n  ON c.customer_id = o.customer_id"
+      },
+      "id": "q-82"
     }
   ],
   "notes": [

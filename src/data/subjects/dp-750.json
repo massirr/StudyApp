@@ -4322,6 +4322,41 @@
         "code": "MERGE INTO prod_sales.silver.customers AS target\nUSING staging_customers AS source\nON target.customer_id = source.customer_id\nWHEN MATCHED THEN UPDATE SET *\nWHEN NOT MATCHED THEN INSERT *"
       },
       "id": "q-49"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A silver orders table must never contain a NULL order_id, and order_quantity must always be greater than zero. The team wants these rules enforced at write time so bad data never lands in the table, rather than caught later by a downstream audit query. Which mechanism enforces this?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Delta Lake CHECK constraints, which reject any write violating the condition, enforcing nullability and range rules directly at write time"
+        },
+        {
+          "id": "b",
+          "label": "A nightly SQL query that reports rows violating the rule, run after the data has already landed"
+        },
+        {
+          "id": "c",
+          "label": "Column comments describing the expected rule, which Spark enforces automatically"
+        },
+        {
+          "id": "d",
+          "label": "There's no way to enforce this in Delta Lake; validation must happen entirely in application code before the write"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Delta Lake supports CHECK constraints (and NOT NULL) that are enforced at write time — any INSERT/UPDATE/MERGE violating the condition is rejected, preventing bad data from ever landing rather than relying on after-the-fact detection. This directly implements nullability and range/cardinality-style validation rules declared on the table itself.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/tables/constraints"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "ALTER TABLE prod_sales.silver.orders\n  ADD CONSTRAINT orders_id_not_null CHECK (order_id IS NOT NULL);\n\nALTER TABLE prod_sales.silver.orders\n  ADD CONSTRAINT orders_qty_positive CHECK (order_quantity > 0);"
+      },
+      "id": "q-50"
     }
   ],
   "notes": [

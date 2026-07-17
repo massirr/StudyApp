@@ -4838,6 +4838,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/repos/"
       ],
       "id": "q-65"
+    },
+    {
+      "topicId": "topic-05",
+      "prompt": "A team's pull request review process keeps missing subtle bugs because reviewers only read the diff without running the code. They want to require that automated checks pass before any PR can be merged into main. What should be configured?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Branch protection rules requiring CI checks (e.g. automated test runs) to pass, combined with mandatory review approval, before a PR can be merged"
+        },
+        {
+          "id": "b",
+          "label": "A written policy asking reviewers to \"try harder\" to catch bugs manually"
+        },
+        {
+          "id": "c",
+          "label": "Removing the PR review step entirely, since manual review isn't catching bugs anyway"
+        },
+        {
+          "id": "d",
+          "label": "Allowing any team member to merge their own PR without review to speed up delivery"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Branch protection combined with required CI status checks enforces that automated tests must pass — not just that a human skimmed the diff — before code reaches main. This is the standard fix for review processes that rely too heavily on manual inspection catching every issue.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/repos/ci-cd-techniques-with-repos"
+      ],
+      "id": "q-66"
     }
   ],
   "notes": [

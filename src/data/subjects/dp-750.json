@@ -3348,6 +3348,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/catalog-explorer/"
       ],
       "id": "q-19"
+    },
+    {
+      "topicId": "topic-03",
+      "prompt": "A company has 40 tables tagged with sensitivity levels (`pii`, `internal`, `public`) across multiple catalogs. Security wants one rule that says \"only members of the security-cleared group can read any table tagged pii\" — enforced automatically as new pii-tagged tables appear, without editing grants table by table. What should they implement?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "A saved SQL query that lists all pii tables, reviewed manually each week"
+        },
+        {
+          "id": "b",
+          "label": "Attribute-based access control (ABAC): a policy that references the pii tag, so any object carrying that tag is governed by the rule automatically, including new ones"
+        },
+        {
+          "id": "c",
+          "label": "Individual GRANT/REVOKE statements re-run every time a new table is created"
+        },
+        {
+          "id": "d",
+          "label": "Row filters applied to every table, keyed on a hardcoded list of table names"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Attribute-based access control (ABAC) in Unity Catalog lets you write policies against tags rather than individual object names. Because the policy targets the tag itself, any object — including ones created later — carrying that tag is automatically governed, eliminating the need for per-table grant maintenance.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/abac/"
+      ],
+      "id": "q-20"
     }
   ],
   "notes": [

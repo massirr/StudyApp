@@ -4745,6 +4745,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/jobs/notifications"
       ],
       "id": "q-62"
+    },
+    {
+      "topicId": "topic-04",
+      "prompt": "A streaming Lakeflow Declarative Pipeline occasionally gets killed by an unrelated cloud infrastructure event (e.g. a spot VM eviction) and needs to resume automatically without a human restarting it, while avoiding an infinite crash-restart loop if there's a genuine code bug. What should be configured?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "An automatic restart policy on the pipeline/job with a bounded retry count (and optionally exponential backoff), so transient infrastructure failures self-heal while a persistently broken pipeline still stops retrying and surfaces as failed after the limit"
+        },
+        {
+          "id": "b",
+          "label": "Manual restarts only, since automatic restarts are not supported for streaming pipelines"
+        },
+        {
+          "id": "c",
+          "label": "An unbounded automatic restart with no limit, guaranteeing the pipeline is never marked as failed"
+        },
+        {
+          "id": "d",
+          "label": "Switching from a streaming pipeline to a batch pipeline eliminates the need for restart handling entirely"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Lakeflow Jobs and Declarative Pipelines support configurable automatic restart/retry policies with a bounded retry count, which is the correct pattern here: transient infrastructure issues (like spot eviction) self-heal without manual intervention, but a genuinely broken pipeline still exhausts its retries and surfaces as a failure rather than looping forever.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/settings"
+      ],
+      "id": "q-63"
     }
   ],
   "notes": [

@@ -3945,6 +3945,37 @@
         "code": "CREATE OR REPLACE TABLE prod_sales.gold.daily_summary AS\nSELECT store_id, order_date, SUM(amount) AS total_sales\nFROM prod_sales.silver.orders\nGROUP BY store_id, order_date"
       },
       "id": "q-38"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A source SQL Server table emits inserts, updates, and deletes that need to be reflected in a Unity Catalog Delta table with minimal latency and without reprocessing the full source table each time. Which ingestion approach directly addresses this requirement?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "A nightly CREATE OR REPLACE TABLE ... AS SELECT * FROM the full source table"
+        },
+        {
+          "id": "b",
+          "label": "Consuming a change data capture (CDC) feed from the source and applying inserts/updates/deletes incrementally (e.g. via MERGE or APPLY CHANGES INTO in a Declarative Pipeline)"
+        },
+        {
+          "id": "c",
+          "label": "A one-time COPY INTO run when the table is first created, with no further updates"
+        },
+        {
+          "id": "d",
+          "label": "Periodically dropping and recreating the entire target table from a fresh export"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "CDC feeds capture row-level insert/update/delete events from the source as they happen. Applying them incrementally — via MERGE logic or Lakeflow Declarative Pipelines' APPLY CHANGES INTO — keeps the target table current with low latency and without reprocessing the entire source table on every run, unlike full-refresh approaches (CRAS or drop/recreate).",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/dlt/dlt-cdc"
+      ],
+      "id": "q-39"
     }
   ],
   "notes": [

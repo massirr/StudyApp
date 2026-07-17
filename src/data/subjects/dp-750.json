@@ -5253,6 +5253,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/delta/uniform"
       ],
       "id": "q-78"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A source system's vendor confirms that once a record is written, it is never updated or deleted — only new records are appended (an immutable event log). Another source is a mutable customer profile table where existing rows are frequently updated in place. How should extraction logic differ between the two?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both should always use full extraction on every run, since extraction logic doesn't need to consider source mutability"
+        },
+        {
+          "id": "b",
+          "label": "The immutable event log is a good fit for incremental/append-only extraction (only pulling new records since the last run); the mutable profile table needs an extraction approach that can capture updates — such as a CDC feed or periodic full/merge-based reconciliation"
+        },
+        {
+          "id": "c",
+          "label": "The mutable table should use append-only incremental extraction, since updates will naturally be captured as new appended rows"
+        },
+        {
+          "id": "d",
+          "label": "Source mutability only matters for the destination table format, not for how extraction itself is designed"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Designing ingestion logic starts with understanding what the source can produce: an append-only/immutable source is naturally suited to simple incremental extraction (new records since last watermark), while a source with in-place updates needs an extraction strategy that captures changes to existing rows — a CDC feed if available, or periodic full extraction merged into the target if not.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/ingestion/"
+      ],
+      "id": "q-79"
     }
   ],
   "notes": [

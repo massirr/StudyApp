@@ -3088,6 +3088,37 @@
         "code": "CREATE CONNECTION snowflake_conn TYPE snowflake\nOPTIONS (\n  host 'myaccount.snowflakecomputing.com',\n  port '443',\n  user secret('kv_scope', 'sf_user'),\n  password secret('kv_scope', 'sf_password')\n);\n\nCREATE FOREIGN CATALOG snowflake_sales\nUSING CONNECTION snowflake_conn\nOPTIONS (database 'SALES_DB');"
       },
       "id": "q-11"
+    },
+    {
+      "topicId": "topic-01",
+      "prompt": "Business users ask an AI/BI Genie space \"what were our top customers last quarter?\" and it repeatedly generates SQL that joins the wrong tables, because \"customer\" is ambiguous between a `billing_account` table and a `end_user` table. The underlying data and permissions are correct. What should the Genie space owner do?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rebuild the tables with clearer column names, since Genie instructions cannot influence query generation"
+        },
+        {
+          "id": "b",
+          "label": "Add Genie instructions that define business terms (e.g. \"customer\" = billing_account) and specify preferred join paths/sample queries, giving Genie the context to generate correct SQL"
+        },
+        {
+          "id": "c",
+          "label": "Grant Genie's service principal owner-level privileges on both tables so it can infer the right one"
+        },
+        {
+          "id": "d",
+          "label": "Disable natural-language mode and require all users to write raw SQL instead"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "AI/BI Genie spaces support curated \"instructions\" — business-term definitions, preferred join logic, and example question/SQL pairs — that ground the natural-language-to-SQL generation in the team's actual semantics. This directly resolves ambiguous terminology issues without touching schema or permissions, which don't affect Genie's query-generation logic.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/genie/"
+      ],
+      "id": "q-12"
     }
   ],
   "notes": [

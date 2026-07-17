@@ -5284,6 +5284,41 @@
         "https://learn.microsoft.com/en-us/azure/databricks/ingestion/"
       ],
       "id": "q-79"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A one-time historical backfill needs to load five years of archived order exports (a fixed set of files that will never grow) into a bronze table. There's no need for incremental file tracking since this notebook will run exactly once. Which ingestion approach is simplest and appropriate?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "A plain batch read (spark.read) over the fixed file set, written once with a simple append/write — Auto Loader's incremental file-tracking machinery adds unnecessary complexity for a one-time, non-recurring load"
+        },
+        {
+          "id": "b",
+          "label": "Auto Loader is mandatory for any file-based ingestion, even one-time historical backfills"
+        },
+        {
+          "id": "c",
+          "label": "Structured Streaming with a continuous trigger, since batch reads cannot process Parquet files"
+        },
+        {
+          "id": "d",
+          "label": "This must be ingested via Lakeflow Connect since no other tool can write to Unity Catalog tables"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Ingestion tool/method choice should match the actual pattern: a one-time, fixed-size historical backfill is a textbook batch notebook job — a simple `spark.read` over the file set followed by a write. Auto Loader's incremental, stateful file-discovery tracking exists to handle continuously arriving new files, which doesn't apply here and would just add operational overhead.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/ingestion/"
+      ],
+      "codeSnippet": {
+        "language": "python",
+        "code": "historical_df = spark.read.format(\"parquet\").load(\"/mnt/archive/orders/*/*.parquet\")\nhistorical_df.write.mode(\"append\").saveAsTable(\"prod_sales.bronze.orders_historical\")"
+      },
+      "id": "q-80"
     }
   ],
   "notes": [

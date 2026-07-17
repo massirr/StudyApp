@@ -4970,6 +4970,37 @@
         "code": "databricks bundle deploy --target prod"
       },
       "id": "q-69"
+    },
+    {
+      "topicId": "topic-05",
+      "prompt": "A CI/CD system (e.g. GitHub Actions) needs to trigger a Databricks Asset Bundle deployment as part of an automated release pipeline, without a human running CLI commands interactively. Which approach fits this automation requirement?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Have the CI runner call the Databricks REST APIs (or the CLI authenticated via a service principal / OAuth token in CI secrets) to deploy the bundle programmatically as part of the pipeline"
+        },
+        {
+          "id": "b",
+          "label": "Require a human to log into the Databricks UI and manually click through every deployment step whenever CI finishes"
+        },
+        {
+          "id": "c",
+          "label": "Bundles cannot be deployed via API; only interactive CLI sessions are supported"
+        },
+        {
+          "id": "d",
+          "label": "Email the bundle files to an administrator who deploys them manually each release"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "For CI/CD automation, deployment should happen programmatically: the CLI (which itself calls Databricks REST APIs under the hood) can be run non-interactively in a CI runner, authenticated via a service principal or OAuth token stored as a CI secret — exactly the pattern needed to trigger deployments as part of an automated pipeline without manual steps.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/dev-tools/bundles/ci-cd"
+      ],
+      "id": "q-70"
     }
   ],
   "notes": [

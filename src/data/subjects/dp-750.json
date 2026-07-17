@@ -3220,6 +3220,41 @@
         "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/row-and-column-filters"
       ],
       "id": "q-15"
+    },
+    {
+      "topicId": "topic-03",
+      "prompt": "A notebook needs a database password to connect to an on-prem SQL Server via JDBC. The password is stored in Azure Key Vault. The team wants to avoid ever pasting the raw secret into notebook code or job configuration. What should they do?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Create an Azure Key Vault-backed secret scope in Databricks, then reference secrets via dbutils.secrets.get() as shown — the raw value is never displayed and is redacted from notebook output/logs"
+        },
+        {
+          "id": "b",
+          "label": "Copy the secret value into a Databricks widget default value so it's easy to reuse across notebooks"
+        },
+        {
+          "id": "c",
+          "label": "Store the password as a cluster environment variable in plain text, since cluster configs are workspace-private"
+        },
+        {
+          "id": "d",
+          "label": "Secrets can only be accessed by Databricks-native secret scopes; Key Vault-backed scopes are not supported"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Databricks supports Azure Key Vault-backed secret scopes: once configured, `dbutils.secrets.get()` retrieves the value at runtime without the code ever containing the raw secret, and Databricks automatically redacts secret values from notebook output and logs (printing REDACTED instead).",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/security/secrets/secret-scopes"
+      ],
+      "codeSnippet": {
+        "language": "python",
+        "code": "jdbc_password = dbutils.secrets.get(scope=\"kv-onprem-sql\", key=\"sql-password\")"
+      },
+      "id": "q-16"
     }
   ],
   "notes": [

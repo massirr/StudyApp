@@ -3782,6 +3782,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/dlt/dlt-cdc"
       ],
       "id": "q-33"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A 10 TB table is frequently filtered on a high-cardinality `user_id` column and a medium-cardinality `country` column, but data arrival order makes traditional static partitioning by either column impractical (skewed, constantly-changing value distributions). The team also wants to avoid manually running maintenance commands after every load. What clustering strategy fits best?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Traditional Hive-style static partitioning by user_id, accepting the skew"
+        },
+        {
+          "id": "b",
+          "label": "Liquid clustering on (user_id, country), which incrementally and automatically reorganizes data by clustering keys without requiring rigid partition definitions or manual OPTIMIZE scheduling for rebalancing"
+        },
+        {
+          "id": "c",
+          "label": "Z-ordering only, which requires no clustering key definition and works automatically on every column"
+        },
+        {
+          "id": "d",
+          "label": "No clustering strategy is needed since Delta Lake automatically optimizes file layout with zero configuration"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Liquid clustering is designed for exactly this case: high/varying-cardinality columns where static partitioning causes skew or too many small partitions. It clusters data incrementally as it's written and adapts over time, reducing the need for manual OPTIMIZE/Z-order maintenance while still enabling efficient file pruning on the clustering keys.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/delta/clustering"
+      ],
+      "id": "q-34"
     }
   ],
   "notes": [

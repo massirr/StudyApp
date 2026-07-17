@@ -4520,6 +4520,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/dlt/"
       ],
       "id": "q-55"
+    },
+    {
+      "topicId": "topic-04",
+      "prompt": "A Lakeflow Job has three tasks: extract, transform, load. The team wants the load task to run even if the transform task fails validation on a subset of records (to load what did succeed), but they want an alert fired and the job marked as failed overall so someone investigates. How should task logic be designed?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Set the transform task's run-if condition so load can still run after transform completes (success or with a partial-failure outcome), while configuring the job to report overall failure status and trigger a notification when any task reports an issue"
+        },
+        {
+          "id": "b",
+          "label": "Make load strictly dependent on transform's full success only, guaranteeing no partial loads ever happen, which coincidentally also satisfies the requirement"
+        },
+        {
+          "id": "c",
+          "label": "There's no way to run downstream tasks after a partial upstream failure in Lakeflow Jobs"
+        },
+        {
+          "id": "d",
+          "label": "Combine all three steps into a single task so there's nothing to configure"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Lakeflow Jobs support configurable task run-if conditions (e.g., run on success, on failure, or always) so downstream tasks can execute even when an upstream task reports a non-fatal issue, while the job's overall status and alerting still reflect that something needs attention. This gives fine-grained control over error handling rather than an all-or-nothing dependency.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/task-run-if"
+      ],
+      "id": "q-56"
     }
   ],
   "notes": [

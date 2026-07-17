@@ -3976,6 +3976,41 @@
         "https://learn.microsoft.com/en-us/azure/databricks/dlt/dlt-cdc"
       ],
       "id": "q-39"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A team needs to compute a running 5-minute windowed aggregate over an unbounded stream of IoT sensor readings, with results updating continuously as new data arrives, and must correctly handle late-arriving events within a bounded delay. Which technology is purpose-built for this?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Spark Structured Streaming, whose windowed aggregation and watermarking (withWatermark) natively support continuous windowed computation with bounded handling of late data"
+        },
+        {
+          "id": "b",
+          "label": "A batch job run every 5 minutes using CREATE OR REPLACE TABLE, since batch and streaming produce identical results for windowed aggregates"
+        },
+        {
+          "id": "c",
+          "label": "COPY INTO with a WHERE clause filtering the last 5 minutes of data"
+        },
+        {
+          "id": "d",
+          "label": "Auto Loader alone, without Structured Streaming, since Auto Loader natively performs windowed aggregation"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Spark Structured Streaming provides native windowed aggregation (`window()`) and watermarking (`withWatermark`) to bound how long the engine waits for late-arriving events before finalizing a window — exactly the semantics needed for continuous, correctness-aware streaming aggregates. Auto Loader is a file-ingestion source, not an aggregation engine; it's typically used as the read side feeding into Structured Streaming logic like this.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/structured-streaming/"
+      ],
+      "codeSnippet": {
+        "language": "python",
+        "code": "from pyspark.sql.functions import window, avg\n\n(spark.readStream.table(\"prod_iot.bronze.sensor_readings\")\n  .withWatermark(\"event_time\", \"10 minutes\")\n  .groupBy(window(\"event_time\", \"5 minutes\"), \"sensor_id\")\n  .agg(avg(\"temperature\").alias(\"avg_temp\"))\n  .writeStream\n  .outputMode(\"append\")\n  .table(\"prod_iot.silver.temp_5min_avg\"))"
+      },
+      "id": "q-40"
     }
   ],
   "notes": [

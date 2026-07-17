@@ -4252,6 +4252,41 @@
         "code": "SELECT customer_id FROM this_month_active\nEXCEPT\nSELECT customer_id FROM last_month_active"
       },
       "id": "q-47"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A source system exports monthly sales as one row per product with separate columns `jan_sales`, `feb_sales`, ..., `dec_sales`. A downstream dashboard needs one row per (product, month) instead, to plot a time series. Which transformation is needed?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "PIVOT, to turn the month columns into more columns"
+        },
+        {
+          "id": "b",
+          "label": "UNPIVOT, which converts wide-format columns (one per month) into a long/tall format with one row per product-month combination — exactly what a time series plot needs"
+        },
+        {
+          "id": "c",
+          "label": "A UNION of 12 separate SELECT statements is the only way to achieve this"
+        },
+        {
+          "id": "d",
+          "label": "No transformation is needed since dashboards can plot wide-format data natively"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "UNPIVOT reshapes wide data (multiple columns representing categories, here months) into long/tall format (one row per category value) — the standard transformation for feeding time-series or category-based visualizations that expect one row per (entity, category). PIVOT does the opposite: long-to-wide.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/sql-ref-syntax-qry-select-unpivot"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "SELECT product_id, month, sales\nFROM wide_sales\nUNPIVOT (\n  sales FOR month IN (jan_sales, feb_sales, mar_sales, apr_sales)\n)"
+      },
+      "id": "q-48"
     }
   ],
   "notes": [

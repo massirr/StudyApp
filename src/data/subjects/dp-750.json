@@ -5420,6 +5420,41 @@
         "code": "CREATE OR REPLACE TABLE prod_sales.gold.orders_flat AS\nSELECT o.order_id, o.order_date, o.amount,\n       c.customer_name, c.region,\n       p.product_name, p.category\nFROM prod_sales.silver.orders o\nJOIN prod_sales.silver.customers c ON o.customer_id = c.customer_id\nJOIN prod_sales.silver.products p ON o.product_id = p.product_id"
       },
       "id": "q-83"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A silver `orders` table has a `product_id` column that must always correspond to an existing row in the `products` dimension table — orphaned product references indicate a serious upstream data integrity bug. The team wants this checked as part of routine data quality validation, not discovered weeks later by an analyst. Which validation check category does this fall under, and how should it be implemented?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "A referential-integrity / cardinality validation check: periodically (or via a pipeline expectation) verifying that every product_id in orders exists in products, since Delta Lake has no native foreign key enforcement across tables"
+        },
+        {
+          "id": "b",
+          "label": "A nullability check, since foreign key validity is the same thing as checking for NULLs"
+        },
+        {
+          "id": "c",
+          "label": "This cannot be validated at all; Delta Lake automatically enforces foreign keys between any two tables sharing a column name"
+        },
+        {
+          "id": "d",
+          "label": "A schema enforcement check, since referential integrity is a schema-level concept"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Delta Lake/Unity Catalog does not automatically enforce foreign-key relationships across tables the way a traditional RDBMS might, so referential integrity (every product_id resolving to a real product) has to be validated explicitly — e.g. an anti-join check run as part of a pipeline's data quality gate, or a Lakeflow Declarative Pipeline expectation. This is distinct from nullability (missing values) and schema enforcement (structure/type conformance).",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/tables/constraints"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "SELECT COUNT(*) AS orphaned_orders\nFROM prod_sales.silver.orders o\nLEFT ANTI JOIN prod_sales.silver.products p\n  ON o.product_id = p.product_id"
+      },
+      "id": "q-84"
     }
   ],
   "notes": [

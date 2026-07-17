@@ -3410,6 +3410,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/row-and-column-filters"
       ],
       "id": "q-21"
+    },
+    {
+      "topicId": "topic-03",
+      "prompt": "A compliance requirement states that raw clickstream event data must not be queryable after 13 months, but the aggregated monthly summary tables derived from it can be kept indefinitely. How should this be implemented in Unity Catalog / Delta Lake?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Manually delete the raw table every 13 months via an ad-hoc script run by an engineer"
+        },
+        {
+          "id": "b",
+          "label": "Apply a data retention policy to the raw events table (e.g., a scheduled process using Delta's time-based deletion/VACUUM-aligned retention) while leaving the aggregate tables unmanaged by that policy"
+        },
+        {
+          "id": "c",
+          "label": "Set a single workspace-wide retention setting that applies identically to every table, raw or aggregated"
+        },
+        {
+          "id": "d",
+          "label": "Rely on Delta Lake's default VACUUM schedule, which automatically enforces business-level retention requirements out of the box"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Retention policies need to be scoped per table/object based on business requirements — raw and aggregate tables here have different lifecycles. Delta Lake's default VACUUM only cleans up stale file versions for time-travel purposes; it does not enforce business retention SLAs on its own, so a deliberate retention policy/process must be defined for tables where old data must be purged.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/tables/delta/vacuum"
+      ],
+      "id": "q-22"
     }
   ],
   "notes": [

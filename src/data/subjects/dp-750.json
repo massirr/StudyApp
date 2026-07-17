@@ -5063,6 +5063,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/jobs/repair-job-failures"
       ],
       "id": "q-72"
+    },
+    {
+      "topicId": "topic-05",
+      "prompt": "A Spark job that normally finishes in 20 minutes has been taking 3+ hours for the past two days, with no code changes. The Spark UI shows most tasks in one stage completing in seconds, but a handful taking 45+ minutes each. What is this symptom most consistent with, and what should the engineer check next?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Data skew: a small number of partitions contain disproportionately more data (or a hot key) than others, causing a few tasks to run far longer; check the stage's task duration distribution and partition/key cardinality in the Spark UI"
+        },
+        {
+          "id": "b",
+          "label": "This is always caused by insufficient driver memory, unrelated to task duration patterns"
+        },
+        {
+          "id": "c",
+          "label": "The Spark UI cannot show per-task duration, so this pattern cannot be diagnosed"
+        },
+        {
+          "id": "d",
+          "label": "This pattern indicates a network outage between the cluster and the driver, unrelated to data distribution"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "A small number of long-running tasks in an otherwise-fast stage is the classic signature of data skew — typically a hot key in a groupBy/join causing a few partitions to be much larger than others. The Spark UI's stage detail view (task duration distribution, shuffle read size per task) is exactly where this is diagnosed, often followed by techniques like salting the key or enabling adaptive query execution skew handling.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/optimizations/skew-join"
+      ],
+      "id": "q-73"
     }
   ],
   "notes": [

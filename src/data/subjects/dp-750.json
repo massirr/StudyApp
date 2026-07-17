@@ -4147,6 +4147,41 @@
         "https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/data-types/"
       ],
       "id": "q-44"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A bronze orders table has duplicate rows from an at-least-once delivery source, and a `customer_email` column that's sometimes NULL but should default to \"unknown@example.com\" for downstream joins to work. Which transformation sequence correctly addresses both issues?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "dropDuplicates([\"order_id\"]) removes rows with a repeated order_id (keeping one), and coalesce() fills nulls in customer_email with the default — correctly resolving both the duplicate and missing-value issues"
+        },
+        {
+          "id": "b",
+          "label": "dropDuplicates() with no arguments should be used instead, since column-scoped deduplication is not supported in Spark"
+        },
+        {
+          "id": "c",
+          "label": "coalesce() removes duplicate rows, and dropDuplicates() fills null values"
+        },
+        {
+          "id": "d",
+          "label": "This code silently fails because withColumn cannot be chained after dropDuplicates"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "`dropDuplicates([\"order_id\"])` deduplicates based on a specific key column (appropriate when only certain columns define uniqueness), and `coalesce()` returns the first non-null argument — a standard pattern for substituting a default value for nulls. Both operations are valid to chain via withColumn.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/pyspark/basics"
+      ],
+      "codeSnippet": {
+        "language": "python",
+        "code": "from pyspark.sql import functions as F\n\nclean_df = (\n    raw_df\n    .dropDuplicates([\"order_id\"])\n    .withColumn(\"customer_email\", F.coalesce(F.col(\"customer_email\"), F.lit(\"unknown@example.com\")))\n)"
+      },
+      "id": "q-45"
     }
   ],
   "notes": [

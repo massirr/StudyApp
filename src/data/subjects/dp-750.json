@@ -244,30 +244,30 @@
     },
     {
       "id": "topic-05",
-      "slug": "monitor-and-optimize-workloads",
-      "title": "Monitor and Optimize Workloads",
-      "summary": "Track workload behavior, diagnose bottlenecks, and optimize performance and cost for data engineering pipelines.",
+      "slug": "dev-lifecycle-monitoring-and-optimization",
+      "title": "Development lifecycle, monitoring, and optimization (Domain 4, part 2)",
+      "summary": "Part of official exam domain 4, Deploy and maintain data pipelines and workloads (30–35% combined with the other Domain 4 topic). Covers CI/CD lifecycle practices plus monitoring, troubleshooting, and optimizing workloads.",
       "studyOrder": 5,
       "subtopics": [
         {
           "id": "t5-s1",
-          "title": "Monitoring and Alerts",
-          "summary": "Use platform telemetry to detect and respond to pipeline issues."
+          "title": "Implement development lifecycle processes in Azure Databricks",
+          "summary": "Git version control best practices; branching, pull requests, conflict resolution; testing strategy (unit/integration/e2e/UAT); configuring/packaging Databricks Asset Bundles; deploying a bundle via Databricks CLI; deploying a bundle via REST APIs."
         },
         {
           "id": "t5-s2",
-          "title": "Performance Optimization",
-          "summary": "Tune compute and query behavior to improve throughput and reliability."
+          "title": "Monitor, troubleshoot, and optimize workloads in Azure Databricks",
+          "summary": "Monitoring cluster consumption for cost/performance; troubleshooting Lakeflow Jobs (repair/restart/stop/run); troubleshooting Spark jobs/notebooks (perf tuning, bottlenecks, cluster restart); DAG/Spark UI/query profile investigation of caching/skew/spill/shuffle; OPTIMIZE and VACUUM; Log Analytics log streaming via Azure Monitor; configuring Azure Monitor alerts."
         }
       ],
       "sourceLinks": [
         {
-          "label": "Azure Databricks Performance",
-          "url": "https://learn.microsoft.com/en-us/azure/databricks/optimizations/"
+          "label": "Databricks Asset Bundles",
+          "url": "https://learn.microsoft.com/en-us/azure/databricks/dev-tools/bundles/"
         },
         {
-          "label": "Azure Monitor Fundamentals",
-          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview"
+          "label": "Optimization recommendations",
+          "url": "https://learn.microsoft.com/en-us/azure/databricks/optimizations/"
         }
       ]
     }

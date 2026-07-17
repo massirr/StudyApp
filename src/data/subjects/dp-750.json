@@ -2913,6 +2913,41 @@
         "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/best-practices"
       ],
       "id": "q-6"
+    },
+    {
+      "topicId": "topic-01",
+      "prompt": "You need every managed table created under a new `prod_sales` catalog to store its underlying data in a dedicated ADLS Gen2 container, separate from other catalogs. Which statement achieves this?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "It sets the default storage location for managed tables/schemas in this catalog; schemas can still override it with their own MANAGED LOCATION"
+        },
+        {
+          "id": "b",
+          "label": "It creates the catalog but storage location is ignored — Unity Catalog always uses the workspace's root storage for managed tables"
+        },
+        {
+          "id": "c",
+          "label": "It makes every table in the catalog an external table pointing at that container"
+        },
+        {
+          "id": "d",
+          "label": "MANAGED LOCATION is only valid on CREATE SCHEMA, not CREATE CATALOG, so this statement fails"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "MANAGED LOCATION on CREATE CATALOG sets the default storage root that managed schemas/tables in that catalog inherit unless overridden. Unity Catalog supports specifying managed storage at the metastore, catalog, or schema level, with the more specific level taking precedence — giving isolation per catalog without forcing every table to be external.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/create-catalogs"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "CREATE CATALOG IF NOT EXISTS prod_sales\nMANAGED LOCATION 'abfss://prod-sales@mystorageacct.dfs.core.windows.net/';"
+      },
+      "id": "q-7"
     }
   ],
   "notes": [

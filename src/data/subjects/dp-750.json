@@ -4869,6 +4869,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/repos/ci-cd-techniques-with-repos"
       ],
       "id": "q-66"
+    },
+    {
+      "topicId": "topic-05",
+      "prompt": "A team building a data pipeline wants confidence at three levels: that a single transformation function produces correct output for known inputs, that the full bronze-to-gold pipeline runs correctly against a realistic sample dataset, and that business stakeholders confirm the final gold table matches their expectations before go-live. Which testing strategy maps to these three needs?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Unit tests (individual function correctness) → integration/end-to-end tests (full pipeline against sample data) → user acceptance testing (UAT, stakeholder sign-off) — each addressing a different layer of confidence"
+        },
+        {
+          "id": "b",
+          "label": "A single exhaustive UAT phase is sufficient and makes unit/integration testing redundant"
+        },
+        {
+          "id": "c",
+          "label": "Unit tests alone cover all three needs, since they inherently validate end-to-end pipeline behavior and business expectations"
+        },
+        {
+          "id": "d",
+          "label": "Integration tests should be skipped entirely in data pipelines since they duplicate what unit tests already verify"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "A layered testing strategy addresses distinct risks: unit tests validate individual transformation logic in isolation, integration/end-to-end tests validate that components work correctly together against realistic data flowing through the full pipeline, and UAT validates that the result actually satisfies business/stakeholder expectations — no single layer substitutes for the others.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/dev-tools/ci-cd"
+      ],
+      "id": "q-67"
     }
   ],
   "notes": [

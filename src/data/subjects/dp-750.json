@@ -3255,6 +3255,37 @@
         "code": "jdbc_password = dbutils.secrets.get(scope=\"kv-onprem-sql\", key=\"sql-password\")"
       },
       "id": "q-16"
+    },
+    {
+      "topicId": "topic-03",
+      "prompt": "A Lakeflow Job runs unattended every night and needs to read/write Unity Catalog tables. The security team requires that the job's identity be independent of any individual employee's account, so access isn't revoked when that employee leaves the company. What should own and run the job?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "The data engineer's personal Azure AD account, since personal accounts have the broadest default permissions"
+        },
+        {
+          "id": "b",
+          "label": "A Microsoft Entra ID service principal, created specifically for this job and granted only the Unity Catalog privileges it needs"
+        },
+        {
+          "id": "c",
+          "label": "A shared team login shared informally among engineers via a password manager"
+        },
+        {
+          "id": "d",
+          "label": "A personal access token (PAT) generated from any admin's account, rotated manually every 90 days"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Service principals are non-human identities meant exactly for unattended workloads like scheduled jobs: they're independent of any individual's employment status, can be scoped to least-privilege Unity Catalog grants, and are the recommended pattern over running jobs under personal accounts or shared credentials.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/dev-tools/service-principals"
+      ],
+      "id": "q-17"
     }
   ],
   "notes": [

@@ -4116,6 +4116,37 @@
         "code": "display(spark.table(\"prod_sales.bronze.new_source\").summary())"
       },
       "id": "q-43"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A source CSV file has a `discount_pct` column that arrives as text like \"15%\" and an `order_id` column that arrives as text but is always numeric. The silver table needs discount_pct usable in arithmetic and order_id efficiently joinable/indexable. What's the correct approach?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Leave both columns as STRING, since Delta Lake automatically infers correct types at query time"
+        },
+        {
+          "id": "b",
+          "label": "Cast order_id to a numeric type (e.g. BIGINT/INT) for efficient joins, and parse/cast discount_pct into a numeric type (e.g. DOUBLE) after stripping the '%' — choosing types deliberately based on how each column will be used"
+        },
+        {
+          "id": "c",
+          "label": "Cast both columns to BOOLEAN, since Delta Lake performs best with the smallest possible data types"
+        },
+        {
+          "id": "d",
+          "label": "Store discount_pct as STRING and order_id as DOUBLE, since floating point types are always safest for joins"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Choosing appropriate column data types is a deliberate transformation step: numeric IDs used in joins should be numeric types (better performance, correct semantics) rather than strings, and columns needing arithmetic (like a percentage) need to be parsed into numeric types rather than left as text. Type inference alone doesn't fix malformed or oddly-formatted text.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/data-types/"
+      ],
+      "id": "q-44"
     }
   ],
   "notes": [

@@ -4776,6 +4776,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/jobs/settings"
       ],
       "id": "q-63"
+    },
+    {
+      "topicId": "topic-04",
+      "prompt": "A new Lakeflow Job needs to run a notebook on a cluster sized for the workload, be owned by a service principal (not a personal account) for production reliability, and have its cluster spin down immediately after the task finishes to control cost. Which combination of setup choices is correct?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Use a job cluster (not an existing all-purpose cluster) scoped to the task, set the job's run-as identity to a dedicated service principal, and rely on the job cluster's automatic termination after task completion"
+        },
+        {
+          "id": "b",
+          "label": "Use an all-purpose cluster kept running 24/7 under the creating engineer's personal identity, since that guarantees the fastest task start every time"
+        },
+        {
+          "id": "c",
+          "label": "Run-as identity can only ever be the job creator's personal account; service principals cannot own jobs"
+        },
+        {
+          "id": "d",
+          "label": "Job clusters cannot be scoped per-task; they always require a separately pre-created all-purpose cluster"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Job clusters are created fresh for a task's run and automatically terminate afterward — the cost-efficient default for scheduled workloads, versus an always-on all-purpose cluster. Lakeflow Jobs also support setting a \"run as\" identity to a service principal, decoupling production job ownership from any individual employee's account, which is the recommended production pattern.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/run-as"
+      ],
+      "id": "q-64"
     }
   ],
   "notes": [

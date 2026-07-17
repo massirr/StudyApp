@@ -18,7 +18,7 @@ interface QuizPageProps {
 
 const QuizPage: React.FC<QuizPageProps> = ({ subject, topicSlug, level = 1 }) => {
   const [showFeedback, setShowFeedback] = useState(false);
-  const { progress, markTopicComplete } = useProgress(subject.id);
+  const { progress, markTopicComplete, markLevel2Unlocked } = useProgress(subject.id);
 
   const quizTitle = `${subject.shortLabel} Quiz`;
   const dashboardHref = `/${subject.slug}`;
@@ -61,6 +61,10 @@ const QuizPage: React.FC<QuizPageProps> = ({ subject, topicSlug, level = 1 }) =>
   useEffect(() => {
     if (isComplete && topicSlug && topic) {
       markTopicComplete(topic.id);
+      const pct = total > 0 ? Math.round((correctCount / total) * 100) : 0;
+      if (level === 1 && pct >= 70) {
+        markLevel2Unlocked(topic.id);
+      }
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isComplete]);

@@ -4489,6 +4489,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/jobs/how-to/use-task-dependencies"
       ],
       "id": "q-54"
+    },
+    {
+      "topicId": "topic-04",
+      "prompt": "A team is designing a new multi-stage bronze/silver/gold pipeline. They want automatic dependency resolution between stages, built-in data quality expectations, and less hand-written orchestration/checkpoint code — in exchange for adopting a more declarative, opinionated framework. Which two approaches are being compared, and which fits this preference?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Notebook-based orchestration (imperative, full control over each step, orchestration handled via Lakeflow Jobs task dependencies) vs. Lakeflow Spark Declarative Pipelines (declarative, automatic dependency graph + expectations); the team's stated preference fits Declarative Pipelines"
+        },
+        {
+          "id": "b",
+          "label": "Both approaches are identical in Databricks; there is no meaningful difference between notebooks and Declarative Pipelines"
+        },
+        {
+          "id": "c",
+          "label": "Notebooks always provide automatic dependency resolution, making Declarative Pipelines redundant"
+        },
+        {
+          "id": "d",
+          "label": "Declarative Pipelines cannot express multi-stage bronze/silver/gold architectures"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Notebook-based pipelines (orchestrated as Lakeflow Job tasks) give full imperative control but require manually wiring dependencies, checkpoints, and quality checks. Lakeflow Spark Declarative Pipelines instead let you declare tables/transformations and infer the dependency graph automatically, plus offer built-in expectations for data quality — directly matching the stated preference for less hand-written orchestration.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/dlt/"
+      ],
+      "id": "q-55"
     }
   ],
   "notes": [

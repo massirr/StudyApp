@@ -3472,6 +3472,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/data-lineage"
       ],
       "id": "q-23"
+    },
+    {
+      "topicId": "topic-03",
+      "prompt": "A security audit asks: \"Show every user who queried the `prod_sales.gold.executive_comp` table in the last 90 days, and every permission change made to it.\" Where does this information come from in an Azure Databricks / Unity Catalog deployment?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Unity Catalog audit logs delivered to Azure (via diagnostic settings/Log Analytics), which capture query access events and privilege change events at the object level"
+        },
+        {
+          "id": "b",
+          "label": "The Spark UI's SQL tab, which retains query history indefinitely for all users"
+        },
+        {
+          "id": "c",
+          "label": "Cluster-level init script logs"
+        },
+        {
+          "id": "d",
+          "label": "There's no way to retroactively audit this; access must be logged manually by each user"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Unity Catalog emits detailed audit logs — including table access events and privilege/grant changes — that can be routed to Azure Monitor/Log Analytics via diagnostic settings for retention, querying, and compliance reporting. This is the authoritative source for \"who accessed what, and what permissions changed,\" not the Spark UI (ephemeral, per-cluster) or init script logs.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/admin/account-settings/audit-logs"
+      ],
+      "id": "q-24"
     }
   ],
   "notes": [

@@ -4081,6 +4081,41 @@
         "code": "import dlt\n\n@dlt.table\ndef bronze_orders():\n    return (\n        spark.readStream.format(\"cloudFiles\")\n        .option(\"cloudFiles.format\", \"json\")\n        .load(\"/mnt/raw/orders/\")\n    )"
       },
       "id": "q-42"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "Before designing transformations for a newly onboarded source table, an engineer wants to quickly understand column-level null rates, distinct value counts, min/max ranges, and value distributions — without writing custom aggregation SQL for every column. What's the fastest way to get this in a Databricks notebook?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Manually write a GROUP BY/COUNT DISTINCT query per column"
+        },
+        {
+          "id": "b",
+          "label": "Use built-in data profiling (e.g. DataFrame.summary()/describe(), or the profiling tab in the notebook table viewer) to get summary statistics across all columns at once"
+        },
+        {
+          "id": "c",
+          "label": "Export the table to Excel and use PivotTables"
+        },
+        {
+          "id": "d",
+          "label": "There is no built-in profiling capability; a third-party library must be installed"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Databricks notebooks provide built-in profiling: `DataFrame.summary()`/`describe()` compute count, mean, stddev, min/max, and percentiles across all columns in one call, and the notebook's table result viewer includes a Data Profile tab that visualizes null rates and distributions automatically — no per-column custom queries needed.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/notebooks/notebooks-visualize"
+      ],
+      "codeSnippet": {
+        "language": "python",
+        "code": "display(spark.table(\"prod_sales.bronze.new_source\").summary())"
+      },
+      "id": "q-43"
     }
   ],
   "notes": [

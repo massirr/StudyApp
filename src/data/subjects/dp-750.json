@@ -2983,6 +2983,41 @@
         "code": "CREATE SCHEMA IF NOT EXISTS prod_sales.finance\nMANAGED LOCATION 'abfss://finance-restricted@mystorageacct.dfs.core.windows.net/';"
       },
       "id": "q-8"
+    },
+    {
+      "topicId": "topic-01",
+      "prompt": "A data science team needs to read and write arbitrary unstructured files (images, PDFs) from Databricks notebooks and external tools, governed by Unity Catalog, without modeling the files as a table. What should they create?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "A managed table with a single BINARY column"
+        },
+        {
+          "id": "b",
+          "label": "A Unity Catalog volume, which governs access to non-tabular files via a catalog/schema-scoped file path"
+        },
+        {
+          "id": "c",
+          "label": "A DBFS mount point, since volumes cannot store binary files"
+        },
+        {
+          "id": "d",
+          "label": "An external location with no schema association"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Volumes are the Unity Catalog object for governing non-tabular data (arbitrary files) under the same catalog.schema.volume namespace and permission model as tables, accessible via a standard file path. They're the recommended replacement for ungoverned DBFS mounts when files don't fit a table structure.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/connect/unity-catalog/volumes"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "CREATE VOLUME IF NOT EXISTS prod_sales.finance.contract_scans\nCOMMENT 'PDF contract scans for OCR pipeline';"
+      },
+      "id": "q-9"
     }
   ],
   "notes": [

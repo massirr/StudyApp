@@ -5455,6 +5455,41 @@
         "code": "SELECT COUNT(*) AS orphaned_orders\nFROM prod_sales.silver.orders o\nLEFT ANTI JOIN prod_sales.silver.products p\n  ON o.product_id = p.product_id"
       },
       "id": "q-84"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A regulated financial data source must never silently accept a structural change: if the source starts sending a column with an unexpected data type (e.g. `amount` switching from DECIMAL to STRING), the pipeline must stop immediately rather than coerce, rescue, or auto-evolve the schema. Which schema handling configuration fits this requirement?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Providing an explicit strict schema plus a fail-fast evolution mode causes the stream to fail loudly on any structural mismatch (including type changes), rather than silently rescuing or auto-evolving — matching a zero-tolerance regulatory requirement"
+        },
+        {
+          "id": "b",
+          "label": "cloudFiles.schemaEvolutionMode=\"addNewColumns\" is the correct choice here, since it always fails on any change"
+        },
+        {
+          "id": "c",
+          "label": "There is no way to make Auto Loader fail on schema drift; it always rescues or coerces mismatched data silently"
+        },
+        {
+          "id": "d",
+          "label": "Type changes can never be detected by Auto Loader, only new/missing columns can"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Providing an explicit expected schema (rather than letting Auto Loader infer one) combined with a strict/fail-fast evolution mode makes the stream stop on any structural mismatch — new columns, missing columns, or type changes — instead of silently applying rescued-data handling or auto-evolving the schema. This is the correct pattern for regulated sources where undetected drift is unacceptable, contrasting with the earlier addNewColumns example designed to tolerate additive changes.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/ingestion/cloud-object-storage/auto-loader/schema"
+      ],
+      "codeSnippet": {
+        "language": "python",
+        "code": "df = (spark.readStream.format(\"cloudFiles\")\n      .option(\"cloudFiles.format\", \"json\")\n      .option(\"cloudFiles.schemaLocation\", \"/mnt/schemas/financial_txns\")\n      .option(\"cloudFiles.schemaEvolutionMode\", \"failOnNewColumns\")\n      .schema(expected_strict_schema)\n      .load(\"/mnt/raw/financial_txns/\"))"
+      },
+      "id": "q-85"
     }
   ],
   "notes": [

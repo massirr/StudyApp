@@ -2816,6 +2816,41 @@
         "https://learn.microsoft.com/en-us/azure/databricks/compute/photon"
       ],
       "id": "q-3"
+    },
+    {
+      "topicId": "topic-01",
+      "prompt": "A scheduled job runs on a job cluster that is created fresh for every run and terminates afterward. The job requires `great_expectations==0.18.7`. A developer tests interactively with `%pip install great_expectations==0.18.7` in a notebook and it works. Why will the scheduled job still fail with `ModuleNotFoundError`?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "%pip install libraries are notebook-session-scoped; a new job cluster spins up without that session state, so the library isn't installed unless it's added as a cluster or job-level library"
+        },
+        {
+          "id": "b",
+          "label": "%pip only works on all-purpose clusters and is silently ignored on any job cluster"
+        },
+        {
+          "id": "c",
+          "label": "great_expectations is incompatible with any Databricks Runtime version"
+        },
+        {
+          "id": "d",
+          "label": "%pip installs are workspace-wide but require an admin to approve each package before jobs can use them"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Notebook-scoped `%pip install` libraries live only in that notebook's Python session. A job cluster is provisioned fresh for the scheduled run and has no memory of prior interactive sessions. To make a library available to a job reliably, install it as a cluster library (UI/Libraries API) or declare it in the job/task's library list so it's installed as part of cluster startup.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/libraries/cluster-libraries"
+      ],
+      "codeSnippet": {
+        "language": "python",
+        "code": "# Works fine when run interactively in a notebook:\n%pip install great_expectations==0.18.7\n\n# But the scheduled Job fails with ModuleNotFoundError"
+      },
+      "id": "q-4"
     }
   ],
   "notes": [

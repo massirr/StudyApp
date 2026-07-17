@@ -118,30 +118,30 @@
   "topics": [
     {
       "id": "topic-01",
-      "slug": "plan-and-design-azure-databricks-workloads",
-      "title": "Plan and Design Azure Databricks Workloads",
-      "summary": "Design secure, scalable data engineering architectures and workspace patterns for DP-750 objectives.",
+      "slug": "set-up-and-configure-azure-databricks-environment",
+      "title": "Set up and configure an Azure Databricks environment",
+      "summary": "Official exam domain 1 (15–20% of questions). Covers selecting/configuring compute and creating/organizing Unity Catalog objects.",
       "studyOrder": 1,
       "subtopics": [
         {
           "id": "t1-s1",
-          "title": "Choose Workspace and Compute Strategy",
-          "summary": "Select cluster and workspace patterns for development and production."
+          "title": "Select and configure compute in a workspace",
+          "summary": "Compute types (job, serverless, warehouse, classic, shared); performance settings (CPU, node count, autoscaling, termination, node type, cluster size, pooling); feature settings (Photon, runtime/Spark version, ML); installing libraries; access permissions on compute."
         },
         {
           "id": "t1-s2",
-          "title": "Design for Governance",
-          "summary": "Plan governance boundaries early with catalogs, schemas, and permissions."
+          "title": "Create and organize objects in Unity Catalog",
+          "summary": "Naming conventions (isolation, dev environments, external sharing); creating catalogs, schemas, volumes, tables/views/materialized views; foreign catalogs; DDL on managed vs external tables; AI/BI Genie instructions for data discovery."
         }
       ],
       "sourceLinks": [
         {
-          "label": "DP-750 Course",
-          "url": "https://learn.microsoft.com/en-us/training/courses/dp-750t00"
+          "label": "Compute configuration reference",
+          "url": "https://learn.microsoft.com/en-us/azure/databricks/compute/configure"
         },
         {
-          "label": "Azure Databricks Documentation",
-          "url": "https://learn.microsoft.com/en-us/azure/databricks/"
+          "label": "Unity Catalog overview",
+          "url": "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/"
         }
       ]
     },

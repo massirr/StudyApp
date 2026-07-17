@@ -4807,6 +4807,37 @@
         "https://learn.microsoft.com/en-us/azure/databricks/jobs/run-as"
       ],
       "id": "q-64"
+    },
+    {
+      "topicId": "topic-05",
+      "prompt": "Two engineers both edit the same Databricks notebook-backed pipeline file in a Git-linked repo, on separate feature branches, touching overlapping lines. What Git practice minimizes the risk of one engineer's work silently overwriting the other's?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both engineers commit directly to the main branch to avoid dealing with branches entirely"
+        },
+        {
+          "id": "b",
+          "label": "Each works on a separate feature branch, opens a pull request, and Git surfaces a merge conflict on overlapping lines that must be manually resolved and reviewed before merging — rather than silently taking one version"
+        },
+        {
+          "id": "c",
+          "label": "The second engineer to push automatically has their changes discarded with no notification"
+        },
+        {
+          "id": "d",
+          "label": "Notebooks cannot be version controlled with Git, so this scenario cannot be avoided"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Standard Git workflow — feature branches plus pull requests — is exactly what prevents silent overwrites: Git detects overlapping changes as a merge conflict, forcing explicit resolution and code review rather than one branch's changes silently clobbering the other's. Committing straight to main removes this safety net.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/repos/"
+      ],
+      "id": "q-65"
     }
   ],
   "notes": [

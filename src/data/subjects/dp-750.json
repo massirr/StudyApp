@@ -5319,6 +5319,37 @@
         "code": "historical_df = spark.read.format(\"parquet\").load(\"/mnt/archive/orders/*/*.parquet\")\nhistorical_df.write.mode(\"append\").saveAsTable(\"prod_sales.bronze.orders_historical\")"
       },
       "id": "q-80"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A team wants near-real-time sync from an on-prem SQL Server database into Unity Catalog, reflecting row-level inserts/updates/deletes within minutes, using Lakeflow Connect rather than hand-writing CDC logic. Which ingestion mode should the Lakeflow Connect connector be configured to use?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Batch mode only, scheduled hourly, since Lakeflow Connect does not support continuous ingestion"
+        },
+        {
+          "id": "b",
+          "label": "Streaming/continuous ingestion mode, which Lakeflow Connect supports for compatible sources — continuously applying inserts/updates/deletes with low latency instead of periodic batch snapshots"
+        },
+        {
+          "id": "c",
+          "label": "A one-time full extraction, re-run manually whenever the team remembers to refresh it"
+        },
+        {
+          "id": "d",
+          "label": "Lakeflow Connect can only ingest from SaaS applications, never from on-prem databases"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Lakeflow Connect supports both batch and streaming ingestion depending on the source connector, and for compatible database sources it can continuously apply row-level changes with low latency — the right choice when near-real-time sync is required, versus batch mode which would only refresh periodically.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/ingestion/lakeflow-connect/"
+      ],
+      "id": "q-81"
     }
   ],
   "notes": [

@@ -4613,6 +4613,41 @@
         "https://learn.microsoft.com/en-us/azure/databricks/jobs/how-to/use-task-dependencies"
       ],
       "id": "q-58"
+    },
+    {
+      "topicId": "topic-04",
+      "prompt": "A team wants to build a bronze-to-gold pipeline where they declare each table and Databricks automatically figures out the correct execution order based on which tables reference which, without the team manually specifying task-to-task dependencies. Which approach provides this?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lakeflow Spark Declarative Pipelines: the dependency graph is inferred automatically from dlt.read()/dlt.read_stream() references between table definitions, so execution order doesn't need to be manually declared"
+        },
+        {
+          "id": "b",
+          "label": "This still requires manually declaring task dependencies identical to a notebook-based Lakeflow Job"
+        },
+        {
+          "id": "c",
+          "label": "The @dlt.table decorator has no effect on execution order; all tables run in parallel regardless of dependencies"
+        },
+        {
+          "id": "d",
+          "label": "Table execution order in Declarative Pipelines must be set via a separate JSON configuration file"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "One of the core value propositions of Lakeflow Spark Declarative Pipelines is automatic dependency inference: because gold_daily_revenue references silver_orders via dlt.read(), the pipeline engine knows silver_orders must run first — no manual task dependency configuration required, unlike notebook-based Lakeflow Jobs where dependencies are declared explicitly.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/dlt/"
+      ],
+      "codeSnippet": {
+        "language": "python",
+        "code": "import dlt\n\n@dlt.table\ndef silver_orders():\n    return dlt.read_stream(\"bronze_orders\").filter(\"amount > 0\")\n\n@dlt.table\ndef gold_daily_revenue():\n    return dlt.read(\"silver_orders\").groupBy(\"order_date\").sum(\"amount\")"
+      },
+      "id": "q-59"
     }
   ],
   "notes": [

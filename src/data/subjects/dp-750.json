@@ -3119,6 +3119,41 @@
         "https://learn.microsoft.com/en-us/azure/databricks/genie/"
       ],
       "id": "q-12"
+    },
+    {
+      "topicId": "topic-01",
+      "prompt": "A team is migrating a legacy ADLS Gen2 dataset into Unity Catalog. They must be able to remove and recreate the table definition during schema iteration without ever risking deletion of the underlying Parquet files, since other non-Databricks tools also read them directly. Which DDL approach is correct?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "This creates a managed table; removing the table will delete the underlying files regardless of the LOCATION clause"
+        },
+        {
+          "id": "b",
+          "label": "This creates an external table; Unity Catalog only manages the metadata/catalog entry, so removing the table leaves the underlying files untouched"
+        },
+        {
+          "id": "c",
+          "label": "The LOCATION clause is only cosmetic for managed tables and has no effect on deletion behavior"
+        },
+        {
+          "id": "d",
+          "label": "External tables cannot be created this way; they require a separate statement"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Specifying LOCATION on CREATE TABLE makes it an external table: Unity Catalog governs access and metadata but does not own the data's lifecycle. Removing the table deletes only the catalog entry, leaving files at that path untouched — exactly what's needed when other tools depend on those files directly. Managed tables (no LOCATION) behave oppositely and delete the underlying data when removed.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/create-tables"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "CREATE TABLE prod_sales.bronze.legacy_orders USING PARQUET LOCATION 'abfss://legacy@mystorageacct.dfs.core.windows.net/orders/'"
+      },
+      "id": "q-13"
     }
   ],
   "notes": [

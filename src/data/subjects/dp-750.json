@@ -4357,6 +4357,37 @@
         "code": "ALTER TABLE prod_sales.silver.orders\n  ADD CONSTRAINT orders_id_not_null CHECK (order_id IS NOT NULL);\n\nALTER TABLE prod_sales.silver.orders\n  ADD CONSTRAINT orders_qty_positive CHECK (order_quantity > 0);"
       },
       "id": "q-50"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "An upstream source occasionally sends a `signup_date` field as a malformed string (e.g. \"N/A\" instead of a date) that doesn't match the target column's DATE type. The team wants the pipeline to keep running and route only the bad rows elsewhere for review, rather than crash the whole job or silently coerce bad values into nulls without visibility. What approach fits?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Use permissive/badRecordsPath (or rescued data column) handling during read, so malformed rows are captured separately for inspection instead of crashing the job or being silently dropped"
+        },
+        {
+          "id": "b",
+          "label": "Set the column type to STRING everywhere to avoid any type mismatch ever occurring"
+        },
+        {
+          "id": "c",
+          "label": "Wrap the entire pipeline in a try/except that ignores all errors"
+        },
+        {
+          "id": "d",
+          "label": "There is no way to handle malformed type mismatches without failing the whole job"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Spark's data source options support handling malformed records without failing the whole job — e.g., the rescued data column captures fields that don't match the expected schema/type so they're visible and reviewable, rather than crashing the pipeline or silently discarding bad data. Blanket try/except or making everything STRING sacrifices type safety and visibility into data quality issues.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/ingestion/cloud-object-storage/auto-loader/schema"
+      ],
+      "id": "q-51"
     }
   ],
   "notes": [

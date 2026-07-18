@@ -40,6 +40,8 @@ const QuizPage: React.FC<QuizPageProps> = ({ subject, topicSlug, level = 1 }) =>
     return getAllQuestions(subject);
   }, [subject, topic, topicNotFound, level]);
 
+  const persistKey = `studyapp_quiz:${subject.id}:${topic?.id ?? topicSlug ?? 'all'}:${level}`;
+
   const {
     currentQuestion,
     index,
@@ -56,7 +58,7 @@ const QuizPage: React.FC<QuizPageProps> = ({ subject, topicSlug, level = 1 }) =>
     next,
     previous,
     restart
-  } = useQuizState(questions);
+  } = useQuizState(questions, persistKey);
 
   useEffect(() => {
     if (isComplete && topicSlug && topic) {

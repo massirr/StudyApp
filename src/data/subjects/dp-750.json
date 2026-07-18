@@ -3,7 +3,7 @@
   "slug": "dp-750",
   "name": "DP-750: Azure Databricks Data Engineering",
   "shortLabel": "DP-750",
-  "tagline": "Official 4-domain skills outline: (1) Set up & configure environment 15–20% — (2) Secure & govern Unity Catalog 15–20% — (3) Prepare & process data 30–35% — (4) Deploy & maintain pipelines/workloads 30–35%. Progress tracked per topic, resume where you left off.",
+  "tagline": "Azure Databricks Data Engineer — progress saved automatically as you go.",
   "sourcePolicy": "microsoft-only",
   "sources": [
     {

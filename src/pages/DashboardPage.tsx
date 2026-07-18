@@ -68,12 +68,10 @@ const DashboardPage: React.FC<DashboardPageProps> = ({ subject }) => {
                                 <h2>
                                     <a href={`/${subject.slug}/topics/${topic.slug}`}>{topic.title}</a>
                                 </h2>
-                                <p>{topic.summary}</p>
-                                <p>
-                                    This topic will have {questionCount} {questionCount === 1 ? 'question' : 'questions'}.
-                                </p>
+                                <p className="topic-summary">{topic.summary}</p>
                             </div>
                             <div className="topic-controls">
+                                <span className="topic-count">{questionCount} Q</span>
                                 <span className={completed ? 'pill completed' : 'pill pending'}>
                                     {completed ? 'Completed' : 'In Progress'}
                                 </span>

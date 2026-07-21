@@ -56,7 +56,7 @@ the GitHub Contents API against `master`; it never uses a database.
 
 The function deploys automatically with the app (it's `api/mcp.ts` in this repo).
 After setting the env vars above, trigger a deploy (push, or `vercel deploy`).
-The endpoint will be `https://<your-app>.vercel.app/api/mcp`.
+The endpoint will be `https://studyapp.irakozedarlo.be/api/mcp` (or `https://<your-app>.vercel.app/api/mcp` on the default Vercel domain).
 
 > First-deploy check: this is a Vite (non-Next) project. If the endpoint 404s or
 > the transport misbehaves, see the comment atop `api/mcp.ts` — the function may
@@ -69,7 +69,7 @@ Claude's custom-connector UI only supports OAuth and has **no field for a static
 bearer token**, so the token rides in the URL instead:
 
 1. Claude → Settings → **Connectors** → **Add custom connector**.
-2. URL: `https://<your-app>.vercel.app/api/mcp?token=<MCP_AUTH_TOKEN>`.
+2. URL: `https://studyapp.irakozedarlo.be/api/mcp?token=<MCP_AUTH_TOKEN>`.
 3. Leave the OAuth Client ID / Secret fields **blank**.
 4. Ask Claude e.g. *"List my study subjects"* → it calls `list_subjects`.
 

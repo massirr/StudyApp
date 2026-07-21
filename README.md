@@ -2,7 +2,7 @@
 
 A frontend-only study application for certification-exam prep. Study by topic, take quizzes, and track your progress — no account required. The app is **subject-agnostic**: the flagship subject is **Microsoft DP-750 (Azure Databricks Data Engineer)**, but any subject can be added as a JSON file.
 
-**Live:** https://study-app-one-olive.vercel.app
+**Live:** https://studyapp.irakozedarlo.be
 
 ---
 

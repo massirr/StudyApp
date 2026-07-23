@@ -11,7 +11,7 @@ describe('subject registry', () => {
   it('loads dp-750', () => {
     const s = getSubjectBySlug('dp-750');
     expect(s?.name).toMatch(/DP-750/);
-    expect(s?.topics).toHaveLength(5);
+    expect(s?.topics).toHaveLength(6);
     expect(s?.questions.length).toBeGreaterThan(0);
   });
   it('lists dp-750 among subjects', () => {

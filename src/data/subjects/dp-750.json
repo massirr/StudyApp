@@ -270,6 +270,30 @@
           "url": "https://learn.microsoft.com/en-us/azure/databricks/optimizations/"
         }
       ]
+    },
+    {
+      "id": "topic-06",
+      "slug": "case-study-lakehouse",
+      "title": "Case study: Meridian Retail lakehouse (all domains)",
+      "summary": "Exam-style case study in the associate format: one scenario spanning all four domains. Answer each question against the shared Meridian Retail scenario. Great final review the night before the exam.",
+      "studyOrder": 6,
+      "subtopics": [
+        {
+          "id": "t6-s1",
+          "title": "Case study: Meridian Retail",
+          "summary": "A retailer building a governed medallion lakehouse on Azure Databricks. Questions cover compute access mode, Auto Loader ingestion, Unity Catalog least-privilege grants, Lakeflow Jobs orchestration, Azure Monitor alerting, and broadcast-join optimization."
+        }
+      ],
+      "sourceLinks": [
+        {
+          "label": "DP-750 study guide",
+          "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/dp-750"
+        },
+        {
+          "label": "Azure Databricks documentation",
+          "url": "https://learn.microsoft.com/en-us/azure/databricks/"
+        }
+      ]
     }
   ],
   "questions": [
@@ -1768,7 +1792,7 @@
       ],
       "explanation": "@dlt.expect (warn mode) records the data quality violation in the event log and increments the failed_records counter in the pipeline graph, but does NOT drop the record or halt the pipeline. The invalid row is still written to the output table. Use @dlt.expect_or_drop or @dlt.expect_or_fail to filter or halt.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/delta-live-tables/expectations"
+        "https://learn.microsoft.com/en-us/azure/databricks/ldp/expectations"
       ]
     },
     {
@@ -1799,7 +1823,7 @@
       ],
       "explanation": "dbutils.jobs.taskValues is the native Databricks mechanism for inter-task data sharing within a Job run. Task A sets a typed value with .set(); Task B retrieves it with .get(taskKey=, key=). It is more robust than Delta workarounds and avoids the side effects of accumulators or notebook exit values.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/jobs/share-task-context"
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/task-values"
       ]
     },
     {
@@ -1830,7 +1854,7 @@
       ],
       "explanation": "DLT continuous mode keeps the pipeline running and processes new data as it arrives, delivering low-latency results. Triggered mode processes a batch of available data and stops — on a 15-minute schedule it could leave up to a 14-minute gap and miss the 5-minute SLA.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/delta-live-tables/updates"
+        "https://learn.microsoft.com/en-us/azure/databricks/ldp/updates"
       ]
     },
     {
@@ -1862,7 +1886,7 @@
       ],
       "explanation": "Operational visibility and alerting are key to maintaining reliable production workflows.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/jobs/",
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/monitor",
         "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview"
       ]
     },
@@ -1988,7 +2012,7 @@
       ],
       "explanation": "Run visibility and alerting support reliability, supportability, and incident response.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/jobs/",
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/monitor",
         "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview"
       ]
     },
@@ -2020,7 +2044,7 @@
       ],
       "explanation": "SLA validation requires reliable telemetry and measurable run-history data.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/jobs/",
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/monitor",
         "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview"
       ]
     },
@@ -2052,7 +2076,7 @@
       ],
       "explanation": "Validation gates prevent bad data from cascading through dependent pipeline stages.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/jobs/"
+        "https://learn.microsoft.com/en-us/azure/databricks/ldp/expectations"
       ]
     },
     {
@@ -2087,7 +2111,7 @@
       ],
       "explanation": "@dlt.expect_or_drop removes rows that fail the quality rule without halting the pipeline. The null-claim_id record is excluded from silver_claims and counted as a dropped record in the DLT event log, while all valid records continue flowing through the pipeline.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/delta-live-tables/expectations"
+        "https://learn.microsoft.com/en-us/azure/databricks/ldp/expectations"
       ]
     },
     {
@@ -2122,7 +2146,7 @@
       ],
       "explanation": "expect_or_fail is a strict gate: one bad row stops the whole pipeline run, signalling a data contract breach that must be resolved before output is produced. expect_or_drop is lenient: it filters out bad rows and lets the pipeline continue with clean data. Choose based on whether invalid data is tolerable or catastrophic.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/delta-live-tables/expectations"
+        "https://learn.microsoft.com/en-us/azure/databricks/ldp/expectations"
       ]
     },
     {
@@ -2157,7 +2181,7 @@
       ],
       "explanation": "dbutils.notebook.exit() exits the current notebook and returns a string result to the calling context. When called from a Databricks Job task, the exit value is captured and can be retrieved by downstream tasks using dbutils.jobs.taskValues.get(). The cluster keeps running — only the notebook session ends.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/jobs/share-task-context"
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/task-values"
       ]
     },
     {
@@ -2227,7 +2251,7 @@
       ],
       "explanation": "Databricks Jobs propagates failures through the dependency graph. When transform_silver_bookings fails, any task with a transitive depends_on relationship to it — aggregate_gold_revenue and notify_revenue_team — is marked as Skipped/Failed. No downstream task executes.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/jobs/"
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/run-if"
       ]
     },
     {
@@ -2321,7 +2345,7 @@
       ],
       "explanation": "Liquid clustering replaces ZORDER by clustering data incrementally during writes rather than requiring periodic full-table OPTIMIZE runs. For tables with frequent appends, this drastically reduces or eliminates the daily maintenance window.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/delta/clustering"
+        "https://learn.microsoft.com/en-us/azure/databricks/tables/clustering"
       ]
     },
     {
@@ -2352,7 +2376,7 @@
       ],
       "explanation": "Delta Lake's default VACUUM retention is 7 days (168 hours). Running VACUUM without RETAIN uses this default and removes orphaned files older than 7 days. Time-travel queries referencing data files outside the retention window fail because those files no longer exist on storage.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/delta/vacuum"
+        "https://learn.microsoft.com/en-us/azure/databricks/tables/operations/vacuum"
       ]
     },
     {
@@ -2383,7 +2407,7 @@
       ],
       "explanation": "spark.sql.autoBroadcastJoinThreshold (default 10MB) controls the size threshold for automatic broadcast. A 15MB table exceeds this default so Spark falls back to SortMergeJoin. Increase the threshold or add an explicit broadcast() hint to force the optimization.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/optimizations/"
+        "https://learn.microsoft.com/en-us/azure/databricks/optimizations/aqe"
       ]
     },
     {
@@ -2612,7 +2636,7 @@
       ],
       "explanation": "A broadcast join sends the small table to every executor in-memory, removing the Exchange (shuffle) stage for that table entirely. In the Spark UI physical plan you see BroadcastHashJoin instead of SortMergeJoin with two Exchange stages, which was the source of the 12-minute bottleneck.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/optimizations/"
+        "https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/sql-ref-syntax-qry-select-hints"
       ]
     },
     {
@@ -2647,7 +2671,7 @@
       ],
       "explanation": "VACUUM removes only orphaned data files — those no longer referenced in the Delta transaction log — older than the retention threshold. Live data rows are untouched. RETAIN 168 HOURS = 7 days, so time travel to any commit within the last 7 days (including 4 days ago) still works.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/delta/vacuum"
+        "https://learn.microsoft.com/en-us/azure/databricks/tables/operations/vacuum"
       ]
     },
     {
@@ -2682,7 +2706,7 @@
       ],
       "explanation": "Photon is a vectorised C++ query engine that accelerates SQL and DataFrame operations on Delta Lake. It does not accelerate Python UDFs (which run in the Python interpreter on the JVM boundary), ML training workloads, or low-throughput streaming microservices.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/runtime/photon"
+        "https://learn.microsoft.com/en-us/azure/databricks/compute/photon"
       ]
     },
     {
@@ -4486,7 +4510,7 @@
       ],
       "explanation": "Order of operations in a multi-stage pipeline should be enforced through explicit dependency declarations between tasks (e.g. Lakeflow Jobs task dependencies, or DLT's automatic dependency inference from table references), guaranteeing gold only runs after silver completes successfully — not through concurrency, arbitrary sleeps, or assumptions about implicit serialization.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/jobs/how-to/use-task-dependencies"
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/run-if"
       ],
       "id": "q-54"
     },
@@ -4517,7 +4541,7 @@
       ],
       "explanation": "Notebook-based pipelines (orchestrated as Lakeflow Job tasks) give full imperative control but require manually wiring dependencies, checkpoints, and quality checks. Lakeflow Spark Declarative Pipelines instead let you declare tables/transformations and infer the dependency graph automatically, plus offer built-in expectations for data quality — directly matching the stated preference for less hand-written orchestration.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/dlt/"
+        "https://learn.microsoft.com/en-us/azure/databricks/ldp/"
       ],
       "id": "q-55"
     },
@@ -4548,7 +4572,7 @@
       ],
       "explanation": "Lakeflow Jobs support configurable task run-if conditions (e.g., run on success, on failure, or always) so downstream tasks can execute even when an upstream task reports a non-fatal issue, while the job's overall status and alerting still reflect that something needs attention. This gives fine-grained control over error handling rather than an all-or-nothing dependency.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/jobs/task-run-if"
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/run-if"
       ],
       "id": "q-56"
     },
@@ -4579,7 +4603,7 @@
       ],
       "explanation": "Lakeflow Jobs support configuring a bounded retry policy per task (number of retries and optional delay), which is the correct pattern for transient, self-resolving failures like network timeouts — automatic recovery without manual intervention, while still surfacing genuinely persistent failures once retries are exhausted rather than masking them indefinitely.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/jobs/settings"
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/configure-task"
       ],
       "id": "q-57"
     },
@@ -4610,7 +4634,7 @@
       ],
       "explanation": "Lakeflow Jobs support multi-task workflows where each task (which can be a notebook) declares explicit dependencies on other tasks, forming a DAG with proper precedence constraints (B after A; C after both A and B). This is the standard, maintainable way to orchestrate multi-notebook pipelines — preferable to nested dbutils.notebook.run() calls, which couple notebooks together and complicate monitoring/retries per stage.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/jobs/how-to/use-task-dependencies"
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/run-if"
       ],
       "id": "q-58"
     },
@@ -4641,7 +4665,7 @@
       ],
       "explanation": "One of the core value propositions of Lakeflow Spark Declarative Pipelines is automatic dependency inference: because gold_daily_revenue references silver_orders via dlt.read(), the pipeline engine knows silver_orders must run first — no manual task dependency configuration required, unlike notebook-based Lakeflow Jobs where dependencies are declared explicitly.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/dlt/"
+        "https://learn.microsoft.com/en-us/azure/databricks/ldp/"
       ],
       "codeSnippet": {
         "language": "python",
@@ -4773,7 +4797,7 @@
       ],
       "explanation": "Lakeflow Jobs and Declarative Pipelines support configurable automatic restart/retry policies with a bounded retry count, which is the correct pattern here: transient infrastructure issues (like spot eviction) self-heal without manual intervention, but a genuinely broken pipeline still exhausts its retries and surfaces as a failure rather than looping forever.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/jobs/settings"
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/configure-task"
       ],
       "id": "q-63"
     },
@@ -4804,7 +4828,7 @@
       ],
       "explanation": "Job clusters are created fresh for a task's run and automatically terminate afterward — the cost-efficient default for scheduled workloads, versus an always-on all-purpose cluster. Lakeflow Jobs also support setting a \"run as\" identity to a service principal, decoupling production job ownership from any individual employee's account, which is the recommended production pattern.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/jobs/run-as"
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/how-to/run-jobs-with-service-principals"
       ],
       "id": "q-64"
     },
@@ -4866,7 +4890,7 @@
       ],
       "explanation": "Branch protection combined with required CI status checks enforces that automated tests must pass — not just that a human skimmed the diff — before code reaches main. This is the standard fix for review processes that rely too heavily on manual inspection catching every issue.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/repos/ci-cd-techniques-with-repos"
+        "https://learn.microsoft.com/en-us/azure/databricks/repos/ci-cd"
       ],
       "id": "q-66"
     },
@@ -4897,7 +4921,7 @@
       ],
       "explanation": "A layered testing strategy addresses distinct risks: unit tests validate individual transformation logic in isolation, integration/end-to-end tests validate that components work correctly together against realistic data flowing through the full pipeline, and UAT validates that the result actually satisfies business/stakeholder expectations — no single layer substitutes for the others.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/dev-tools/ci-cd"
+        "https://learn.microsoft.com/en-us/azure/databricks/dev-tools/ci-cd/"
       ],
       "id": "q-67"
     },
@@ -4998,7 +5022,7 @@
       ],
       "explanation": "For CI/CD automation, deployment should happen programmatically: the CLI (which itself calls Databricks REST APIs under the hood) can be run non-interactively in a CI runner, authenticated via a service principal or OAuth token stored as a CI secret — exactly the pattern needed to trigger deployments as part of an automated pipeline without manual steps.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/dev-tools/bundles/ci-cd"
+        "https://learn.microsoft.com/en-us/azure/databricks/dev-tools/bundles/"
       ],
       "id": "q-70"
     },
@@ -5091,7 +5115,7 @@
       ],
       "explanation": "A small number of long-running tasks in an otherwise-fast stage is the classic signature of data skew — typically a hot key in a groupBy/join causing a few partitions to be much larger than others. The Spark UI's stage detail view (task duration distribution, shuffle read size per task) is exactly where this is diagnosed, often followed by techniques like salting the key or enabling adaptive query execution skew handling.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/optimizations/skew-join"
+        "https://learn.microsoft.com/en-us/azure/databricks/optimizations/aqe"
       ],
       "id": "q-73"
     },
@@ -5122,7 +5146,7 @@
       ],
       "explanation": "When one side of a join is small enough to fit in memory, a broadcast join sends that small table to every executor so the large table never needs to be shuffled — directly eliminating the expensive shuffle stage seen in the query profile/DAG. Spark's cost-based optimizer often does this automatically below a size threshold, but it can also be hinted explicitly when needed.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/optimizations/join-strategy-hints"
+        "https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/sql-ref-syntax-qry-select-hints"
       ],
       "id": "q-74"
     },
@@ -5153,7 +5177,7 @@
       ],
       "explanation": "OPTIMIZE compacts many small files into fewer, larger ones (directly addressing the small-file query performance problem, and can be combined with Z-ordering or liquid clustering for better data layout). VACUUM removes files no longer referenced by the current table state beyond the retention threshold (addressing the storage cost of accumulated old file versions) — they solve distinct problems and are typically run together as regular maintenance.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/delta/optimize"
+        "https://learn.microsoft.com/en-us/azure/databricks/tables/operations/optimize"
       ],
       "codeSnippet": {
         "language": "sql",
@@ -5219,7 +5243,7 @@
       ],
       "explanation": "Azure Monitor alert rules can be built on log queries (KQL over data ingested via diagnostic settings, such as job run outcomes) with a custom threshold condition and a defined evaluation window, then wired to an action group for paging/notification — directly satisfying a workspace-wide, threshold-based, near-real-time alerting requirement without needing a per-job-only or third-party solution.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-log"
+        "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule"
       ],
       "id": "q-77"
     },
@@ -5490,6 +5514,192 @@
         "code": "df = (spark.readStream.format(\"cloudFiles\")\n      .option(\"cloudFiles.format\", \"json\")\n      .option(\"cloudFiles.schemaLocation\", \"/mnt/schemas/financial_txns\")\n      .option(\"cloudFiles.schemaEvolutionMode\", \"failOnNewColumns\")\n      .schema(expected_strict_schema)\n      .load(\"/mnt/raw/financial_txns/\"))"
       },
       "id": "q-85"
+    },
+    {
+      "topicId": "topic-06",
+      "prompt": "Case study — Meridian Retail (governed medallion lakehouse on Azure Databricks): The medallion pipeline must read and write Unity Catalog tables from a shared job cluster used by several engineers. Which cluster access mode should the job cluster use?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Standard (shared) access mode — Unity Catalog–compatible and supports multiple users on one cluster"
+        },
+        {
+          "id": "b",
+          "label": "No-isolation shared (legacy) mode, which bypasses Unity Catalog for speed"
+        },
+        {
+          "id": "c",
+          "label": "Dedicated (single-user) mode locked to one engineer's identity"
+        },
+        {
+          "id": "d",
+          "label": "A cluster with Unity Catalog disabled to avoid permission overhead"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Unity Catalog requires a UC-compatible compute configuration. Standard (shared) access mode supports Unity Catalog and lets multiple users share one cluster with proper isolation. No-isolation legacy mode is not UC-compatible, and dedicated (single-user) mode ties the cluster to a single identity, which does not fit a shared engineering job cluster.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/compute/access-mode-limitations"
+      ],
+      "id": "q-cs-1"
+    },
+    {
+      "topicId": "topic-06",
+      "prompt": "Case study — Meridian Retail (governed medallion lakehouse on Azure Databricks): Point-of-sale event files land continuously as JSON in ADLS. The bronze layer must ingest only new files incrementally and exactly once, without rescanning the whole directory each run. Which approach fits?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Auto Loader (cloudFiles) with Structured Streaming, which tracks processed files and ingests only new arrivals"
+        },
+        {
+          "id": "b",
+          "label": "A nightly full-directory batch read that overwrites the bronze table"
+        },
+        {
+          "id": "c",
+          "label": "Run COPY INTO manually whenever someone notices new files have arrived"
+        },
+        {
+          "id": "d",
+          "label": "Mount the storage and read the entire folder with spark.read.json on every run"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Auto Loader (cloudFiles) incrementally processes new files as they arrive, using a checkpoint to track what has been ingested, giving efficient exactly-once ingestion without reprocessing the whole directory. Full re-reads are costly and not incremental, and manual COPY INTO is not continuous.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/ingestion/cloud-object-storage/auto-loader/"
+      ],
+      "id": "q-cs-2"
+    },
+    {
+      "topicId": "topic-06",
+      "prompt": "Case study — Meridian Retail (governed medallion lakehouse on Azure Databricks): Analysts belong to a Microsoft Entra group and must read the gold tables in the sales schema but must not modify them. Which grant follows least privilege?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Grant the group USE CATALOG and USE SCHEMA plus SELECT on the sales schema"
+        },
+        {
+          "id": "b",
+          "label": "Grant the group ALL PRIVILEGES on the catalog to keep administration simple"
+        },
+        {
+          "id": "c",
+          "label": "Make each analyst the OWNER of the gold tables"
+        },
+        {
+          "id": "d",
+          "label": "Add the analysts as workspace admins"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Least privilege for read-only analytics is SELECT on the relevant schema/tables plus the USE CATALOG and USE SCHEMA traversal privileges needed to reach them. ALL PRIVILEGES, table OWNER, or workspace admin all grant far more than reading requires and violate least privilege.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/access-control/permissions-concepts"
+      ],
+      "id": "q-cs-3"
+    },
+    {
+      "topicId": "topic-06",
+      "prompt": "Case study — Meridian Retail (governed medallion lakehouse on Azure Databricks): In the Lakeflow Job, compute_gold must run only after transform_silver succeeds, and a final cleanup task must run whether upstream tasks succeed or fail. How should this be configured?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Make compute_gold depend on transform_silver (default: all succeeded), and give cleanup a Run if condition of “All done” on its upstream tasks"
+        },
+        {
+          "id": "b",
+          "label": "Put all the logic in a single task so ordering is implicit and nothing needs configuring"
+        },
+        {
+          "id": "c",
+          "label": "Schedule three separate jobs a few minutes apart and rely on the timing holding"
+        },
+        {
+          "id": "d",
+          "label": "Make cleanup depend on compute_gold with the default “all succeeded” condition"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Task dependencies enforce order: compute_gold depends on transform_silver and, by default, runs only if it succeeds. Giving cleanup a Run if condition of “All done” makes it run regardless of whether upstream tasks succeeded or failed. Separate timed jobs and single-task designs lose the DAG's ordering and conditional guarantees.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/run-if"
+      ],
+      "id": "q-cs-4"
+    },
+    {
+      "topicId": "topic-06",
+      "prompt": "Case study — Meridian Retail (governed medallion lakehouse on Azure Databricks): On-call must be paged within about five minutes if the workspace job-failure rate exceeds 10% over a rolling hour, using existing Azure tooling rather than a third-party service. What should be configured?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Send Databricks diagnostic logs to Log Analytics and create an Azure Monitor log (KQL) alert rule with an action group that pages on-call"
+        },
+        {
+          "id": "b",
+          "label": "Ask an engineer to watch the Jobs UI during business hours"
+        },
+        {
+          "id": "c",
+          "label": "Configure a daily email summary of job outcomes"
+        },
+        {
+          "id": "d",
+          "label": "Increase task retries so that failures never surface"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Azure Monitor log alert rules run a KQL query over logs (ingested via diagnostic settings to Log Analytics) on a schedule, evaluate a threshold over a defined window, and notify through an action group — the native Azure way to page on a failure-rate condition within minutes. Watching a UI, daily summaries, or hiding failures with retries do not meet the requirement.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule"
+      ],
+      "id": "q-cs-5"
+    },
+    {
+      "topicId": "topic-06",
+      "prompt": "Case study — Meridian Retail (governed medallion lakehouse on Azure Databricks): A reporting query joins the huge sales fact table with a 3 MB store-dimension table, and the Spark UI shows a large shuffle (SortMergeJoin) dominating runtime. What most directly removes the shuffle?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Broadcast the small store-dimension table (broadcast hint or a higher autoBroadcastJoinThreshold) so it is sent to every executor and the fact table is not shuffled"
+        },
+        {
+          "id": "b",
+          "label": "Repartition the fact table on the join key into more partitions"
+        },
+        {
+          "id": "c",
+          "label": "Cache the fact table in memory before the join"
+        },
+        {
+          "id": "d",
+          "label": "Convert both tables to Parquet format"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "When one side of a join is small enough to fit in memory, a broadcast (broadcast hash) join ships it to every executor, eliminating the shuffle of the large fact table. A 3 MB dimension is an ideal broadcast candidate. Repartitioning or caching the fact table does not remove the shuffle, and both tables are already columnar.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/sql-ref-syntax-qry-select-hints"
+      ],
+      "id": "q-cs-6"
     }
   ],
   "notes": [

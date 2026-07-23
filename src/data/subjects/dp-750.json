@@ -5517,7 +5517,7 @@
     },
     {
       "topicId": "topic-06",
-      "prompt": "Case study — Meridian Retail (governed medallion lakehouse on Azure Databricks): The medallion pipeline must read and write Unity Catalog tables from a shared job cluster used by several engineers. Which cluster access mode should the job cluster use?",
+      "prompt": "Meridian Retail is migrating its retail analytics to a lakehouse on Azure Databricks, with Unity Catalog enabled across the workspace. A platform engineering team of five shares the infrastructure, and the nightly medallion pipeline (bronze to silver to gold) reads and writes Unity Catalog tables from a job cluster that several engineers deploy to and debug on. The data platform lead requires that the pipeline's compute be governed by Unity Catalog, safely support more than one user on the same cluster, and not be tied to any single engineer's personal identity. Which cluster access mode should the job cluster use?",
       "type": "single",
       "options": [
         {
@@ -5548,7 +5548,7 @@
     },
     {
       "topicId": "topic-06",
-      "prompt": "Case study — Meridian Retail (governed medallion lakehouse on Azure Databricks): Point-of-sale event files land continuously as JSON in ADLS. The bronze layer must ingest only new files incrementally and exactly once, without rescanning the whole directory each run. Which approach fits?",
+      "prompt": "Meridian Retail's point-of-sale systems drop new order events into an Azure Data Lake Storage container as JSON files continuously throughout the day. The ingestion lead needs the bronze layer to load only newly arrived files, process each file exactly once, and avoid rescanning the entire directory on every run as the volume grows into millions of files. The team wants a managed, incremental mechanism rather than writing custom bookkeeping to track what has already been loaded. Which ingestion approach fits these requirements?",
       "type": "single",
       "options": [
         {
@@ -5579,7 +5579,7 @@
     },
     {
       "topicId": "topic-06",
-      "prompt": "Case study — Meridian Retail (governed medallion lakehouse on Azure Databricks): Analysts belong to a Microsoft Entra group and must read the gold tables in the sales schema but must not modify them. Which grant follows least privilege?",
+      "prompt": "At Meridian Retail, the gold tables in the sales schema power executive dashboards. A group of business analysts, managed as a Microsoft Entra ID group, must be able to query these gold tables but must never alter, insert into, or drop them. The Unity Catalog administrator wants to follow least-privilege principles and grant nothing beyond what read-only reporting requires. Which grant should the administrator apply to the analyst group?",
       "type": "single",
       "options": [
         {
@@ -5610,7 +5610,7 @@
     },
     {
       "topicId": "topic-06",
-      "prompt": "Case study — Meridian Retail (governed medallion lakehouse on Azure Databricks): In the Lakeflow Job, compute_gold must run only after transform_silver succeeds, and a final cleanup task must run whether upstream tasks succeed or fail. How should this be configured?",
+      "prompt": "Meridian Retail runs its medallion pipeline as a single Lakeflow Job made up of several tasks. Business rules require that the compute_gold task run only after transform_silver has completed successfully, so the gold aggregates never read a partial or still-updating silver table. Separately, a cleanup task that releases temporary resources must run at the end of every run, whether the upstream tasks succeeded or failed. The orchestration engineer wants both guarantees expressed inside one job rather than through external scheduling or timing tricks. How should the job be configured?",
       "type": "single",
       "options": [
         {
@@ -5641,7 +5641,7 @@
     },
     {
       "topicId": "topic-06",
-      "prompt": "Case study — Meridian Retail (governed medallion lakehouse on Azure Databricks): On-call must be paged within about five minutes if the workspace job-failure rate exceeds 10% over a rolling hour, using existing Azure tooling rather than a third-party service. What should be configured?",
+      "prompt": "Meridian Retail's on-call engineers must be paged within about five minutes whenever the workspace-wide job-failure rate exceeds 10% over a rolling one-hour window. The platform team is standardized on Azure and wants to reuse existing Azure services rather than adopt a third-party monitoring tool, and Databricks job telemetry is already being emitted from the workspace. What should the team configure to meet this alerting requirement?",
       "type": "single",
       "options": [
         {
@@ -5672,7 +5672,7 @@
     },
     {
       "topicId": "topic-06",
-      "prompt": "Case study — Meridian Retail (governed medallion lakehouse on Azure Databricks): A reporting query joins the huge sales fact table with a 3 MB store-dimension table, and the Spark UI shows a large shuffle (SortMergeJoin) dominating runtime. What most directly removes the shuffle?",
+      "prompt": "A Meridian Retail reporting query joins the multi-terabyte sales fact table with a small 3 MB store-dimension table. In the Spark UI, the physical plan shows a SortMergeJoin with a large Exchange (shuffle) stage on the fact table, and this shuffle dominates the query's runtime. Reviewing the query profile, the performance engineer wants the single change that most directly eliminates that shuffle without altering the query's results. What should they do?",
       "type": "single",
       "options": [
         {

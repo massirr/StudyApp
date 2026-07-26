@@ -438,6 +438,35 @@
       "explanation": "'Als' is een onderschikkend voegwoord — het stuurt het werkwoord naar het einde van de bijzin: als ik ziek ben (niet 'als ik ben ziek').",
       "sourceUrls": [],
       "id": "q-10"
+    },
+    {
+      "topicId": "t-6",
+      "prompt": "Welke zin gebruikt inversie correct?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "'s Middags ik at een boterham."
+        },
+        {
+          "id": "b",
+          "label": "'s Middags at ik een boterham."
+        },
+        {
+          "id": "c",
+          "label": "Ik 's middags at een boterham."
+        },
+        {
+          "id": "d",
+          "label": "At ik 's middags een boterham."
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Als het tijdswoord ('s middags) de zin opent, komt het werkwoord op de tweede plaats, vóór het onderwerp: 's Middags at ik…",
+      "sourceUrls": [],
+      "id": "q-11"
     }
   ],
   "notes": [

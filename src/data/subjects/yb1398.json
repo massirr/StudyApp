@@ -467,6 +467,35 @@
       "explanation": "Als het tijdswoord ('s middags) de zin opent, komt het werkwoord op de tweede plaats, vóór het onderwerp: 's Middags at ik…",
       "sourceUrls": [],
       "id": "q-11"
+    },
+    {
+      "topicId": "t-6",
+      "prompt": "Welk voegwoord past het beste: 'Ik bleef thuis, ___ ik was ziek.'",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "en"
+        },
+        {
+          "id": "b",
+          "label": "maar"
+        },
+        {
+          "id": "c",
+          "label": "want"
+        },
+        {
+          "id": "d",
+          "label": "toen"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "'Want' geeft een reden ('omdat/want'). 'En' voegt alleen samen, 'maar' contrasteert, 'toen' betekent 'op het moment dat' voor een gebeurtenis in het verleden.",
+      "sourceUrls": [],
+      "id": "q-12"
     }
   ],
   "notes": [

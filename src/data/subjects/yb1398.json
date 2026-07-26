@@ -5,7 +5,14 @@
   "shortLabel": "NL3",
   "tagline": "Oral + written retake — Thomas More, Aug 2026",
   "sourcePolicy": "any",
-  "sources": [],
+  "sources": [
+    {
+      "label": "Examen Thomas More — official schedule portal",
+      "url": "https://examen.thomasmore.be",
+      "usageNote": "Authoritative source for exam dates, times, rooms, and lecturer assignment. Confirmed: written exam Aug 19, 2026 15:00–17:00; oral exam Aug 20, 2026 12:00, room M T1.10, lecturer An Fraipont. Always re-check here if anything changes.",
+      "id": "src-1"
+    }
+  ],
   "topics": [
     {
       "slug": "h0-herhaling",

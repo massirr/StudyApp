@@ -111,6 +111,26 @@
       "sourceLinks": [],
       "studyOrder": 4,
       "id": "t-5"
+    },
+    {
+      "slug": "h5-tijd-om-bij-te-praten",
+      "title": "H5 — Tijd om bij te praten",
+      "summary": "Extends imperfectum storytelling into full complex sentences and inversion — the second chapter behind oral Q1.",
+      "subtopics": [
+        {
+          "id": "h5-complex",
+          "title": "Complex sentences",
+          "summary": "en, maar, want, toen, terwijl — link clauses together for a fuller story (toen/terwijl also push the verb to the end of their own clause)."
+        },
+        {
+          "id": "h5-inversion",
+          "title": "Inversion",
+          "summary": "When a sentence opens with something other than the subject (often a time word), the verb comes right after it, before the subject: '’s Middags at ik altijd een warme maaltijd.'"
+        }
+      ],
+      "sourceLinks": [],
+      "studyOrder": 5,
+      "id": "t-6"
     }
   ],
   "questions": [],

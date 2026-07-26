@@ -6,7 +6,23 @@
   "tagline": "Oral + written retake — Thomas More, Aug 2026",
   "sourcePolicy": "any",
   "sources": [],
-  "topics": [],
+  "topics": [
+    {
+      "slug": "h0-herhaling",
+      "title": "H0 — Herhaling",
+      "summary": "General review of Nederlands 1 & 2 basics before the new retake material — regular present tense, articles (de/het), and basic word order. Not directly tied to one of the 5 oral prompts or a written-exam grammar category, but a useful warm-up.",
+      "subtopics": [
+        {
+          "id": "h0-review",
+          "title": "General review",
+          "summary": "Refresh core vocab and basic sentence structure from earlier levels."
+        }
+      ],
+      "sourceLinks": [],
+      "studyOrder": 0,
+      "id": "t-1"
+    }
+  ],
   "questions": [],
   "notes": []
 }

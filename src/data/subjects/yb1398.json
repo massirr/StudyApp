@@ -41,6 +41,31 @@
       "sourceLinks": [],
       "studyOrder": 1,
       "id": "t-2"
+    },
+    {
+      "slug": "h2-er-was-eens",
+      "title": "H2 — Er was eens…",
+      "summary": "The imperfectum (simple past). Core grammar for oral Q1 (childhood story) and heavily tested on the written exam.",
+      "subtopics": [
+        {
+          "id": "h2-imp-regular",
+          "title": "Imperfectum — regular verbs",
+          "summary": "Add -te/-ten if the stem ends in a 't kofschip' consonant (t,k,f,s,ch,p), otherwise -de/-den. E.g. werken → werkte(n)."
+        },
+        {
+          "id": "h2-imp-irregular",
+          "title": "Imperfectum — irregular verbs",
+          "summary": "Strong verbs change vowel and must be memorized: gaan→ging(en), zijn→was/waren, hebben→had(den), doen→deed(en), komen→kwam(en)."
+        },
+        {
+          "id": "h2-time-words",
+          "title": "Time & structure words",
+          "summary": "eerst, dan, daarna, toen, 's morgens, 's middags, voor, tijdens, na — sequence a past story; trigger inversion when they open the sentence."
+        }
+      ],
+      "sourceLinks": [],
+      "studyOrder": 2,
+      "id": "t-3"
     }
   ],
   "questions": [],

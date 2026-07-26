@@ -177,6 +177,35 @@
       "explanation": "'Huis' is een het-woord: het huis.",
       "sourceUrls": [],
       "id": "q-1"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Kies de juiste vorm: 'Als ik meer geld had, ___ ik een huis kopen.'",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "zal"
+        },
+        {
+          "id": "b",
+          "label": "zou"
+        },
+        {
+          "id": "c",
+          "label": "zullen"
+        },
+        {
+          "id": "d",
+          "label": "heb"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Na een hypothetische als-zin gebruik je zou/zouden (conditional), niet zal (belofte/toekomst).",
+      "sourceUrls": [],
+      "id": "q-2"
     }
   ],
   "notes": [

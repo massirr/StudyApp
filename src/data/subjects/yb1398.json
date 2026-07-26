@@ -206,6 +206,35 @@
       "explanation": "Na een hypothetische als-zin gebruik je zou/zouden (conditional), niet zal (belofte/toekomst).",
       "sourceUrls": [],
       "id": "q-2"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Vertaal: 'I will call you tomorrow.'",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ik zou je morgen bellen."
+        },
+        {
+          "id": "b",
+          "label": "Ik zal je morgen bellen."
+        },
+        {
+          "id": "c",
+          "label": "Ik heb je morgen gebeld."
+        },
+        {
+          "id": "d",
+          "label": "Ik bel je morgen zullen."
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "'Will' is een belofte/toekomstige actie → zullen (zal voor ik). Zou is voor hypotheses/voorwaardelijke zinnen.",
+      "sourceUrls": [],
+      "id": "q-3"
     }
   ],
   "notes": [

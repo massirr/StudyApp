@@ -21,6 +21,26 @@
       "sourceLinks": [],
       "studyOrder": 0,
       "id": "t-1"
+    },
+    {
+      "slug": "h1-belangrijke-momenten",
+      "title": "H1 — Belangrijke momenten",
+      "summary": "Introduces the 'zou + infinitief' construction (conditional 'would'), tested directly in oral Q5 (job interview) and in the written exam's zullen/zouden section.",
+      "subtopics": [
+        {
+          "id": "h1-zou",
+          "title": "Zou + infinitief",
+          "summary": "The conditional construction: ik/jij/hij/zij zou, wij/jullie/zij zouden + infinitive at the end. Used for hypotheticals and 'how I see my future'."
+        },
+        {
+          "id": "h1-zullen-zouden",
+          "title": "Zullen vs. zouden",
+          "summary": "Zullen = future/promise ('I will'). Zouden = conditional ('I would'). The written exam tests picking the right one in context."
+        }
+      ],
+      "sourceLinks": [],
+      "studyOrder": 1,
+      "id": "t-2"
     }
   ],
   "questions": [],

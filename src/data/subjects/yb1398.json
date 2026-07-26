@@ -409,6 +409,35 @@
       "explanation": "'Toevoegen' is een scheidbaar werkwoord (toe + voegen). De imperatief laat -en vallen en splitst het voorzetsel naar achteren: voeg … toe.",
       "sourceUrls": [],
       "id": "q-9"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "Maak van twee zinnen één zin met 'als': 'Ik ga naar de dokter. Ik ben ziek.'",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ik ga naar de dokter als ik ben ziek."
+        },
+        {
+          "id": "b",
+          "label": "Ik ga naar de dokter als ik ziek ben."
+        },
+        {
+          "id": "c",
+          "label": "Als ik ziek ben ga ik naar de dokter niet."
+        },
+        {
+          "id": "d",
+          "label": "Ik ben ziek als ik naar de dokter ga."
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "'Als' is een onderschikkend voegwoord — het stuurt het werkwoord naar het einde van de bijzin: als ik ziek ben (niet 'als ik ben ziek').",
+      "sourceUrls": [],
+      "id": "q-10"
     }
   ],
   "notes": [

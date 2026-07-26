@@ -148,7 +148,37 @@
       "id": "t-7"
     }
   ],
-  "questions": [],
+  "questions": [
+    {
+      "topicId": "t-1",
+      "prompt": "Welk lidwoord hoort bij 'huis'?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "de"
+        },
+        {
+          "id": "b",
+          "label": "het"
+        },
+        {
+          "id": "c",
+          "label": "een"
+        },
+        {
+          "id": "d",
+          "label": "geen lidwoord nodig"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "'Huis' is een het-woord: het huis.",
+      "sourceUrls": [],
+      "id": "q-1"
+    }
+  ],
   "notes": [
     {
       "topicId": "t-1",

@@ -66,6 +66,31 @@
       "sourceLinks": [],
       "studyOrder": 2,
       "id": "t-3"
+    },
+    {
+      "slug": "h3-gezocht",
+      "title": "H3 — Gezocht",
+      "summary": "Physical description vocabulary and verbs — oral Q2 (compare two people in a photo).",
+      "subtopics": [
+        {
+          "id": "h3-desc-vocab",
+          "title": "Physical description vocab",
+          "summary": "haar (hair), lichaamsbouw (body build), gezicht (face), kleding (clothing) — the core categories for comparing two people."
+        },
+        {
+          "id": "h3-zijn-hebben",
+          "title": "Describing verbs: zijn vs. hebben",
+          "summary": "Use 'zijn' for build/traits (hij is mager, hij is kaal) and 'hebben' for features you 'have' (zij heeft zwart krullend haar)."
+        },
+        {
+          "id": "h3-die-dat",
+          "title": "Relative pronouns: die vs. dat",
+          "summary": "'Die' for de-words and plurals, 'dat' for het-words: 'het glas dat ik gisteren kocht, is vuil.' Tested on the written exam."
+        }
+      ],
+      "sourceLinks": [],
+      "studyOrder": 3,
+      "id": "t-4"
     }
   ],
   "questions": [],

@@ -264,6 +264,35 @@
       "explanation": "De stam 'werk' eindigt op de 't kofschip'-medeklinker k, dus krijgt -te: werkte.",
       "sourceUrls": [],
       "id": "q-4"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Wat is het imperfectum van 'gaan' (ik-vorm)?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "gaande"
+        },
+        {
+          "id": "b",
+          "label": "ging"
+        },
+        {
+          "id": "c",
+          "label": "ga"
+        },
+        {
+          "id": "d",
+          "label": "geweest"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "'Gaan' is een sterk/onregelmatig werkwoord — imperfectum is 'ging' (ik/hij/zij ging, wij/jullie/zij gingen), geen -de/-te vorm.",
+      "sourceUrls": [],
+      "id": "q-5"
     }
   ],
   "notes": [

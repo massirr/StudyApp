@@ -131,6 +131,21 @@
       "sourceLinks": [],
       "studyOrder": 5,
       "id": "t-6"
+    },
+    {
+      "slug": "h6-op-gesprek",
+      "title": "H6 — Op gesprek",
+      "summary": "Job-application vocabulary, paired with H1's zou-construction, for oral Q5 (mock job interview).",
+      "subtopics": [
+        {
+          "id": "h6-job-vocab",
+          "title": "Job application vocab",
+          "summary": "Jezelf voorstellen (introduce yourself), sterke/zwakke punten (strengths/weaknesses), ervaring (experience), vacature (vacancy), solliciteren (to apply)."
+        }
+      ],
+      "sourceLinks": [],
+      "studyOrder": 6,
+      "id": "t-7"
     }
   ],
   "questions": [],

@@ -380,6 +380,35 @@
       "explanation": "'Glas' is een het-woord, dus het betrekkelijk voornaamwoord is 'dat', niet 'die' (dat is voor de-woorden en meervouden).",
       "sourceUrls": [],
       "id": "q-8"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "Wat is de juiste gebiedende wijs (imperatief) van 'toevoegen'?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "toevoeg"
+        },
+        {
+          "id": "b",
+          "label": "voeg toe"
+        },
+        {
+          "id": "c",
+          "label": "toevoegt"
+        },
+        {
+          "id": "d",
+          "label": "toegevoegd"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "'Toevoegen' is een scheidbaar werkwoord (toe + voegen). De imperatief laat -en vallen en splitst het voorzetsel naar achteren: voeg … toe.",
+      "sourceUrls": [],
+      "id": "q-9"
     }
   ],
   "notes": [

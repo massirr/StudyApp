@@ -496,6 +496,35 @@
       "explanation": "'Want' geeft een reden ('omdat/want'). 'En' voegt alleen samen, 'maar' contrasteert, 'toen' betekent 'op het moment dat' voor een gebeurtenis in het verleden.",
       "sourceUrls": [],
       "id": "q-12"
+    },
+    {
+      "topicId": "t-7",
+      "prompt": "Welke zin past bij het voorstellen van jezelf op een sollicitatiegesprek?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ik zou nooit hier willen werken."
+        },
+        {
+          "id": "b",
+          "label": "Mijn sterke punten zijn dat ik goed kan samenwerken."
+        },
+        {
+          "id": "c",
+          "label": "Ik heb geen ervaring en geen zin."
+        },
+        {
+          "id": "d",
+          "label": "Wat is uw naam?"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Dit beantwoordt direct 'wat zijn je sterke punten' met een concreet, positief voorbeeld — precies wat oral Q5 verwacht.",
+      "sourceUrls": [],
+      "id": "q-13"
     }
   ],
   "notes": [

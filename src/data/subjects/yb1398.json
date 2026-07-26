@@ -293,6 +293,35 @@
       "explanation": "'Gaan' is een sterk/onregelmatig werkwoord — imperfectum is 'ging' (ik/hij/zij ging, wij/jullie/zij gingen), geen -de/-te vorm.",
       "sourceUrls": [],
       "id": "q-5"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Welk woord hoort NIET bij de tijdswoorden voor een verhaal in het verleden?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "daarna"
+        },
+        {
+          "id": "b",
+          "label": "toen"
+        },
+        {
+          "id": "c",
+          "label": "morgen"
+        },
+        {
+          "id": "d",
+          "label": "'s ochtends"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "'Morgen' (tomorrow) wijst naar de toekomst. Eerst, dan, daarna, toen, 's morgens/'s ochtends, 's middags, voor, tijdens, na plaatsen een verhaal juist in het verleden.",
+      "sourceUrls": [],
+      "id": "q-6"
     }
   ],
   "notes": [

@@ -91,6 +91,26 @@
       "sourceLinks": [],
       "studyOrder": 3,
       "id": "t-4"
+    },
+    {
+      "slug": "h4-zo-zijn-de-belgen",
+      "title": "H4 — Zo zijn de Belgen",
+      "summary": "Two oral prompts live here: giving cooking instructions (imperative) for Q3, and telling a joke/opinion about a nationality (subordinate clauses) for Q4.",
+      "subtopics": [
+        {
+          "id": "h4-imperative",
+          "title": "Imperative + food vocab",
+          "summary": "Command form for recipes: drop -en (snijden→snijd, toevoegen→voeg toe, bakken→bak, roeren→roer), plus cooking/food vocab — oral Q3."
+        },
+        {
+          "id": "h4-subordinate",
+          "title": "Subordinate clauses",
+          "summary": "Conjunctions like als, omdat, dat, terwijl send the verb to the end of their clause: 'Ik ga naar de dokter als ik ziek ben.' Used for stating opinions with a reason — oral Q4."
+        }
+      ],
+      "sourceLinks": [],
+      "studyOrder": 4,
+      "id": "t-5"
     }
   ],
   "questions": [],

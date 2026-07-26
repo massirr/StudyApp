@@ -322,6 +322,35 @@
       "explanation": "'Morgen' (tomorrow) wijst naar de toekomst. Eerst, dan, daarna, toen, 's morgens/'s ochtends, 's middags, voor, tijdens, na plaatsen een verhaal juist in het verleden.",
       "sourceUrls": [],
       "id": "q-6"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Kies het juiste werkwoord: 'Hij ___ kort, zwart haar.'",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "is"
+        },
+        {
+          "id": "b",
+          "label": "heeft"
+        },
+        {
+          "id": "c",
+          "label": "doet"
+        },
+        {
+          "id": "d",
+          "label": "wordt"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Je 'hebt' haar/kenmerken die je bezit: hij heeft kort, zwart haar. Gebruik 'zijn' voor bouw/eigenschappen: hij is lang.",
+      "sourceUrls": [],
+      "id": "q-7"
     }
   ],
   "notes": [

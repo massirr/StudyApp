@@ -235,6 +235,35 @@
       "explanation": "'Will' is een belofte/toekomstige actie → zullen (zal voor ik). Zou is voor hypotheses/voorwaardelijke zinnen.",
       "sourceUrls": [],
       "id": "q-3"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Wat is het imperfectum van 'werken' (ik-vorm)?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "werkte"
+        },
+        {
+          "id": "b",
+          "label": "werkde"
+        },
+        {
+          "id": "c",
+          "label": "heeft gewerkt"
+        },
+        {
+          "id": "d",
+          "label": "werk"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "De stam 'werk' eindigt op de 't kofschip'-medeklinker k, dus krijgt -te: werkte.",
+      "sourceUrls": [],
+      "id": "q-4"
     }
   ],
   "notes": [

@@ -351,6 +351,35 @@
       "explanation": "Je 'hebt' haar/kenmerken die je bezit: hij heeft kort, zwart haar. Gebruik 'zijn' voor bouw/eigenschappen: hij is lang.",
       "sourceUrls": [],
       "id": "q-7"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Kies het juiste voornaamwoord: 'Het glas ___ ik gisteren kocht, is vuil.'",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "die"
+        },
+        {
+          "id": "b",
+          "label": "dat"
+        },
+        {
+          "id": "c",
+          "label": "wat"
+        },
+        {
+          "id": "d",
+          "label": "welke"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "'Glas' is een het-woord, dus het betrekkelijk voornaamwoord is 'dat', niet 'die' (dat is voor de-woorden en meervouden).",
+      "sourceUrls": [],
+      "id": "q-8"
     }
   ],
   "notes": [

@@ -46,7 +46,7 @@ const TopicPage: React.FC<TopicPageProps> = ({ subject, topic }) => {
             </section>
 
             <section className="topic-section">
-                <h2>Official Microsoft Sources</h2>
+                <h2>{subject.sourcePolicy === 'microsoft-only' ? 'Official Microsoft Sources' : 'Sources'}</h2>
                 <ul className="source-list">
                     {topic.sourceLinks.map((source) => {
                         const sourceRef = getSourceByUrl(subject, source.url);

@@ -30,3 +30,21 @@ For a subject whose `sourcePolicy` is `microsoft-only`, topic pages SHALL displa
 #### Scenario: DP-750 topic shows only Microsoft sources
 - **WHEN** a DP-750 topic page renders its source links
 - **THEN** every link SHALL point to an official Microsoft domain
+
+### Requirement: Sources heading reflects the subject's source policy
+
+The topic page's source-links section heading SHALL read "Official Microsoft
+Sources" only for subjects whose `sourcePolicy` is `microsoft-only`. For any
+other subject it SHALL read "Sources".
+
+#### Scenario: Microsoft-grounded subject
+
+- **WHEN** a topic page renders for a subject with `sourcePolicy: 'microsoft-only'`
+  (e.g. DP-750)
+- **THEN** the sources section heading SHALL be "Official Microsoft Sources"
+
+#### Scenario: General subject
+
+- **WHEN** a topic page renders for a subject with `sourcePolicy: 'any'`
+  (e.g. Nederlands 3)
+- **THEN** the sources section heading SHALL be "Sources"

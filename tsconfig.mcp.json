@@ -1,0 +1,24 @@
+{
+  // Node-side TS project: the MCP server (mcp/) and its Vercel Function
+  // entrypoint (api/). Kept separate from tsconfig.json because that project
+  // targets the browser (DOM lib, no Node globals) while this code needs
+  // "types": ["node"] for process/Buffer/node:crypto. Checked via
+  // `npm run typecheck:mcp` (part of `npm run build`).
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "types": ["node"],
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["mcp", "api"]
+}

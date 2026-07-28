@@ -17,6 +17,9 @@ describe('subject registry', () => {
   it('lists dp-750 among subjects', () => {
     expect(getSubjects().map((s) => s.slug)).toContain('dp-750');
   });
+  it('auto-discovers subject JSONs without registry edits (yb1398)', () => {
+    expect(getSubjects().map((s) => s.slug)).toContain('yb1398');
+  });
   it('returns undefined for unknown slug', () => {
     expect(getSubjectBySlug('nope')).toBeUndefined();
   });

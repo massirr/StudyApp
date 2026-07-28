@@ -1,11 +1,12 @@
 import { Subject } from '../../types/study';
 import { validateSubject } from './schema';
-import dp750 from './dp-750.json';
-import yb1398 from './yb1398.json';
 
-// Register each subject JSON here. validateSubject throws at module load on bad data.
-const RAW: unknown[] = [dp750, yb1398];
-const SUBJECTS: Subject[] = RAW.map(validateSubject);
+// Every *.json in this folder is a subject — adding a file (e.g. via the MCP
+// create_subject tool) registers it. validateSubject throws at module load on bad data.
+const modules = import.meta.glob('./*.json', { eager: true }) as Record<string, { default: unknown }>;
+const SUBJECTS: Subject[] = Object.keys(modules)
+  .sort()
+  .map((path) => validateSubject(modules[path].default));
 
 export function getSubjects(): Subject[] {
   return SUBJECTS;

@@ -467,6 +467,21 @@ a:hover {
   color: var(--ink-soft);
 }
 
+.topic-summary {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.topic-count {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
 .topic-controls {
   display: flex;
   flex-direction: column;

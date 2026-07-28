@@ -1,19 +1,20 @@
-# StudyApp — DP-750 Exam Prep
+# StudyApp — Quiz-Based Exam Prep
 
-A frontend-only study application for the **Microsoft DP-750 (Azure Databricks Data Engineer)** certification exam. Study by topic, take quizzes, track your progress — no account required.
+A frontend-only study application for certification-exam prep. Study by topic, take quizzes, and track your progress — no account required. The app is **subject-agnostic**: the flagship subject is **Microsoft DP-750 (Azure Databricks Data Engineer)**, but any subject can be added as a JSON file.
 
-**Live:** https://study-app-one-olive.vercel.app
+**Live:** https://studyapp.irakozedarlo.be
 
 ---
 
 ## Features
 
-- **5 structured study domains** — aligned to the official DP-750 exam outline
-- **Two-level quiz system** — Level 1 (conceptual MCQs) unlocks Level 2 (code snippet questions) at 70%+
-- **Progress tracking** — persisted to browser `localStorage`, no sign-up needed
+- **Multiple subjects** — pick a subject on the landing page; each has its own topics, quizzes, sources, and notes (`src/data/subjects/<slug>.json`)
+- **Two-level quiz system** — Level 1 (conceptual MCQs) unlocks Level 2 (code-snippet questions) at 70%+
+- **Progress tracking** — per-subject, persisted to browser `localStorage`, no sign-up needed
 - **Smart resume** — picks up where you left off, or jumps to the first incomplete topic
-- **Official source links** — every quiz explanation is grounded in Microsoft Learn documentation
-- **No backend** — fully static; deploys anywhere that serves a single HTML file
+- **Grounded source links** — every quiz explanation links its source; a subject can enforce a `microsoft-only` source policy (DP-750 does)
+- **AI content authoring (MCP)** — add/update questions, topics, sources, notes, and whole subjects by chatting with the Claude app, even from your phone (see `mcp/README.md`)
+- **No backend for the app** — the study app is fully static; the MCP authoring server is an optional serverless function
 
 ---
 
@@ -26,7 +27,8 @@ A frontend-only study application for the **Microsoft DP-750 (Azure Databricks D
 | Animations | GSAP 3 |
 | Styling | CSS Modules + CSS custom properties |
 | Persistence | Browser `localStorage` |
-| E2E Tests | Playwright |
+| Content authoring | MCP server (`mcp-handler`) on a Vercel Function |
+| E2E / unit tests | Playwright / Vitest |
 | Analytics | Vercel Analytics |
 | Deployment | Vercel (auto-deploy from `master`) |
 
@@ -37,14 +39,9 @@ A frontend-only study application for the **Microsoft DP-750 (Azure Databricks D
 **Prerequisites:** Node.js 18+ and npm.
 
 ```bash
-# 1. Clone the repo
 git clone https://github.com/massirr/studyapp.git
 cd studyapp
-
-# 2. Install dependencies
 npm install
-
-# 3. Start the dev server
 npm run dev
 ```
 
@@ -58,6 +55,7 @@ The app will be available at **http://localhost:5173**.
 | `npm run build` | Type-check + production build → `dist/` |
 | `npm run preview` | Preview the production build locally |
 | `npm run test` | Run Playwright end-to-end tests |
+| `npm run test:unit` | Run Vitest unit tests (app + MCP core) |
 | `npm run lint` | ESLint (zero warnings policy) |
 | `npm run format` | Prettier auto-format |
 
@@ -67,16 +65,17 @@ The app will be available at **http://localhost:5173**.
 
 ```
 src/
-├── components/
-│   ├── common/           # Shared UI (logo, background)
-│   └── quiz/             # Quiz flow components
+├── components/           # AppShell, subject switcher, quiz flow, shared UI
 ├── context/              # React Context (progress state)
-├── data/                 # Topics, questions, sources, study notes
+├── data/subjects/        # One JSON file per subject (+ schema, loader)
 ├── hooks/                # useProgress, useQuizState
-├── pages/                # Route-level components
+├── lib/                  # route parser, pixel-font renderer
+├── pages/                # Picker, Dashboard, Topic, Quiz, NotFound
 ├── types/                # TypeScript type definitions
 └── utils/                # localStorage helpers, resume logic, URL validation
 
+mcp/                      # MCP content-authoring server (tools, auth, GitHub I/O)
+api/mcp.ts                # Vercel Function that hosts the MCP server
 tests/                    # Playwright e2e tests
 openspec/                 # Specs and change history (dev workflow)
 ```
@@ -85,27 +84,23 @@ openspec/                 # Specs and change history (dev workflow)
 
 | Path | Page |
 |---|---|
-| `/` | Dashboard — progress summary, topic list, resume button |
-| `/topics/:slug` | Topic page — subtopics, study notes, official sources, quiz link |
-| `/quiz?topic=<id>&level=<1|2>` | Quiz — questions, feedback, scoring |
+| `/` | Subject picker |
+| `/:subject` | Dashboard — progress summary, topic list, resume button |
+| `/:subject/topics/:slug` | Topic page — subtopics, study notes, sources, quiz link |
+| `/:subject/quiz?topic=<id>&level=<1\|2>` | Quiz — questions, feedback, scoring |
 
-SPA routing handled by `vercel.json` (all paths rewrite to `index.html`).
+SPA routing is handled by `vercel.json`, which rewrites everything **except `/api/*`** (the MCP function) to `index.html`.
 
 ---
 
 ## Study Content
 
-All DP-750 content is grounded in official Microsoft documentation only. No blogs, YouTube, or exam dumps.
+Content lives in `src/data/subjects/<slug>.json` and is validated against a schema at load time. Each subject declares a `sourcePolicy`:
 
-**Primary source:** https://learn.microsoft.com/en-us/training/courses/dp-750t00
+- **`microsoft-only`** (e.g. `dp-750`) — every source URL must be an official Microsoft domain, or the app throws. No blogs, YouTube, or exam dumps.
+- **`any`** — sources are unrestricted.
 
-**Approved supporting sources:**
-- https://learn.microsoft.com/en-us/azure/databricks/
-- https://learn.microsoft.com/en-us/azure/data-factory/introduction
-- https://learn.microsoft.com/en-us/entra/
-- https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview
-
-Source URLs are validated at runtime — the app will throw if any content references a non-Microsoft domain.
+DP-750 primary source: https://learn.microsoft.com/en-us/training/courses/dp-750t00
 
 ---
 
@@ -121,25 +116,42 @@ User interaction
   → Re-render
 ```
 
-No server, no database, no authentication. All state lives in the browser.
+No server, no database, no authentication for the app itself. All state lives in the browser.
 
-**Persistence key:** `studyapp_progress` in `localStorage`.
+**Persistence key:** `studyapp_progress` in `localStorage` (progress is **per-subject**; a v1 payload auto-migrates to v2 under `dp-750`).
 
-**Progress shape:**
+**Progress shape (v2):**
 ```ts
 {
-  version: 1,
-  completedTopicIds: string[],
-  completedSubtopicIds: Record<string, string[]>,
-  lastVisitedTopicSlug?: string
+  version: 2,
+  subjects: {
+    [slug: string]: {
+      completedTopicIds: string[],
+      completedSubtopicIds: Record<string, string[]>,
+      lastVisitedTopicSlug?: string
+    }
+  },
+  preferences?: { compactMode?: boolean; showCompletedTopics?: boolean }
 }
 ```
 
 ---
 
+## MCP Content Authoring
+
+An optional MCP server lets a tool-calling AI (e.g. the Claude app) read and add/update
+content — subjects, topics, questions, sources, notes — by committing validated JSON to
+this repo. It runs as a Vercel Function at `/api/mcp` and is gated by a secret token.
+
+Setup, env vars, and how to connect it as a Claude custom connector are in **`mcp/README.md`**.
+
+---
+
 ## Deployment
 
-Push to `master` → Vercel auto-deploys. No environment variables required for v1.
+Push to `master` → Vercel auto-deploys. The study app needs **no environment variables**.
+The MCP authoring server needs four (`GITHUB_TOKEN`, `GITHUB_REPO`, `GITHUB_BRANCH`,
+`MCP_AUTH_TOKEN`) — see `mcp/README.md`.
 
 ```bash
 npm run build   # verify locally before pushing
@@ -153,29 +165,21 @@ git push origin master
 This project uses **spec-driven development** via OpenSpec. No feature is implemented without an approved spec.
 
 ```
-openspec/specs/<capability>/spec.md   ← active specifications
+openspec/specs/<capability>/spec.md   ← published specifications
+openspec/changes/<name>/              ← in-progress changes
 openspec/changes/archive/             ← completed change history
 ```
 
-Agent workflow (via Claude Code):
-1. `project-orchestrator-agent` — scope and coordinate
-2. `spec-writer-agent` — write the spec
-3. `spec-review-agent` — review for clarity and scope
-4. `ui-flow-designer-agent` — design UI when needed
-5. `study-content-builder-agent` — build content from official sources
-6. Implementation
-7. `source-grounded-answer-agent` — validate quiz answers
-
-See `AGENTS.md` for the full agent roster and `CLAUDE.md` for project rules.
+See `AGENTS.md` for the agent roster and `CLAUDE.md` for project rules.
 
 ---
 
 ## Non-Goals (v1)
 
-- Authentication or user accounts
-- Backend APIs or databases
+- Authentication or user accounts (for the app)
+- Backend APIs or databases for app data
 - Cloud synchronization
-- AI features inside the app
+- AI features *inside* the app (authoring happens out-of-band via MCP)
 - Mobile applications
 - Real-time collaboration
 - Payments

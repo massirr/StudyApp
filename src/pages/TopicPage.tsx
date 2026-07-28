@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { getContentNotesForTopic, getQuestionCountForTopic, getSourceByUrl } from '../data/subjects';
+import { getCodeSnippetQuestionsForTopic, getContentNotesForTopic, getQuestionCountForTopic, getSourceByUrl } from '../data/subjects';
 import { Subject, Topic } from '../types/study';
 import { useProgress } from '../hooks/useProgress';
 
@@ -9,9 +9,11 @@ interface TopicPageProps {
 }
 
 const TopicPage: React.FC<TopicPageProps> = ({ subject, topic }) => {
-    const { setLastVisitedTopic } = useProgress(subject.id);
+    const { progress, setLastVisitedTopic } = useProgress(subject.id);
     const notes = getContentNotesForTopic(subject, topic.id);
     const questionCount = getQuestionCountForTopic(subject, topic.id);
+    const level2Count = getCodeSnippetQuestionsForTopic(subject, topic.id).length;
+    const level2Unlocked = (progress.level2UnlockedTopicIds ?? []).includes(topic.id);
 
     useEffect(() => {
         setLastVisitedTopic(topic.slug);
@@ -83,8 +85,23 @@ const TopicPage: React.FC<TopicPageProps> = ({ subject, topic }) => {
                     className="primary-button"
                     href={`/${subject.slug}/quiz?topic=${encodeURIComponent(topic.slug)}`}
                 >
-                    Open Quiz
+                    {level2Count > 0 ? 'Open Level 1 Quiz' : 'Open Quiz'}
                 </a>
+
+                {level2Count > 0 && (
+                    level2Unlocked ? (
+                        <p>
+                            <a
+                                className="primary-button"
+                                href={`/${subject.slug}/quiz?topic=${encodeURIComponent(topic.slug)}&level=2`}
+                            >
+                                Open Level 2: Code Questions
+                            </a>
+                        </p>
+                    ) : (
+                        <p>Score 70% or higher on the Level 1 quiz to unlock Level 2 code questions.</p>
+                    )
+                )}
             </section>
         </section>
     );

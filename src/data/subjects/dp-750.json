@@ -3,7 +3,7 @@
   "slug": "dp-750",
   "name": "DP-750: Azure Databricks Data Engineering",
   "shortLabel": "DP-750",
-  "tagline": "Follow your topic path, resume where you left off, and keep progress in this browser.",
+  "tagline": "Azure Databricks Data Engineer — progress saved automatically as you go.",
   "sourcePolicy": "microsoft-only",
   "sources": [
     {
@@ -118,146 +118,180 @@
   "topics": [
     {
       "id": "topic-01",
-      "slug": "plan-and-design-azure-databricks-workloads",
-      "title": "Plan and Design Azure Databricks Workloads",
-      "summary": "Design secure, scalable data engineering architectures and workspace patterns for DP-750 objectives.",
+      "slug": "set-up-and-configure-azure-databricks-environment",
+      "title": "Set up and configure an Azure Databricks environment",
+      "summary": "Official exam domain 1 (15–20% of questions). Covers selecting/configuring compute and creating/organizing Unity Catalog objects.",
       "studyOrder": 1,
       "subtopics": [
         {
           "id": "t1-s1",
-          "title": "Choose Workspace and Compute Strategy",
-          "summary": "Select cluster and workspace patterns for development and production."
+          "title": "Select and configure compute in a workspace",
+          "summary": "Compute types (job, serverless, warehouse, classic, shared); performance settings (CPU, node count, autoscaling, termination, node type, cluster size, pooling); feature settings (Photon, runtime/Spark version, ML); installing libraries; access permissions on compute."
         },
         {
           "id": "t1-s2",
-          "title": "Design for Governance",
-          "summary": "Plan governance boundaries early with catalogs, schemas, and permissions."
+          "title": "Create and organize objects in Unity Catalog",
+          "summary": "Naming conventions (isolation, dev environments, external sharing); creating catalogs, schemas, volumes, tables/views/materialized views; foreign catalogs; DDL on managed vs external tables; AI/BI Genie instructions for data discovery."
         }
       ],
       "sourceLinks": [
         {
-          "label": "DP-750 Course",
-          "url": "https://learn.microsoft.com/en-us/training/courses/dp-750t00"
+          "label": "Compute configuration reference",
+          "url": "https://learn.microsoft.com/en-us/azure/databricks/compute/configure"
         },
         {
-          "label": "Azure Databricks Documentation",
-          "url": "https://learn.microsoft.com/en-us/azure/databricks/"
+          "label": "Unity Catalog overview",
+          "url": "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/"
         }
       ]
     },
     {
       "id": "topic-02",
-      "slug": "ingest-and-transform-data",
-      "title": "Ingest and Transform Data",
-      "summary": "Build batch and streaming ingestion pipelines and transform data with Databricks tools and SQL.",
+      "slug": "prepare-and-process-data",
+      "title": "Prepare and process data",
+      "summary": "Official exam domain 3 (30–35% of questions, the largest domain). Covers data modeling, ingestion, cleansing/transformation, and data quality constraints in Unity Catalog.",
       "studyOrder": 2,
       "subtopics": [
         {
           "id": "t2-s1",
-          "title": "Batch and Streaming Ingestion",
-          "summary": "Compare ingestion patterns and select the right approach for workload needs."
+          "title": "Design and implement data modeling in Unity Catalog",
+          "summary": "Ingestion logic/source config (extraction & file type); ingestion tool choice (Lakeflow Connect, notebooks, ADF); batch vs streaming load; table format (Parquet/Delta/CSV/JSON/Iceberg); partitioning scheme; SCD type; granularity; temporal/history tables; clustering strategy (liquid clustering, Z-ordering, deletion vectors); managed vs unmanaged tables."
         },
         {
           "id": "t2-s2",
-          "title": "Transformation Patterns",
-          "summary": "Apply joins, aggregations, and schema evolution safely."
+          "title": "Ingest data into Unity Catalog",
+          "summary": "Lakeflow Connect (batch/streaming); notebooks (batch/streaming); SQL methods (CTAS, CREATE OR REPLACE TABLE, COPY INTO); CDC feed ingestion; Spark Structured Streaming; Azure Event Hubs streaming; Lakeflow Spark Declarative Pipelines incl. Auto Loader."
+        },
+        {
+          "id": "t2-s3",
+          "title": "Cleanse, transform, and load data into Unity Catalog",
+          "summary": "Data profiling/summary stats; choosing column data types; resolving duplicate/missing/null values; filter/group/aggregate; join/union/intersect/except; denormalize/pivot/unpivot; load via merge/insert/append."
+        },
+        {
+          "id": "t2-s4",
+          "title": "Implement and manage data quality constraints in Unity Catalog",
+          "summary": "Validation checks (nullability, cardinality, range); data type checks; schema enforcement and schema drift; data quality via pipeline expectations in Lakeflow Spark Declarative Pipelines."
         }
       ],
       "sourceLinks": [
         {
-          "label": "Azure Databricks Ingestion",
+          "label": "Ingestion overview",
           "url": "https://learn.microsoft.com/en-us/azure/databricks/ingestion/"
         },
         {
-          "label": "Azure Data Factory Introduction",
-          "url": "https://learn.microsoft.com/en-us/azure/data-factory/introduction"
+          "label": "Lakeflow Declarative Pipelines",
+          "url": "https://learn.microsoft.com/en-us/azure/databricks/dlt/"
         }
       ]
     },
     {
       "id": "topic-03",
-      "slug": "implement-and-manage-data-governance",
-      "title": "Implement and Manage Data Governance",
-      "summary": "Use Unity Catalog and access controls to secure data assets and enforce governance standards.",
+      "slug": "secure-and-govern-unity-catalog-objects",
+      "title": "Secure and govern Unity Catalog objects",
+      "summary": "Official exam domain 2 (15–20% of questions). Covers securing UC objects (privileges, ACL, secrets, identities) and governing them (descriptions, ABAC, lineage, audit, Delta Sharing).",
       "studyOrder": 3,
       "subtopics": [
         {
           "id": "t3-s1",
-          "title": "Unity Catalog Fundamentals",
-          "summary": "Understand catalog, schema, table, and permission structures."
+          "title": "Secure Unity Catalog objects",
+          "summary": "Grant privileges to principals (user/service principal/group); table- and column-level access control and row-level security; Azure Key Vault secrets from Databricks; service principal auth; managed identity auth."
         },
         {
           "id": "t3-s2",
-          "title": "Access Controls and Secrets",
-          "summary": "Apply role-based permissions and secure sensitive configuration data."
+          "title": "Govern Unity Catalog objects",
+          "summary": "Table/column definitions and descriptions for discovery; attribute-based access control (ABAC) via tags/policies; row filters and column masks; data retention policies; lineage tracking via Catalog Explorer; audit logging; secure Delta Sharing strategy."
         }
       ],
       "sourceLinks": [
         {
-          "label": "Unity Catalog Overview",
-          "url": "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/"
+          "label": "Unity Catalog privileges",
+          "url": "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/manage-privileges/"
         },
         {
-          "label": "Microsoft Entra Overview",
-          "url": "https://learn.microsoft.com/en-us/entra/"
+          "label": "Delta Sharing",
+          "url": "https://learn.microsoft.com/en-us/azure/databricks/delta-sharing/"
         }
       ]
     },
     {
       "id": "topic-04",
-      "slug": "build-and-operate-data-pipelines",
-      "title": "Build and Operate Data Pipelines",
-      "summary": "Create, schedule, and operate robust data engineering workflows using Databricks jobs and pipeline patterns.",
+      "slug": "design-data-pipelines-and-lakeflow-jobs",
+      "title": "Deploy data pipelines and Lakeflow Jobs (Domain 4, part 1)",
+      "summary": "Part of official exam domain 4, Deploy and maintain data pipelines and workloads (30–35% combined with the other Domain 4 topic). Covers pipeline design and Lakeflow Jobs implementation.",
       "studyOrder": 4,
       "subtopics": [
         {
           "id": "t4-s1",
-          "title": "Job Orchestration",
-          "summary": "Configure dependencies, retries, and operational safeguards."
+          "title": "Design and implement data pipelines",
+          "summary": "Order of operations; notebook vs Lakeflow Spark Declarative Pipelines; task logic design for Lakeflow Jobs; error handling in pipelines/notebooks/jobs; building a notebook pipeline with precedence constraints; building a Lakeflow Declarative Pipeline."
         },
         {
           "id": "t4-s2",
-          "title": "Operational Reliability",
-          "summary": "Design for recoverability and maintainability in recurring pipelines."
+          "title": "Implement Lakeflow Jobs",
+          "summary": "Creating a job (setup/config); configuring triggers; scheduling; configuring alerts; configuring automatic restarts for a job or pipeline."
         }
       ],
       "sourceLinks": [
         {
-          "label": "Azure Databricks Jobs",
+          "label": "Lakeflow Jobs",
           "url": "https://learn.microsoft.com/en-us/azure/databricks/jobs/"
         },
         {
-          "label": "Azure Monitor Overview",
-          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview"
+          "label": "Lakeflow Declarative Pipelines",
+          "url": "https://learn.microsoft.com/en-us/azure/databricks/dlt/"
         }
       ]
     },
     {
       "id": "topic-05",
-      "slug": "monitor-and-optimize-workloads",
-      "title": "Monitor and Optimize Workloads",
-      "summary": "Track workload behavior, diagnose bottlenecks, and optimize performance and cost for data engineering pipelines.",
+      "slug": "dev-lifecycle-monitoring-and-optimization",
+      "title": "Development lifecycle, monitoring, and optimization (Domain 4, part 2)",
+      "summary": "Part of official exam domain 4, Deploy and maintain data pipelines and workloads (30–35% combined with the other Domain 4 topic). Covers CI/CD lifecycle practices plus monitoring, troubleshooting, and optimizing workloads.",
       "studyOrder": 5,
       "subtopics": [
         {
           "id": "t5-s1",
-          "title": "Monitoring and Alerts",
-          "summary": "Use platform telemetry to detect and respond to pipeline issues."
+          "title": "Implement development lifecycle processes in Azure Databricks",
+          "summary": "Git version control best practices; branching, pull requests, conflict resolution; testing strategy (unit/integration/e2e/UAT); configuring/packaging Databricks Asset Bundles; deploying a bundle via Databricks CLI; deploying a bundle via REST APIs."
         },
         {
           "id": "t5-s2",
-          "title": "Performance Optimization",
-          "summary": "Tune compute and query behavior to improve throughput and reliability."
+          "title": "Monitor, troubleshoot, and optimize workloads in Azure Databricks",
+          "summary": "Monitoring cluster consumption for cost/performance; troubleshooting Lakeflow Jobs (repair/restart/stop/run); troubleshooting Spark jobs/notebooks (perf tuning, bottlenecks, cluster restart); DAG/Spark UI/query profile investigation of caching/skew/spill/shuffle; OPTIMIZE and VACUUM; Log Analytics log streaming via Azure Monitor; configuring Azure Monitor alerts."
         }
       ],
       "sourceLinks": [
         {
-          "label": "Azure Databricks Performance",
-          "url": "https://learn.microsoft.com/en-us/azure/databricks/optimizations/"
+          "label": "Databricks Asset Bundles",
+          "url": "https://learn.microsoft.com/en-us/azure/databricks/dev-tools/bundles/"
         },
         {
-          "label": "Azure Monitor Fundamentals",
-          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview"
+          "label": "Optimization recommendations",
+          "url": "https://learn.microsoft.com/en-us/azure/databricks/optimizations/"
+        }
+      ]
+    },
+    {
+      "id": "topic-06",
+      "slug": "case-study-lakehouse",
+      "title": "Case study: Meridian Retail lakehouse (all domains)",
+      "summary": "Exam-style case study in the associate format: one scenario spanning all four domains. Answer each question against the shared Meridian Retail scenario. Great final review the night before the exam.",
+      "studyOrder": 6,
+      "subtopics": [
+        {
+          "id": "t6-s1",
+          "title": "Case study: Meridian Retail",
+          "summary": "A retailer building a governed medallion lakehouse on Azure Databricks. Questions cover compute access mode, Auto Loader ingestion, Unity Catalog least-privilege grants, Lakeflow Jobs orchestration, Azure Monitor alerting, and broadcast-join optimization."
+        }
+      ],
+      "sourceLinks": [
+        {
+          "label": "DP-750 study guide",
+          "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/dp-750"
+        },
+        {
+          "label": "Azure Databricks documentation",
+          "url": "https://learn.microsoft.com/en-us/azure/databricks/"
         }
       ]
     }
@@ -1758,7 +1792,7 @@
       ],
       "explanation": "@dlt.expect (warn mode) records the data quality violation in the event log and increments the failed_records counter in the pipeline graph, but does NOT drop the record or halt the pipeline. The invalid row is still written to the output table. Use @dlt.expect_or_drop or @dlt.expect_or_fail to filter or halt.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/delta-live-tables/expectations"
+        "https://learn.microsoft.com/en-us/azure/databricks/ldp/expectations"
       ]
     },
     {
@@ -1789,7 +1823,7 @@
       ],
       "explanation": "dbutils.jobs.taskValues is the native Databricks mechanism for inter-task data sharing within a Job run. Task A sets a typed value with .set(); Task B retrieves it with .get(taskKey=, key=). It is more robust than Delta workarounds and avoids the side effects of accumulators or notebook exit values.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/jobs/share-task-context"
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/task-values"
       ]
     },
     {
@@ -1820,7 +1854,7 @@
       ],
       "explanation": "DLT continuous mode keeps the pipeline running and processes new data as it arrives, delivering low-latency results. Triggered mode processes a batch of available data and stops — on a 15-minute schedule it could leave up to a 14-minute gap and miss the 5-minute SLA.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/delta-live-tables/updates"
+        "https://learn.microsoft.com/en-us/azure/databricks/ldp/updates"
       ]
     },
     {
@@ -1852,7 +1886,7 @@
       ],
       "explanation": "Operational visibility and alerting are key to maintaining reliable production workflows.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/jobs/",
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/monitor",
         "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview"
       ]
     },
@@ -1978,7 +2012,7 @@
       ],
       "explanation": "Run visibility and alerting support reliability, supportability, and incident response.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/jobs/",
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/monitor",
         "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview"
       ]
     },
@@ -2010,7 +2044,7 @@
       ],
       "explanation": "SLA validation requires reliable telemetry and measurable run-history data.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/jobs/",
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/monitor",
         "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview"
       ]
     },
@@ -2042,7 +2076,7 @@
       ],
       "explanation": "Validation gates prevent bad data from cascading through dependent pipeline stages.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/jobs/"
+        "https://learn.microsoft.com/en-us/azure/databricks/ldp/expectations"
       ]
     },
     {
@@ -2077,7 +2111,7 @@
       ],
       "explanation": "@dlt.expect_or_drop removes rows that fail the quality rule without halting the pipeline. The null-claim_id record is excluded from silver_claims and counted as a dropped record in the DLT event log, while all valid records continue flowing through the pipeline.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/delta-live-tables/expectations"
+        "https://learn.microsoft.com/en-us/azure/databricks/ldp/expectations"
       ]
     },
     {
@@ -2112,7 +2146,7 @@
       ],
       "explanation": "expect_or_fail is a strict gate: one bad row stops the whole pipeline run, signalling a data contract breach that must be resolved before output is produced. expect_or_drop is lenient: it filters out bad rows and lets the pipeline continue with clean data. Choose based on whether invalid data is tolerable or catastrophic.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/delta-live-tables/expectations"
+        "https://learn.microsoft.com/en-us/azure/databricks/ldp/expectations"
       ]
     },
     {
@@ -2147,7 +2181,7 @@
       ],
       "explanation": "dbutils.notebook.exit() exits the current notebook and returns a string result to the calling context. When called from a Databricks Job task, the exit value is captured and can be retrieved by downstream tasks using dbutils.jobs.taskValues.get(). The cluster keeps running — only the notebook session ends.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/jobs/share-task-context"
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/task-values"
       ]
     },
     {
@@ -2217,7 +2251,7 @@
       ],
       "explanation": "Databricks Jobs propagates failures through the dependency graph. When transform_silver_bookings fails, any task with a transitive depends_on relationship to it — aggregate_gold_revenue and notify_revenue_team — is marked as Skipped/Failed. No downstream task executes.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/jobs/"
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/run-if"
       ]
     },
     {
@@ -2311,7 +2345,7 @@
       ],
       "explanation": "Liquid clustering replaces ZORDER by clustering data incrementally during writes rather than requiring periodic full-table OPTIMIZE runs. For tables with frequent appends, this drastically reduces or eliminates the daily maintenance window.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/delta/clustering"
+        "https://learn.microsoft.com/en-us/azure/databricks/tables/clustering"
       ]
     },
     {
@@ -2342,7 +2376,7 @@
       ],
       "explanation": "Delta Lake's default VACUUM retention is 7 days (168 hours). Running VACUUM without RETAIN uses this default and removes orphaned files older than 7 days. Time-travel queries referencing data files outside the retention window fail because those files no longer exist on storage.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/delta/vacuum"
+        "https://learn.microsoft.com/en-us/azure/databricks/tables/operations/vacuum"
       ]
     },
     {
@@ -2373,7 +2407,7 @@
       ],
       "explanation": "spark.sql.autoBroadcastJoinThreshold (default 10MB) controls the size threshold for automatic broadcast. A 15MB table exceeds this default so Spark falls back to SortMergeJoin. Increase the threshold or add an explicit broadcast() hint to force the optimization.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/optimizations/"
+        "https://learn.microsoft.com/en-us/azure/databricks/optimizations/aqe"
       ]
     },
     {
@@ -2602,7 +2636,7 @@
       ],
       "explanation": "A broadcast join sends the small table to every executor in-memory, removing the Exchange (shuffle) stage for that table entirely. In the Spark UI physical plan you see BroadcastHashJoin instead of SortMergeJoin with two Exchange stages, which was the source of the 12-minute bottleneck.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/optimizations/"
+        "https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/sql-ref-syntax-qry-select-hints"
       ]
     },
     {
@@ -2637,7 +2671,7 @@
       ],
       "explanation": "VACUUM removes only orphaned data files — those no longer referenced in the Delta transaction log — older than the retention threshold. Live data rows are untouched. RETAIN 168 HOURS = 7 days, so time travel to any commit within the last 7 days (including 4 days ago) still works.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/delta/vacuum"
+        "https://learn.microsoft.com/en-us/azure/databricks/tables/operations/vacuum"
       ]
     },
     {
@@ -2672,7 +2706,7 @@
       ],
       "explanation": "Photon is a vectorised C++ query engine that accelerates SQL and DataFrame operations on Delta Lake. It does not accelerate Python UDFs (which run in the Python interpreter on the JVM boundary), ML training workloads, or low-throughput streaming microservices.",
       "sourceUrls": [
-        "https://learn.microsoft.com/en-us/azure/databricks/runtime/photon"
+        "https://learn.microsoft.com/en-us/azure/databricks/compute/photon"
       ]
     },
     {
@@ -2709,6 +2743,2963 @@
       "sourceUrls": [
         "https://learn.microsoft.com/en-us/azure/databricks/optimizations/"
       ]
+    },
+    {
+      "topicId": "topic-01",
+      "prompt": "A BI team needs a dashboard that runs ad-hoc SQL against Unity Catalog tables. Queries must return in under 2 seconds during business hours, spin down automatically outside those hours, and require zero cluster management from the data team. Which compute type should you provision?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "A classic all-purpose cluster shared by the whole BI team"
+        },
+        {
+          "id": "b",
+          "label": "A serverless SQL warehouse with auto-stop enabled"
+        },
+        {
+          "id": "c",
+          "label": "A job compute cluster triggered per dashboard refresh"
+        },
+        {
+          "id": "d",
+          "label": "A single-node classic cluster with autoscaling disabled"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Serverless SQL warehouses are purpose-built for BI/SQL workloads: they start in seconds, scale automatically with concurrent query load, and require no cluster administration — Databricks manages the underlying compute. Classic clusters (all-purpose or job) require capacity planning and startup time that don't fit a sub-2-second, zero-ops dashboard requirement.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/compute/sql-warehouse/"
+      ],
+      "id": "q-1"
+    },
+    {
+      "topicId": "topic-01",
+      "prompt": "A nightly ETL job processes between 10 GB and 500 GB depending on the day, and the team wants both cost efficiency and a fast cluster start. Given this cluster spec, what is the effect of the `instance_pool_id` field?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "It caps the maximum autoscaling ceiling at the pool's idle instance count"
+        },
+        {
+          "id": "b",
+          "label": "It draws VMs from a pre-warmed idle pool so the cluster starts in seconds instead of waiting for new VMs to provision from Azure"
+        },
+        {
+          "id": "c",
+          "label": "It replaces the need for autoscale settings since the pool handles all scaling decisions"
+        },
+        {
+          "id": "d",
+          "label": "It forces the cluster to use spot/low-priority instances exclusively"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Instance pools keep a set of idle, ready-to-use VMs so clusters attached to the pool skip Azure VM provisioning time on start and autoscale-up events. Autoscale min/max_workers still control how many nodes the cluster requests — the pool just changes where those nodes come from, not the scaling logic itself.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/compute/pools/"
+      ],
+      "codeSnippet": {
+        "language": "json",
+        "code": "{\n  \"cluster_name\": \"nightly-etl\",\n  \"spark_version\": \"14.3.x-scala2.12\",\n  \"node_type_id\": \"Standard_DS4_v2\",\n  \"autoscale\": {\n    \"min_workers\": 2,\n    \"max_workers\": 20\n  },\n  \"instance_pool_id\": \"1107-155000-abcd123\",\n  \"autotermination_minutes\": 30\n}"
+      },
+      "id": "q-2"
+    },
+    {
+      "topicId": "topic-01",
+      "prompt": "An existing Spark SQL and DataFrame-heavy ETL pipeline needs a performance boost with no code changes. The team enables Photon on the cluster. Which statement correctly describes what happens?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Photon replaces the Spark driver with a GPU-based scheduler, requiring GPU-enabled node types"
+        },
+        {
+          "id": "b",
+          "label": "Photon is a native vectorized query engine that accelerates SQL and DataFrame operations on Parquet/Delta data without requiring any code rewrites"
+        },
+        {
+          "id": "c",
+          "label": "Photon only accelerates RDD-based code and has no effect on DataFrame or SQL workloads"
+        },
+        {
+          "id": "d",
+          "label": "Photon must be paired with a downgrade to an older Databricks Runtime version to function"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Photon is a C++-based vectorized execution engine, API-compatible with Spark SQL/DataFrames. Enabling it (via a Photon-enabled runtime) speeds up eligible SQL and DataFrame operations transparently — no query or code changes are needed, and it doesn't require GPU hardware.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/compute/photon"
+      ],
+      "id": "q-3"
+    },
+    {
+      "topicId": "topic-01",
+      "prompt": "A scheduled job runs on a job cluster that is created fresh for every run and terminates afterward. The job requires `great_expectations==0.18.7`. A developer tests interactively with `%pip install great_expectations==0.18.7` in a notebook and it works. Why will the scheduled job still fail with `ModuleNotFoundError`?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "%pip install libraries are notebook-session-scoped; a new job cluster spins up without that session state, so the library isn't installed unless it's added as a cluster or job-level library"
+        },
+        {
+          "id": "b",
+          "label": "%pip only works on all-purpose clusters and is silently ignored on any job cluster"
+        },
+        {
+          "id": "c",
+          "label": "great_expectations is incompatible with any Databricks Runtime version"
+        },
+        {
+          "id": "d",
+          "label": "%pip installs are workspace-wide but require an admin to approve each package before jobs can use them"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Notebook-scoped `%pip install` libraries live only in that notebook's Python session. A job cluster is provisioned fresh for the scheduled run and has no memory of prior interactive sessions. To make a library available to a job reliably, install it as a cluster library (UI/Libraries API) or declare it in the job/task's library list so it's installed as part of cluster startup.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/libraries/cluster-libraries"
+      ],
+      "codeSnippet": {
+        "language": "python",
+        "code": "# Works fine when run interactively in a notebook:\n%pip install great_expectations==0.18.7\n\n# But the scheduled Job fails with ModuleNotFoundError"
+      },
+      "id": "q-4"
+    },
+    {
+      "topicId": "topic-01",
+      "prompt": "A workspace admin wants the `data-engineers` group to be able to attach notebooks to a shared cluster and view its Spark UI, but must prevent them from restarting the cluster or editing its configuration (which could disrupt other teams' running jobs). Which cluster permission level should be granted?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "CAN MANAGE"
+        },
+        {
+          "id": "b",
+          "label": "CAN RESTART"
+        },
+        {
+          "id": "c",
+          "label": "CAN ATTACH TO"
+        },
+        {
+          "id": "d",
+          "label": "Workspace admin role, scoped to that cluster only"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "Azure Databricks cluster permissions have three levels: CAN ATTACH TO (attach notebooks/run commands, view Spark UI — no restart or edit), CAN RESTART (adds restart/terminate), and CAN MANAGE (full control including edit, permissions, and delete). CAN ATTACH TO is the least-privilege option that satisfies the requirement.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/security/auth/access-control/cluster-acl"
+      ],
+      "id": "q-5"
+    },
+    {
+      "topicId": "topic-01",
+      "prompt": "A company needs strict isolation between dev, staging, and prod data — including separate access-control boundaries and the ability to promote objects between environments without renaming everything. Which naming/isolation strategy best fits Unity Catalog's model?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "One catalog for the whole company, with schema name prefixes like dev_sales, stg_sales, prod_sales"
+        },
+        {
+          "id": "b",
+          "label": "Separate catalogs per environment (e.g. dev, staging, prod), each containing the same schema names underneath"
+        },
+        {
+          "id": "c",
+          "label": "One schema per environment inside a single catalog, relying on table-level grants for isolation"
+        },
+        {
+          "id": "d",
+          "label": "A single catalog and schema, isolating environments purely through workspace-level network rules"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Catalog is the top-level container and primary isolation/access-control boundary in Unity Catalog. Modeling environments as separate catalogs (dev/staging/prod) with identical schema structure underneath gives clean privilege boundaries, simple environment promotion (same relative paths), and avoids leaking permissions across environments the way schema- or table-level naming conventions inside one catalog would.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/best-practices"
+      ],
+      "id": "q-6"
+    },
+    {
+      "topicId": "topic-01",
+      "prompt": "You need every managed table created under a new `prod_sales` catalog to store its underlying data in a dedicated ADLS Gen2 container, separate from other catalogs. Which statement achieves this?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "It sets the default storage location for managed tables/schemas in this catalog; schemas can still override it with their own MANAGED LOCATION"
+        },
+        {
+          "id": "b",
+          "label": "It creates the catalog but storage location is ignored — Unity Catalog always uses the workspace's root storage for managed tables"
+        },
+        {
+          "id": "c",
+          "label": "It makes every table in the catalog an external table pointing at that container"
+        },
+        {
+          "id": "d",
+          "label": "MANAGED LOCATION is only valid on CREATE SCHEMA, not CREATE CATALOG, so this statement fails"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "MANAGED LOCATION on CREATE CATALOG sets the default storage root that managed schemas/tables in that catalog inherit unless overridden. Unity Catalog supports specifying managed storage at the metastore, catalog, or schema level, with the more specific level taking precedence — giving isolation per catalog without forcing every table to be external.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/create-catalogs"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "CREATE CATALOG IF NOT EXISTS prod_sales\nMANAGED LOCATION 'abfss://prod-sales@mystorageacct.dfs.core.windows.net/';"
+      },
+      "id": "q-7"
+    },
+    {
+      "topicId": "topic-01",
+      "prompt": "The finance team's schema must keep its managed table data in a separate storage container from the rest of the `prod_sales` catalog, for a compliance requirement specific to that team. What is the correct approach?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "This is invalid — all schemas in a catalog must share the catalog's managed location"
+        },
+        {
+          "id": "b",
+          "label": "This overrides the catalog-level managed location for this schema only; managed tables created in prod_sales.finance will use the schema's storage path instead of the catalog default"
+        },
+        {
+          "id": "c",
+          "label": "This creates an external schema, meaning every table inside it must also declare its own LOCATION"
+        },
+        {
+          "id": "d",
+          "label": "The MANAGED LOCATION clause only affects volumes created in the schema, not tables"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Unity Catalog resolves managed storage location hierarchically: schema-level MANAGED LOCATION overrides the catalog default, which itself overrides the metastore root. This lets a single catalog host schemas with different storage/compliance boundaries without needing separate catalogs.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/create-schemas"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "CREATE SCHEMA IF NOT EXISTS prod_sales.finance\nMANAGED LOCATION 'abfss://finance-restricted@mystorageacct.dfs.core.windows.net/';"
+      },
+      "id": "q-8"
+    },
+    {
+      "topicId": "topic-01",
+      "prompt": "A data science team needs to read and write arbitrary unstructured files (images, PDFs) from Databricks notebooks and external tools, governed by Unity Catalog, without modeling the files as a table. What should they create?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "A managed table with a single BINARY column"
+        },
+        {
+          "id": "b",
+          "label": "A Unity Catalog volume, which governs access to non-tabular files via a catalog/schema-scoped file path"
+        },
+        {
+          "id": "c",
+          "label": "A DBFS mount point, since volumes cannot store binary files"
+        },
+        {
+          "id": "d",
+          "label": "An external location with no schema association"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Volumes are the Unity Catalog object for governing non-tabular data (arbitrary files) under the same catalog.schema.volume namespace and permission model as tables, accessible via a standard file path. They're the recommended replacement for ungoverned DBFS mounts when files don't fit a table structure.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/connect/unity-catalog/volumes"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "CREATE VOLUME IF NOT EXISTS prod_sales.finance.contract_scans\nCOMMENT 'PDF contract scans for OCR pipeline';"
+      },
+      "id": "q-9"
+    },
+    {
+      "topicId": "topic-01",
+      "prompt": "Five dashboards run the same expensive multi-join aggregation query against a 2 TB fact table every few minutes, driving up compute cost and query latency. The result set only needs to reflect data as of the last hourly ETL run. What's the best fix?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Replace it with a regular VIEW, which caches results automatically"
+        },
+        {
+          "id": "b",
+          "label": "Use a materialized view: the aggregation is precomputed and refreshed on a schedule, so dashboards read a small precomputed table instead of recomputing the join/aggregation each time"
+        },
+        {
+          "id": "c",
+          "label": "There is no way to avoid recomputation short of manually writing to a new table with a scheduled job"
+        },
+        {
+          "id": "d",
+          "label": "Materialized views recompute on every query just like regular views, so this wouldn't help"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Unlike a regular view (computed at query time on every read), a materialized view precomputes and stores its result, refreshing on a defined schedule or trigger. This is exactly suited to expensive, repeatedly-queried aggregations where slightly-stale (hourly) data is acceptable — dashboards then read a small precomputed table instead of re-running the join.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/sql/user/materialized-views"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "CREATE MATERIALIZED VIEW prod_sales.gold.hourly_revenue_summary\nSCHEDULE CRON '0 0 * * * ?'\nAS\nSELECT region, product_category, SUM(revenue) AS total_revenue\nFROM prod_sales.silver.orders\nJOIN prod_sales.silver.products USING (product_id)\nGROUP BY region, product_category;"
+      },
+      "id": "q-10"
+    },
+    {
+      "topicId": "topic-01",
+      "prompt": "Analysts need to run SQL joins between Databricks tables and live data in an external Snowflake database, without building an ETL pipeline to copy the Snowflake data into Databricks first. What Unity Catalog feature enables this?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Delta Sharing, which requires the Snowflake side to export a share first"
+        },
+        {
+          "id": "b",
+          "label": "Lakehouse Federation: a CONNECTION plus FOREIGN CATALOG lets Databricks query the external Snowflake database directly, governed by Unity Catalog, with no data copy"
+        },
+        {
+          "id": "c",
+          "label": "Auto Loader, pointed at Snowflake's internal stage"
+        },
+        {
+          "id": "d",
+          "label": "A materialized view that pulls from an external table nightly"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Lakehouse Federation lets Unity Catalog register a CONNECTION to an external system (Snowflake, SQL Server, MySQL, PostgreSQL, etc.) and expose it as a FOREIGN CATALOG, so users can query external data directly through Databricks compute — governed like any other UC object — without ETL-ing it in first.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/query-federation/"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "CREATE CONNECTION snowflake_conn TYPE snowflake\nOPTIONS (\n  host 'myaccount.snowflakecomputing.com',\n  port '443',\n  user secret('kv_scope', 'sf_user'),\n  password secret('kv_scope', 'sf_password')\n);\n\nCREATE FOREIGN CATALOG snowflake_sales\nUSING CONNECTION snowflake_conn\nOPTIONS (database 'SALES_DB');"
+      },
+      "id": "q-11"
+    },
+    {
+      "topicId": "topic-01",
+      "prompt": "Business users ask an AI/BI Genie space \"what were our top customers last quarter?\" and it repeatedly generates SQL that joins the wrong tables, because \"customer\" is ambiguous between a `billing_account` table and a `end_user` table. The underlying data and permissions are correct. What should the Genie space owner do?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rebuild the tables with clearer column names, since Genie instructions cannot influence query generation"
+        },
+        {
+          "id": "b",
+          "label": "Add Genie instructions that define business terms (e.g. \"customer\" = billing_account) and specify preferred join paths/sample queries, giving Genie the context to generate correct SQL"
+        },
+        {
+          "id": "c",
+          "label": "Grant Genie's service principal owner-level privileges on both tables so it can infer the right one"
+        },
+        {
+          "id": "d",
+          "label": "Disable natural-language mode and require all users to write raw SQL instead"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "AI/BI Genie spaces support curated \"instructions\" — business-term definitions, preferred join logic, and example question/SQL pairs — that ground the natural-language-to-SQL generation in the team's actual semantics. This directly resolves ambiguous terminology issues without touching schema or permissions, which don't affect Genie's query-generation logic.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/genie/"
+      ],
+      "id": "q-12"
+    },
+    {
+      "topicId": "topic-01",
+      "prompt": "A team is migrating a legacy ADLS Gen2 dataset into Unity Catalog. They must be able to remove and recreate the table definition during schema iteration without ever risking deletion of the underlying Parquet files, since other non-Databricks tools also read them directly. Which DDL approach is correct?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "This creates a managed table; removing the table will delete the underlying files regardless of the LOCATION clause"
+        },
+        {
+          "id": "b",
+          "label": "This creates an external table; Unity Catalog only manages the metadata/catalog entry, so removing the table leaves the underlying files untouched"
+        },
+        {
+          "id": "c",
+          "label": "The LOCATION clause is only cosmetic for managed tables and has no effect on deletion behavior"
+        },
+        {
+          "id": "d",
+          "label": "External tables cannot be created this way; they require a separate statement"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Specifying LOCATION on CREATE TABLE makes it an external table: Unity Catalog governs access and metadata but does not own the data's lifecycle. Removing the table deletes only the catalog entry, leaving files at that path untouched — exactly what's needed when other tools depend on those files directly. Managed tables (no LOCATION) behave oppositely and delete the underlying data when removed.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/create-tables"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "CREATE TABLE prod_sales.bronze.legacy_orders USING PARQUET LOCATION 'abfss://legacy@mystorageacct.dfs.core.windows.net/orders/'"
+      },
+      "id": "q-13"
+    },
+    {
+      "topicId": "topic-03",
+      "prompt": "You need to grant the `analytics_team` group SELECT access to every current and future table in the `prod_sales.gold` schema, without re-running a grant every time a new table is added. Which approach is correct in Unity Catalog?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "This is sufficient on its own — schema-level grants automatically cover all current and future tables"
+        },
+        {
+          "id": "b",
+          "label": "Grants in Unity Catalog only apply to objects that exist at grant time; new tables need either a fresh grant or a schema-level default/future-object grant policy to be covered automatically"
+        },
+        {
+          "id": "c",
+          "label": "SELECT cannot be granted at the schema level; it must be granted per table"
+        },
+        {
+          "id": "d",
+          "label": "Group-based grants are not supported; only individual users and service principals can be granted privileges"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "A schema-level GRANT SELECT applies to objects that exist at the time it's issued. Unity Catalog does not retroactively or automatically extend that grant to tables created afterward unless you use a mechanism intended for future objects; otherwise each new table needs its own grant (or a repeated schema grant). Group-based grants to principals like `analytics_team` are fully supported.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/manage-privileges/"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "GRANT SELECT ON SCHEMA prod_sales.gold TO `analytics_team`"
+      },
+      "id": "q-14"
+    },
+    {
+      "topicId": "topic-03",
+      "prompt": "A `customers` table contains a `ssn` column that only the compliance team should see, and EU-based analysts should only see rows where `region = 'EU'`. Both restrictions must be enforced centrally so every query — notebook, SQL warehouse, or BI tool — respects them automatically. What's the right Unity Catalog mechanism?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Create separate physical tables per region and per privilege level, and grant access to the matching copy"
+        },
+        {
+          "id": "b",
+          "label": "Apply a column mask function to `ssn` and a row filter function on `region`, both defined once on the table in Unity Catalog"
+        },
+        {
+          "id": "c",
+          "label": "Rely on each BI tool's own row-level security feature, configured separately per tool"
+        },
+        {
+          "id": "d",
+          "label": "Encrypt the ssn column client-side and distribute decryption keys only to compliance team laptops"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Unity Catalog supports column masks (functions that redact/transform a column's value based on the querying user's group membership) and row filters (functions that restrict which rows are visible), both defined once at the table level. Because enforcement happens in Unity Catalog itself, it applies uniformly across every compute path — notebooks, SQL warehouses, and connected BI tools — with no per-tool configuration.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/row-and-column-filters"
+      ],
+      "id": "q-15"
+    },
+    {
+      "topicId": "topic-03",
+      "prompt": "A notebook needs a database password to connect to an on-prem SQL Server via JDBC. The password is stored in Azure Key Vault. The team wants to avoid ever pasting the raw secret into notebook code or job configuration. What should they do?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Create an Azure Key Vault-backed secret scope in Databricks, then reference secrets via dbutils.secrets.get() as shown — the raw value is never displayed and is redacted from notebook output/logs"
+        },
+        {
+          "id": "b",
+          "label": "Copy the secret value into a Databricks widget default value so it's easy to reuse across notebooks"
+        },
+        {
+          "id": "c",
+          "label": "Store the password as a cluster environment variable in plain text, since cluster configs are workspace-private"
+        },
+        {
+          "id": "d",
+          "label": "Secrets can only be accessed by Databricks-native secret scopes; Key Vault-backed scopes are not supported"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Databricks supports Azure Key Vault-backed secret scopes: once configured, `dbutils.secrets.get()` retrieves the value at runtime without the code ever containing the raw secret, and Databricks automatically redacts secret values from notebook output and logs (printing REDACTED instead).",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/security/secrets/secret-scopes"
+      ],
+      "codeSnippet": {
+        "language": "python",
+        "code": "jdbc_password = dbutils.secrets.get(scope=\"kv-onprem-sql\", key=\"sql-password\")"
+      },
+      "id": "q-16"
+    },
+    {
+      "topicId": "topic-03",
+      "prompt": "A Lakeflow Job runs unattended every night and needs to read/write Unity Catalog tables. The security team requires that the job's identity be independent of any individual employee's account, so access isn't revoked when that employee leaves the company. What should own and run the job?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "The data engineer's personal Azure AD account, since personal accounts have the broadest default permissions"
+        },
+        {
+          "id": "b",
+          "label": "A Microsoft Entra ID service principal, created specifically for this job and granted only the Unity Catalog privileges it needs"
+        },
+        {
+          "id": "c",
+          "label": "A shared team login shared informally among engineers via a password manager"
+        },
+        {
+          "id": "d",
+          "label": "A personal access token (PAT) generated from any admin's account, rotated manually every 90 days"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Service principals are non-human identities meant exactly for unattended workloads like scheduled jobs: they're independent of any individual's employment status, can be scoped to least-privilege Unity Catalog grants, and are the recommended pattern over running jobs under personal accounts or shared credentials.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/dev-tools/service-principals"
+      ],
+      "id": "q-17"
+    },
+    {
+      "topicId": "topic-03",
+      "prompt": "A Databricks notebook needs to read files from an ADLS Gen2 storage account. The security team's policy forbids storing any storage account keys or SAS tokens anywhere in workspace configuration. Which authentication approach satisfies this policy?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hardcode the storage account access key in the notebook, since notebooks are only visible to authorized workspace users"
+        },
+        {
+          "id": "b",
+          "label": "Use a managed identity (assigned to the Databricks access connector or compute) that Azure AD authenticates automatically, with RBAC roles granted on the storage account — no keys or tokens stored anywhere"
+        },
+        {
+          "id": "c",
+          "label": "Generate a long-lived SAS token and store it in a workspace notebook parameter"
+        },
+        {
+          "id": "d",
+          "label": "Mount the storage account using the account key via dbutils.fs.mount, which encrypts the key automatically at rest"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Managed identities let Azure AD authenticate the Databricks access connector (or compute) directly against the storage account via RBAC role assignments (e.g., Storage Blob Data Reader). No credential — key, SAS token, or secret — needs to be stored or managed anywhere, satisfying a no-stored-keys policy while still allowing fine-grained, revocable access.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/connect/unity-catalog/cloud-storage/azure-managed-identities"
+      ],
+      "id": "q-18"
+    },
+    {
+      "topicId": "topic-03",
+      "prompt": "A new analyst joins the data team and needs to understand what the `net_revenue` column in `prod_sales.gold.orders` actually represents — whether it's before or after refunds — without pinging the original author. What should have been set up in advance to make this self-service?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "A README file stored separately in a Confluence page linked from the team wiki"
+        },
+        {
+          "id": "b",
+          "label": "Column and table comments/descriptions set via Unity Catalog DDL (or Catalog Explorer), which surface directly in the catalog's metadata for anyone browsing the table"
+        },
+        {
+          "id": "c",
+          "label": "A Slack channel dedicated to answering schema questions"
+        },
+        {
+          "id": "d",
+          "label": "Naming the column net_revenue_after_refunds instead, since column names alone are sufficient documentation"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Unity Catalog lets you attach persistent comments/descriptions to catalogs, schemas, tables, and individual columns. These surface directly in Catalog Explorer and query tools, making tribal knowledge discoverable in place rather than relying on external docs or asking a person — exactly the self-service data discovery UC governance is meant to enable.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/catalog-explorer/"
+      ],
+      "id": "q-19"
+    },
+    {
+      "topicId": "topic-03",
+      "prompt": "A company has 40 tables tagged with sensitivity levels (`pii`, `internal`, `public`) across multiple catalogs. Security wants one rule that says \"only members of the security-cleared group can read any table tagged pii\" — enforced automatically as new pii-tagged tables appear, without editing grants table by table. What should they implement?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "A saved SQL query that lists all pii tables, reviewed manually each week"
+        },
+        {
+          "id": "b",
+          "label": "Attribute-based access control (ABAC): a policy that references the pii tag, so any object carrying that tag is governed by the rule automatically, including new ones"
+        },
+        {
+          "id": "c",
+          "label": "Individual GRANT/REVOKE statements re-run every time a new table is created"
+        },
+        {
+          "id": "d",
+          "label": "Row filters applied to every table, keyed on a hardcoded list of table names"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Attribute-based access control (ABAC) in Unity Catalog lets you write policies against tags rather than individual object names. Because the policy targets the tag itself, any object — including ones created later — carrying that tag is automatically governed, eliminating the need for per-table grant maintenance.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/abac/"
+      ],
+      "id": "q-20"
+    },
+    {
+      "topicId": "topic-03",
+      "prompt": "Support engineers need to see customer support tickets including the customer's email address, but must see only the last 4 digits of any stored payment card number. The underlying table has both columns. Which combination of governance features applies here?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "A row filter on the email column and a column mask on the card number column"
+        },
+        {
+          "id": "b",
+          "label": "A column mask function on the card number column that redacts all but the last 4 digits for the support group, while other columns remain visible to them as normal"
+        },
+        {
+          "id": "c",
+          "label": "Two separate physical tables, one with the full card number and one without"
+        },
+        {
+          "id": "d",
+          "label": "Row-level security keyed on the customer's card number value"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "This scenario needs column-level redaction, not row filtering — support engineers should see every row (row filters restrict which rows are visible, not appropriate here) but a transformed version of one column. A column mask function conditionally applies masking logic (e.g., show only last 4 digits) based on the querying user's group membership, leaving other columns like email untouched.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/row-and-column-filters"
+      ],
+      "id": "q-21"
+    },
+    {
+      "topicId": "topic-03",
+      "prompt": "A compliance requirement states that raw clickstream event data must not be queryable after 13 months, but the aggregated monthly summary tables derived from it can be kept indefinitely. How should this be implemented in Unity Catalog / Delta Lake?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Manually delete the raw table every 13 months via an ad-hoc script run by an engineer"
+        },
+        {
+          "id": "b",
+          "label": "Apply a data retention policy to the raw events table (e.g., a scheduled process using Delta's time-based deletion/VACUUM-aligned retention) while leaving the aggregate tables unmanaged by that policy"
+        },
+        {
+          "id": "c",
+          "label": "Set a single workspace-wide retention setting that applies identically to every table, raw or aggregated"
+        },
+        {
+          "id": "d",
+          "label": "Rely on Delta Lake's default VACUUM schedule, which automatically enforces business-level retention requirements out of the box"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Retention policies need to be scoped per table/object based on business requirements — raw and aggregate tables here have different lifecycles. Delta Lake's default VACUUM only cleans up stale file versions for time-travel purposes; it does not enforce business retention SLAs on its own, so a deliberate retention policy/process must be defined for tables where old data must be purged.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/tables/delta/vacuum"
+      ],
+      "id": "q-22"
+    },
+    {
+      "topicId": "topic-03",
+      "prompt": "A data engineer wants to understand which downstream dashboards would break if column `customer_id` were renamed in `prod_sales.silver.customers`, before making the change. Where should they look?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Catalog Explorer's lineage graph, which shows upstream/downstream tables, notebooks, jobs, and dashboards derived from this table/column"
+        },
+        {
+          "id": "b",
+          "label": "The cluster event log, which records every read/write operation against the table"
+        },
+        {
+          "id": "c",
+          "label": "The audit log, filtered to GRANT/REVOKE events on this table"
+        },
+        {
+          "id": "d",
+          "label": "There is no built-in way to trace this; it must be tracked manually in a spreadsheet"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Unity Catalog automatically captures data lineage — tracking dependencies between tables, columns, notebooks, jobs, dashboards, and other assets — and surfaces it visually in Catalog Explorer, including column-level lineage. This is exactly the tool for impact analysis before a breaking schema change, rather than the audit log (which tracks access/permission events) or manual tracking.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/data-lineage"
+      ],
+      "id": "q-23"
+    },
+    {
+      "topicId": "topic-03",
+      "prompt": "A security audit asks: \"Show every user who queried the `prod_sales.gold.executive_comp` table in the last 90 days, and every permission change made to it.\" Where does this information come from in an Azure Databricks / Unity Catalog deployment?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Unity Catalog audit logs delivered to Azure (via diagnostic settings/Log Analytics), which capture query access events and privilege change events at the object level"
+        },
+        {
+          "id": "b",
+          "label": "The Spark UI's SQL tab, which retains query history indefinitely for all users"
+        },
+        {
+          "id": "c",
+          "label": "Cluster-level init script logs"
+        },
+        {
+          "id": "d",
+          "label": "There's no way to retroactively audit this; access must be logged manually by each user"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Unity Catalog emits detailed audit logs — including table access events and privilege/grant changes — that can be routed to Azure Monitor/Log Analytics via diagnostic settings for retention, querying, and compliance reporting. This is the authoritative source for \"who accessed what, and what permissions changed,\" not the Spark UI (ephemeral, per-cluster) or init script logs.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/admin/account-settings/audit-logs"
+      ],
+      "id": "q-24"
+    },
+    {
+      "topicId": "topic-03",
+      "prompt": "Your company wants to give an external partner organization read access to three specific Delta tables, refreshed continuously, without giving them a Databricks workspace login, a copy of your storage credentials, or requiring them to run Databricks at all. What should you design?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Export the tables to CSV and email them a new file weekly"
+        },
+        {
+          "id": "b",
+          "label": "A Delta Sharing share containing exactly those three tables, granted to a recipient defined by the partner's sharing identifier — no workspace account or credential sharing required"
+        },
+        {
+          "id": "c",
+          "label": "Create a guest workspace account for the partner with SELECT grants on the three tables"
+        },
+        {
+          "id": "d",
+          "label": "Give the partner the storage account's SAS token scoped to the three tables' underlying files"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Delta Sharing is Databricks' open protocol for sharing live data across organizational and platform boundaries without copying it or requiring the recipient to use Databricks. A secure share can be scoped to exactly the needed tables and granted to an external recipient, avoiding the security and operational downsides of guest accounts, raw credential sharing, or manual file exports.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/delta-sharing/"
+      ],
+      "id": "q-25"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A source system exports full-file CSV snapshots nightly (no change tracking available), while another source is a transactional database with a native CDC feed available. Both need to land in Unity Catalog. Which statement about designing the ingestion logic is correct?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both sources should use the exact same extraction pattern for consistency, ignoring what each source system actually offers"
+        },
+        {
+          "id": "b",
+          "label": "The CSV source is best handled as a full/batch extraction with file-based ingestion (e.g. Auto Loader), while the CDC-capable source should use change-based extraction to avoid reprocessing entire tables"
+        },
+        {
+          "id": "c",
+          "label": "CSV files cannot be ingested incrementally under any circumstances, so they must always be loaded as one giant historical batch"
+        },
+        {
+          "id": "d",
+          "label": "CDC feeds should be treated as full snapshots and reloaded in their entirety on every run to guarantee correctness"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Ingestion design should match what each source can actually provide: a snapshot-only CSV export is naturally suited to file-based batch/incremental ingestion (e.g. Auto Loader tracking new files), while a CDC-capable source should be ingested via its change feed so only deltas are processed — avoiding full reprocessing and reducing cost/latency.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/ingestion/"
+      ],
+      "id": "q-26"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "You need to ingest data from Salesforce, SQL Server, and a set of REST APIs into Unity Catalog. Salesforce and SQL Server are both supported natively; the REST APIs are bespoke internal services with custom auth. Which ingestion tool choice best fits each?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Use custom notebooks with Spark/Python for everything, since it's the most flexible option regardless of source type"
+        },
+        {
+          "id": "b",
+          "label": "Use Lakeflow Connect for the natively supported Salesforce/SQL Server connectors (managed, low-maintenance ingestion), and custom notebooks (or Azure Data Factory) for the bespoke REST APIs that need custom auth/logic"
+        },
+        {
+          "id": "c",
+          "label": "Use Azure Data Factory exclusively, since Lakeflow Connect cannot ingest from SaaS applications like Salesforce"
+        },
+        {
+          "id": "d",
+          "label": "Use Lakeflow Connect for the REST APIs too, since it supports arbitrary custom HTTP endpoints out of the box"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Lakeflow Connect provides managed, low-code connectors for common enterprise sources (Salesforce, SQL Server, and other SaaS/database systems), reducing operational overhead versus hand-rolled ingestion. For bespoke internal REST APIs with custom auth/logic that no managed connector covers, notebooks (or orchestrated via Azure Data Factory) remain the right tool — matching ingestion tool choice to what each source actually needs.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/ingestion/lakeflow-connect/"
+      ],
+      "id": "q-27"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A fraud-detection use case needs to react to new transactions within seconds of them occurring. A separate monthly financial reconciliation report only needs data as of the end of each day. Both read from the same underlying transaction source. What data loading method should each use?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both should use streaming, since streaming is strictly better than batch in every scenario"
+        },
+        {
+          "id": "b",
+          "label": "Fraud detection should use streaming ingestion (low latency, continuous processing); the monthly reconciliation report can use batch ingestion (e.g. a daily scheduled job), since near-real-time freshness isn't required"
+        },
+        {
+          "id": "c",
+          "label": "Both should use batch loading once per month to minimize compute cost"
+        },
+        {
+          "id": "d",
+          "label": "Loading method should be identical for both since they share the same source table"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Loading method should be chosen per use case's latency requirement, not per source. Streaming (e.g. Structured Streaming/Auto Loader) fits low-latency needs like fraud detection where seconds matter. Batch loading is more cost-efficient and operationally simpler when eventual, periodic freshness (like end-of-day) is sufficient — as with the monthly reconciliation report.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/ingestion/"
+      ],
+      "id": "q-28"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A pipeline lands raw JSON logs, then needs to support fast MERGE-based upserts, ACID transactions, and time travel for auditing, while remaining fully compatible with the Databricks lakehouse ecosystem. Which table format should the curated (silver/gold) layers use?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Raw JSON, kept as-is through every layer to avoid conversion overhead"
+        },
+        {
+          "id": "b",
+          "label": "CSV, since it's universally readable by any tool"
+        },
+        {
+          "id": "c",
+          "label": "Delta Lake (built on Parquet), which natively provides ACID transactions, efficient MERGE/upserts, and time travel"
+        },
+        {
+          "id": "d",
+          "label": "Plain Parquet without a transaction log, since Parquet alone provides ACID guarantees"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "Delta Lake is the table format purpose-built for exactly these requirements: ACID transactions, efficient MERGE for upserts, and time travel via its transaction log — layered on top of Parquet's columnar storage. JSON and CSV are fine as raw landing formats but lack these transactional guarantees; plain Parquet without a transaction log also lacks ACID/time-travel support on its own.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/delta/"
+      ],
+      "id": "q-29"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A 5 TB events table is queried almost exclusively with filters on `event_date`, and daily batch jobs only touch the current day's partition. Query performance on old, unfiltered full-table scans is not a concern. Which partitioning approach is most appropriate?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "No partitioning at all, relying purely on file statistics"
+        },
+        {
+          "id": "b",
+          "label": "Partition by event_date, since queries consistently filter on it and daily jobs naturally align with day-sized partitions, enabling partition pruning"
+        },
+        {
+          "id": "c",
+          "label": "Partition by a random hash column to maximize write parallelism regardless of query patterns"
+        },
+        {
+          "id": "d",
+          "label": "Partition by every high-cardinality column in the table to maximize granularity"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Partitioning should align with dominant query filter patterns and natural write/access granularity. Here, queries consistently filter on event_date and jobs process one day at a time, so partitioning by event_date enables partition pruning (skipping irrelevant files) and matches operational patterns. Over-partitioning on high-cardinality columns instead creates the classic 'small files' problem and hurts performance.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/tables/partitions"
+      ],
+      "id": "q-30"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A `customers` dimension table needs to preserve full history of address changes for accurate historical reporting (e.g. \"what region was this customer in when they placed order #4521?\"), while still supporting an easy \"current address\" lookup. Which SCD (slowly changing dimension) type fits best?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "SCD Type 1 — overwrite the old value with the new one"
+        },
+        {
+          "id": "b",
+          "label": "SCD Type 2 — insert a new row for each change, with effective/expiry dates (or a current-flag) so historical joins resolve to the address that was valid at that point in time"
+        },
+        {
+          "id": "c",
+          "label": "SCD Type 0 — never allow the address to change once set"
+        },
+        {
+          "id": "d",
+          "label": "Store only the current address and reconstruct history from application logs on demand"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "SCD Type 2 preserves full history by inserting a new versioned row per change (typically with effective_date/end_date or a current flag), which is exactly what's needed to answer point-in-time historical questions correctly. SCD Type 1 (overwrite) would lose the historical address entirely, breaking the \"region at time of order\" use case.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/dlt/dlt-cdc"
+      ],
+      "id": "q-31"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A gold-layer table currently stores one row per individual transaction. A finance dashboard only ever needs daily totals per store, and the transaction-level detail is never queried directly by that dashboard. What granularity decision would most improve the dashboard's efficiency?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Keep transaction-level granularity everywhere and let the dashboard's BI tool aggregate on every query"
+        },
+        {
+          "id": "b",
+          "label": "Create a coarser-grained aggregate table (or materialized view) at store/day granularity specifically for the dashboard, while retaining the transaction-level table for use cases that need it"
+        },
+        {
+          "id": "c",
+          "label": "Delete the transaction-level table entirely once the aggregate exists, since finer granularity is never useful"
+        },
+        {
+          "id": "d",
+          "label": "Increase granularity further by adding an hour-of-day dimension, since more granularity always improves performance"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Granularity should be chosen per consumer's actual query pattern. A dashboard that only needs store/day totals benefits from a pre-aggregated table at that granularity (avoiding repeated aggregation of transaction-level data on every query), while other consumers that need transaction-level detail still have that table available — granularity choices aren't one-size-fits-all across a whole platform.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/lakehouse/medallion"
+      ],
+      "id": "q-32"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "Auditors need to be able to answer \"what did the customer's loyalty tier look like as of any date in the last 3 years\", not just today. The team decides to build a table that records every tier value along with the time range it was valid. What is this pattern called, and what should the table include?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "A snapshot table containing only today's tier per customer, refreshed daily"
+        },
+        {
+          "id": "b",
+          "label": "A temporal (history) table: one row per tier-change event per customer, with valid_from/valid_to timestamps, enabling point-in-time reconstruction for any historical date"
+        },
+        {
+          "id": "c",
+          "label": "A materialized view recomputed from scratch on every query, since materialized views inherently store full history"
+        },
+        {
+          "id": "d",
+          "label": "A simple UPDATE-in-place table, since Delta Lake's time travel alone satisfies this requirement without any schema design"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "A temporal/history table explicitly models validity periods (valid_from/valid_to) per record version, letting queries reconstruct \"what was true as of date X\" without relying on Delta's time-travel feature (which reflects table snapshot history, not necessarily business-meaningful validity periods, and has retention limits). This is the standard pattern for long-term point-in-time auditability.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/dlt/dlt-cdc"
+      ],
+      "id": "q-33"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A 10 TB table is frequently filtered on a high-cardinality `user_id` column and a medium-cardinality `country` column, but data arrival order makes traditional static partitioning by either column impractical (skewed, constantly-changing value distributions). The team also wants to avoid manually running maintenance commands after every load. What clustering strategy fits best?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Traditional Hive-style static partitioning by user_id, accepting the skew"
+        },
+        {
+          "id": "b",
+          "label": "Liquid clustering on (user_id, country), which incrementally and automatically reorganizes data by clustering keys without requiring rigid partition definitions or manual OPTIMIZE scheduling for rebalancing"
+        },
+        {
+          "id": "c",
+          "label": "Z-ordering only, which requires no clustering key definition and works automatically on every column"
+        },
+        {
+          "id": "d",
+          "label": "No clustering strategy is needed since Delta Lake automatically optimizes file layout with zero configuration"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Liquid clustering is designed for exactly this case: high/varying-cardinality columns where static partitioning causes skew or too many small partitions. It clusters data incrementally as it's written and adapts over time, reducing the need for manual OPTIMIZE/Z-order maintenance while still enabling efficient file pruning on the clustering keys.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/delta/clustering"
+      ],
+      "id": "q-34"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A team is registering a table backed by data another department already produces and owns in their own ADLS Gen2 container. The team must never accidentally delete that department's underlying files, even if their own table is dropped for cleanup. Which table type should they create, and why?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "A managed table, because managed tables are always safer for shared data"
+        },
+        {
+          "id": "b",
+          "label": "An unmanaged (external) table pointing at the other department's storage path — Unity Catalog governs metadata/access only, so dropping the table never deletes the underlying files"
+        },
+        {
+          "id": "c",
+          "label": "Either type works identically in terms of data deletion risk"
+        },
+        {
+          "id": "d",
+          "label": "A managed table with a manual reminder process to back up the data before any drop operation"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "This is the core distinction between managed and unmanaged (external) tables: dropping a managed table deletes its underlying data, while dropping an unmanaged/external table only removes the catalog entry — the files remain exactly as they were. For data owned and physically managed by another team, external/unmanaged is the safe choice.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/create-tables"
+      ],
+      "id": "q-35"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "You need to stand up a production-grade ingestion pipeline from Salesforce into Unity Catalog with minimal custom code, automatic schema evolution handling, and built-in incremental extraction — without writing a custom connector. Which approach fits?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lakeflow Connect's managed Salesforce connector, configured to run in batch or streaming mode as needed"
+        },
+        {
+          "id": "b",
+          "label": "A hand-written Python notebook using the raw Salesforce REST API and manual pagination/state tracking"
+        },
+        {
+          "id": "c",
+          "label": "Spark Structured Streaming reading directly from Salesforce's database files"
+        },
+        {
+          "id": "d",
+          "label": "COPY INTO pointed at the Salesforce web UI export URL"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Lakeflow Connect provides managed, low-code connectors for common SaaS/enterprise sources like Salesforce, handling extraction, incremental/CDC-style updates, and schema evolution with minimal custom code — supporting both batch and streaming ingestion modes. Hand-rolled REST integrations require far more maintenance for the same outcome.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/ingestion/lakeflow-connect/"
+      ],
+      "id": "q-36"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A data engineer wants a notebook cell that ingests new files from a cloud storage path incrementally on each run, without manually tracking which files were already processed, and that stays robust to new files continuously arriving. Which pattern accomplishes this within a notebook?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "This uses Auto Loader (cloudFiles) with trigger(availableNow=True), which incrementally discovers and processes only new files each run using its own file-tracking state, then stops — giving batch-like scheduling with streaming-style incremental file tracking"
+        },
+        {
+          "id": "b",
+          "label": "This re-reads every file in the directory on every run, since readStream always performs a full scan"
+        },
+        {
+          "id": "c",
+          "label": "The checkpointLocation is optional decoration and has no effect on which files get reprocessed"
+        },
+        {
+          "id": "d",
+          "label": "This pattern only works for Parquet files, not JSON"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Auto Loader (cloudFiles format) incrementally and efficiently discovers new files in cloud storage using its own scalable file-tracking state (backed by the checkpoint location), avoiding full directory listings on every run. `trigger(availableNow=True)` processes all currently available new data then stops — a common pattern for running incremental ingestion on a schedule (e.g., inside a notebook task) rather than as an always-on stream.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/ingestion/cloud-object-storage/auto-loader/"
+      ],
+      "codeSnippet": {
+        "language": "python",
+        "code": "df = (spark.readStream\n      .format(\"cloudFiles\")\n      .option(\"cloudFiles.format\", \"json\")\n      .option(\"cloudFiles.schemaLocation\", \"/mnt/schemas/orders\")\n      .load(\"/mnt/raw/orders/\"))\n\n(df.writeStream\n   .option(\"checkpointLocation\", \"/mnt/checkpoints/orders\")\n   .trigger(availableNow=True)\n   .table(\"prod_sales.bronze.orders\"))"
+      },
+      "id": "q-37"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A gold table needs to be rebuilt every night from a large staging table using a single, all-at-once SQL statement (not incremental appends), where the output table's schema should exactly match the SELECT's output. Which SQL method fits?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "CREATE OR REPLACE TABLE ... AS (CRAS) atomically replaces the table's data and schema with the query result each run, which is exactly suited for a full nightly rebuild"
+        },
+        {
+          "id": "b",
+          "label": "COPY INTO, since it's the only method that supports SELECT-based transformations"
+        },
+        {
+          "id": "c",
+          "label": "MERGE INTO with no matching condition, which behaves identically to a full table replace"
+        },
+        {
+          "id": "d",
+          "label": "INSERT INTO, since it automatically clears the target table before every load"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "CREATE OR REPLACE TABLE ... AS SELECT (sometimes called CRAS) atomically swaps the table's contents and schema with a query's output — ideal for full, deterministic nightly rebuilds where you always want the target to exactly reflect the latest computed result. COPY INTO is for incrementally loading files into an existing table, not query-driven full rebuilds; INSERT INTO appends rather than replacing.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/sql-ref-syntax-ddl-create-table-using"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "CREATE OR REPLACE TABLE prod_sales.gold.daily_summary AS\nSELECT store_id, order_date, SUM(amount) AS total_sales\nFROM prod_sales.silver.orders\nGROUP BY store_id, order_date"
+      },
+      "id": "q-38"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A source SQL Server table emits inserts, updates, and deletes that need to be reflected in a Unity Catalog Delta table with minimal latency and without reprocessing the full source table each time. Which ingestion approach directly addresses this requirement?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "A nightly CREATE OR REPLACE TABLE ... AS SELECT * FROM the full source table"
+        },
+        {
+          "id": "b",
+          "label": "Consuming a change data capture (CDC) feed from the source and applying inserts/updates/deletes incrementally (e.g. via MERGE or APPLY CHANGES INTO in a Declarative Pipeline)"
+        },
+        {
+          "id": "c",
+          "label": "A one-time COPY INTO run when the table is first created, with no further updates"
+        },
+        {
+          "id": "d",
+          "label": "Periodically dropping and recreating the entire target table from a fresh export"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "CDC feeds capture row-level insert/update/delete events from the source as they happen. Applying them incrementally — via MERGE logic or Lakeflow Declarative Pipelines' APPLY CHANGES INTO — keeps the target table current with low latency and without reprocessing the entire source table on every run, unlike full-refresh approaches (CRAS or drop/recreate).",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/dlt/dlt-cdc"
+      ],
+      "id": "q-39"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A team needs to compute a running 5-minute windowed aggregate over an unbounded stream of IoT sensor readings, with results updating continuously as new data arrives, and must correctly handle late-arriving events within a bounded delay. Which technology is purpose-built for this?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Spark Structured Streaming, whose windowed aggregation and watermarking (withWatermark) natively support continuous windowed computation with bounded handling of late data"
+        },
+        {
+          "id": "b",
+          "label": "A batch job run every 5 minutes using CREATE OR REPLACE TABLE, since batch and streaming produce identical results for windowed aggregates"
+        },
+        {
+          "id": "c",
+          "label": "COPY INTO with a WHERE clause filtering the last 5 minutes of data"
+        },
+        {
+          "id": "d",
+          "label": "Auto Loader alone, without Structured Streaming, since Auto Loader natively performs windowed aggregation"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Spark Structured Streaming provides native windowed aggregation (`window()`) and watermarking (`withWatermark`) to bound how long the engine waits for late-arriving events before finalizing a window — exactly the semantics needed for continuous, correctness-aware streaming aggregates. Auto Loader is a file-ingestion source, not an aggregation engine; it's typically used as the read side feeding into Structured Streaming logic like this.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/structured-streaming/"
+      ],
+      "codeSnippet": {
+        "language": "python",
+        "code": "from pyspark.sql.functions import window, avg\n\n(spark.readStream.table(\"prod_iot.bronze.sensor_readings\")\n  .withWatermark(\"event_time\", \"10 minutes\")\n  .groupBy(window(\"event_time\", \"5 minutes\"), \"sensor_id\")\n  .agg(avg(\"temperature\").alias(\"avg_temp\"))\n  .writeStream\n  .outputMode(\"append\")\n  .table(\"prod_iot.silver.temp_5min_avg\"))"
+      },
+      "id": "q-40"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A team needs to ingest a continuous stream of clickstream events published to an Azure Event Hubs namespace, landing them into a bronze Delta table in near-real-time. Which approach is correct?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Use the Structured Streaming Event Hubs connector to read the stream directly, then write it into the bronze Delta table with writeStream"
+        },
+        {
+          "id": "b",
+          "label": "Export Event Hubs data to CSV files hourly and use COPY INTO, since Event Hubs cannot be read directly by Spark"
+        },
+        {
+          "id": "c",
+          "label": "Use Auto Loader's cloudFiles format directly against the Event Hubs namespace endpoint"
+        },
+        {
+          "id": "d",
+          "label": "Event Hubs data must first be manually copied into ADLS Gen2 before Databricks can process it"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Azure Databricks reads Event Hubs streams directly via the Structured Streaming Event Hubs connector (`format(\"eventhubs\")`), enabling low-latency, near-real-time ingestion straight into a bronze Delta table with writeStream — no intermediate file export or manual copy step is needed. Auto Loader/cloudFiles is for cloud object storage, not message streaming services like Event Hubs.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/structured-streaming/streaming-event-hubs"
+      ],
+      "codeSnippet": {
+        "language": "python",
+        "code": "connectionString = dbutils.secrets.get(\"kv-eventhubs\", \"clickstream-conn-str\")\nehConf = {\n  'eventhubs.connectionString': sc._jvm.org.apache.spark.eventhubs.EventHubsUtils.encrypt(connectionString)\n}\n\ndf = spark.readStream.format(\"eventhubs\").options(**ehConf).load()"
+      },
+      "id": "q-41"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A team wants a declarative ingestion pipeline where they only describe the desired bronze/silver/gold tables and transformations, and the platform automatically manages incremental file discovery, dependency ordering, and orchestration — rather than hand-writing Structured Streaming checkpoint/trigger logic themselves. What should they use?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lakeflow Spark Declarative Pipelines (using Auto Loader as the ingestion source within @dlt.table definitions), which manages orchestration, incremental processing, and dependency graphs declaratively"
+        },
+        {
+          "id": "b",
+          "label": "A raw Structured Streaming job with manually configured checkpoints, which is the only way to get incremental ingestion"
+        },
+        {
+          "id": "c",
+          "label": "Azure Data Factory copy activities exclusively, since Databricks has no declarative pipeline concept"
+        },
+        {
+          "id": "d",
+          "label": "A single monolithic notebook using dbutils.notebook.run() to chain bronze/silver/gold steps"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Lakeflow Spark Declarative Pipelines (formerly Delta Live Tables) let engineers declare table definitions and transformations, with the platform handling incremental processing, task orchestration, and dependency resolution automatically. Auto Loader is commonly used as the ingestion source inside these pipelines, removing the need to hand-manage Structured Streaming checkpoint/trigger plumbing directly.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/dlt/"
+      ],
+      "codeSnippet": {
+        "language": "python",
+        "code": "import dlt\n\n@dlt.table\ndef bronze_orders():\n    return (\n        spark.readStream.format(\"cloudFiles\")\n        .option(\"cloudFiles.format\", \"json\")\n        .load(\"/mnt/raw/orders/\")\n    )"
+      },
+      "id": "q-42"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "Before designing transformations for a newly onboarded source table, an engineer wants to quickly understand column-level null rates, distinct value counts, min/max ranges, and value distributions — without writing custom aggregation SQL for every column. What's the fastest way to get this in a Databricks notebook?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Manually write a GROUP BY/COUNT DISTINCT query per column"
+        },
+        {
+          "id": "b",
+          "label": "Use built-in data profiling (e.g. DataFrame.summary()/describe(), or the profiling tab in the notebook table viewer) to get summary statistics across all columns at once"
+        },
+        {
+          "id": "c",
+          "label": "Export the table to Excel and use PivotTables"
+        },
+        {
+          "id": "d",
+          "label": "There is no built-in profiling capability; a third-party library must be installed"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Databricks notebooks provide built-in profiling: `DataFrame.summary()`/`describe()` compute count, mean, stddev, min/max, and percentiles across all columns in one call, and the notebook's table result viewer includes a Data Profile tab that visualizes null rates and distributions automatically — no per-column custom queries needed.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/notebooks/notebooks-visualize"
+      ],
+      "codeSnippet": {
+        "language": "python",
+        "code": "display(spark.table(\"prod_sales.bronze.new_source\").summary())"
+      },
+      "id": "q-43"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A source CSV file has a `discount_pct` column that arrives as text like \"15%\" and an `order_id` column that arrives as text but is always numeric. The silver table needs discount_pct usable in arithmetic and order_id efficiently joinable/indexable. What's the correct approach?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Leave both columns as STRING, since Delta Lake automatically infers correct types at query time"
+        },
+        {
+          "id": "b",
+          "label": "Cast order_id to a numeric type (e.g. BIGINT/INT) for efficient joins, and parse/cast discount_pct into a numeric type (e.g. DOUBLE) after stripping the '%' — choosing types deliberately based on how each column will be used"
+        },
+        {
+          "id": "c",
+          "label": "Cast both columns to BOOLEAN, since Delta Lake performs best with the smallest possible data types"
+        },
+        {
+          "id": "d",
+          "label": "Store discount_pct as STRING and order_id as DOUBLE, since floating point types are always safest for joins"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Choosing appropriate column data types is a deliberate transformation step: numeric IDs used in joins should be numeric types (better performance, correct semantics) rather than strings, and columns needing arithmetic (like a percentage) need to be parsed into numeric types rather than left as text. Type inference alone doesn't fix malformed or oddly-formatted text.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/data-types/"
+      ],
+      "id": "q-44"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A bronze orders table has duplicate rows from an at-least-once delivery source, and a `customer_email` column that's sometimes NULL but should default to \"unknown@example.com\" for downstream joins to work. Which transformation sequence correctly addresses both issues?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "dropDuplicates([\"order_id\"]) removes rows with a repeated order_id (keeping one), and coalesce() fills nulls in customer_email with the default — correctly resolving both the duplicate and missing-value issues"
+        },
+        {
+          "id": "b",
+          "label": "dropDuplicates() with no arguments should be used instead, since column-scoped deduplication is not supported in Spark"
+        },
+        {
+          "id": "c",
+          "label": "coalesce() removes duplicate rows, and dropDuplicates() fills null values"
+        },
+        {
+          "id": "d",
+          "label": "This code silently fails because withColumn cannot be chained after dropDuplicates"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "`dropDuplicates([\"order_id\"])` deduplicates based on a specific key column (appropriate when only certain columns define uniqueness), and `coalesce()` returns the first non-null argument — a standard pattern for substituting a default value for nulls. Both operations are valid to chain via withColumn.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/pyspark/basics"
+      ],
+      "codeSnippet": {
+        "language": "python",
+        "code": "from pyspark.sql import functions as F\n\nclean_df = (\n    raw_df\n    .dropDuplicates([\"order_id\"])\n    .withColumn(\"customer_email\", F.coalesce(F.col(\"customer_email\"), F.lit(\"unknown@example.com\")))\n)"
+      },
+      "id": "q-45"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A gold table needs total revenue per region per month, computed from a silver orders table with one row per order. Which transformation is required?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "filter narrows rows to completed orders, groupBy establishes the region/month grouping, and agg(sum) computes the aggregate — the standard filter/group/aggregate pattern"
+        },
+        {
+          "id": "b",
+          "label": "groupBy alone is sufficient; filter and agg have no effect on the result"
+        },
+        {
+          "id": "c",
+          "label": "This requires a join, not a groupBy, since revenue aggregation always needs a second table"
+        },
+        {
+          "id": "d",
+          "label": "date_trunc is invalid inside groupBy and must be computed in a separate step first"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "This is the canonical filter → group → aggregate transformation pattern: filtering rows down to what should be counted, grouping by the dimensions of interest (region and month), then aggregating the measure (sum of amount) per group. date_trunc can be used directly as a groupBy expression, and no join is needed since everything comes from one orders table.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/pyspark/basics"
+      ],
+      "codeSnippet": {
+        "language": "python",
+        "code": "gold_df = (\n    orders_df\n    .filter(F.col(\"status\") == \"completed\")\n    .groupBy(\"region\", F.date_trunc(\"month\", \"order_date\").alias(\"month\"))\n    .agg(F.sum(\"amount\").alias(\"total_revenue\"))\n)"
+      },
+      "id": "q-46"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "You need a list of customer_ids that exist in this month's active_customers table but did NOT exist in last month's active_customers table (i.e., newly active customers). Which set operation is the correct fit?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "INTERSECT, which returns rows present in both tables"
+        },
+        {
+          "id": "b",
+          "label": "EXCEPT (also called MINUS in some SQL dialects), which returns rows in the first result set that are not present in the second — exactly \"new this month\""
+        },
+        {
+          "id": "c",
+          "label": "UNION, which combines and deduplicates rows from both tables"
+        },
+        {
+          "id": "d",
+          "label": "A LEFT JOIN with no WHERE clause filtering, which returns the same result as EXCEPT by default"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "EXCEPT returns rows from the first query that don't appear in the second — precisely the \"present now, absent before\" semantics needed to find newly active customers. INTERSECT would find customers active in both months; UNION would combine all customers from both months, not isolate the difference.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/sql-ref-syntax-qry-select-setops"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "SELECT customer_id FROM this_month_active\nEXCEPT\nSELECT customer_id FROM last_month_active"
+      },
+      "id": "q-47"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A source system exports monthly sales as one row per product with separate columns `jan_sales`, `feb_sales`, ..., `dec_sales`. A downstream dashboard needs one row per (product, month) instead, to plot a time series. Which transformation is needed?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "PIVOT, to turn the month columns into more columns"
+        },
+        {
+          "id": "b",
+          "label": "UNPIVOT, which converts wide-format columns (one per month) into a long/tall format with one row per product-month combination — exactly what a time series plot needs"
+        },
+        {
+          "id": "c",
+          "label": "A UNION of 12 separate SELECT statements is the only way to achieve this"
+        },
+        {
+          "id": "d",
+          "label": "No transformation is needed since dashboards can plot wide-format data natively"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "UNPIVOT reshapes wide data (multiple columns representing categories, here months) into long/tall format (one row per category value) — the standard transformation for feeding time-series or category-based visualizations that expect one row per (entity, category). PIVOT does the opposite: long-to-wide.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/sql-ref-syntax-qry-select-unpivot"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "SELECT product_id, month, sales\nFROM wide_sales\nUNPIVOT (\n  sales FOR month IN (jan_sales, feb_sales, mar_sales, apr_sales)\n)"
+      },
+      "id": "q-48"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A silver customers table needs to be kept in sync with an upstream source: existing customers should have their attributes updated if changed, new customers should be added, and no existing rows should be duplicated. Which load operation directly supports this in one statement?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "INSERT INTO, which appends all source rows regardless of whether they already exist in the target"
+        },
+        {
+          "id": "b",
+          "label": "MERGE, which performs conditional update-if-matched / insert-if-not-matched (an upsert) in a single atomic statement based on the join key"
+        },
+        {
+          "id": "c",
+          "label": "APPEND, a dedicated SQL keyword for upserts"
+        },
+        {
+          "id": "d",
+          "label": "CREATE OR REPLACE TABLE, which is the only way to merge new and existing data"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "MERGE INTO is Delta Lake's upsert primitive: it joins source to target on a key and applies different logic per match outcome — UPDATE for matched rows (existing customers with changes), INSERT for unmatched source rows (new customers) — all atomically. Plain INSERT INTO would create duplicates for existing customers rather than updating them.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/delta/merge"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "MERGE INTO prod_sales.silver.customers AS target\nUSING staging_customers AS source\nON target.customer_id = source.customer_id\nWHEN MATCHED THEN UPDATE SET *\nWHEN NOT MATCHED THEN INSERT *"
+      },
+      "id": "q-49"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A silver orders table must never contain a NULL order_id, and order_quantity must always be greater than zero. The team wants these rules enforced at write time so bad data never lands in the table, rather than caught later by a downstream audit query. Which mechanism enforces this?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Delta Lake CHECK constraints, which reject any write violating the condition, enforcing nullability and range rules directly at write time"
+        },
+        {
+          "id": "b",
+          "label": "A nightly SQL query that reports rows violating the rule, run after the data has already landed"
+        },
+        {
+          "id": "c",
+          "label": "Column comments describing the expected rule, which Spark enforces automatically"
+        },
+        {
+          "id": "d",
+          "label": "There's no way to enforce this in Delta Lake; validation must happen entirely in application code before the write"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Delta Lake supports CHECK constraints (and NOT NULL) that are enforced at write time — any INSERT/UPDATE/MERGE violating the condition is rejected, preventing bad data from ever landing rather than relying on after-the-fact detection. This directly implements nullability and range/cardinality-style validation rules declared on the table itself.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/tables/constraints"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "ALTER TABLE prod_sales.silver.orders\n  ADD CONSTRAINT orders_id_not_null CHECK (order_id IS NOT NULL);\n\nALTER TABLE prod_sales.silver.orders\n  ADD CONSTRAINT orders_qty_positive CHECK (order_quantity > 0);"
+      },
+      "id": "q-50"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "An upstream source occasionally sends a `signup_date` field as a malformed string (e.g. \"N/A\" instead of a date) that doesn't match the target column's DATE type. The team wants the pipeline to keep running and route only the bad rows elsewhere for review, rather than crash the whole job or silently coerce bad values into nulls without visibility. What approach fits?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Use permissive/badRecordsPath (or rescued data column) handling during read, so malformed rows are captured separately for inspection instead of crashing the job or being silently dropped"
+        },
+        {
+          "id": "b",
+          "label": "Set the column type to STRING everywhere to avoid any type mismatch ever occurring"
+        },
+        {
+          "id": "c",
+          "label": "Wrap the entire pipeline in a try/except that ignores all errors"
+        },
+        {
+          "id": "d",
+          "label": "There is no way to handle malformed type mismatches without failing the whole job"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Spark's data source options support handling malformed records without failing the whole job — e.g., the rescued data column captures fields that don't match the expected schema/type so they're visible and reviewable, rather than crashing the pipeline or silently discarding bad data. Blanket try/except or making everything STRING sacrifices type safety and visibility into data quality issues.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/ingestion/cloud-object-storage/auto-loader/schema"
+      ],
+      "id": "q-51"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A source system unexpectedly adds a new column `loyalty_tier` to its export. The team wants Auto Loader to detect this automatically, evolve the target table's schema to include the new column, and not fail the pipeline — while still being alerted that a schema change occurred. Which behavior/setting is relevant?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "cloudFiles.schemaEvolutionMode=\"addNewColumns\" makes Auto Loader detect new columns, evolve the schema, and restart the stream with the new schema applied — rather than silently dropping the new field or hard-failing forever"
+        },
+        {
+          "id": "b",
+          "label": "Schema drift can only be handled by manually editing the target table's DDL before every source change"
+        },
+        {
+          "id": "c",
+          "label": "Auto Loader always fails permanently on any schema change with no recovery option"
+        },
+        {
+          "id": "d",
+          "label": "New columns are silently dropped by default with no configuration needed or possible"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Auto Loader's schema evolution modes control how it reacts to new columns in the source. \"addNewColumns\" (a common default) evolves the schema and triggers a stream restart to pick up the change, surfacing it via a stream failure/restart event (which is visible in job monitoring) rather than silently dropping data or requiring manual DDL edits for every source change.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/ingestion/cloud-object-storage/auto-loader/schema"
+      ],
+      "codeSnippet": {
+        "language": "python",
+        "code": "df = (spark.readStream.format(\"cloudFiles\")\n      .option(\"cloudFiles.format\", \"json\")\n      .option(\"cloudFiles.schemaLocation\", \"/mnt/schemas/orders\")\n      .option(\"cloudFiles.schemaEvolutionMode\", \"addNewColumns\")\n      .load(\"/mnt/raw/orders/\"))"
+      },
+      "id": "q-52"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A Lakeflow Declarative Pipeline ingesting orders must drop rows where `order_total` is negative (bad data), but should only fail the entire pipeline run if more than 5% of rows in a batch violate that rule (suggesting a systemic upstream problem). Which feature is designed for this?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pipeline expectations (@dlt.expect / expect_or_drop / expect_or_fail), which declaratively define data quality rules and let you choose per-rule whether violations are tracked, dropped, or fail the pipeline"
+        },
+        {
+          "id": "b",
+          "label": "A manual COUNT(*) query run after the pipeline completes, with a human deciding whether to roll back"
+        },
+        {
+          "id": "c",
+          "label": "CHECK constraints, which are the only mechanism available inside Declarative Pipelines and always fail the entire pipeline on any violation"
+        },
+        {
+          "id": "d",
+          "label": "There is no built-in way to conditionally drop vs. fail based on violation rate in Lakeflow Declarative Pipelines"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Lakeflow Declarative Pipelines support expectations: `@dlt.expect` (track violations, keep rows), `expect_or_drop` (drop violating rows), and `expect_or_fail` (fail the pipeline on any violation) — giving fine-grained, declarative control over data quality enforcement per rule, including patterns to drop bad rows while monitoring violation rates.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/dlt/expectations"
+      ],
+      "codeSnippet": {
+        "language": "python",
+        "code": "import dlt\n\n@dlt.table\n@dlt.expect_all_or_drop({\"valid_total\": \"order_total >= 0\"})\ndef silver_orders():\n    return dlt.read_stream(\"bronze_orders\")"
+      },
+      "id": "q-53"
+    },
+    {
+      "topicId": "topic-04",
+      "prompt": "A pipeline has three stages: ingest raw orders, validate and clean them into silver, then compute gold aggregates. The gold step must never run against an incomplete or still-updating silver table. How should the order of operations be enforced?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Run all three stages concurrently and rely on Delta Lake's ACID guarantees to sort out timing automatically"
+        },
+        {
+          "id": "b",
+          "label": "Define explicit task dependencies (e.g. gold task depends on silver task completing successfully) so the orchestrator only starts gold after silver finishes cleanly"
+        },
+        {
+          "id": "c",
+          "label": "Add a fixed 10-minute sleep between stages, assuming that's always enough time for silver to finish"
+        },
+        {
+          "id": "d",
+          "label": "Order doesn't matter since Unity Catalog automatically serializes access to dependent tables"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Order of operations in a multi-stage pipeline should be enforced through explicit dependency declarations between tasks (e.g. Lakeflow Jobs task dependencies, or DLT's automatic dependency inference from table references), guaranteeing gold only runs after silver completes successfully — not through concurrency, arbitrary sleeps, or assumptions about implicit serialization.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/run-if"
+      ],
+      "id": "q-54"
+    },
+    {
+      "topicId": "topic-04",
+      "prompt": "A team is designing a new multi-stage bronze/silver/gold pipeline. They want automatic dependency resolution between stages, built-in data quality expectations, and less hand-written orchestration/checkpoint code — in exchange for adopting a more declarative, opinionated framework. Which two approaches are being compared, and which fits this preference?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Notebook-based orchestration (imperative, full control over each step, orchestration handled via Lakeflow Jobs task dependencies) vs. Lakeflow Spark Declarative Pipelines (declarative, automatic dependency graph + expectations); the team's stated preference fits Declarative Pipelines"
+        },
+        {
+          "id": "b",
+          "label": "Both approaches are identical in Databricks; there is no meaningful difference between notebooks and Declarative Pipelines"
+        },
+        {
+          "id": "c",
+          "label": "Notebooks always provide automatic dependency resolution, making Declarative Pipelines redundant"
+        },
+        {
+          "id": "d",
+          "label": "Declarative Pipelines cannot express multi-stage bronze/silver/gold architectures"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Notebook-based pipelines (orchestrated as Lakeflow Job tasks) give full imperative control but require manually wiring dependencies, checkpoints, and quality checks. Lakeflow Spark Declarative Pipelines instead let you declare tables/transformations and infer the dependency graph automatically, plus offer built-in expectations for data quality — directly matching the stated preference for less hand-written orchestration.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/ldp/"
+      ],
+      "id": "q-55"
+    },
+    {
+      "topicId": "topic-04",
+      "prompt": "A Lakeflow Job has three tasks: extract, transform, load. The team wants the load task to run even if the transform task fails validation on a subset of records (to load what did succeed), but they want an alert fired and the job marked as failed overall so someone investigates. How should task logic be designed?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Set the transform task's run-if condition so load can still run after transform completes (success or with a partial-failure outcome), while configuring the job to report overall failure status and trigger a notification when any task reports an issue"
+        },
+        {
+          "id": "b",
+          "label": "Make load strictly dependent on transform's full success only, guaranteeing no partial loads ever happen, which coincidentally also satisfies the requirement"
+        },
+        {
+          "id": "c",
+          "label": "There's no way to run downstream tasks after a partial upstream failure in Lakeflow Jobs"
+        },
+        {
+          "id": "d",
+          "label": "Combine all three steps into a single task so there's nothing to configure"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Lakeflow Jobs support configurable task run-if conditions (e.g., run on success, on failure, or always) so downstream tasks can execute even when an upstream task reports a non-fatal issue, while the job's overall status and alerting still reflect that something needs attention. This gives fine-grained control over error handling rather than an all-or-nothing dependency.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/run-if"
+      ],
+      "id": "q-56"
+    },
+    {
+      "topicId": "topic-04",
+      "prompt": "A notebook task in a pipeline occasionally fails due to a transient upstream API timeout, but succeeds when simply retried a moment later. The team wants this handled automatically without manual intervention, but doesn't want infinite silent retries masking a real persistent failure. What's the appropriate error-handling design?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Configure a bounded number of automatic task retries (e.g. 2–3) with the job/task retry policy, so transient failures self-heal but a persistent failure still surfaces after retries are exhausted"
+        },
+        {
+          "id": "b",
+          "label": "Wrap the entire notebook in an infinite while-loop retry with no limit, guaranteeing it always eventually succeeds"
+        },
+        {
+          "id": "c",
+          "label": "Disable all error handling so failures are immediately visible with no retry"
+        },
+        {
+          "id": "d",
+          "label": "Manually re-run the job by hand every time it fails, since automatic retries aren't supported in Lakeflow Jobs"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Lakeflow Jobs support configuring a bounded retry policy per task (number of retries and optional delay), which is the correct pattern for transient, self-resolving failures like network timeouts — automatic recovery without manual intervention, while still surfacing genuinely persistent failures once retries are exhausted rather than masking them indefinitely.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/configure-task"
+      ],
+      "id": "q-57"
+    },
+    {
+      "topicId": "topic-04",
+      "prompt": "A team builds a notebook-based pipeline where notebook B must only run after notebook A completes successfully, and notebook C must only run after both A and B complete. They want this expressed as a single orchestrated Job rather than notebooks calling each other directly. How should this be built?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Use dbutils.notebook.run() inside notebook A to call B, and inside B to call C, chaining everything from within notebook code"
+        },
+        {
+          "id": "b",
+          "label": "Create a Lakeflow Job with three tasks (A, B, C), each pointing to its respective notebook, and configure task dependencies so B depends on A, and C depends on both A and B"
+        },
+        {
+          "id": "c",
+          "label": "Merge all three notebooks into one large notebook to avoid needing dependencies at all"
+        },
+        {
+          "id": "d",
+          "label": "Schedule three completely separate jobs at staggered times and hope the timing lines up"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Lakeflow Jobs support multi-task workflows where each task (which can be a notebook) declares explicit dependencies on other tasks, forming a DAG with proper precedence constraints (B after A; C after both A and B). This is the standard, maintainable way to orchestrate multi-notebook pipelines — preferable to nested dbutils.notebook.run() calls, which couple notebooks together and complicate monitoring/retries per stage.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/run-if"
+      ],
+      "id": "q-58"
+    },
+    {
+      "topicId": "topic-04",
+      "prompt": "A team wants to build a bronze-to-gold pipeline where they declare each table and Databricks automatically figures out the correct execution order based on which tables reference which, without the team manually specifying task-to-task dependencies. Which approach provides this?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lakeflow Spark Declarative Pipelines: the dependency graph is inferred automatically from dlt.read()/dlt.read_stream() references between table definitions, so execution order doesn't need to be manually declared"
+        },
+        {
+          "id": "b",
+          "label": "This still requires manually declaring task dependencies identical to a notebook-based Lakeflow Job"
+        },
+        {
+          "id": "c",
+          "label": "The @dlt.table decorator has no effect on execution order; all tables run in parallel regardless of dependencies"
+        },
+        {
+          "id": "d",
+          "label": "Table execution order in Declarative Pipelines must be set via a separate JSON configuration file"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "One of the core value propositions of Lakeflow Spark Declarative Pipelines is automatic dependency inference: because gold_daily_revenue references silver_orders via dlt.read(), the pipeline engine knows silver_orders must run first — no manual task dependency configuration required, unlike notebook-based Lakeflow Jobs where dependencies are declared explicitly.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/ldp/"
+      ],
+      "codeSnippet": {
+        "language": "python",
+        "code": "import dlt\n\n@dlt.table\ndef silver_orders():\n    return dlt.read_stream(\"bronze_orders\").filter(\"amount > 0\")\n\n@dlt.table\ndef gold_daily_revenue():\n    return dlt.read(\"silver_orders\").groupBy(\"order_date\").sum(\"amount\")"
+      },
+      "id": "q-59"
+    },
+    {
+      "topicId": "topic-04",
+      "prompt": "A team wants to run the same notebook against three different regions (US, EU, APAC) every night, each with its own input path and output table, without duplicating the job definition three times. What's the most maintainable way to set this up in Lakeflow Jobs?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Create one job definition with a single task, and use job parameters (widgets/parameters passed at task level) so the same notebook logic runs three times — once per region — via separate scheduled runs or a for-each task passing different parameter values"
+        },
+        {
+          "id": "b",
+          "label": "Copy-paste the entire job definition three times, hardcoding the region into each notebook's source code"
+        },
+        {
+          "id": "c",
+          "label": "Use three separate Databricks workspaces, one per region, each running an identical unparameterized job"
+        },
+        {
+          "id": "d",
+          "label": "Parameters are not supported in Lakeflow Jobs; each variation must be a separate notebook"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Lakeflow Jobs support parameterization (job/task parameters, or a For Each task that iterates a task over a list of values) so one job definition can run the same logic multiple times with different inputs — avoiding job/notebook duplication and the maintenance burden of keeping copies in sync.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/job-parameters"
+      ],
+      "id": "q-60"
+    },
+    {
+      "topicId": "topic-04",
+      "prompt": "A finance report must run at exactly 6:00 AM local time in New York every business day, and must not run on weekends or company holidays defined in an external calendar. Which trigger configuration best satisfies this?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "A cron-based schedule trigger with a Mon-Fri expression and the correct timezone_id handles the weekday/time requirement; holiday exclusion requires additional logic (e.g. a holiday-check task that skips downstream work) since cron alone can't reference an external calendar"
+        },
+        {
+          "id": "b",
+          "label": "A file-arrival trigger, since cron schedules cannot specify a fixed local time"
+        },
+        {
+          "id": "c",
+          "label": "A continuous trigger, running the job in a tight loop and checking the clock manually inside the notebook"
+        },
+        {
+          "id": "d",
+          "label": "Cron expressions in Databricks are always evaluated in UTC and cannot honor America/New_York as a timezone"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Lakeflow Jobs support cron-based schedule triggers with an explicit `timezone_id`, correctly handling recurring weekday/time requirements including daylight saving adjustments. However, cron alone has no concept of a company holiday calendar — that requires pipeline logic (e.g. a task that checks a holiday reference table/API and skips or short-circuits the run) layered on top of the schedule trigger.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/scheduled"
+      ],
+      "codeSnippet": {
+        "language": "json",
+        "code": "{\n  \"trigger\": {\n    \"periodic\": null\n  },\n  \"schedule\": {\n    \"quartz_cron_expression\": \"0 0 6 ? * MON-FRI\",\n    \"timezone_id\": \"America/New_York\",\n    \"pause_status\": \"UNPAUSED\"\n  }\n}"
+      },
+      "id": "q-61"
+    },
+    {
+      "topicId": "topic-04",
+      "prompt": "The on-call data engineer wants an automatic Slack/email notification the moment a nightly Lakeflow Job fails, but no notification on success (to avoid noise), and a separate notification if the job runs more than 3x longer than its usual duration (possible stuck job). What should be configured?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Job-level failure notifications (email/webhook/Slack integration) for the failure case, plus a duration threshold alert configured on the job for the \"running too long\" case — both configured independently, with success notifications left off"
+        },
+        {
+          "id": "b",
+          "label": "A single generic notification setting that fires on every run outcome, requiring manual filtering afterward"
+        },
+        {
+          "id": "c",
+          "label": "Notifications are only available via a third-party monitoring tool; Lakeflow Jobs has no native alerting"
+        },
+        {
+          "id": "d",
+          "label": "Enable notifications for success only, since failures are always visible in the Jobs UI without alerting"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Lakeflow Jobs support configuring notifications per outcome type (start, success, failure) independently, so you can enable only failure notifications to reduce noise. Separately, jobs support a duration threshold setting that triggers an alert when a run exceeds an expected runtime — directly addressing the \"stuck job\" detection case alongside failure alerts.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/notifications"
+      ],
+      "id": "q-62"
+    },
+    {
+      "topicId": "topic-04",
+      "prompt": "A streaming Lakeflow Declarative Pipeline occasionally gets killed by an unrelated cloud infrastructure event (e.g. a spot VM eviction) and needs to resume automatically without a human restarting it, while avoiding an infinite crash-restart loop if there's a genuine code bug. What should be configured?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "An automatic restart policy on the pipeline/job with a bounded retry count (and optionally exponential backoff), so transient infrastructure failures self-heal while a persistently broken pipeline still stops retrying and surfaces as failed after the limit"
+        },
+        {
+          "id": "b",
+          "label": "Manual restarts only, since automatic restarts are not supported for streaming pipelines"
+        },
+        {
+          "id": "c",
+          "label": "An unbounded automatic restart with no limit, guaranteeing the pipeline is never marked as failed"
+        },
+        {
+          "id": "d",
+          "label": "Switching from a streaming pipeline to a batch pipeline eliminates the need for restart handling entirely"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Lakeflow Jobs and Declarative Pipelines support configurable automatic restart/retry policies with a bounded retry count, which is the correct pattern here: transient infrastructure issues (like spot eviction) self-heal without manual intervention, but a genuinely broken pipeline still exhausts its retries and surfaces as a failure rather than looping forever.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/configure-task"
+      ],
+      "id": "q-63"
+    },
+    {
+      "topicId": "topic-04",
+      "prompt": "A new Lakeflow Job needs to run a notebook on a cluster sized for the workload, be owned by a service principal (not a personal account) for production reliability, and have its cluster spin down immediately after the task finishes to control cost. Which combination of setup choices is correct?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Use a job cluster (not an existing all-purpose cluster) scoped to the task, set the job's run-as identity to a dedicated service principal, and rely on the job cluster's automatic termination after task completion"
+        },
+        {
+          "id": "b",
+          "label": "Use an all-purpose cluster kept running 24/7 under the creating engineer's personal identity, since that guarantees the fastest task start every time"
+        },
+        {
+          "id": "c",
+          "label": "Run-as identity can only ever be the job creator's personal account; service principals cannot own jobs"
+        },
+        {
+          "id": "d",
+          "label": "Job clusters cannot be scoped per-task; they always require a separately pre-created all-purpose cluster"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Job clusters are created fresh for a task's run and automatically terminate afterward — the cost-efficient default for scheduled workloads, versus an always-on all-purpose cluster. Lakeflow Jobs also support setting a \"run as\" identity to a service principal, decoupling production job ownership from any individual employee's account, which is the recommended production pattern.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/how-to/run-jobs-with-service-principals"
+      ],
+      "id": "q-64"
+    },
+    {
+      "topicId": "topic-05",
+      "prompt": "Two engineers both edit the same Databricks notebook-backed pipeline file in a Git-linked repo, on separate feature branches, touching overlapping lines. What Git practice minimizes the risk of one engineer's work silently overwriting the other's?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both engineers commit directly to the main branch to avoid dealing with branches entirely"
+        },
+        {
+          "id": "b",
+          "label": "Each works on a separate feature branch, opens a pull request, and Git surfaces a merge conflict on overlapping lines that must be manually resolved and reviewed before merging — rather than silently taking one version"
+        },
+        {
+          "id": "c",
+          "label": "The second engineer to push automatically has their changes discarded with no notification"
+        },
+        {
+          "id": "d",
+          "label": "Notebooks cannot be version controlled with Git, so this scenario cannot be avoided"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Standard Git workflow — feature branches plus pull requests — is exactly what prevents silent overwrites: Git detects overlapping changes as a merge conflict, forcing explicit resolution and code review rather than one branch's changes silently clobbering the other's. Committing straight to main removes this safety net.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/repos/"
+      ],
+      "id": "q-65"
+    },
+    {
+      "topicId": "topic-05",
+      "prompt": "A team's pull request review process keeps missing subtle bugs because reviewers only read the diff without running the code. They want to require that automated checks pass before any PR can be merged into main. What should be configured?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Branch protection rules requiring CI checks (e.g. automated test runs) to pass, combined with mandatory review approval, before a PR can be merged"
+        },
+        {
+          "id": "b",
+          "label": "A written policy asking reviewers to \"try harder\" to catch bugs manually"
+        },
+        {
+          "id": "c",
+          "label": "Removing the PR review step entirely, since manual review isn't catching bugs anyway"
+        },
+        {
+          "id": "d",
+          "label": "Allowing any team member to merge their own PR without review to speed up delivery"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Branch protection combined with required CI status checks enforces that automated tests must pass — not just that a human skimmed the diff — before code reaches main. This is the standard fix for review processes that rely too heavily on manual inspection catching every issue.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/repos/ci-cd"
+      ],
+      "id": "q-66"
+    },
+    {
+      "topicId": "topic-05",
+      "prompt": "A team building a data pipeline wants confidence at three levels: that a single transformation function produces correct output for known inputs, that the full bronze-to-gold pipeline runs correctly against a realistic sample dataset, and that business stakeholders confirm the final gold table matches their expectations before go-live. Which testing strategy maps to these three needs?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Unit tests (individual function correctness) → integration/end-to-end tests (full pipeline against sample data) → user acceptance testing (UAT, stakeholder sign-off) — each addressing a different layer of confidence"
+        },
+        {
+          "id": "b",
+          "label": "A single exhaustive UAT phase is sufficient and makes unit/integration testing redundant"
+        },
+        {
+          "id": "c",
+          "label": "Unit tests alone cover all three needs, since they inherently validate end-to-end pipeline behavior and business expectations"
+        },
+        {
+          "id": "d",
+          "label": "Integration tests should be skipped entirely in data pipelines since they duplicate what unit tests already verify"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "A layered testing strategy addresses distinct risks: unit tests validate individual transformation logic in isolation, integration/end-to-end tests validate that components work correctly together against realistic data flowing through the full pipeline, and UAT validates that the result actually satisfies business/stakeholder expectations — no single layer substitutes for the others.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/dev-tools/ci-cd/"
+      ],
+      "id": "q-67"
+    },
+    {
+      "topicId": "topic-05",
+      "prompt": "A team wants to package a set of notebooks, a job definition, and cluster configuration as a single deployable unit that can be validated and deployed consistently across dev/staging/prod, with environment-specific values (like catalog name) parameterized. What is the Databricks-native tool for this, and how is it configured?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Databricks Asset Bundles, configured via a databricks.yml file defining resources (jobs, pipelines, etc.) and per-target variables/workspace settings for each environment"
+        },
+        {
+          "id": "b",
+          "label": "A plain shell script that manually copies notebook files between workspaces using the CLI's workspace import command"
+        },
+        {
+          "id": "c",
+          "label": "Cluster policies, which are designed to package and deploy entire jobs and notebooks across environments"
+        },
+        {
+          "id": "d",
+          "label": "Unity Catalog volumes, used to store and version the bundle contents directly"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Databricks Asset Bundles (DABs) are the native infrastructure-as-code tool for packaging jobs, pipelines, notebooks, and related resources into one YAML-defined bundle, with per-target (dev/staging/prod) configuration for workspace and variables — enabling consistent, repeatable deployment across environments instead of manual file copying.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/dev-tools/bundles/"
+      ],
+      "codeSnippet": {
+        "language": "yaml",
+        "code": "bundle:\n  name: sales_pipeline\n\ntargets:\n  dev:\n    workspace:\n      host: https://dev-workspace.azuredatabricks.net\n    variables:\n      catalog: dev_sales\n  prod:\n    workspace:\n      host: https://prod-workspace.azuredatabricks.net\n    variables:\n      catalog: prod_sales\n\nresources:\n  jobs:\n    sales_etl:\n      name: sales_etl_job\n      tasks:\n        - task_key: main\n          notebook_task:\n            notebook_path: ./notebooks/etl.py"
+      },
+      "id": "q-68"
+    },
+    {
+      "topicId": "topic-05",
+      "prompt": "A developer has finished testing a Databricks Asset Bundle locally against the dev target and now needs to deploy it to the prod target from their terminal, as part of a manual release step. Which command is correct?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "This deploys the bundle's resources (jobs, pipelines, etc.) to the prod target's workspace as defined in databricks.yml, using that target's variables and workspace host"
+        },
+        {
+          "id": "b",
+          "label": "This command only validates the bundle syntax; a separate 'databricks bundle apply' command is required to actually deploy"
+        },
+        {
+          "id": "c",
+          "label": "The --target flag is ignored by the CLI, which always deploys to whichever workspace the developer is currently authenticated against"
+        },
+        {
+          "id": "d",
+          "label": "Bundles can only be deployed through the Databricks UI, never via CLI"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "`databricks bundle deploy --target <name>` is the Databricks CLI command that deploys a bundle's defined resources to the specified target environment, resolving that target's workspace host and variable overrides from databricks.yml — the standard CLI-driven deployment path for Asset Bundles.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/dev-tools/cli/bundle-commands"
+      ],
+      "codeSnippet": {
+        "language": "bash",
+        "code": "databricks bundle deploy --target prod"
+      },
+      "id": "q-69"
+    },
+    {
+      "topicId": "topic-05",
+      "prompt": "A CI/CD system (e.g. GitHub Actions) needs to trigger a Databricks Asset Bundle deployment as part of an automated release pipeline, without a human running CLI commands interactively. Which approach fits this automation requirement?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Have the CI runner call the Databricks REST APIs (or the CLI authenticated via a service principal / OAuth token in CI secrets) to deploy the bundle programmatically as part of the pipeline"
+        },
+        {
+          "id": "b",
+          "label": "Require a human to log into the Databricks UI and manually click through every deployment step whenever CI finishes"
+        },
+        {
+          "id": "c",
+          "label": "Bundles cannot be deployed via API; only interactive CLI sessions are supported"
+        },
+        {
+          "id": "d",
+          "label": "Email the bundle files to an administrator who deploys them manually each release"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "For CI/CD automation, deployment should happen programmatically: the CLI (which itself calls Databricks REST APIs under the hood) can be run non-interactively in a CI runner, authenticated via a service principal or OAuth token stored as a CI secret — exactly the pattern needed to trigger deployments as part of an automated pipeline without manual steps.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/dev-tools/bundles/"
+      ],
+      "id": "q-70"
+    },
+    {
+      "topicId": "topic-05",
+      "prompt": "The platform team notices Databricks costs have grown 40% month-over-month with no corresponding growth in data volume or job count. They suspect idle or oversized clusters. Where should they look first to investigate cluster cost efficiency across the workspace?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "The account/workspace-level usage and cluster utilization views (e.g. cluster event logs, DBU usage dashboards, and per-cluster metrics) to identify clusters running idle, oversized, or without autoscaling/auto-termination configured"
+        },
+        {
+          "id": "b",
+          "label": "The Delta table transaction log, which records every cluster's cost per query"
+        },
+        {
+          "id": "c",
+          "label": "There's no way to investigate cost drivers; costs can only be reduced by cutting the number of jobs"
+        },
+        {
+          "id": "d",
+          "label": "The Unity Catalog audit log exclusively, since it tracks all cost-relevant cluster activity"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Cluster consumption monitoring for cost/performance optimization starts with usage and utilization data — DBU consumption dashboards, cluster event logs, and per-cluster metrics — to spot patterns like clusters lacking autoscaling/auto-termination, oversized node types for the workload, or long idle periods, which are the typical drivers of unexplained cost growth.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/compute/cluster-metrics"
+      ],
+      "id": "q-71"
+    },
+    {
+      "topicId": "topic-05",
+      "prompt": "A Lakeflow Job run failed at its final task after the first four tasks succeeded and took 40 minutes total. The bug causing the failure has now been fixed in the notebook. The team wants to resume from the failed task rather than re-running the entire 40-minute job from the start. What should they do?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Use the Repair Run feature, which re-runs only the failed (and downstream) tasks while reusing the successful upstream tasks' results, avoiding a full re-run"
+        },
+        {
+          "id": "b",
+          "label": "Manually re-trigger the entire job from scratch, since Lakeflow Jobs cannot resume partially"
+        },
+        {
+          "id": "c",
+          "label": "Delete the job and recreate it, which automatically resumes from the last successful task"
+        },
+        {
+          "id": "d",
+          "label": "Stop the job permanently, since a failed run can never be repaired once the underlying bug is fixed"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Lakeflow Jobs' Repair Run capability re-runs only the failed task(s) and anything downstream of them, while leaving successfully completed upstream tasks' results intact — avoiding the cost and time of a full 40-minute re-run when only the last task needed a fix.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/repair-job-failures"
+      ],
+      "id": "q-72"
+    },
+    {
+      "topicId": "topic-05",
+      "prompt": "A Spark job that normally finishes in 20 minutes has been taking 3+ hours for the past two days, with no code changes. The Spark UI shows most tasks in one stage completing in seconds, but a handful taking 45+ minutes each. What is this symptom most consistent with, and what should the engineer check next?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Data skew: a small number of partitions contain disproportionately more data (or a hot key) than others, causing a few tasks to run far longer; check the stage's task duration distribution and partition/key cardinality in the Spark UI"
+        },
+        {
+          "id": "b",
+          "label": "This is always caused by insufficient driver memory, unrelated to task duration patterns"
+        },
+        {
+          "id": "c",
+          "label": "The Spark UI cannot show per-task duration, so this pattern cannot be diagnosed"
+        },
+        {
+          "id": "d",
+          "label": "This pattern indicates a network outage between the cluster and the driver, unrelated to data distribution"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "A small number of long-running tasks in an otherwise-fast stage is the classic signature of data skew — typically a hot key in a groupBy/join causing a few partitions to be much larger than others. The Spark UI's stage detail view (task duration distribution, shuffle read size per task) is exactly where this is diagnosed, often followed by techniques like salting the key or enabling adaptive query execution skew handling.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/optimizations/aqe"
+      ],
+      "id": "q-73"
+    },
+    {
+      "topicId": "topic-05",
+      "prompt": "A query's execution plan shows a large shuffle stage where a huge fact table is repartitioned to join with a very small (2 MB) dimension table, and this shuffle dominates the query's runtime. Using the query profile, what optimization would most directly address this?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Increase the number of shuffle partitions, since more partitions always reduce shuffle time"
+        },
+        {
+          "id": "b",
+          "label": "Ensure a broadcast join is used for the small dimension table (letting Spark send the small table to every executor instead of shuffling the large fact table), avoiding the expensive shuffle entirely"
+        },
+        {
+          "id": "c",
+          "label": "Convert the join to a UNION, which never requires a shuffle"
+        },
+        {
+          "id": "d",
+          "label": "Disable Photon, since Photon is incompatible with joins involving small tables"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "When one side of a join is small enough to fit in memory, a broadcast join sends that small table to every executor so the large table never needs to be shuffled — directly eliminating the expensive shuffle stage seen in the query profile/DAG. Spark's cost-based optimizer often does this automatically below a size threshold, but it can also be hinted explicitly when needed.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/sql-ref-syntax-qry-select-hints"
+      ],
+      "id": "q-74"
+    },
+    {
+      "topicId": "topic-05",
+      "prompt": "A Delta table receiving frequent small streaming writes has accumulated tens of thousands of small files, causing query performance to degrade over the past month, along with growing storage costs from old file versions no longer needed for time travel. Which two maintenance commands directly address these two issues respectively?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "OPTIMIZE compacts small files into larger ones to improve query performance; VACUUM removes old, unreferenced data files beyond the retention window to reclaim storage — each solving a different one of the two problems"
+        },
+        {
+          "id": "b",
+          "label": "OPTIMIZE and VACUUM both do the same thing: compact small files. Running either alone is sufficient for both problems"
+        },
+        {
+          "id": "c",
+          "label": "VACUUM compacts small files, while OPTIMIZE reclaims storage from old versions"
+        },
+        {
+          "id": "d",
+          "label": "Neither command is relevant to file count or storage; both only affect table statistics"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "OPTIMIZE compacts many small files into fewer, larger ones (directly addressing the small-file query performance problem, and can be combined with Z-ordering or liquid clustering for better data layout). VACUUM removes files no longer referenced by the current table state beyond the retention threshold (addressing the storage cost of accumulated old file versions) — they solve distinct problems and are typically run together as regular maintenance.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/tables/operations/optimize"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "OPTIMIZE prod_sales.silver.events;\n\nVACUUM prod_sales.silver.events RETAIN 168 HOURS;"
+      },
+      "id": "q-75"
+    },
+    {
+      "topicId": "topic-05",
+      "prompt": "A security team requires that all Databricks cluster and notebook activity logs be retained for 2 years in a centralized, queryable system outside of Databricks itself, for compliance purposes. Which Azure-native approach satisfies this?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stream Databricks logs (cluster logs, audit logs) to a Log Analytics workspace via Azure Monitor diagnostic settings, where they can be retained per a configured retention policy and queried with KQL"
+        },
+        {
+          "id": "b",
+          "label": "Rely on the default 30-day in-workspace notebook history, since Databricks retains all logs indefinitely by default"
+        },
+        {
+          "id": "c",
+          "label": "Manually export the Spark UI HTML pages every day and store them in a file share"
+        },
+        {
+          "id": "d",
+          "label": "Logs cannot be exported outside of Databricks; compliance retention isn't possible for cluster activity"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Azure Databricks integrates with Azure Monitor: diagnostic settings can stream cluster logs, audit logs, and other event categories into a Log Analytics workspace, where retention policies (e.g. 2 years) can be configured independently of Databricks' own retention, and logs become queryable via KQL — the standard pattern for centralized, compliant log retention.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/admin/system-tables/audit-logs"
+      ],
+      "id": "q-76"
+    },
+    {
+      "topicId": "topic-05",
+      "prompt": "The on-call team wants to be paged automatically within 5 minutes if average job failure rate across the workspace exceeds 10% in a rolling hour, using existing Azure infrastructure rather than a third-party tool. What should be configured?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "An Azure Monitor alert rule based on a metric/log query (e.g. against job run data streamed via diagnostic settings) with a threshold condition and an action group that pages on-call via the team's existing incident tooling"
+        },
+        {
+          "id": "b",
+          "label": "A manually refreshed dashboard that someone must remember to check every hour"
+        },
+        {
+          "id": "c",
+          "label": "Job-level email notifications only, with no aggregation across jobs or workspace-wide thresholds"
+        },
+        {
+          "id": "d",
+          "label": "Azure Monitor cannot alert based on custom thresholds derived from log data; only fixed built-in metrics are supported"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Azure Monitor alert rules can be built on log queries (KQL over data ingested via diagnostic settings, such as job run outcomes) with a custom threshold condition and a defined evaluation window, then wired to an action group for paging/notification — directly satisfying a workspace-wide, threshold-based, near-real-time alerting requirement without needing a per-job-only or third-party solution.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule"
+      ],
+      "id": "q-77"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A gold table must be queryable both by Databricks (via Delta Lake) and by an external Trino cluster that only understands Apache Iceberg, without maintaining two separate copies of the data. Which table format capability addresses this?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Delta Lake UniForm, which automatically generates Iceberg-compatible metadata alongside the Delta log so the same physical data can be read by Iceberg-only engines without duplicating storage"
+        },
+        {
+          "id": "b",
+          "label": "Store the data twice: once as Delta, once as a separate Iceberg copy kept in sync by a nightly job"
+        },
+        {
+          "id": "c",
+          "label": "Convert the table to plain CSV, since CSV is the only format both engines can read"
+        },
+        {
+          "id": "d",
+          "label": "Iceberg and Delta tables can never be reconciled; the team must standardize on one engine"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "UniForm (Universal Format) lets a Delta table also expose Iceberg (and Hudi) metadata pointing at the same underlying Parquet files, so external engines that only speak Iceberg can read it directly — avoiding data duplication while still writing through Delta Lake. This is the relevant table-format decision when multi-engine interoperability with Iceberg is required.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/delta/uniform"
+      ],
+      "id": "q-78"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A source system's vendor confirms that once a record is written, it is never updated or deleted — only new records are appended (an immutable event log). Another source is a mutable customer profile table where existing rows are frequently updated in place. How should extraction logic differ between the two?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both should always use full extraction on every run, since extraction logic doesn't need to consider source mutability"
+        },
+        {
+          "id": "b",
+          "label": "The immutable event log is a good fit for incremental/append-only extraction (only pulling new records since the last run); the mutable profile table needs an extraction approach that can capture updates — such as a CDC feed or periodic full/merge-based reconciliation"
+        },
+        {
+          "id": "c",
+          "label": "The mutable table should use append-only incremental extraction, since updates will naturally be captured as new appended rows"
+        },
+        {
+          "id": "d",
+          "label": "Source mutability only matters for the destination table format, not for how extraction itself is designed"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Designing ingestion logic starts with understanding what the source can produce: an append-only/immutable source is naturally suited to simple incremental extraction (new records since last watermark), while a source with in-place updates needs an extraction strategy that captures changes to existing rows — a CDC feed if available, or periodic full extraction merged into the target if not.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/ingestion/"
+      ],
+      "id": "q-79"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A one-time historical backfill needs to load five years of archived order exports (a fixed set of files that will never grow) into a bronze table. There's no need for incremental file tracking since this notebook will run exactly once. Which ingestion approach is simplest and appropriate?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "A plain batch read (spark.read) over the fixed file set, written once with a simple append/write — Auto Loader's incremental file-tracking machinery adds unnecessary complexity for a one-time, non-recurring load"
+        },
+        {
+          "id": "b",
+          "label": "Auto Loader is mandatory for any file-based ingestion, even one-time historical backfills"
+        },
+        {
+          "id": "c",
+          "label": "Structured Streaming with a continuous trigger, since batch reads cannot process Parquet files"
+        },
+        {
+          "id": "d",
+          "label": "This must be ingested via Lakeflow Connect since no other tool can write to Unity Catalog tables"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Ingestion tool/method choice should match the actual pattern: a one-time, fixed-size historical backfill is a textbook batch notebook job — a simple `spark.read` over the file set followed by a write. Auto Loader's incremental, stateful file-discovery tracking exists to handle continuously arriving new files, which doesn't apply here and would just add operational overhead.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/ingestion/"
+      ],
+      "codeSnippet": {
+        "language": "python",
+        "code": "historical_df = spark.read.format(\"parquet\").load(\"/mnt/archive/orders/*/*.parquet\")\nhistorical_df.write.mode(\"append\").saveAsTable(\"prod_sales.bronze.orders_historical\")"
+      },
+      "id": "q-80"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A team wants near-real-time sync from an on-prem SQL Server database into Unity Catalog, reflecting row-level inserts/updates/deletes within minutes, using Lakeflow Connect rather than hand-writing CDC logic. Which ingestion mode should the Lakeflow Connect connector be configured to use?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Batch mode only, scheduled hourly, since Lakeflow Connect does not support continuous ingestion"
+        },
+        {
+          "id": "b",
+          "label": "Streaming/continuous ingestion mode, which Lakeflow Connect supports for compatible sources — continuously applying inserts/updates/deletes with low latency instead of periodic batch snapshots"
+        },
+        {
+          "id": "c",
+          "label": "A one-time full extraction, re-run manually whenever the team remembers to refresh it"
+        },
+        {
+          "id": "d",
+          "label": "Lakeflow Connect can only ingest from SaaS applications, never from on-prem databases"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Lakeflow Connect supports both batch and streaming ingestion depending on the source connector, and for compatible database sources it can continuously apply row-level changes with low latency — the right choice when near-real-time sync is required, versus batch mode which would only refresh periodically.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/ingestion/lakeflow-connect/"
+      ],
+      "id": "q-81"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "The marketing team needs a list of customers who have never placed a single order, to target them with a welcome promotion. There's a `customers` table and an `orders` table keyed by customer_id. Which join type directly produces this?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "INNER JOIN, which returns only customers who have matching orders"
+        },
+        {
+          "id": "b",
+          "label": "LEFT ANTI JOIN, which returns rows from the left table (customers) that have no matching row at all in the right table (orders) — exactly \"customers with zero orders\""
+        },
+        {
+          "id": "c",
+          "label": "FULL OUTER JOIN, which is required to find non-matches and cannot be done any other way"
+        },
+        {
+          "id": "d",
+          "label": "RIGHT JOIN, since it naturally excludes matched left-side rows"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "LEFT ANTI JOIN returns only rows from the left table that have no corresponding match in the right table — precisely the \"exists in customers but never appears in orders\" semantics needed here. INNER JOIN would give the opposite (customers who HAVE ordered); FULL OUTER JOIN could get there too but requires an extra NULL filter, making ANTI JOIN the more direct choice.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/sql-ref-syntax-qry-select-join"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "SELECT c.customer_id, c.email\nFROM customers c\nLEFT ANTI JOIN orders o\n  ON c.customer_id = o.customer_id"
+      },
+      "id": "q-82"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A BI tool needs a single flat table with order details, customer name, and product category all in one place — it cannot perform joins itself. The source data is normalized across three separate silver tables (orders, customers, products). What transformation approach is needed for the gold layer?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Denormalization: joining the normalized tables together into one wide gold table so the BI tool can query a single flat structure without needing to perform joins itself"
+        },
+        {
+          "id": "b",
+          "label": "Normalization: splitting the flat structure into more tables, which is what the BI tool actually needs"
+        },
+        {
+          "id": "c",
+          "label": "Pivoting, since the requirement is about columns-to-rows transformation, not joining"
+        },
+        {
+          "id": "d",
+          "label": "The three silver tables should be left as-is; BI tools can always join across tables even without join support"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Denormalization — joining normalized source tables into a single wide table — is exactly the transformation needed when a downstream consumer (here, a BI tool without join capability) requires one flat structure. This is a common gold-layer pattern: normalized silver tables for storage efficiency and integrity, denormalized gold tables for consumption simplicity.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/lakehouse/medallion"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "CREATE OR REPLACE TABLE prod_sales.gold.orders_flat AS\nSELECT o.order_id, o.order_date, o.amount,\n       c.customer_name, c.region,\n       p.product_name, p.category\nFROM prod_sales.silver.orders o\nJOIN prod_sales.silver.customers c ON o.customer_id = c.customer_id\nJOIN prod_sales.silver.products p ON o.product_id = p.product_id"
+      },
+      "id": "q-83"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A silver `orders` table has a `product_id` column that must always correspond to an existing row in the `products` dimension table — orphaned product references indicate a serious upstream data integrity bug. The team wants this checked as part of routine data quality validation, not discovered weeks later by an analyst. Which validation check category does this fall under, and how should it be implemented?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "A referential-integrity / cardinality validation check: periodically (or via a pipeline expectation) verifying that every product_id in orders exists in products, since Delta Lake has no native foreign key enforcement across tables"
+        },
+        {
+          "id": "b",
+          "label": "A nullability check, since foreign key validity is the same thing as checking for NULLs"
+        },
+        {
+          "id": "c",
+          "label": "This cannot be validated at all; Delta Lake automatically enforces foreign keys between any two tables sharing a column name"
+        },
+        {
+          "id": "d",
+          "label": "A schema enforcement check, since referential integrity is a schema-level concept"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Delta Lake/Unity Catalog does not automatically enforce foreign-key relationships across tables the way a traditional RDBMS might, so referential integrity (every product_id resolving to a real product) has to be validated explicitly — e.g. an anti-join check run as part of a pipeline's data quality gate, or a Lakeflow Declarative Pipeline expectation. This is distinct from nullability (missing values) and schema enforcement (structure/type conformance).",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/tables/constraints"
+      ],
+      "codeSnippet": {
+        "language": "sql",
+        "code": "SELECT COUNT(*) AS orphaned_orders\nFROM prod_sales.silver.orders o\nLEFT ANTI JOIN prod_sales.silver.products p\n  ON o.product_id = p.product_id"
+      },
+      "id": "q-84"
+    },
+    {
+      "topicId": "topic-02",
+      "prompt": "A regulated financial data source must never silently accept a structural change: if the source starts sending a column with an unexpected data type (e.g. `amount` switching from DECIMAL to STRING), the pipeline must stop immediately rather than coerce, rescue, or auto-evolve the schema. Which schema handling configuration fits this requirement?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Providing an explicit strict schema plus a fail-fast evolution mode causes the stream to fail loudly on any structural mismatch (including type changes), rather than silently rescuing or auto-evolving — matching a zero-tolerance regulatory requirement"
+        },
+        {
+          "id": "b",
+          "label": "cloudFiles.schemaEvolutionMode=\"addNewColumns\" is the correct choice here, since it always fails on any change"
+        },
+        {
+          "id": "c",
+          "label": "There is no way to make Auto Loader fail on schema drift; it always rescues or coerces mismatched data silently"
+        },
+        {
+          "id": "d",
+          "label": "Type changes can never be detected by Auto Loader, only new/missing columns can"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Providing an explicit expected schema (rather than letting Auto Loader infer one) combined with a strict/fail-fast evolution mode makes the stream stop on any structural mismatch — new columns, missing columns, or type changes — instead of silently applying rescued-data handling or auto-evolving the schema. This is the correct pattern for regulated sources where undetected drift is unacceptable, contrasting with the earlier addNewColumns example designed to tolerate additive changes.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/ingestion/cloud-object-storage/auto-loader/schema"
+      ],
+      "codeSnippet": {
+        "language": "python",
+        "code": "df = (spark.readStream.format(\"cloudFiles\")\n      .option(\"cloudFiles.format\", \"json\")\n      .option(\"cloudFiles.schemaLocation\", \"/mnt/schemas/financial_txns\")\n      .option(\"cloudFiles.schemaEvolutionMode\", \"failOnNewColumns\")\n      .schema(expected_strict_schema)\n      .load(\"/mnt/raw/financial_txns/\"))"
+      },
+      "id": "q-85"
+    },
+    {
+      "topicId": "topic-06",
+      "prompt": "Meridian Retail is migrating its retail analytics to a lakehouse on Azure Databricks, with Unity Catalog enabled across the workspace. A platform engineering team of five shares the infrastructure, and the nightly medallion pipeline (bronze to silver to gold) reads and writes Unity Catalog tables from a job cluster that several engineers deploy to and debug on. The data platform lead requires that the pipeline's compute be governed by Unity Catalog, safely support more than one user on the same cluster, and not be tied to any single engineer's personal identity. Which cluster access mode should the job cluster use?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Standard (shared) access mode — Unity Catalog–compatible and supports multiple users on one cluster"
+        },
+        {
+          "id": "b",
+          "label": "No-isolation shared (legacy) mode, which bypasses Unity Catalog for speed"
+        },
+        {
+          "id": "c",
+          "label": "Dedicated (single-user) mode locked to one engineer's identity"
+        },
+        {
+          "id": "d",
+          "label": "A cluster with Unity Catalog disabled to avoid permission overhead"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Unity Catalog requires a UC-compatible compute configuration. Standard (shared) access mode supports Unity Catalog and lets multiple users share one cluster with proper isolation. No-isolation legacy mode is not UC-compatible, and dedicated (single-user) mode ties the cluster to a single identity, which does not fit a shared engineering job cluster.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/compute/access-mode-limitations"
+      ],
+      "id": "q-cs-1"
+    },
+    {
+      "topicId": "topic-06",
+      "prompt": "Meridian Retail's point-of-sale systems drop new order events into an Azure Data Lake Storage container as JSON files continuously throughout the day. The ingestion lead needs the bronze layer to load only newly arrived files, process each file exactly once, and avoid rescanning the entire directory on every run as the volume grows into millions of files. The team wants a managed, incremental mechanism rather than writing custom bookkeeping to track what has already been loaded. Which ingestion approach fits these requirements?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Auto Loader (cloudFiles) with Structured Streaming, which tracks processed files and ingests only new arrivals"
+        },
+        {
+          "id": "b",
+          "label": "A nightly full-directory batch read that overwrites the bronze table"
+        },
+        {
+          "id": "c",
+          "label": "Run COPY INTO manually whenever someone notices new files have arrived"
+        },
+        {
+          "id": "d",
+          "label": "Mount the storage and read the entire folder with spark.read.json on every run"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Auto Loader (cloudFiles) incrementally processes new files as they arrive, using a checkpoint to track what has been ingested, giving efficient exactly-once ingestion without reprocessing the whole directory. Full re-reads are costly and not incremental, and manual COPY INTO is not continuous.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/ingestion/cloud-object-storage/auto-loader/"
+      ],
+      "id": "q-cs-2"
+    },
+    {
+      "topicId": "topic-06",
+      "prompt": "At Meridian Retail, the gold tables in the sales schema power executive dashboards. A group of business analysts, managed as a Microsoft Entra ID group, must be able to query these gold tables but must never alter, insert into, or drop them. The Unity Catalog administrator wants to follow least-privilege principles and grant nothing beyond what read-only reporting requires. Which grant should the administrator apply to the analyst group?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Grant the group USE CATALOG and USE SCHEMA plus SELECT on the sales schema"
+        },
+        {
+          "id": "b",
+          "label": "Grant the group ALL PRIVILEGES on the catalog to keep administration simple"
+        },
+        {
+          "id": "c",
+          "label": "Make each analyst the OWNER of the gold tables"
+        },
+        {
+          "id": "d",
+          "label": "Add the analysts as workspace admins"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Least privilege for read-only analytics is SELECT on the relevant schema/tables plus the USE CATALOG and USE SCHEMA traversal privileges needed to reach them. ALL PRIVILEGES, table OWNER, or workspace admin all grant far more than reading requires and violate least privilege.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/access-control/permissions-concepts"
+      ],
+      "id": "q-cs-3"
+    },
+    {
+      "topicId": "topic-06",
+      "prompt": "Meridian Retail runs its medallion pipeline as a single Lakeflow Job made up of several tasks. Business rules require that the compute_gold task run only after transform_silver has completed successfully, so the gold aggregates never read a partial or still-updating silver table. Separately, a cleanup task that releases temporary resources must run at the end of every run, whether the upstream tasks succeeded or failed. The orchestration engineer wants both guarantees expressed inside one job rather than through external scheduling or timing tricks. How should the job be configured?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Make compute_gold depend on transform_silver (default: all succeeded), and give cleanup a Run if condition of “All done” on its upstream tasks"
+        },
+        {
+          "id": "b",
+          "label": "Put all the logic in a single task so ordering is implicit and nothing needs configuring"
+        },
+        {
+          "id": "c",
+          "label": "Schedule three separate jobs a few minutes apart and rely on the timing holding"
+        },
+        {
+          "id": "d",
+          "label": "Make cleanup depend on compute_gold with the default “all succeeded” condition"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Task dependencies enforce order: compute_gold depends on transform_silver and, by default, runs only if it succeeds. Giving cleanup a Run if condition of “All done” makes it run regardless of whether upstream tasks succeeded or failed. Separate timed jobs and single-task designs lose the DAG's ordering and conditional guarantees.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/jobs/run-if"
+      ],
+      "id": "q-cs-4"
+    },
+    {
+      "topicId": "topic-06",
+      "prompt": "Meridian Retail's on-call engineers must be paged within about five minutes whenever the workspace-wide job-failure rate exceeds 10% over a rolling one-hour window. The platform team is standardized on Azure and wants to reuse existing Azure services rather than adopt a third-party monitoring tool, and Databricks job telemetry is already being emitted from the workspace. What should the team configure to meet this alerting requirement?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Send Databricks diagnostic logs to Log Analytics and create an Azure Monitor log (KQL) alert rule with an action group that pages on-call"
+        },
+        {
+          "id": "b",
+          "label": "Ask an engineer to watch the Jobs UI during business hours"
+        },
+        {
+          "id": "c",
+          "label": "Configure a daily email summary of job outcomes"
+        },
+        {
+          "id": "d",
+          "label": "Increase task retries so that failures never surface"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Azure Monitor log alert rules run a KQL query over logs (ingested via diagnostic settings to Log Analytics) on a schedule, evaluate a threshold over a defined window, and notify through an action group — the native Azure way to page on a failure-rate condition within minutes. Watching a UI, daily summaries, or hiding failures with retries do not meet the requirement.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule"
+      ],
+      "id": "q-cs-5"
+    },
+    {
+      "topicId": "topic-06",
+      "prompt": "A Meridian Retail reporting query joins the multi-terabyte sales fact table with a small 3 MB store-dimension table. In the Spark UI, the physical plan shows a SortMergeJoin with a large Exchange (shuffle) stage on the fact table, and this shuffle dominates the query's runtime. Reviewing the query profile, the performance engineer wants the single change that most directly eliminates that shuffle without altering the query's results. What should they do?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Broadcast the small store-dimension table (broadcast hint or a higher autoBroadcastJoinThreshold) so it is sent to every executor and the fact table is not shuffled"
+        },
+        {
+          "id": "b",
+          "label": "Repartition the fact table on the join key into more partitions"
+        },
+        {
+          "id": "c",
+          "label": "Cache the fact table in memory before the join"
+        },
+        {
+          "id": "d",
+          "label": "Convert both tables to Parquet format"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "When one side of a join is small enough to fit in memory, a broadcast (broadcast hash) join ships it to every executor, eliminating the shuffle of the large fact table. A 3 MB dimension is an ideal broadcast candidate. Repartitioning or caching the fact table does not remove the shuffle, and both tables are already columnar.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/sql-ref-syntax-qry-select-hints"
+      ],
+      "id": "q-cs-6"
     }
   ],
   "notes": [

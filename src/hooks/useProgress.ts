@@ -25,6 +25,12 @@ export const useProgress = (subjectId: string) => {
                     ? p
                     : { ...p, completedTopicIds: [...p.completedTopicIds, topicId] }
             ),
+        markLevel2Unlocked: (topicId: string) =>
+            ctx.updateSubject(subjectId, (p) =>
+                (p.level2UnlockedTopicIds ?? []).includes(topicId)
+                    ? p
+                    : { ...p, level2UnlockedTopicIds: [...(p.level2UnlockedTopicIds ?? []), topicId] }
+            ),
         setLastVisitedTopic: (slug: string) =>
             ctx.updateSubject(subjectId, (p) =>
                 p.lastVisitedTopicSlug === slug ? p : { ...p, lastVisitedTopicSlug: slug }

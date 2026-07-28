@@ -1,0 +1,581 @@
+{
+  "id": "yb1398",
+  "slug": "yb1398",
+  "name": "Nederlands 3 (YB1398) — Retake",
+  "shortLabel": "NL3",
+  "tagline": "Oral + written retake — Thomas More, Aug 2026",
+  "sourcePolicy": "any",
+  "sources": [
+    {
+      "label": "Examen Thomas More — official schedule portal",
+      "url": "https://examen.thomasmore.be",
+      "usageNote": "Authoritative source for exam dates, times, rooms, and lecturer assignment. Confirmed: written exam Aug 19, 2026 15:00–17:00; oral exam Aug 20, 2026 12:00, room M T1.10, lecturer An Fraipont. Always re-check here if anything changes.",
+      "id": "src-1"
+    }
+  ],
+  "topics": [
+    {
+      "slug": "h0-herhaling",
+      "title": "H0 — Herhaling",
+      "summary": "General review of Nederlands 1 & 2 basics before the new retake material — regular present tense, articles (de/het), and basic word order. Not directly tied to one of the 5 oral prompts or a written-exam grammar category, but a useful warm-up.",
+      "subtopics": [
+        {
+          "id": "h0-review",
+          "title": "General review",
+          "summary": "Refresh core vocab and basic sentence structure from earlier levels."
+        }
+      ],
+      "sourceLinks": [],
+      "studyOrder": 0,
+      "id": "t-1"
+    },
+    {
+      "slug": "h1-belangrijke-momenten",
+      "title": "H1 — Belangrijke momenten",
+      "summary": "Introduces the 'zou + infinitief' construction (conditional 'would'), tested directly in oral Q5 (job interview) and in the written exam's zullen/zouden section.",
+      "subtopics": [
+        {
+          "id": "h1-zou",
+          "title": "Zou + infinitief",
+          "summary": "The conditional construction: ik/jij/hij/zij zou, wij/jullie/zij zouden + infinitive at the end. Used for hypotheticals and 'how I see my future'."
+        },
+        {
+          "id": "h1-zullen-zouden",
+          "title": "Zullen vs. zouden",
+          "summary": "Zullen = future/promise ('I will'). Zouden = conditional ('I would'). The written exam tests picking the right one in context."
+        }
+      ],
+      "sourceLinks": [],
+      "studyOrder": 1,
+      "id": "t-2"
+    },
+    {
+      "slug": "h2-er-was-eens",
+      "title": "H2 — Er was eens…",
+      "summary": "The imperfectum (simple past). Core grammar for oral Q1 (childhood story) and heavily tested on the written exam.",
+      "subtopics": [
+        {
+          "id": "h2-imp-regular",
+          "title": "Imperfectum — regular verbs",
+          "summary": "Add -te/-ten if the stem ends in a 't kofschip' consonant (t,k,f,s,ch,p), otherwise -de/-den. E.g. werken → werkte(n)."
+        },
+        {
+          "id": "h2-imp-irregular",
+          "title": "Imperfectum — irregular verbs",
+          "summary": "Strong verbs change vowel and must be memorized: gaan→ging(en), zijn→was/waren, hebben→had(den), doen→deed(en), komen→kwam(en)."
+        },
+        {
+          "id": "h2-time-words",
+          "title": "Time & structure words",
+          "summary": "eerst, dan, daarna, toen, 's morgens, 's middags, voor, tijdens, na — sequence a past story; trigger inversion when they open the sentence."
+        }
+      ],
+      "sourceLinks": [],
+      "studyOrder": 2,
+      "id": "t-3"
+    },
+    {
+      "slug": "h3-gezocht",
+      "title": "H3 — Gezocht",
+      "summary": "Physical description vocabulary and verbs — oral Q2 (compare two people in a photo).",
+      "subtopics": [
+        {
+          "id": "h3-desc-vocab",
+          "title": "Physical description vocab",
+          "summary": "haar (hair), lichaamsbouw (body build), gezicht (face), kleding (clothing) — the core categories for comparing two people."
+        },
+        {
+          "id": "h3-zijn-hebben",
+          "title": "Describing verbs: zijn vs. hebben",
+          "summary": "Use 'zijn' for build/traits (hij is mager, hij is kaal) and 'hebben' for features you 'have' (zij heeft zwart krullend haar)."
+        },
+        {
+          "id": "h3-die-dat",
+          "title": "Relative pronouns: die vs. dat",
+          "summary": "'Die' for de-words and plurals, 'dat' for het-words: 'het glas dat ik gisteren kocht, is vuil.' Tested on the written exam."
+        }
+      ],
+      "sourceLinks": [],
+      "studyOrder": 3,
+      "id": "t-4"
+    },
+    {
+      "slug": "h4-zo-zijn-de-belgen",
+      "title": "H4 — Zo zijn de Belgen",
+      "summary": "Two oral prompts live here: giving cooking instructions (imperative) for Q3, and telling a joke/opinion about a nationality (subordinate clauses) for Q4.",
+      "subtopics": [
+        {
+          "id": "h4-imperative",
+          "title": "Imperative + food vocab",
+          "summary": "Command form for recipes: drop -en (snijden→snijd, toevoegen→voeg toe, bakken→bak, roeren→roer), plus cooking/food vocab — oral Q3."
+        },
+        {
+          "id": "h4-subordinate",
+          "title": "Subordinate clauses",
+          "summary": "Conjunctions like als, omdat, dat, terwijl send the verb to the end of their clause: 'Ik ga naar de dokter als ik ziek ben.' Used for stating opinions with a reason — oral Q4."
+        }
+      ],
+      "sourceLinks": [],
+      "studyOrder": 4,
+      "id": "t-5"
+    },
+    {
+      "slug": "h5-tijd-om-bij-te-praten",
+      "title": "H5 — Tijd om bij te praten",
+      "summary": "Extends imperfectum storytelling into full complex sentences and inversion — the second chapter behind oral Q1.",
+      "subtopics": [
+        {
+          "id": "h5-complex",
+          "title": "Complex sentences",
+          "summary": "en, maar, want, toen, terwijl — link clauses together for a fuller story (toen/terwijl also push the verb to the end of their own clause)."
+        },
+        {
+          "id": "h5-inversion",
+          "title": "Inversion",
+          "summary": "When a sentence opens with something other than the subject (often a time word), the verb comes right after it, before the subject: '’s Middags at ik altijd een warme maaltijd.'"
+        }
+      ],
+      "sourceLinks": [],
+      "studyOrder": 5,
+      "id": "t-6"
+    },
+    {
+      "slug": "h6-op-gesprek",
+      "title": "H6 — Op gesprek",
+      "summary": "Job-application vocabulary, paired with H1's zou-construction, for oral Q5 (mock job interview).",
+      "subtopics": [
+        {
+          "id": "h6-job-vocab",
+          "title": "Job application vocab",
+          "summary": "Jezelf voorstellen (introduce yourself), sterke/zwakke punten (strengths/weaknesses), ervaring (experience), vacature (vacancy), solliciteren (to apply)."
+        }
+      ],
+      "sourceLinks": [],
+      "studyOrder": 6,
+      "id": "t-7"
+    }
+  ],
+  "questions": [
+    {
+      "topicId": "t-1",
+      "prompt": "Welk lidwoord hoort bij 'huis'?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "de"
+        },
+        {
+          "id": "b",
+          "label": "het"
+        },
+        {
+          "id": "c",
+          "label": "een"
+        },
+        {
+          "id": "d",
+          "label": "geen lidwoord nodig"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "'Huis' is een het-woord: het huis.",
+      "sourceUrls": [],
+      "id": "q-1"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Kies de juiste vorm: 'Als ik meer geld had, ___ ik een huis kopen.'",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "zal"
+        },
+        {
+          "id": "b",
+          "label": "zou"
+        },
+        {
+          "id": "c",
+          "label": "zullen"
+        },
+        {
+          "id": "d",
+          "label": "heb"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Na een hypothetische als-zin gebruik je zou/zouden (conditional), niet zal (belofte/toekomst).",
+      "sourceUrls": [],
+      "id": "q-2"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Vertaal: 'I will call you tomorrow.'",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ik zou je morgen bellen."
+        },
+        {
+          "id": "b",
+          "label": "Ik zal je morgen bellen."
+        },
+        {
+          "id": "c",
+          "label": "Ik heb je morgen gebeld."
+        },
+        {
+          "id": "d",
+          "label": "Ik bel je morgen zullen."
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "'Will' is een belofte/toekomstige actie → zullen (zal voor ik). Zou is voor hypotheses/voorwaardelijke zinnen.",
+      "sourceUrls": [],
+      "id": "q-3"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Wat is het imperfectum van 'werken' (ik-vorm)?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "werkte"
+        },
+        {
+          "id": "b",
+          "label": "werkde"
+        },
+        {
+          "id": "c",
+          "label": "heeft gewerkt"
+        },
+        {
+          "id": "d",
+          "label": "werk"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "De stam 'werk' eindigt op de 't kofschip'-medeklinker k, dus krijgt -te: werkte.",
+      "sourceUrls": [],
+      "id": "q-4"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Wat is het imperfectum van 'gaan' (ik-vorm)?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "gaande"
+        },
+        {
+          "id": "b",
+          "label": "ging"
+        },
+        {
+          "id": "c",
+          "label": "ga"
+        },
+        {
+          "id": "d",
+          "label": "geweest"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "'Gaan' is een sterk/onregelmatig werkwoord — imperfectum is 'ging' (ik/hij/zij ging, wij/jullie/zij gingen), geen -de/-te vorm.",
+      "sourceUrls": [],
+      "id": "q-5"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Welk woord hoort NIET bij de tijdswoorden voor een verhaal in het verleden?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "daarna"
+        },
+        {
+          "id": "b",
+          "label": "toen"
+        },
+        {
+          "id": "c",
+          "label": "morgen"
+        },
+        {
+          "id": "d",
+          "label": "'s ochtends"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "'Morgen' (tomorrow) wijst naar de toekomst. Eerst, dan, daarna, toen, 's morgens/'s ochtends, 's middags, voor, tijdens, na plaatsen een verhaal juist in het verleden.",
+      "sourceUrls": [],
+      "id": "q-6"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Kies het juiste werkwoord: 'Hij ___ kort, zwart haar.'",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "is"
+        },
+        {
+          "id": "b",
+          "label": "heeft"
+        },
+        {
+          "id": "c",
+          "label": "doet"
+        },
+        {
+          "id": "d",
+          "label": "wordt"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Je 'hebt' haar/kenmerken die je bezit: hij heeft kort, zwart haar. Gebruik 'zijn' voor bouw/eigenschappen: hij is lang.",
+      "sourceUrls": [],
+      "id": "q-7"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Kies het juiste voornaamwoord: 'Het glas ___ ik gisteren kocht, is vuil.'",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "die"
+        },
+        {
+          "id": "b",
+          "label": "dat"
+        },
+        {
+          "id": "c",
+          "label": "wat"
+        },
+        {
+          "id": "d",
+          "label": "welke"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "'Glas' is een het-woord, dus het betrekkelijk voornaamwoord is 'dat', niet 'die' (dat is voor de-woorden en meervouden).",
+      "sourceUrls": [],
+      "id": "q-8"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "Wat is de juiste gebiedende wijs (imperatief) van 'toevoegen'?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "toevoeg"
+        },
+        {
+          "id": "b",
+          "label": "voeg toe"
+        },
+        {
+          "id": "c",
+          "label": "toevoegt"
+        },
+        {
+          "id": "d",
+          "label": "toegevoegd"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "'Toevoegen' is een scheidbaar werkwoord (toe + voegen). De imperatief laat -en vallen en splitst het voorzetsel naar achteren: voeg … toe.",
+      "sourceUrls": [],
+      "id": "q-9"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "Maak van twee zinnen één zin met 'als': 'Ik ga naar de dokter. Ik ben ziek.'",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ik ga naar de dokter als ik ben ziek."
+        },
+        {
+          "id": "b",
+          "label": "Ik ga naar de dokter als ik ziek ben."
+        },
+        {
+          "id": "c",
+          "label": "Als ik ziek ben ga ik naar de dokter niet."
+        },
+        {
+          "id": "d",
+          "label": "Ik ben ziek als ik naar de dokter ga."
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "'Als' is een onderschikkend voegwoord — het stuurt het werkwoord naar het einde van de bijzin: als ik ziek ben (niet 'als ik ben ziek').",
+      "sourceUrls": [],
+      "id": "q-10"
+    },
+    {
+      "topicId": "t-6",
+      "prompt": "Welke zin gebruikt inversie correct?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "'s Middags ik at een boterham."
+        },
+        {
+          "id": "b",
+          "label": "'s Middags at ik een boterham."
+        },
+        {
+          "id": "c",
+          "label": "Ik 's middags at een boterham."
+        },
+        {
+          "id": "d",
+          "label": "At ik 's middags een boterham."
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Als het tijdswoord ('s middags) de zin opent, komt het werkwoord op de tweede plaats, vóór het onderwerp: 's Middags at ik…",
+      "sourceUrls": [],
+      "id": "q-11"
+    },
+    {
+      "topicId": "t-6",
+      "prompt": "Welk voegwoord past het beste: 'Ik bleef thuis, ___ ik was ziek.'",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "en"
+        },
+        {
+          "id": "b",
+          "label": "maar"
+        },
+        {
+          "id": "c",
+          "label": "want"
+        },
+        {
+          "id": "d",
+          "label": "toen"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "'Want' geeft een reden ('omdat/want'). 'En' voegt alleen samen, 'maar' contrasteert, 'toen' betekent 'op het moment dat' voor een gebeurtenis in het verleden.",
+      "sourceUrls": [],
+      "id": "q-12"
+    },
+    {
+      "topicId": "t-7",
+      "prompt": "Welke zin past bij het voorstellen van jezelf op een sollicitatiegesprek?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ik zou nooit hier willen werken."
+        },
+        {
+          "id": "b",
+          "label": "Mijn sterke punten zijn dat ik goed kan samenwerken."
+        },
+        {
+          "id": "c",
+          "label": "Ik heb geen ervaring en geen zin."
+        },
+        {
+          "id": "d",
+          "label": "Wat is uw naam?"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Dit beantwoordt direct 'wat zijn je sterke punten' met een concreet, positief voorbeeld — precies wat oral Q5 verwacht.",
+      "sourceUrls": [],
+      "id": "q-13"
+    }
+  ],
+  "notes": [
+    {
+      "topicId": "t-1",
+      "text": "General review chapter. Use this space to revisit anything from Nederlands 1–2 that still feels shaky — regular present-tense conjugation, articles (de/het), and basic word order — before the retake-specific grammar in H1–H6.",
+      "sourceUrls": [],
+      "id": "note-1"
+    },
+    {
+      "topicId": "t-2",
+      "text": "Zou + infinitief (conditional 'would'): ik zou, jij/hij/zij zou, wij/jullie/zij zouden + infinitive at the end. E.g. 'Ik zou graag in een ziekenhuis werken.' Zullen (will/shall, a promise or plan) is the future form; zouden is its conditional counterpart — the written exam tests choosing between them in context.",
+      "sourceUrls": [],
+      "id": "note-2"
+    },
+    {
+      "topicId": "t-3",
+      "text": "Imperfectum (simple past). Regular verbs: add -te/-ten if the stem ends in a 't kofschip' consonant (t,k,f,s,ch,p), otherwise -de/-den — werken→stem werk→werkte(n). Irregular (strong) verbs change vowel and must be memorized: gaan→ging(en), zijn→was/waren, hebben→had(den), doen→deed(en), komen→kwam(en). Time/structure words for sequencing: eerst, dan, daarna, toen, 's morgens, 's middags, voor, tijdens, na. When one of these opens the sentence, the verb comes right after it (inversion): '’s Middags at ik altijd een warme maaltijd.'",
+      "sourceUrls": [],
+      "id": "note-3"
+    },
+    {
+      "topicId": "t-4",
+      "text": "Physical description: use 'zijn' for build/traits (hij is mager, hij is lang) and 'hebben' for features you 'have' (zij heeft zwart krullend haar). Key vocab: haar (hair), lichaamsbouw (body build), gezicht (face), kleding (clothing). Relative pronouns: 'die' for de-words and plurals, 'dat' for het-words — 'het glas dat ik gisteren kocht, is vuil' vs. 'de trui die ik draag, is nieuw.'",
+      "sourceUrls": [],
+      "id": "note-4"
+    },
+    {
+      "topicId": "t-5",
+      "text": "Imperative (recipes/instructions): drop -en and any subject — snijden→snijd, toevoegen→voeg toe, bakken→bak, roeren→roer. Subordinate clauses: conjunctions like als, omdat, dat, terwijl send the verb to the end of their clause: 'Ik ga naar de dokter als ik ziek ben.' Use this structure for opinions with a reason (oral Q4: one pro + one con for Belgians and for your own nationality).",
+      "sourceUrls": [],
+      "id": "note-5"
+    },
+    {
+      "topicId": "t-6",
+      "text": "Complex sentences link two ideas with en, maar, want, toen, or terwijl (toen/terwijl also trigger subordinate word order — verb to the end of their clause). Inversion: whenever the sentence doesn't start with the subject (often a time word), the verb moves to position 2 and the subject follows: 'Toen ik klein was, woonde ik in Gent.'",
+      "sourceUrls": [],
+      "id": "note-6"
+    },
+    {
+      "topicId": "t-7",
+      "text": "Job-interview vocabulary: jezelf voorstellen (introduce yourself), sterke/zwakke punten (strengths/weaknesses), ervaring (experience), vacature (vacancy/job posting), solliciteren (to apply). Pair this with H1's zou-construction to answer 'how do you see yourself in the future?'",
+      "sourceUrls": [],
+      "id": "note-7"
+    }
+  ]
+}

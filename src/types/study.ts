@@ -67,6 +67,8 @@ export interface SubjectProgress {
     completedTopicIds: string[];
     completedSubtopicIds: Record<string, string[]>;
     lastVisitedTopicSlug?: string;
+    // Topic ids whose Level 1 quiz was passed at >=70%, which unlocks Level 2.
+    level2UnlockedTopicIds?: string[];
 }
 
 export interface ProgressStateV2 {

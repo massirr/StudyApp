@@ -7,7 +7,8 @@
     "test": "playwright test",
     "test:unit": "vitest run",
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && npm run typecheck:mcp && vite build",
+    "typecheck:mcp": "tsc -p tsconfig.mcp.json",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{ts,tsx}\" \"docs/**/*.md\""
@@ -23,6 +24,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.60.0",
+    "@types/node": "^22.20.1",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.2.0",

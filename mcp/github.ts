@@ -8,8 +8,8 @@ function cfg() {
   const token = process.env.GITHUB_TOKEN;
   const repo = process.env.GITHUB_REPO; // "owner/repo"
   const branch = process.env.GITHUB_BRANCH ?? 'master';
-  const missing = [!token && 'GITHUB_TOKEN', !repo && 'GITHUB_REPO'].filter(Boolean);
-  if (missing.length) {
+  if (!token || !repo) {
+    const missing = [!token && 'GITHUB_TOKEN', !repo && 'GITHUB_REPO'].filter(Boolean);
     const seen = Object.keys(process.env)
       .filter((k) => /^(GITHUB|MCP)_/.test(k))
       .sort()

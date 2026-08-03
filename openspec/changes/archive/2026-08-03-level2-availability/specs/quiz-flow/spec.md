@@ -1,4 +1,4 @@
-## MODIFIED Requirements
+## ADDED Requirements
 
 ### Requirement: Score screen offers Level 2 only when Level 2 exists
 After a Level-1 quiz is completed for a topic, the score screen SHALL surface a Level-2 entry point

@@ -33,6 +33,9 @@ export interface Topic {
     subtopics: Subtopic[];
     sourceLinks: SourceLink[];
     studyOrder: number;
+    // Optional study media shown above the topic's question deck.
+    passage?: { title?: string; text: string };
+    audio?: { src: string; title?: string };
 }
 
 export interface ProgressPreferences {

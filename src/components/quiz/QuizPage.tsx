@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Subject } from '../../types/study';
 import { getAllQuestions, getCodeSnippetQuestionsForTopic, getQuestionsForTopic } from '../../data/subjects';
-import { useQuizState } from '../../hooks/useQuizState';
+import { useQuizState, scorePercent } from '../../hooks/useQuizState';
 import { useProgress } from '../../hooks/useProgress';
 import AnswerPicker from './AnswerPicker';
 import FeedbackPanel from './FeedbackPanel';
@@ -47,13 +47,19 @@ const QuizPage: React.FC<QuizPageProps> = ({ subject, topicSlug, level = 1 }) =>
     index,
     total,
     selectedOptionIds,
+    answerText,
     submitted,
     isCorrect,
+    isFreeText,
+    awaitingSelfGrade,
+    canSubmit,
     isComplete,
     correctCount,
     hasNext,
     hasPrevious,
     selectOption,
+    setAnswer,
+    gradeSelf,
     submit,
     next,
     previous,
@@ -63,7 +69,7 @@ const QuizPage: React.FC<QuizPageProps> = ({ subject, topicSlug, level = 1 }) =>
   useEffect(() => {
     if (isComplete && topicSlug && topic) {
       markTopicComplete(topic.id);
-      const pct = total > 0 ? Math.round((correctCount / total) * 100) : 0;
+      const pct = scorePercent(correctCount, total);
       if (level === 1 && pct >= 70) {
         markLevel2Unlocked(topic.id);
       }
@@ -110,7 +116,7 @@ const QuizPage: React.FC<QuizPageProps> = ({ subject, topicSlug, level = 1 }) =>
   }
 
   if (isComplete && !showFeedback) {
-    const pct = total > 0 ? Math.round((correctCount / total) * 100) : 0;
+    const pct = scorePercent(correctCount, total);
     const passed = pct >= 80;
     const unlocksLevel2 = pct >= 70;
     const scoreMessage =
@@ -122,7 +128,13 @@ const QuizPage: React.FC<QuizPageProps> = ({ subject, topicSlug, level = 1 }) =>
     const alreadyCompleted = topic
       ? progress.completedTopicIds.includes(topic.id)
       : false;
-    const showLevel2Cta = !!topicSlug && level !== 2;
+    // Same guard TopicPage uses: a topic with no Level 2 questions must not offer
+    // a link to an empty quiz. Level 2 is code questions, so subjects without any
+    // (e.g. a language subject) never show the CTA.
+    const hasLevel2 = topic
+      ? getCodeSnippetQuestionsForTopic(subject, topic.id).length > 0
+      : false;
+    const showLevel2Cta = !!topicSlug && level !== 2 && hasLevel2;
 
     return (
       <section className={styles.quizPageContainer}>
@@ -175,6 +187,23 @@ const QuizPage: React.FC<QuizPageProps> = ({ subject, topicSlug, level = 1 }) =>
         total={total}
       />
       <div className={styles.quizMain}>
+        {topic?.passage && (
+          <section className={styles.passage} aria-label="Reading passage">
+            {topic.passage.title && <h2 className={styles.passageTitle}>{topic.passage.title}</h2>}
+            <p className={styles.passageText}>{topic.passage.text}</p>
+          </section>
+        )}
+
+        {topic?.audio && (
+          <section className={styles.audioBlock} aria-label="Listening clip">
+            {topic.audio.title && <h2 className={styles.passageTitle}>{topic.audio.title}</h2>}
+            {/* ponytail: native player, no audio library */}
+            <audio className={styles.audioPlayer} controls preload="none" src={topic.audio.src}>
+              Your browser does not support audio playback.
+            </audio>
+          </section>
+        )}
+
         <QuestionDisplay
           question={{
             prompt: currentQuestion.prompt,
@@ -194,12 +223,14 @@ const QuizPage: React.FC<QuizPageProps> = ({ subject, topicSlug, level = 1 }) =>
           selectedOptionIds={selectedOptionIds}
           submitted={submitted}
           onSelect={selectOption}
+          answerText={answerText}
+          onAnswerChange={setAnswer}
         />
 
         <button
           className={styles.submitButton}
           onClick={handleSubmit}
-          disabled={submitted || selectedOptionIds.length === 0}
+          disabled={submitted || !canSubmit}
         >
           Submit Answer
         </button>
@@ -211,13 +242,17 @@ const QuizPage: React.FC<QuizPageProps> = ({ subject, topicSlug, level = 1 }) =>
             explanation={currentQuestion.explanation}
             sourceUrls={currentQuestion.sourceUrls}
             onClose={() => setShowFeedback(false)}
+            yourAnswer={isFreeText ? answerText : undefined}
+            sampleAnswer={isFreeText ? currentQuestion.sampleAnswer : undefined}
+            awaitingSelfGrade={awaitingSelfGrade}
+            onSelfGrade={gradeSelf}
           />
         )}
 
         <QuizNav
           hasPrev={hasPrevious}
           hasNext={hasNext}
-          canAdvance={submitted}
+          canAdvance={submitted && !awaitingSelfGrade}
           onPrev={handlePrevious}
           onNext={handleNext}
           onFinish={handleNext}

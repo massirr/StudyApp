@@ -128,7 +128,13 @@ const QuizPage: React.FC<QuizPageProps> = ({ subject, topicSlug, level = 1 }) =>
     const alreadyCompleted = topic
       ? progress.completedTopicIds.includes(topic.id)
       : false;
-    const showLevel2Cta = !!topicSlug && level !== 2;
+    // Same guard TopicPage uses: a topic with no Level 2 questions must not offer
+    // a link to an empty quiz. Level 2 is code questions, so subjects without any
+    // (e.g. a language subject) never show the CTA.
+    const hasLevel2 = topic
+      ? getCodeSnippetQuestionsForTopic(subject, topic.id).length > 0
+      : false;
+    const showLevel2Cta = !!topicSlug && level !== 2 && hasLevel2;
 
     return (
       <section className={styles.quizPageContainer}>

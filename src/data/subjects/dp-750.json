@@ -435,19 +435,19 @@
         },
         {
           "id": "b",
-          "label": "Replaces the secret value with [REDACTED] in driver logs, cluster event history, and notebook cell output"
-        },
-        {
-          "id": "c",
           "label": "Raises a PermissionError before the secret is passed to the logging function"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "Encrypts the value in-place with a workspace key before appending it to the log file"
+        },
+        {
+          "id": "d",
+          "label": "Replaces the secret value with [REDACTED] in driver logs, cluster event history, and notebook cell output"
         }
       ],
       "correctOptionIds": [
-        "b"
+        "d"
       ],
       "explanation": "Databricks Secret Scopes redact secret values wherever they appear in Databricks-managed output — notebook cells, driver logs, and cluster event history — replacing them with [REDACTED]. This prevents accidental credential exposure regardless of how the secret is used in code.",
       "sourceUrls": [
@@ -462,15 +462,15 @@
       "options": [
         {
           "id": "a",
-          "label": "Store all assets in one unrestricted schema"
+          "label": "Use separate catalogs and permissions per domain"
         },
         {
           "id": "b",
-          "label": "Disable access control reviews"
+          "label": "Store all assets in one unrestricted schema"
         },
         {
           "id": "c",
-          "label": "Use separate catalogs and permissions per domain"
+          "label": "Disable access control reviews"
         },
         {
           "id": "d",
@@ -478,7 +478,7 @@
         }
       ],
       "correctOptionIds": [
-        "c"
+        "a"
       ],
       "explanation": "Domain-based catalogs with scoped permissions support clear ownership and governance boundaries.",
       "sourceUrls": [
@@ -497,19 +497,19 @@
         },
         {
           "id": "b",
-          "label": "Run all workloads manually"
+          "label": "Run production jobs on dedicated job clusters"
         },
         {
           "id": "c",
-          "label": "Enable interactive mode on all production clusters"
+          "label": "Run all workloads manually"
         },
         {
           "id": "d",
-          "label": "Run production jobs on dedicated job clusters"
+          "label": "Enable interactive mode on all production clusters"
         }
       ],
       "correctOptionIds": [
-        "d"
+        "b"
       ],
       "explanation": "Dedicated job clusters isolate production execution from interactive development workloads.",
       "sourceUrls": [
@@ -557,15 +557,15 @@
       "options": [
         {
           "id": "a",
-          "label": "Environment-specific workspaces with controlled deployment steps"
-        },
-        {
-          "id": "b",
           "label": "Direct edits in production only"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "No separation between environments"
+        },
+        {
+          "id": "c",
+          "label": "Environment-specific workspaces with controlled deployment steps"
         },
         {
           "id": "d",
@@ -573,7 +573,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "c"
       ],
       "explanation": "Separate environments with controlled promotion reduce risk and improve operational confidence.",
       "sourceUrls": [
@@ -588,23 +588,23 @@
       "options": [
         {
           "id": "a",
-          "label": "Unified governance model with structured object hierarchy"
-        },
-        {
-          "id": "b",
           "label": "Independent unmanaged naming conventions per team"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "Removing catalogs to simplify metadata"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "Rely on workspace folders instead of governed objects"
+        },
+        {
+          "id": "d",
+          "label": "Unified governance model with structured object hierarchy"
         }
       ],
       "correctOptionIds": [
-        "a"
+        "d"
       ],
       "explanation": "Structured hierarchy and centralized governance improve scalability, discoverability, and control.",
       "sourceUrls": [
@@ -794,15 +794,15 @@
       "options": [
         {
           "id": "a",
-          "label": "COPY INTO — optimized for high-frequency streaming and tracks each file for exactly-once delivery"
+          "label": "Auto Loader with cloudFiles format — uses file notifications or incremental listing to track new files without rescanning the full directory each microbatch"
         },
         {
           "id": "b",
-          "label": "PySpark spark.read.json() in a scheduled Job — scales by parallelizing reads across Spark executors"
+          "label": "COPY INTO — optimized for high-frequency streaming and tracks each file for exactly-once delivery"
         },
         {
           "id": "c",
-          "label": "Auto Loader with cloudFiles format — uses file notifications or incremental listing to track new files without rescanning the full directory each microbatch"
+          "label": "PySpark spark.read.json() in a scheduled Job — scales by parallelizing reads across Spark executors"
         },
         {
           "id": "d",
@@ -810,7 +810,7 @@
         }
       ],
       "correctOptionIds": [
-        "c"
+        "a"
       ],
       "explanation": "Auto Loader (cloudFiles) is designed for continuous file ingestion at scale. It tracks which files have been processed using Azure Event Grid notifications or incremental directory listing, avoiding expensive full-directory scans. COPY INTO is better suited for scheduled batch loads.",
       "sourceUrls": [
@@ -893,11 +893,11 @@
         },
         {
           "id": "b",
-          "label": "COPY INTO tracks loaded files by path in the Delta transaction log; a re-delivered file with the same path is treated as already loaded and skipped, so corrections are silently ignored"
+          "label": "COPY INTO cannot process CSV files from ADLS — Parquet or Delta format is required for cloud storage sources"
         },
         {
           "id": "c",
-          "label": "COPY INTO cannot process CSV files from ADLS — Parquet or Delta format is required for cloud storage sources"
+          "label": "COPY INTO tracks loaded files by path in the Delta transaction log; a re-delivered file with the same path is treated as already loaded and skipped, so corrections are silently ignored"
         },
         {
           "id": "d",
@@ -905,7 +905,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "c"
       ],
       "explanation": "COPY INTO maintains idempotency by tracking loaded file paths in the Delta transaction log. A corrected file reusing the same path is considered already loaded and skipped. For correction workflows, MERGE INTO is the appropriate approach as it can upsert based on a key.",
       "sourceUrls": [
@@ -924,19 +924,19 @@
         },
         {
           "id": "b",
-          "label": "How long Spark retains intermediate aggregation state for open windows; events arriving more than 10 minutes past their window's close time are dropped"
-        },
-        {
-          "id": "c",
           "label": "The checkpoint flush interval — state files older than 10 minutes are garbage-collected from the checkpoint directory"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "The trigger interval — the stream processes one microbatch every 10 minutes regardless of file arrival cadence"
+        },
+        {
+          "id": "d",
+          "label": "How long Spark retains intermediate aggregation state for open windows; events arriving more than 10 minutes past their window's close time are dropped"
         }
       ],
       "correctOptionIds": [
-        "b"
+        "d"
       ],
       "explanation": "A watermark tells Spark the maximum lateness it should tolerate. State for a 5-minute window is kept until the event-time clock advances past (window-end + 10 min). Events arriving after that threshold are dropped. The watermark also lets Spark safely clean up old state to bound memory usage.",
       "sourceUrls": [
@@ -951,15 +951,15 @@
       "options": [
         {
           "id": "a",
-          "label": "Monthly manual CSV uploads only"
+          "label": "Streaming ingestion with reliable state handling"
         },
         {
           "id": "b",
-          "label": "No ingestion scheduling"
+          "label": "Monthly manual CSV uploads only"
         },
         {
           "id": "c",
-          "label": "Streaming ingestion with reliable state handling"
+          "label": "No ingestion scheduling"
         },
         {
           "id": "d",
@@ -967,7 +967,7 @@
         }
       ],
       "correctOptionIds": [
-        "c"
+        "a"
       ],
       "explanation": "Near real-time reporting usually requires streaming-oriented ingestion and resilient processing.",
       "sourceUrls": [
@@ -1019,19 +1019,19 @@
         },
         {
           "id": "b",
-          "label": "Disable data quality checks permanently"
+          "label": "Controlled schema evolution and validation"
         },
         {
           "id": "c",
-          "label": "Reject all writes when source schema changes"
+          "label": "Disable data quality checks permanently"
         },
         {
           "id": "d",
-          "label": "Controlled schema evolution and validation"
+          "label": "Reject all writes when source schema changes"
         }
       ],
       "correctOptionIds": [
-        "d"
+        "b"
       ],
       "explanation": "Schema evolution strategy is critical for resilient ingestion when source contracts change.",
       "sourceUrls": [
@@ -1079,15 +1079,15 @@
       "options": [
         {
           "id": "a",
-          "label": "Scheduled batch ingestion"
-        },
-        {
-          "id": "b",
           "label": "Always-on sub-second stream requirement"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "Manual desktop imports"
+        },
+        {
+          "id": "c",
+          "label": "Scheduled batch ingestion"
         },
         {
           "id": "d",
@@ -1095,7 +1095,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "c"
       ],
       "explanation": "Latency requirements and arrival cadence should guide whether batch or streaming is appropriate.",
       "sourceUrls": [
@@ -1119,19 +1119,19 @@
         },
         {
           "id": "b",
-          "label": "The checkpointLocation was deleted or changed between runs, causing Auto Loader to lose track of which files were already processed"
-        },
-        {
-          "id": "c",
           "label": "cloudFiles.format = 'csv' does not support incremental file tracking; only JSON and Parquet formats maintain file state"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "Delta Lake does not support idempotent appends — duplicate files must be deduplicated manually with MERGE INTO downstream"
+        },
+        {
+          "id": "d",
+          "label": "The checkpointLocation was deleted or changed between runs, causing Auto Loader to lose track of which files were already processed"
         }
       ],
       "correctOptionIds": [
-        "b"
+        "d"
       ],
       "explanation": "Auto Loader tracks processed files using the checkpointLocation. If this path is deleted, moved, or changed between runs, Auto Loader loses its state and re-processes files it already loaded. trigger(availableNow=True) is safe and does not cause replays when the checkpoint is intact.",
       "sourceUrls": [
@@ -1150,15 +1150,15 @@
       "options": [
         {
           "id": "a",
-          "label": "The second run truncates the target table and reloads all files from scratch"
+          "label": "Only files not yet successfully loaded are ingested; already-processed files are skipped, making COPY INTO idempotent"
         },
         {
           "id": "b",
-          "label": "The second run raises a FilesAlreadyLoadedException and the job fails immediately"
+          "label": "The second run truncates the target table and reloads all files from scratch"
         },
         {
           "id": "c",
-          "label": "Only files not yet successfully loaded are ingested; already-processed files are skipped, making COPY INTO idempotent"
+          "label": "The second run raises a FilesAlreadyLoadedException and the job fails immediately"
         },
         {
           "id": "d",
@@ -1166,7 +1166,7 @@
         }
       ],
       "correctOptionIds": [
-        "c"
+        "a"
       ],
       "explanation": "COPY INTO tracks which files have been successfully loaded in the Delta transaction log. Running it again is safe — new files are ingested and already-loaded files are skipped. This idempotency makes it reliable for scheduled batch jobs with retry logic.",
       "sourceUrls": [
@@ -1189,19 +1189,19 @@
         },
         {
           "id": "b",
-          "label": "Delta Lake automatically locks the output path during recovery to prevent concurrent writes that could cause duplication"
+          "label": "checkpointLocation stores committed source offsets and processed file state so the stream resumes exactly where it left off without reprocessing or losing data"
         },
         {
           "id": "c",
-          "label": "outputMode(\"append\") deduplicates rows by matching them against existing Delta records on each restart"
+          "label": "Delta Lake automatically locks the output path during recovery to prevent concurrent writes that could cause duplication"
         },
         {
           "id": "d",
-          "label": "checkpointLocation stores committed source offsets and processed file state so the stream resumes exactly where it left off without reprocessing or losing data"
+          "label": "outputMode(\"append\") deduplicates rows by matching them against existing Delta records on each restart"
         }
       ],
       "correctOptionIds": [
-        "d"
+        "b"
       ],
       "explanation": "The checkpointLocation persists stream progress — which source offsets and files were committed. On restart, Spark reads this state and continues from the last successful commit, delivering exactly-once semantics when combined with Delta Lake's transactional writes.",
       "sourceUrls": [
@@ -1220,15 +1220,15 @@
       "options": [
         {
           "id": "a",
-          "label": "df_zip_codes fits in executor memory and is replicated to all workers, eliminating the shuffle of df_listings; broadcasting df_agents at 200K rows would risk executor OOM and negate the benefit"
-        },
-        {
-          "id": "b",
           "label": "Spark allows only one broadcast hint per query; df_zip_codes is selected because it has the fewest columns"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "Broadcasting requires Delta Lake format; df_agents is stored as Parquet and cannot be broadcast automatically"
+        },
+        {
+          "id": "c",
+          "label": "df_zip_codes fits in executor memory and is replicated to all workers, eliminating the shuffle of df_listings; broadcasting df_agents at 200K rows would risk executor OOM and negate the benefit"
         },
         {
           "id": "d",
@@ -1236,7 +1236,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "c"
       ],
       "explanation": "A broadcast join copies the small table to every executor so the large table never shuffles across the network. An 800-row lookup is safe and eliminates an expensive Exchange stage. Attempting to broadcast a 200K-row table risks out-of-memory errors on executors and can be slower than a sort-merge join.",
       "sourceUrls": [
@@ -1263,15 +1263,15 @@
         },
         {
           "id": "c",
-          "label": "One row per unique city with four new columns Q1, Q2, Q3, Q4 each containing the average list price for that quarter"
+          "label": "The DataFrame is transposed so city names become column headers and quarters become the row index"
         },
         {
           "id": "d",
-          "label": "The DataFrame is transposed so city names become column headers and quarters become the row index"
+          "label": "One row per unique city with four new columns Q1, Q2, Q3, Q4 each containing the average list price for that quarter"
         }
       ],
       "correctOptionIds": [
-        "c"
+        "d"
       ],
       "explanation": "Pivot rotates the distinct values of the pivot column (quarter) into separate output columns. The result has one row per city and four revenue columns (Q1–Q4) each containing the aggregated value, reducing row count compared to the original while widening the schema.",
       "sourceUrls": [
@@ -1286,11 +1286,11 @@
       "options": [
         {
           "id": "a",
-          "label": "No — REVOKE propagates transitively through parent groups and removes inherited access as well"
+          "label": "Yes — REVOKE removes only the direct grant from analysts; members who inherit SELECT through data_consumers retain access"
         },
         {
           "id": "b",
-          "label": "Yes — REVOKE removes only the direct grant from analysts; members who inherit SELECT through data_consumers retain access"
+          "label": "No — REVOKE propagates transitively through parent groups and removes inherited access as well"
         },
         {
           "id": "c",
@@ -1302,7 +1302,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "a"
       ],
       "explanation": "Revoking a privilege from a group removes only that direct grant. Users who belong to multiple groups retain access if another group still holds the privilege. Unity Catalog privilege evaluation is additive — the most permissive applicable grant wins.",
       "sourceUrls": [
@@ -1321,11 +1321,11 @@
         },
         {
           "id": "b",
-          "label": "SELECT on a managed table requires a separate EXTERNAL LOCATION grant for the underlying cloud storage path"
+          "label": "USE CATALOG on prod and USE SCHEMA on prod.finance — without these the three-level namespace cannot be traversed"
         },
         {
           "id": "c",
-          "label": "USE CATALOG on prod and USE SCHEMA on prod.finance — without these the three-level namespace cannot be traversed"
+          "label": "SELECT on a managed table requires a separate EXTERNAL LOCATION grant for the underlying cloud storage path"
         },
         {
           "id": "d",
@@ -1333,7 +1333,7 @@
         }
       ],
       "correctOptionIds": [
-        "c"
+        "b"
       ],
       "explanation": "Unity Catalog namespace traversal requires USE CATALOG at the catalog level and USE SCHEMA at the schema level. Even with SELECT on the table, without these traversal privileges the SQL engine cannot resolve the fully qualified name.",
       "sourceUrls": [
@@ -1348,15 +1348,15 @@
       "options": [
         {
           "id": "a",
-          "label": "catalog -> schema -> table/view"
-        },
-        {
-          "id": "b",
           "label": "table -> catalog -> schema"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "workspace -> dashboard -> file explorer"
+        },
+        {
+          "id": "c",
+          "label": "catalog -> schema -> table/view"
         },
         {
           "id": "d",
@@ -1364,7 +1364,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "c"
       ],
       "explanation": "Unity Catalog objects are organized under catalogs and schemas before lower-level assets.",
       "sourceUrls": [
@@ -1387,15 +1387,15 @@
         },
         {
           "id": "c",
-          "label": "The row filter predicate is pushed down into the Delta scan so only qualifying rows are read from storage, avoiding a full table scan"
+          "label": "The filter is enforced by the Azure storage layer before data reaches Databricks; the cluster never sees unauthorized rows"
         },
         {
           "id": "d",
-          "label": "The filter is enforced by the Azure storage layer before data reaches Databricks; the cluster never sees unauthorized rows"
+          "label": "The row filter predicate is pushed down into the Delta scan so only qualifying rows are read from storage, avoiding a full table scan"
         }
       ],
       "correctOptionIds": [
-        "c"
+        "d"
       ],
       "explanation": "Unity Catalog row filters are translated into predicates that are pushed down into the underlying Delta table scan. Only the rows the caller is permitted to see are returned from storage — no post-scan filtering on the driver.",
       "sourceUrls": [
@@ -1410,11 +1410,11 @@
       "options": [
         {
           "id": "a",
-          "label": "DESCRIBE HISTORY — shows the source table names used in each write operation to the output table"
+          "label": "Unity Catalog data lineage — automatically captured when jobs run in Databricks, showing upstream and downstream dataset relationships across notebooks, jobs, and pipelines"
         },
         {
           "id": "b",
-          "label": "Unity Catalog data lineage — automatically captured when jobs run in Databricks, showing upstream and downstream dataset relationships across notebooks, jobs, and pipelines"
+          "label": "DESCRIBE HISTORY — shows the source table names used in each write operation to the output table"
         },
         {
           "id": "c",
@@ -1426,7 +1426,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "a"
       ],
       "explanation": "Unity Catalog automatically captures table-level and column-level lineage when jobs and pipelines run in Databricks. The lineage graph shows read/write relationships from raw sources through transformations to output tables without additional instrumentation.",
       "sourceUrls": [
@@ -1445,11 +1445,11 @@
         },
         {
           "id": "b",
-          "label": "No defined data ownership"
+          "label": "Centralized governance model with explicit grants"
         },
         {
           "id": "c",
-          "label": "Centralized governance model with explicit grants"
+          "label": "No defined data ownership"
         },
         {
           "id": "d",
@@ -1457,7 +1457,7 @@
         }
       ],
       "correctOptionIds": [
-        "c"
+        "b"
       ],
       "explanation": "Explicit grants and centralized governance simplify auditability and accountability.",
       "sourceUrls": [
@@ -1566,23 +1566,23 @@
       "options": [
         {
           "id": "a",
-          "label": "Guaranteed stronger governance outcomes"
+          "label": "Inconsistent access patterns and weaker control boundaries"
         },
         {
           "id": "b",
-          "label": "No impact to compliance posture"
+          "label": "Guaranteed stronger governance outcomes"
         },
         {
           "id": "c",
-          "label": "Reduced number of objects to manage in Unity Catalog"
+          "label": "No impact to compliance posture"
         },
         {
           "id": "d",
-          "label": "Inconsistent access patterns and weaker control boundaries"
+          "label": "Reduced number of objects to manage in Unity Catalog"
         }
       ],
       "correctOptionIds": [
-        "d"
+        "a"
       ],
       "explanation": "Skipping structured governance layers can create fragmented and harder-to-audit access models.",
       "sourceUrls": [
@@ -1601,11 +1601,11 @@
       "options": [
         {
           "id": "a",
-          "label": "Only rows where region_code = 'WEST', matching the manager's user_region session context"
+          "label": "All rows regardless of region_code — non-admin users bypass row filters that reference session_context()"
         },
         {
           "id": "b",
-          "label": "All rows regardless of region_code — non-admin users bypass row filters that reference session_context()"
+          "label": "Only rows where region_code = 'WEST', matching the manager's user_region session context"
         },
         {
           "id": "c",
@@ -1617,7 +1617,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "b"
       ],
       "explanation": "Unity Catalog row filters are evaluated at query time per caller. Non-admin users see only rows where the filter function returns TRUE — here, rows where region_code matches their session_context user_region. The WEST manager sees only WEST transactions.",
       "sourceUrls": [
@@ -1644,15 +1644,15 @@
         },
         {
           "id": "c",
-          "label": "A PermissionError — the column is inaccessible to non-members of pii-analysts"
+          "label": "'LID-****-9876' — the ELSE branch executes because the analyst is not in pii-analysts"
         },
         {
           "id": "d",
-          "label": "'LID-****-9876' — the ELSE branch executes because the analyst is not in pii-analysts"
+          "label": "A PermissionError — the column is inaccessible to non-members of pii-analysts"
         }
       ],
       "correctOptionIds": [
-        "d"
+        "c"
       ],
       "explanation": "Unity Catalog column masks are evaluated per caller at query time. The CASE expression returns the ELSE branch ('LID-****-' + last 4 digits) when the caller is not in pii-analysts. Only pii-analysts members receive the unmasked 'LID-2024-9876' value.",
       "sourceUrls": [
@@ -1675,19 +1675,19 @@
         },
         {
           "id": "b",
-          "label": "Embedding the secret in the jdbc_url string causes the full password to appear in Spark logs, job run artifacts, and notebook history when the URL is printed or logged"
-        },
-        {
-          "id": "c",
           "label": "The scope name must match the database hostname exactly for the credential lookup to succeed at runtime"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "Secrets retrieved from a scope expire after 30 minutes and cannot be embedded in a connection URL used across multiple Spark tasks"
+        },
+        {
+          "id": "d",
+          "label": "Embedding the secret in the jdbc_url string causes the full password to appear in Spark logs, job run artifacts, and notebook history when the URL is printed or logged"
         }
       ],
       "correctOptionIds": [
-        "b"
+        "d"
       ],
       "explanation": "While dbutils.secrets.get() itself returns [REDACTED] in cell output, once the secret is interpolated into a plain string like jdbc_url, Databricks can no longer track it as a secret. Printing or logging jdbc_url will expose the password in plaintext. Pass the secret directly to the JDBC options dict rather than building a URL string.",
       "sourceUrls": [
@@ -1706,15 +1706,15 @@
       "options": [
         {
           "id": "a",
-          "label": "The time-travel query fails — VACUUM removes all historical file versions and preserves only the current table state"
+          "label": "The time-travel query succeeds — RETAIN 168 HOURS (7 days) preserves all Delta files referenced by commits within that window, and 3 days is within range"
         },
         {
           "id": "b",
-          "label": "The time-travel query fails — RETAIN must be at least 720 HOURS for time travel to function in production tables"
+          "label": "The time-travel query fails — VACUUM removes all historical file versions and preserves only the current table state"
         },
         {
           "id": "c",
-          "label": "The time-travel query succeeds — RETAIN 168 HOURS (7 days) preserves all Delta files referenced by commits within that window, and 3 days is within range"
+          "label": "The time-travel query fails — RETAIN must be at least 720 HOURS for time travel to function in production tables"
         },
         {
           "id": "d",
@@ -1722,7 +1722,7 @@
         }
       ],
       "correctOptionIds": [
-        "c"
+        "a"
       ],
       "explanation": "VACUUM removes only orphaned data files — files no longer referenced in the Delta transaction log — that are older than the retention threshold (168 h = 7 days). All commits and their referenced files within the 7-day window are preserved, so time travel at 3 days ago succeeds.",
       "sourceUrls": [
@@ -1741,11 +1741,11 @@
       "options": [
         {
           "id": "a",
-          "label": "All principals (users, groups, service principals) and the specific privileges each holds on the table"
+          "label": "The row filter functions and column masks currently applied to the table and their owning principals"
         },
         {
           "id": "b",
-          "label": "The row filter functions and column masks currently applied to the table and their owning principals"
+          "label": "All principals (users, groups, service principals) and the specific privileges each holds on the table"
         },
         {
           "id": "c",
@@ -1757,7 +1757,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "b"
       ],
       "explanation": "SHOW GRANTS ON TABLE returns a result set listing every principal and the privilege they hold on the specified table — SELECT, MODIFY, ALL PRIVILEGES, etc. This is the starting point for access audits in Unity Catalog and shows the complete effective grant list for the object.",
       "sourceUrls": [
@@ -1772,15 +1772,15 @@
       "options": [
         {
           "id": "a",
-          "label": "Drops the record from the output and increments the dropped_records counter in the DLT event log"
+          "label": "Records the violation in the DLT event log and marks it in the pipeline graph, but still writes the invalid record to the silver table"
         },
         {
           "id": "b",
-          "label": "Stops the entire pipeline run and raises a DataQualityError that must be resolved before the next run"
+          "label": "Drops the record from the output and increments the dropped_records counter in the DLT event log"
         },
         {
           "id": "c",
-          "label": "Records the violation in the DLT event log and marks it in the pipeline graph, but still writes the invalid record to the silver table"
+          "label": "Stops the entire pipeline run and raises a DataQualityError that must be resolved before the next run"
         },
         {
           "id": "d",
@@ -1788,7 +1788,7 @@
         }
       ],
       "correctOptionIds": [
-        "c"
+        "a"
       ],
       "explanation": "@dlt.expect (warn mode) records the data quality violation in the event log and increments the failed_records counter in the pipeline graph, but does NOT drop the record or halt the pipeline. The invalid row is still written to the output table. Use @dlt.expect_or_drop or @dlt.expect_or_fail to filter or halt.",
       "sourceUrls": [
@@ -1838,11 +1838,11 @@
         },
         {
           "id": "b",
-          "label": "Continuous mode — it maintains a live stream that processes new files as they arrive, enabling sub-15-minute latency; triggered mode only runs on a fixed schedule or manual invocation"
+          "label": "Triggered mode with a 1-minute cron schedule — this approximates continuous behavior while avoiding persistent streaming cluster overhead"
         },
         {
           "id": "c",
-          "label": "Triggered mode with a 1-minute cron schedule — this approximates continuous behavior while avoiding persistent streaming cluster overhead"
+          "label": "Continuous mode — it maintains a live stream that processes new files as they arrive, enabling sub-15-minute latency; triggered mode only runs on a fixed schedule or manual invocation"
         },
         {
           "id": "d",
@@ -1850,7 +1850,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "c"
       ],
       "explanation": "DLT continuous mode keeps the pipeline running and processes new data as it arrives, delivering low-latency results. Triggered mode processes a batch of available data and stops — on a 15-minute schedule it could leave up to a 14-minute gap and miss the 5-minute SLA.",
       "sourceUrls": [
@@ -1902,19 +1902,19 @@
         },
         {
           "id": "b",
-          "label": "Configure send_alert with depends_on validate_quality and run_if = \"ALL_FAILED\"; configure publish_report with depends_on validate_quality and run_if = \"ALL_SUCCESS\""
-        },
-        {
-          "id": "c",
           "label": "Use two separate Job definitions triggered by a parent Job that branches on the child Job's exit code"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "Place a conditional \"if/else\" node between validate_quality and the two downstream tasks using the DLT pipeline editor"
+        },
+        {
+          "id": "d",
+          "label": "Configure send_alert with depends_on validate_quality and run_if = \"ALL_FAILED\"; configure publish_report with depends_on validate_quality and run_if = \"ALL_SUCCESS\""
         }
       ],
       "correctOptionIds": [
-        "b"
+        "d"
       ],
       "explanation": "Databricks Jobs supports run_if conditions on task dependencies. Setting run_if = \"ALL_FAILED\" on send_alert causes it to execute only when the upstream dependency fails. run_if = \"ALL_SUCCESS\" on publish_report limits it to successful upstream runs. No custom code is required.",
       "sourceUrls": [
@@ -1960,11 +1960,11 @@
       "options": [
         {
           "id": "a",
-          "label": "Task dependencies and conditional flow"
+          "label": "Randomized task order"
         },
         {
           "id": "b",
-          "label": "Randomized task order"
+          "label": "Task dependencies and conditional flow"
         },
         {
           "id": "c",
@@ -1976,7 +1976,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "b"
       ],
       "explanation": "Dependency-aware orchestration ensures correct ordering and guardrails for downstream execution.",
       "sourceUrls": [
@@ -2032,15 +2032,15 @@
         },
         {
           "id": "c",
-          "label": "Manual job logs maintained in a spreadsheet"
+          "label": "Operational telemetry and job run metrics"
         },
         {
           "id": "d",
-          "label": "Operational telemetry and job run metrics"
+          "label": "Manual job logs maintained in a spreadsheet"
         }
       ],
       "correctOptionIds": [
-        "d"
+        "c"
       ],
       "explanation": "SLA validation requires reliable telemetry and measurable run-history data.",
       "sourceUrls": [
@@ -2091,23 +2091,23 @@
       "options": [
         {
           "id": "a",
-          "label": "Stops the entire pipeline run and raises a DataQualityError that must be resolved before the next run"
+          "label": "Drops the record from silver_claims and increments the dropped_records counter in the DLT event log; the pipeline continues processing remaining records"
         },
         {
           "id": "b",
-          "label": "Routes the invalid record to an auto-generated quarantine table named _bad_records_silver_claims"
+          "label": "Stops the entire pipeline run and raises a DataQualityError that must be resolved before the next run"
         },
         {
           "id": "c",
-          "label": "Records the violation in the DLT event log and still writes the NULL record to silver_claims"
+          "label": "Routes the invalid record to an auto-generated quarantine table named _bad_records_silver_claims"
         },
         {
           "id": "d",
-          "label": "Drops the record from silver_claims and increments the dropped_records counter in the DLT event log; the pipeline continues processing remaining records"
+          "label": "Records the violation in the DLT event log and still writes the NULL record to silver_claims"
         }
       ],
       "correctOptionIds": [
-        "d"
+        "a"
       ],
       "explanation": "@dlt.expect_or_drop removes rows that fail the quality rule without halting the pipeline. The null-claim_id record is excluded from silver_claims and counted as a dropped record in the DLT event log, while all valid records continue flowing through the pipeline.",
       "sourceUrls": [
@@ -2126,11 +2126,11 @@
       "options": [
         {
           "id": "a",
-          "label": "expect_or_fail stops the entire pipeline run on the first violation; expect_or_drop removes only the violating rows and continues processing remaining records"
+          "label": "expect_or_fail routes the violating row to a quarantine table; expect_or_drop permanently deletes it from the pipeline graph"
         },
         {
           "id": "b",
-          "label": "expect_or_fail routes the violating row to a quarantine table; expect_or_drop permanently deletes it from the pipeline graph"
+          "label": "expect_or_fail stops the entire pipeline run on the first violation; expect_or_drop removes only the violating rows and continues processing remaining records"
         },
         {
           "id": "c",
@@ -2142,7 +2142,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "b"
       ],
       "explanation": "expect_or_fail is a strict gate: one bad row stops the whole pipeline run, signalling a data contract breach that must be resolved before output is produced. expect_or_drop is lenient: it filters out bad rows and lets the pipeline continue with clean data. Choose based on whether invalid data is tolerable or catastrophic.",
       "sourceUrls": [
@@ -2165,11 +2165,11 @@
         },
         {
           "id": "b",
-          "label": "Returns the string 'globstay_prod.silver_bookings' to the calling Job task; downstream tasks can read it via dbutils.jobs.taskValues.get()"
+          "label": "Commits all open Spark transactions and closes all Delta table writers before the notebook session ends"
         },
         {
           "id": "c",
-          "label": "Commits all open Spark transactions and closes all Delta table writers before the notebook session ends"
+          "label": "Returns the string 'globstay_prod.silver_bookings' to the calling Job task; downstream tasks can read it via dbutils.jobs.taskValues.get()"
         },
         {
           "id": "d",
@@ -2177,7 +2177,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "c"
       ],
       "explanation": "dbutils.notebook.exit() exits the current notebook and returns a string result to the calling context. When called from a Databricks Job task, the exit value is captured and can be retrieved by downstream tasks using dbutils.jobs.taskValues.get(). The cluster keeps running — only the notebook session ends.",
       "sourceUrls": [
@@ -2204,15 +2204,15 @@
         },
         {
           "id": "c",
-          "label": "The task is marked as Failed after 4 total attempts (1 initial + 3 retries); all dependent downstream tasks are skipped"
+          "label": "Databricks pages the on-call engineer and pauses the task until manual operator approval is given for another attempt"
         },
         {
           "id": "d",
-          "label": "Databricks pages the on-call engineer and pauses the task until manual operator approval is given for another attempt"
+          "label": "The task is marked as Failed after 4 total attempts (1 initial + 3 retries); all dependent downstream tasks are skipped"
         }
       ],
       "correctOptionIds": [
-        "c"
+        "d"
       ],
       "explanation": "After max_retries (3) consecutive failures — 4 total attempts including the initial run — Databricks marks the task as Failed. The job run ends in a failed state and any tasks with a depends_on relationship to ingest_cdr_records are skipped. No automatic escalation or indefinite retry occurs.",
       "sourceUrls": [
@@ -2231,23 +2231,23 @@
       "options": [
         {
           "id": "a",
-          "label": "aggregate_gold_revenue runs using cached silver data from the last successful run; notify_revenue_team is skipped"
+          "label": "Both are skipped and marked as failed — Databricks propagates the failure through the dependency graph to all tasks with transitive depends_on on the failed task"
         },
         {
           "id": "b",
-          "label": "notify_revenue_team runs immediately to alert the team while aggregate_gold_revenue is held in a pending state"
+          "label": "aggregate_gold_revenue runs using cached silver data from the last successful run; notify_revenue_team is skipped"
         },
         {
           "id": "c",
-          "label": "aggregate_gold_revenue automatically retries transform_silver_bookings before attempting to run"
+          "label": "notify_revenue_team runs immediately to alert the team while aggregate_gold_revenue is held in a pending state"
         },
         {
           "id": "d",
-          "label": "Both are skipped and marked as failed — Databricks propagates the failure through the dependency graph to all tasks with transitive depends_on on the failed task"
+          "label": "aggregate_gold_revenue automatically retries transform_silver_bookings before attempting to run"
         }
       ],
       "correctOptionIds": [
-        "d"
+        "a"
       ],
       "explanation": "Databricks Jobs propagates failures through the dependency graph. When transform_silver_bookings fails, any task with a transitive depends_on relationship to it — aggregate_gold_revenue and notify_revenue_team — is marked as Skipped/Failed. No downstream task executes.",
       "sourceUrls": [
@@ -2262,11 +2262,11 @@
       "options": [
         {
           "id": "a",
-          "label": "Reduces spark.sql.shuffle.partitions permanently by rewriting the session config before execution begins"
+          "label": "Merges adjacent small shuffle partitions dynamically at runtime without requiring manual tuning or a job restart"
         },
         {
           "id": "b",
-          "label": "Merges adjacent small shuffle partitions dynamically at runtime without requiring manual tuning or a job restart"
+          "label": "Reduces spark.sql.shuffle.partitions permanently by rewriting the session config before execution begins"
         },
         {
           "id": "c",
@@ -2278,7 +2278,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "a"
       ],
       "explanation": "AQE coalescePartitions examines actual partition sizes after the shuffle and merges adjacent small partitions into fewer, larger ones at runtime. This reduces task overhead for small or skewed datasets without requiring per-job manual tuning of shuffle.partitions.",
       "sourceUrls": [
@@ -2329,11 +2329,11 @@
         },
         {
           "id": "b",
-          "label": "Switch to OPTIMIZE with a larger targetFileSize to reduce file count without changing clustering strategy"
+          "label": "Enable liquid clustering on customer_id and event_date — it reorganizes data incrementally on write, eliminating the need for a scheduled OPTIMIZE + ZORDER job"
         },
         {
           "id": "c",
-          "label": "Enable liquid clustering on customer_id and event_date — it reorganizes data incrementally on write, eliminating the need for a scheduled OPTIMIZE + ZORDER job"
+          "label": "Switch to OPTIMIZE with a larger targetFileSize to reduce file count without changing clustering strategy"
         },
         {
           "id": "d",
@@ -2341,7 +2341,7 @@
         }
       ],
       "correctOptionIds": [
-        "c"
+        "b"
       ],
       "explanation": "Liquid clustering replaces ZORDER by clustering data incrementally during writes rather than requiring periodic full-table OPTIMIZE runs. For tables with frequent appends, this drastically reduces or eliminates the daily maintenance window.",
       "sourceUrls": [
@@ -2360,11 +2360,11 @@
         },
         {
           "id": "b",
-          "label": "The time-travel query fails — the default retention is 7 days (168 hours) and VACUUM removed the data files needed to restore the 8-day-old version"
+          "label": "VACUUM without RETAIN runs in dry-run mode only and makes no file changes, so time travel is unaffected"
         },
         {
           "id": "c",
-          "label": "VACUUM without RETAIN runs in dry-run mode only and makes no file changes, so time travel is unaffected"
+          "label": "The time-travel query fails — the default retention is 7 days (168 hours) and VACUUM removed the data files needed to restore the 8-day-old version"
         },
         {
           "id": "d",
@@ -2372,7 +2372,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "c"
       ],
       "explanation": "Delta Lake's default VACUUM retention is 7 days (168 hours). Running VACUUM without RETAIN uses this default and removes orphaned files older than 7 days. Time-travel queries referencing data files outside the retention window fail because those files no longer exist on storage.",
       "sourceUrls": [
@@ -2391,19 +2391,19 @@
         },
         {
           "id": "b",
-          "label": "spark.sql.autoBroadcastJoinThreshold defaults to 10MB; the 15MB table exceeds the threshold so AQE does not automatically broadcast it"
-        },
-        {
-          "id": "c",
           "label": "AQE never broadcasts tables larger than 1MB — SortMergeJoin is always used above that size threshold"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "The lookup table has a primary key which forces Spark to use SortMergeJoin to guarantee correct join semantics"
+        },
+        {
+          "id": "d",
+          "label": "spark.sql.autoBroadcastJoinThreshold defaults to 10MB; the 15MB table exceeds the threshold so AQE does not automatically broadcast it"
         }
       ],
       "correctOptionIds": [
-        "b"
+        "d"
       ],
       "explanation": "spark.sql.autoBroadcastJoinThreshold (default 10MB) controls the size threshold for automatic broadcast. A 15MB table exceeds this default so Spark falls back to SortMergeJoin. Increase the threshold or add an explicit broadcast() hint to force the optimization.",
       "sourceUrls": [
@@ -2418,15 +2418,15 @@
       "options": [
         {
           "id": "a",
-          "label": "Disable all monitoring"
+          "label": "Review telemetry and optimize based on measured bottlenecks"
         },
         {
           "id": "b",
-          "label": "Assume the issue resolves itself without analysis"
+          "label": "Disable all monitoring"
         },
         {
           "id": "c",
-          "label": "Review telemetry and optimize based on measured bottlenecks"
+          "label": "Assume the issue resolves itself without analysis"
         },
         {
           "id": "d",
@@ -2434,7 +2434,7 @@
         }
       ],
       "correctOptionIds": [
-        "c"
+        "a"
       ],
       "explanation": "Evidence-based tuning starts with telemetry to identify true bottlenecks before changes.",
       "sourceUrls": [
@@ -2454,11 +2454,11 @@
         },
         {
           "id": "b",
-          "label": "Silencing failure notifications"
+          "label": "Alert rules tied to critical metrics and logs"
         },
         {
           "id": "c",
-          "label": "Alert rules tied to critical metrics and logs"
+          "label": "Silencing failure notifications"
         },
         {
           "id": "d",
@@ -2466,7 +2466,7 @@
         }
       ],
       "correctOptionIds": [
-        "c"
+        "b"
       ],
       "explanation": "Proactive alerting is essential for reducing detection and response time.",
       "sourceUrls": [
@@ -2522,15 +2522,15 @@
         },
         {
           "id": "c",
-          "label": "Sending all metrics to a single email alias without automation"
+          "label": "Actionable dashboards and well-scoped alerts"
         },
         {
           "id": "d",
-          "label": "Actionable dashboards and well-scoped alerts"
+          "label": "Sending all metrics to a single email alias without automation"
         }
       ],
       "correctOptionIds": [
-        "d"
+        "c"
       ],
       "explanation": "Focused telemetry views and alerting criteria improve incident detection speed and quality.",
       "sourceUrls": [
@@ -2545,23 +2545,23 @@
       "options": [
         {
           "id": "a",
-          "label": "Trend metrics for performance, reliability, and alert outcomes"
-        },
-        {
-          "id": "b",
           "label": "Anecdotal comments without telemetry"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "No monitoring artifacts"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "Avoid action on bottlenecks"
+        },
+        {
+          "id": "d",
+          "label": "Trend metrics for performance, reliability, and alert outcomes"
         }
       ],
       "correctOptionIds": [
-        "a"
+        "d"
       ],
       "explanation": "Optimization impact is best demonstrated through trend-based telemetry and operational indicators.",
       "sourceUrls": [
@@ -2786,11 +2786,11 @@
         },
         {
           "id": "b",
-          "label": "It draws VMs from a pre-warmed idle pool so the cluster starts in seconds instead of waiting for new VMs to provision from Azure"
+          "label": "It replaces the need for autoscale settings since the pool handles all scaling decisions"
         },
         {
           "id": "c",
-          "label": "It replaces the need for autoscale settings since the pool handles all scaling decisions"
+          "label": "It draws VMs from a pre-warmed idle pool so the cluster starts in seconds instead of waiting for new VMs to provision from Azure"
         },
         {
           "id": "d",
@@ -2798,7 +2798,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "c"
       ],
       "explanation": "Instance pools keep a set of idle, ready-to-use VMs so clusters attached to the pool skip Azure VM provisioning time on start and autoscale-up events. Autoscale min/max_workers still control how many nodes the cluster requests — the pool just changes where those nodes come from, not the scaling logic itself.",
       "sourceUrls": [
@@ -2821,19 +2821,19 @@
         },
         {
           "id": "b",
-          "label": "Photon is a native vectorized query engine that accelerates SQL and DataFrame operations on Parquet/Delta data without requiring any code rewrites"
-        },
-        {
-          "id": "c",
           "label": "Photon only accelerates RDD-based code and has no effect on DataFrame or SQL workloads"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "Photon must be paired with a downgrade to an older Databricks Runtime version to function"
+        },
+        {
+          "id": "d",
+          "label": "Photon is a native vectorized query engine that accelerates SQL and DataFrame operations on Parquet/Delta data without requiring any code rewrites"
         }
       ],
       "correctOptionIds": [
-        "b"
+        "d"
       ],
       "explanation": "Photon is a C++-based vectorized execution engine, API-compatible with Spark SQL/DataFrames. Enabling it (via a Photon-enabled runtime) speeds up eligible SQL and DataFrame operations transparently — no query or code changes are needed, and it doesn't require GPU hardware.",
       "sourceUrls": [
@@ -2887,11 +2887,11 @@
         },
         {
           "id": "b",
-          "label": "CAN RESTART"
+          "label": "CAN ATTACH TO"
         },
         {
           "id": "c",
-          "label": "CAN ATTACH TO"
+          "label": "CAN RESTART"
         },
         {
           "id": "d",
@@ -2899,7 +2899,7 @@
         }
       ],
       "correctOptionIds": [
-        "c"
+        "b"
       ],
       "explanation": "Azure Databricks cluster permissions have three levels: CAN ATTACH TO (attach notebooks/run commands, view Spark UI — no restart or edit), CAN RESTART (adds restart/terminate), and CAN MANAGE (full control including edit, permissions, and delete). CAN ATTACH TO is the least-privilege option that satisfies the requirement.",
       "sourceUrls": [
@@ -2918,11 +2918,11 @@
         },
         {
           "id": "b",
-          "label": "Separate catalogs per environment (e.g. dev, staging, prod), each containing the same schema names underneath"
+          "label": "One schema per environment inside a single catalog, relying on table-level grants for isolation"
         },
         {
           "id": "c",
-          "label": "One schema per environment inside a single catalog, relying on table-level grants for isolation"
+          "label": "Separate catalogs per environment (e.g. dev, staging, prod), each containing the same schema names underneath"
         },
         {
           "id": "d",
@@ -2930,7 +2930,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "c"
       ],
       "explanation": "Catalog is the top-level container and primary isolation/access-control boundary in Unity Catalog. Modeling environments as separate catalogs (dev/staging/prod) with identical schema structure underneath gives clean privilege boundaries, simple environment promotion (same relative paths), and avoids leaking permissions across environments the way schema- or table-level naming conventions inside one catalog would.",
       "sourceUrls": [
@@ -2945,23 +2945,23 @@
       "options": [
         {
           "id": "a",
-          "label": "It sets the default storage location for managed tables/schemas in this catalog; schemas can still override it with their own MANAGED LOCATION"
-        },
-        {
-          "id": "b",
           "label": "It creates the catalog but storage location is ignored — Unity Catalog always uses the workspace's root storage for managed tables"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "It makes every table in the catalog an external table pointing at that container"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "MANAGED LOCATION is only valid on CREATE SCHEMA, not CREATE CATALOG, so this statement fails"
+        },
+        {
+          "id": "d",
+          "label": "It sets the default storage location for managed tables/schemas in this catalog; schemas can still override it with their own MANAGED LOCATION"
         }
       ],
       "correctOptionIds": [
-        "a"
+        "d"
       ],
       "explanation": "MANAGED LOCATION on CREATE CATALOG sets the default storage root that managed schemas/tables in that catalog inherit unless overridden. Unity Catalog supports specifying managed storage at the metastore, catalog, or schema level, with the more specific level taking precedence — giving isolation per catalog without forcing every table to be external.",
       "sourceUrls": [
@@ -2980,11 +2980,11 @@
       "options": [
         {
           "id": "a",
-          "label": "This is invalid — all schemas in a catalog must share the catalog's managed location"
+          "label": "This overrides the catalog-level managed location for this schema only; managed tables created in prod_sales.finance will use the schema's storage path instead of the catalog default"
         },
         {
           "id": "b",
-          "label": "This overrides the catalog-level managed location for this schema only; managed tables created in prod_sales.finance will use the schema's storage path instead of the catalog default"
+          "label": "This is invalid — all schemas in a catalog must share the catalog's managed location"
         },
         {
           "id": "c",
@@ -2996,7 +2996,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "a"
       ],
       "explanation": "Unity Catalog resolves managed storage location hierarchically: schema-level MANAGED LOCATION overrides the catalog default, which itself overrides the metastore root. This lets a single catalog host schemas with different storage/compliance boundaries without needing separate catalogs.",
       "sourceUrls": [
@@ -3054,11 +3054,11 @@
         },
         {
           "id": "b",
-          "label": "Use a materialized view: the aggregation is precomputed and refreshed on a schedule, so dashboards read a small precomputed table instead of recomputing the join/aggregation each time"
+          "label": "There is no way to avoid recomputation short of manually writing to a new table with a scheduled job"
         },
         {
           "id": "c",
-          "label": "There is no way to avoid recomputation short of manually writing to a new table with a scheduled job"
+          "label": "Use a materialized view: the aggregation is precomputed and refreshed on a schedule, so dashboards read a small precomputed table instead of recomputing the join/aggregation each time"
         },
         {
           "id": "d",
@@ -3066,7 +3066,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "c"
       ],
       "explanation": "Unlike a regular view (computed at query time on every read), a materialized view precomputes and stores its result, refreshing on a defined schedule or trigger. This is exactly suited to expensive, repeatedly-queried aggregations where slightly-stale (hourly) data is acceptable — dashboards then read a small precomputed table instead of re-running the join.",
       "sourceUrls": [
@@ -3089,19 +3089,19 @@
         },
         {
           "id": "b",
-          "label": "Lakehouse Federation: a CONNECTION plus FOREIGN CATALOG lets Databricks query the external Snowflake database directly, governed by Unity Catalog, with no data copy"
-        },
-        {
-          "id": "c",
           "label": "Auto Loader, pointed at Snowflake's internal stage"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "A materialized view that pulls from an external table nightly"
+        },
+        {
+          "id": "d",
+          "label": "Lakehouse Federation: a CONNECTION plus FOREIGN CATALOG lets Databricks query the external Snowflake database directly, governed by Unity Catalog, with no data copy"
         }
       ],
       "correctOptionIds": [
-        "b"
+        "d"
       ],
       "explanation": "Lakehouse Federation lets Unity Catalog register a CONNECTION to an external system (Snowflake, SQL Server, MySQL, PostgreSQL, etc.) and expose it as a FOREIGN CATALOG, so users can query external data directly through Databricks compute — governed like any other UC object — without ETL-ing it in first.",
       "sourceUrls": [
@@ -3120,11 +3120,11 @@
       "options": [
         {
           "id": "a",
-          "label": "Rebuild the tables with clearer column names, since Genie instructions cannot influence query generation"
+          "label": "Add Genie instructions that define business terms (e.g. \"customer\" = billing_account) and specify preferred join paths/sample queries, giving Genie the context to generate correct SQL"
         },
         {
           "id": "b",
-          "label": "Add Genie instructions that define business terms (e.g. \"customer\" = billing_account) and specify preferred join paths/sample queries, giving Genie the context to generate correct SQL"
+          "label": "Rebuild the tables with clearer column names, since Genie instructions cannot influence query generation"
         },
         {
           "id": "c",
@@ -3136,7 +3136,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "a"
       ],
       "explanation": "AI/BI Genie spaces support curated \"instructions\" — business-term definitions, preferred join logic, and example question/SQL pairs — that ground the natural-language-to-SQL generation in the team's actual semantics. This directly resolves ambiguous terminology issues without touching schema or permissions, which don't affect Genie's query-generation logic.",
       "sourceUrls": [
@@ -3190,11 +3190,11 @@
         },
         {
           "id": "b",
-          "label": "Grants in Unity Catalog only apply to objects that exist at grant time; new tables need either a fresh grant or a schema-level default/future-object grant policy to be covered automatically"
+          "label": "SELECT cannot be granted at the schema level; it must be granted per table"
         },
         {
           "id": "c",
-          "label": "SELECT cannot be granted at the schema level; it must be granted per table"
+          "label": "Grants in Unity Catalog only apply to objects that exist at grant time; new tables need either a fresh grant or a schema-level default/future-object grant policy to be covered automatically"
         },
         {
           "id": "d",
@@ -3202,7 +3202,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "c"
       ],
       "explanation": "A schema-level GRANT SELECT applies to objects that exist at the time it's issued. Unity Catalog does not retroactively or automatically extend that grant to tables created afterward unless you use a mechanism intended for future objects; otherwise each new table needs its own grant (or a repeated schema grant). Group-based grants to principals like `analytics_team` are fully supported.",
       "sourceUrls": [
@@ -3225,19 +3225,19 @@
         },
         {
           "id": "b",
-          "label": "Apply a column mask function to `ssn` and a row filter function on `region`, both defined once on the table in Unity Catalog"
-        },
-        {
-          "id": "c",
           "label": "Rely on each BI tool's own row-level security feature, configured separately per tool"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "Encrypt the ssn column client-side and distribute decryption keys only to compliance team laptops"
+        },
+        {
+          "id": "d",
+          "label": "Apply a column mask function to `ssn` and a row filter function on `region`, both defined once on the table in Unity Catalog"
         }
       ],
       "correctOptionIds": [
-        "b"
+        "d"
       ],
       "explanation": "Unity Catalog supports column masks (functions that redact/transform a column's value based on the querying user's group membership) and row filters (functions that restrict which rows are visible), both defined once at the table level. Because enforcement happens in Unity Catalog itself, it applies uniformly across every compute path — notebooks, SQL warehouses, and connected BI tools — with no per-tool configuration.",
       "sourceUrls": [
@@ -3322,11 +3322,11 @@
         },
         {
           "id": "b",
-          "label": "Use a managed identity (assigned to the Databricks access connector or compute) that Azure AD authenticates automatically, with RBAC roles granted on the storage account — no keys or tokens stored anywhere"
+          "label": "Generate a long-lived SAS token and store it in a workspace notebook parameter"
         },
         {
           "id": "c",
-          "label": "Generate a long-lived SAS token and store it in a workspace notebook parameter"
+          "label": "Use a managed identity (assigned to the Databricks access connector or compute) that Azure AD authenticates automatically, with RBAC roles granted on the storage account — no keys or tokens stored anywhere"
         },
         {
           "id": "d",
@@ -3334,7 +3334,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "c"
       ],
       "explanation": "Managed identities let Azure AD authenticate the Databricks access connector (or compute) directly against the storage account via RBAC role assignments (e.g., Storage Blob Data Reader). No credential — key, SAS token, or secret — needs to be stored or managed anywhere, satisfying a no-stored-keys policy while still allowing fine-grained, revocable access.",
       "sourceUrls": [
@@ -3353,19 +3353,19 @@
         },
         {
           "id": "b",
-          "label": "Column and table comments/descriptions set via Unity Catalog DDL (or Catalog Explorer), which surface directly in the catalog's metadata for anyone browsing the table"
-        },
-        {
-          "id": "c",
           "label": "A Slack channel dedicated to answering schema questions"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "Naming the column net_revenue_after_refunds instead, since column names alone are sufficient documentation"
+        },
+        {
+          "id": "d",
+          "label": "Column and table comments/descriptions set via Unity Catalog DDL (or Catalog Explorer), which surface directly in the catalog's metadata for anyone browsing the table"
         }
       ],
       "correctOptionIds": [
-        "b"
+        "d"
       ],
       "explanation": "Unity Catalog lets you attach persistent comments/descriptions to catalogs, schemas, tables, and individual columns. These surface directly in Catalog Explorer and query tools, making tribal knowledge discoverable in place rather than relying on external docs or asking a person — exactly the self-service data discovery UC governance is meant to enable.",
       "sourceUrls": [
@@ -3380,11 +3380,11 @@
       "options": [
         {
           "id": "a",
-          "label": "A saved SQL query that lists all pii tables, reviewed manually each week"
+          "label": "Attribute-based access control (ABAC): a policy that references the pii tag, so any object carrying that tag is governed by the rule automatically, including new ones"
         },
         {
           "id": "b",
-          "label": "Attribute-based access control (ABAC): a policy that references the pii tag, so any object carrying that tag is governed by the rule automatically, including new ones"
+          "label": "A saved SQL query that lists all pii tables, reviewed manually each week"
         },
         {
           "id": "c",
@@ -3396,7 +3396,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "a"
       ],
       "explanation": "Attribute-based access control (ABAC) in Unity Catalog lets you write policies against tags rather than individual object names. Because the policy targets the tag itself, any object — including ones created later — carrying that tag is automatically governed, eliminating the need for per-table grant maintenance.",
       "sourceUrls": [
@@ -3446,11 +3446,11 @@
         },
         {
           "id": "b",
-          "label": "Apply a data retention policy to the raw events table (e.g., a scheduled process using Delta's time-based deletion/VACUUM-aligned retention) while leaving the aggregate tables unmanaged by that policy"
+          "label": "Set a single workspace-wide retention setting that applies identically to every table, raw or aggregated"
         },
         {
           "id": "c",
-          "label": "Set a single workspace-wide retention setting that applies identically to every table, raw or aggregated"
+          "label": "Apply a data retention policy to the raw events table (e.g., a scheduled process using Delta's time-based deletion/VACUUM-aligned retention) while leaving the aggregate tables unmanaged by that policy"
         },
         {
           "id": "d",
@@ -3458,7 +3458,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "c"
       ],
       "explanation": "Retention policies need to be scoped per table/object based on business requirements — raw and aggregate tables here have different lifecycles. Delta Lake's default VACUUM only cleans up stale file versions for time-travel purposes; it does not enforce business retention SLAs on its own, so a deliberate retention policy/process must be defined for tables where old data must be purged.",
       "sourceUrls": [
@@ -3473,23 +3473,23 @@
       "options": [
         {
           "id": "a",
-          "label": "Catalog Explorer's lineage graph, which shows upstream/downstream tables, notebooks, jobs, and dashboards derived from this table/column"
-        },
-        {
-          "id": "b",
           "label": "The cluster event log, which records every read/write operation against the table"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "The audit log, filtered to GRANT/REVOKE events on this table"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "There is no built-in way to trace this; it must be tracked manually in a spreadsheet"
+        },
+        {
+          "id": "d",
+          "label": "Catalog Explorer's lineage graph, which shows upstream/downstream tables, notebooks, jobs, and dashboards derived from this table/column"
         }
       ],
       "correctOptionIds": [
-        "a"
+        "d"
       ],
       "explanation": "Unity Catalog automatically captures data lineage — tracking dependencies between tables, columns, notebooks, jobs, dashboards, and other assets — and surfaces it visually in Catalog Explorer, including column-level lineage. This is exactly the tool for impact analysis before a breaking schema change, rather than the audit log (which tracks access/permission events) or manual tracking.",
       "sourceUrls": [
@@ -3566,11 +3566,11 @@
       "options": [
         {
           "id": "a",
-          "label": "Both sources should use the exact same extraction pattern for consistency, ignoring what each source system actually offers"
+          "label": "The CSV source is best handled as a full/batch extraction with file-based ingestion (e.g. Auto Loader), while the CDC-capable source should use change-based extraction to avoid reprocessing entire tables"
         },
         {
           "id": "b",
-          "label": "The CSV source is best handled as a full/batch extraction with file-based ingestion (e.g. Auto Loader), while the CDC-capable source should use change-based extraction to avoid reprocessing entire tables"
+          "label": "Both sources should use the exact same extraction pattern for consistency, ignoring what each source system actually offers"
         },
         {
           "id": "c",
@@ -3582,7 +3582,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "a"
       ],
       "explanation": "Ingestion design should match what each source can actually provide: a snapshot-only CSV export is naturally suited to file-based batch/incremental ingestion (e.g. Auto Loader tracking new files), while a CDC-capable source should be ingested via its change feed so only deltas are processed — avoiding full reprocessing and reducing cost/latency.",
       "sourceUrls": [
@@ -3632,11 +3632,11 @@
         },
         {
           "id": "b",
-          "label": "Fraud detection should use streaming ingestion (low latency, continuous processing); the monthly reconciliation report can use batch ingestion (e.g. a daily scheduled job), since near-real-time freshness isn't required"
+          "label": "Both should use batch loading once per month to minimize compute cost"
         },
         {
           "id": "c",
-          "label": "Both should use batch loading once per month to minimize compute cost"
+          "label": "Fraud detection should use streaming ingestion (low latency, continuous processing); the monthly reconciliation report can use batch ingestion (e.g. a daily scheduled job), since near-real-time freshness isn't required"
         },
         {
           "id": "d",
@@ -3644,7 +3644,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "c"
       ],
       "explanation": "Loading method should be chosen per use case's latency requirement, not per source. Streaming (e.g. Structured Streaming/Auto Loader) fits low-latency needs like fraud detection where seconds matter. Batch loading is more cost-efficient and operationally simpler when eventual, periodic freshness (like end-of-day) is sufficient — as with the monthly reconciliation report.",
       "sourceUrls": [
@@ -3667,15 +3667,15 @@
         },
         {
           "id": "c",
-          "label": "Delta Lake (built on Parquet), which natively provides ACID transactions, efficient MERGE/upserts, and time travel"
+          "label": "Plain Parquet without a transaction log, since Parquet alone provides ACID guarantees"
         },
         {
           "id": "d",
-          "label": "Plain Parquet without a transaction log, since Parquet alone provides ACID guarantees"
+          "label": "Delta Lake (built on Parquet), which natively provides ACID transactions, efficient MERGE/upserts, and time travel"
         }
       ],
       "correctOptionIds": [
-        "c"
+        "d"
       ],
       "explanation": "Delta Lake is the table format purpose-built for exactly these requirements: ACID transactions, efficient MERGE for upserts, and time travel via its transaction log — layered on top of Parquet's columnar storage. JSON and CSV are fine as raw landing formats but lack these transactional guarantees; plain Parquet without a transaction log also lacks ACID/time-travel support on its own.",
       "sourceUrls": [
@@ -3690,11 +3690,11 @@
       "options": [
         {
           "id": "a",
-          "label": "No partitioning at all, relying purely on file statistics"
+          "label": "Partition by event_date, since queries consistently filter on it and daily jobs naturally align with day-sized partitions, enabling partition pruning"
         },
         {
           "id": "b",
-          "label": "Partition by event_date, since queries consistently filter on it and daily jobs naturally align with day-sized partitions, enabling partition pruning"
+          "label": "No partitioning at all, relying purely on file statistics"
         },
         {
           "id": "c",
@@ -3706,7 +3706,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "a"
       ],
       "explanation": "Partitioning should align with dominant query filter patterns and natural write/access granularity. Here, queries consistently filter on event_date and jobs process one day at a time, so partitioning by event_date enables partition pruning (skipping irrelevant files) and matches operational patterns. Over-partitioning on high-cardinality columns instead creates the classic 'small files' problem and hurts performance.",
       "sourceUrls": [
@@ -3756,11 +3756,11 @@
         },
         {
           "id": "b",
-          "label": "Create a coarser-grained aggregate table (or materialized view) at store/day granularity specifically for the dashboard, while retaining the transaction-level table for use cases that need it"
+          "label": "Delete the transaction-level table entirely once the aggregate exists, since finer granularity is never useful"
         },
         {
           "id": "c",
-          "label": "Delete the transaction-level table entirely once the aggregate exists, since finer granularity is never useful"
+          "label": "Create a coarser-grained aggregate table (or materialized view) at store/day granularity specifically for the dashboard, while retaining the transaction-level table for use cases that need it"
         },
         {
           "id": "d",
@@ -3768,7 +3768,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "c"
       ],
       "explanation": "Granularity should be chosen per consumer's actual query pattern. A dashboard that only needs store/day totals benefits from a pre-aggregated table at that granularity (avoiding repeated aggregation of transaction-level data on every query), while other consumers that need transaction-level detail still have that table available — granularity choices aren't one-size-fits-all across a whole platform.",
       "sourceUrls": [
@@ -3787,19 +3787,19 @@
         },
         {
           "id": "b",
-          "label": "A temporal (history) table: one row per tier-change event per customer, with valid_from/valid_to timestamps, enabling point-in-time reconstruction for any historical date"
-        },
-        {
-          "id": "c",
           "label": "A materialized view recomputed from scratch on every query, since materialized views inherently store full history"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "A simple UPDATE-in-place table, since Delta Lake's time travel alone satisfies this requirement without any schema design"
+        },
+        {
+          "id": "d",
+          "label": "A temporal (history) table: one row per tier-change event per customer, with valid_from/valid_to timestamps, enabling point-in-time reconstruction for any historical date"
         }
       ],
       "correctOptionIds": [
-        "b"
+        "d"
       ],
       "explanation": "A temporal/history table explicitly models validity periods (valid_from/valid_to) per record version, letting queries reconstruct \"what was true as of date X\" without relying on Delta's time-travel feature (which reflects table snapshot history, not necessarily business-meaningful validity periods, and has retention limits). This is the standard pattern for long-term point-in-time auditability.",
       "sourceUrls": [
@@ -3814,11 +3814,11 @@
       "options": [
         {
           "id": "a",
-          "label": "Traditional Hive-style static partitioning by user_id, accepting the skew"
+          "label": "Liquid clustering on (user_id, country), which incrementally and automatically reorganizes data by clustering keys without requiring rigid partition definitions or manual OPTIMIZE scheduling for rebalancing"
         },
         {
           "id": "b",
-          "label": "Liquid clustering on (user_id, country), which incrementally and automatically reorganizes data by clustering keys without requiring rigid partition definitions or manual OPTIMIZE scheduling for rebalancing"
+          "label": "Traditional Hive-style static partitioning by user_id, accepting the skew"
         },
         {
           "id": "c",
@@ -3830,7 +3830,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "a"
       ],
       "explanation": "Liquid clustering is designed for exactly this case: high/varying-cardinality columns where static partitioning causes skew or too many small partitions. It clusters data incrementally as it's written and adapts over time, reducing the need for manual OPTIMIZE/Z-order maintenance while still enabling efficient file pruning on the clustering keys.",
       "sourceUrls": [
@@ -3876,15 +3876,15 @@
       "options": [
         {
           "id": "a",
-          "label": "Lakeflow Connect's managed Salesforce connector, configured to run in batch or streaming mode as needed"
-        },
-        {
-          "id": "b",
           "label": "A hand-written Python notebook using the raw Salesforce REST API and manual pagination/state tracking"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "Spark Structured Streaming reading directly from Salesforce's database files"
+        },
+        {
+          "id": "c",
+          "label": "Lakeflow Connect's managed Salesforce connector, configured to run in batch or streaming mode as needed"
         },
         {
           "id": "d",
@@ -3892,7 +3892,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "c"
       ],
       "explanation": "Lakeflow Connect provides managed, low-code connectors for common SaaS/enterprise sources like Salesforce, handling extraction, incremental/CDC-style updates, and schema evolution with minimal custom code — supporting both batch and streaming ingestion modes. Hand-rolled REST integrations require far more maintenance for the same outcome.",
       "sourceUrls": [
@@ -3907,23 +3907,23 @@
       "options": [
         {
           "id": "a",
-          "label": "This uses Auto Loader (cloudFiles) with trigger(availableNow=True), which incrementally discovers and processes only new files each run using its own file-tracking state, then stops — giving batch-like scheduling with streaming-style incremental file tracking"
-        },
-        {
-          "id": "b",
           "label": "This re-reads every file in the directory on every run, since readStream always performs a full scan"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "The checkpointLocation is optional decoration and has no effect on which files get reprocessed"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "This pattern only works for Parquet files, not JSON"
+        },
+        {
+          "id": "d",
+          "label": "This uses Auto Loader (cloudFiles) with trigger(availableNow=True), which incrementally discovers and processes only new files each run using its own file-tracking state, then stops — giving batch-like scheduling with streaming-style incremental file tracking"
         }
       ],
       "correctOptionIds": [
-        "a"
+        "d"
       ],
       "explanation": "Auto Loader (cloudFiles format) incrementally and efficiently discovers new files in cloud storage using its own scalable file-tracking state (backed by the checkpoint location), avoiding full directory listings on every run. `trigger(availableNow=True)` processes all currently available new data then stops — a common pattern for running incremental ingestion on a schedule (e.g., inside a notebook task) rather than as an always-on stream.",
       "sourceUrls": [
@@ -4008,15 +4008,15 @@
       "options": [
         {
           "id": "a",
-          "label": "Spark Structured Streaming, whose windowed aggregation and watermarking (withWatermark) natively support continuous windowed computation with bounded handling of late data"
-        },
-        {
-          "id": "b",
           "label": "A batch job run every 5 minutes using CREATE OR REPLACE TABLE, since batch and streaming produce identical results for windowed aggregates"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "COPY INTO with a WHERE clause filtering the last 5 minutes of data"
+        },
+        {
+          "id": "c",
+          "label": "Spark Structured Streaming, whose windowed aggregation and watermarking (withWatermark) natively support continuous windowed computation with bounded handling of late data"
         },
         {
           "id": "d",
@@ -4024,7 +4024,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "c"
       ],
       "explanation": "Spark Structured Streaming provides native windowed aggregation (`window()`) and watermarking (`withWatermark`) to bound how long the engine waits for late-arriving events before finalizing a window — exactly the semantics needed for continuous, correctness-aware streaming aggregates. Auto Loader is a file-ingestion source, not an aggregation engine; it's typically used as the read side feeding into Structured Streaming logic like this.",
       "sourceUrls": [
@@ -4043,23 +4043,23 @@
       "options": [
         {
           "id": "a",
-          "label": "Use the Structured Streaming Event Hubs connector to read the stream directly, then write it into the bronze Delta table with writeStream"
-        },
-        {
-          "id": "b",
           "label": "Export Event Hubs data to CSV files hourly and use COPY INTO, since Event Hubs cannot be read directly by Spark"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "Use Auto Loader's cloudFiles format directly against the Event Hubs namespace endpoint"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "Event Hubs data must first be manually copied into ADLS Gen2 before Databricks can process it"
+        },
+        {
+          "id": "d",
+          "label": "Use the Structured Streaming Event Hubs connector to read the stream directly, then write it into the bronze Delta table with writeStream"
         }
       ],
       "correctOptionIds": [
-        "a"
+        "d"
       ],
       "explanation": "Azure Databricks reads Event Hubs streams directly via the Structured Streaming Event Hubs connector (`format(\"eventhubs\")`), enabling low-latency, near-real-time ingestion straight into a bronze Delta table with writeStream — no intermediate file export or manual copy step is needed. Auto Loader/cloudFiles is for cloud object storage, not message streaming services like Event Hubs.",
       "sourceUrls": [
@@ -4152,11 +4152,11 @@
         },
         {
           "id": "b",
-          "label": "Cast order_id to a numeric type (e.g. BIGINT/INT) for efficient joins, and parse/cast discount_pct into a numeric type (e.g. DOUBLE) after stripping the '%' — choosing types deliberately based on how each column will be used"
+          "label": "Cast both columns to BOOLEAN, since Delta Lake performs best with the smallest possible data types"
         },
         {
           "id": "c",
-          "label": "Cast both columns to BOOLEAN, since Delta Lake performs best with the smallest possible data types"
+          "label": "Cast order_id to a numeric type (e.g. BIGINT/INT) for efficient joins, and parse/cast discount_pct into a numeric type (e.g. DOUBLE) after stripping the '%' — choosing types deliberately based on how each column will be used"
         },
         {
           "id": "d",
@@ -4164,7 +4164,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "c"
       ],
       "explanation": "Choosing appropriate column data types is a deliberate transformation step: numeric IDs used in joins should be numeric types (better performance, correct semantics) rather than strings, and columns needing arithmetic (like a percentage) need to be parsed into numeric types rather than left as text. Type inference alone doesn't fix malformed or oddly-formatted text.",
       "sourceUrls": [
@@ -4179,23 +4179,23 @@
       "options": [
         {
           "id": "a",
-          "label": "dropDuplicates([\"order_id\"]) removes rows with a repeated order_id (keeping one), and coalesce() fills nulls in customer_email with the default — correctly resolving both the duplicate and missing-value issues"
-        },
-        {
-          "id": "b",
           "label": "dropDuplicates() with no arguments should be used instead, since column-scoped deduplication is not supported in Spark"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "coalesce() removes duplicate rows, and dropDuplicates() fills null values"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "This code silently fails because withColumn cannot be chained after dropDuplicates"
+        },
+        {
+          "id": "d",
+          "label": "dropDuplicates([\"order_id\"]) removes rows with a repeated order_id (keeping one), and coalesce() fills nulls in customer_email with the default — correctly resolving both the duplicate and missing-value issues"
         }
       ],
       "correctOptionIds": [
-        "a"
+        "d"
       ],
       "explanation": "`dropDuplicates([\"order_id\"])` deduplicates based on a specific key column (appropriate when only certain columns define uniqueness), and `coalesce()` returns the first non-null argument — a standard pattern for substituting a default value for nulls. Both operations are valid to chain via withColumn.",
       "sourceUrls": [
@@ -4288,11 +4288,11 @@
         },
         {
           "id": "b",
-          "label": "UNPIVOT, which converts wide-format columns (one per month) into a long/tall format with one row per product-month combination — exactly what a time series plot needs"
+          "label": "A UNION of 12 separate SELECT statements is the only way to achieve this"
         },
         {
           "id": "c",
-          "label": "A UNION of 12 separate SELECT statements is the only way to achieve this"
+          "label": "UNPIVOT, which converts wide-format columns (one per month) into a long/tall format with one row per product-month combination — exactly what a time series plot needs"
         },
         {
           "id": "d",
@@ -4300,7 +4300,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "c"
       ],
       "explanation": "UNPIVOT reshapes wide data (multiple columns representing categories, here months) into long/tall format (one row per category value) — the standard transformation for feeding time-series or category-based visualizations that expect one row per (entity, category). PIVOT does the opposite: long-to-wide.",
       "sourceUrls": [
@@ -4323,19 +4323,19 @@
         },
         {
           "id": "b",
-          "label": "MERGE, which performs conditional update-if-matched / insert-if-not-matched (an upsert) in a single atomic statement based on the join key"
-        },
-        {
-          "id": "c",
           "label": "APPEND, a dedicated SQL keyword for upserts"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "CREATE OR REPLACE TABLE, which is the only way to merge new and existing data"
+        },
+        {
+          "id": "d",
+          "label": "MERGE, which performs conditional update-if-matched / insert-if-not-matched (an upsert) in a single atomic statement based on the join key"
         }
       ],
       "correctOptionIds": [
-        "b"
+        "d"
       ],
       "explanation": "MERGE INTO is Delta Lake's upsert primitive: it joins source to target on a key and applies different logic per match outcome — UPDATE for matched rows (existing customers with changes), INSERT for unmatched source rows (new customers) — all atomically. Plain INSERT INTO would create duplicates for existing customers rather than updating them.",
       "sourceUrls": [
@@ -4389,11 +4389,11 @@
       "options": [
         {
           "id": "a",
-          "label": "Use permissive/badRecordsPath (or rescued data column) handling during read, so malformed rows are captured separately for inspection instead of crashing the job or being silently dropped"
+          "label": "Set the column type to STRING everywhere to avoid any type mismatch ever occurring"
         },
         {
           "id": "b",
-          "label": "Set the column type to STRING everywhere to avoid any type mismatch ever occurring"
+          "label": "Use permissive/badRecordsPath (or rescued data column) handling during read, so malformed rows are captured separately for inspection instead of crashing the job or being silently dropped"
         },
         {
           "id": "c",
@@ -4405,7 +4405,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "b"
       ],
       "explanation": "Spark's data source options support handling malformed records without failing the whole job — e.g., the rescued data column captures fields that don't match the expected schema/type so they're visible and reviewable, rather than crashing the pipeline or silently discarding bad data. Blanket try/except or making everything STRING sacrifices type safety and visibility into data quality issues.",
       "sourceUrls": [
@@ -4420,15 +4420,15 @@
       "options": [
         {
           "id": "a",
-          "label": "cloudFiles.schemaEvolutionMode=\"addNewColumns\" makes Auto Loader detect new columns, evolve the schema, and restart the stream with the new schema applied — rather than silently dropping the new field or hard-failing forever"
-        },
-        {
-          "id": "b",
           "label": "Schema drift can only be handled by manually editing the target table's DDL before every source change"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "Auto Loader always fails permanently on any schema change with no recovery option"
+        },
+        {
+          "id": "c",
+          "label": "cloudFiles.schemaEvolutionMode=\"addNewColumns\" makes Auto Loader detect new columns, evolve the schema, and restart the stream with the new schema applied — rather than silently dropping the new field or hard-failing forever"
         },
         {
           "id": "d",
@@ -4436,7 +4436,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "c"
       ],
       "explanation": "Auto Loader's schema evolution modes control how it reacts to new columns in the source. \"addNewColumns\" (a common default) evolves the schema and triggers a stream restart to pick up the change, surfacing it via a stream failure/restart event (which is visible in job monitoring) rather than silently dropping data or requiring manual DDL edits for every source change.",
       "sourceUrls": [
@@ -4455,23 +4455,23 @@
       "options": [
         {
           "id": "a",
-          "label": "Pipeline expectations (@dlt.expect / expect_or_drop / expect_or_fail), which declaratively define data quality rules and let you choose per-rule whether violations are tracked, dropped, or fail the pipeline"
-        },
-        {
-          "id": "b",
           "label": "A manual COUNT(*) query run after the pipeline completes, with a human deciding whether to roll back"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "CHECK constraints, which are the only mechanism available inside Declarative Pipelines and always fail the entire pipeline on any violation"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "There is no built-in way to conditionally drop vs. fail based on violation rate in Lakeflow Declarative Pipelines"
+        },
+        {
+          "id": "d",
+          "label": "Pipeline expectations (@dlt.expect / expect_or_drop / expect_or_fail), which declaratively define data quality rules and let you choose per-rule whether violations are tracked, dropped, or fail the pipeline"
         }
       ],
       "correctOptionIds": [
-        "a"
+        "d"
       ],
       "explanation": "Lakeflow Declarative Pipelines support expectations: `@dlt.expect` (track violations, keep rows), `expect_or_drop` (drop violating rows), and `expect_or_fail` (fail the pipeline on any violation) — giving fine-grained, declarative control over data quality enforcement per rule, including patterns to drop bad rows while monitoring violation rates.",
       "sourceUrls": [
@@ -4521,15 +4521,15 @@
       "options": [
         {
           "id": "a",
-          "label": "Notebook-based orchestration (imperative, full control over each step, orchestration handled via Lakeflow Jobs task dependencies) vs. Lakeflow Spark Declarative Pipelines (declarative, automatic dependency graph + expectations); the team's stated preference fits Declarative Pipelines"
-        },
-        {
-          "id": "b",
           "label": "Both approaches are identical in Databricks; there is no meaningful difference between notebooks and Declarative Pipelines"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "Notebooks always provide automatic dependency resolution, making Declarative Pipelines redundant"
+        },
+        {
+          "id": "c",
+          "label": "Notebook-based orchestration (imperative, full control over each step, orchestration handled via Lakeflow Jobs task dependencies) vs. Lakeflow Spark Declarative Pipelines (declarative, automatic dependency graph + expectations); the team's stated preference fits Declarative Pipelines"
         },
         {
           "id": "d",
@@ -4537,7 +4537,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "c"
       ],
       "explanation": "Notebook-based pipelines (orchestrated as Lakeflow Job tasks) give full imperative control but require manually wiring dependencies, checkpoints, and quality checks. Lakeflow Spark Declarative Pipelines instead let you declare tables/transformations and infer the dependency graph automatically, plus offer built-in expectations for data quality — directly matching the stated preference for less hand-written orchestration.",
       "sourceUrls": [
@@ -4552,23 +4552,23 @@
       "options": [
         {
           "id": "a",
-          "label": "Set the transform task's run-if condition so load can still run after transform completes (success or with a partial-failure outcome), while configuring the job to report overall failure status and trigger a notification when any task reports an issue"
-        },
-        {
-          "id": "b",
           "label": "Make load strictly dependent on transform's full success only, guaranteeing no partial loads ever happen, which coincidentally also satisfies the requirement"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "There's no way to run downstream tasks after a partial upstream failure in Lakeflow Jobs"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "Combine all three steps into a single task so there's nothing to configure"
+        },
+        {
+          "id": "d",
+          "label": "Set the transform task's run-if condition so load can still run after transform completes (success or with a partial-failure outcome), while configuring the job to report overall failure status and trigger a notification when any task reports an issue"
         }
       ],
       "correctOptionIds": [
-        "a"
+        "d"
       ],
       "explanation": "Lakeflow Jobs support configurable task run-if conditions (e.g., run on success, on failure, or always) so downstream tasks can execute even when an upstream task reports a non-fatal issue, while the job's overall status and alerting still reflect that something needs attention. This gives fine-grained control over error handling rather than an all-or-nothing dependency.",
       "sourceUrls": [
@@ -4645,15 +4645,15 @@
       "options": [
         {
           "id": "a",
-          "label": "Lakeflow Spark Declarative Pipelines: the dependency graph is inferred automatically from dlt.read()/dlt.read_stream() references between table definitions, so execution order doesn't need to be manually declared"
-        },
-        {
-          "id": "b",
           "label": "This still requires manually declaring task dependencies identical to a notebook-based Lakeflow Job"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "The @dlt.table decorator has no effect on execution order; all tables run in parallel regardless of dependencies"
+        },
+        {
+          "id": "c",
+          "label": "Lakeflow Spark Declarative Pipelines: the dependency graph is inferred automatically from dlt.read()/dlt.read_stream() references between table definitions, so execution order doesn't need to be manually declared"
         },
         {
           "id": "d",
@@ -4661,7 +4661,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "c"
       ],
       "explanation": "One of the core value propositions of Lakeflow Spark Declarative Pipelines is automatic dependency inference: because gold_daily_revenue references silver_orders via dlt.read(), the pipeline engine knows silver_orders must run first — no manual task dependency configuration required, unlike notebook-based Lakeflow Jobs where dependencies are declared explicitly.",
       "sourceUrls": [
@@ -4680,23 +4680,23 @@
       "options": [
         {
           "id": "a",
-          "label": "Create one job definition with a single task, and use job parameters (widgets/parameters passed at task level) so the same notebook logic runs three times — once per region — via separate scheduled runs or a for-each task passing different parameter values"
-        },
-        {
-          "id": "b",
           "label": "Copy-paste the entire job definition three times, hardcoding the region into each notebook's source code"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "Use three separate Databricks workspaces, one per region, each running an identical unparameterized job"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "Parameters are not supported in Lakeflow Jobs; each variation must be a separate notebook"
+        },
+        {
+          "id": "d",
+          "label": "Create one job definition with a single task, and use job parameters (widgets/parameters passed at task level) so the same notebook logic runs three times — once per region — via separate scheduled runs or a for-each task passing different parameter values"
         }
       ],
       "correctOptionIds": [
-        "a"
+        "d"
       ],
       "explanation": "Lakeflow Jobs support parameterization (job/task parameters, or a For Each task that iterates a task over a list of values) so one job definition can run the same logic multiple times with different inputs — avoiding job/notebook duplication and the maintenance burden of keeping copies in sync.",
       "sourceUrls": [
@@ -4746,11 +4746,11 @@
       "options": [
         {
           "id": "a",
-          "label": "Job-level failure notifications (email/webhook/Slack integration) for the failure case, plus a duration threshold alert configured on the job for the \"running too long\" case — both configured independently, with success notifications left off"
+          "label": "A single generic notification setting that fires on every run outcome, requiring manual filtering afterward"
         },
         {
           "id": "b",
-          "label": "A single generic notification setting that fires on every run outcome, requiring manual filtering afterward"
+          "label": "Job-level failure notifications (email/webhook/Slack integration) for the failure case, plus a duration threshold alert configured on the job for the \"running too long\" case — both configured independently, with success notifications left off"
         },
         {
           "id": "c",
@@ -4762,7 +4762,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "b"
       ],
       "explanation": "Lakeflow Jobs support configuring notifications per outcome type (start, success, failure) independently, so you can enable only failure notifications to reduce noise. Separately, jobs support a duration threshold setting that triggers an alert when a run exceeds an expected runtime — directly addressing the \"stuck job\" detection case alongside failure alerts.",
       "sourceUrls": [
@@ -4777,15 +4777,15 @@
       "options": [
         {
           "id": "a",
-          "label": "An automatic restart policy on the pipeline/job with a bounded retry count (and optionally exponential backoff), so transient infrastructure failures self-heal while a persistently broken pipeline still stops retrying and surfaces as failed after the limit"
-        },
-        {
-          "id": "b",
           "label": "Manual restarts only, since automatic restarts are not supported for streaming pipelines"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "An unbounded automatic restart with no limit, guaranteeing the pipeline is never marked as failed"
+        },
+        {
+          "id": "c",
+          "label": "An automatic restart policy on the pipeline/job with a bounded retry count (and optionally exponential backoff), so transient infrastructure failures self-heal while a persistently broken pipeline still stops retrying and surfaces as failed after the limit"
         },
         {
           "id": "d",
@@ -4793,7 +4793,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "c"
       ],
       "explanation": "Lakeflow Jobs and Declarative Pipelines support configurable automatic restart/retry policies with a bounded retry count, which is the correct pattern here: transient infrastructure issues (like spot eviction) self-heal without manual intervention, but a genuinely broken pipeline still exhausts its retries and surfaces as a failure rather than looping forever.",
       "sourceUrls": [
@@ -4808,23 +4808,23 @@
       "options": [
         {
           "id": "a",
-          "label": "Use a job cluster (not an existing all-purpose cluster) scoped to the task, set the job's run-as identity to a dedicated service principal, and rely on the job cluster's automatic termination after task completion"
-        },
-        {
-          "id": "b",
           "label": "Use an all-purpose cluster kept running 24/7 under the creating engineer's personal identity, since that guarantees the fastest task start every time"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "Run-as identity can only ever be the job creator's personal account; service principals cannot own jobs"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "Job clusters cannot be scoped per-task; they always require a separately pre-created all-purpose cluster"
+        },
+        {
+          "id": "d",
+          "label": "Use a job cluster (not an existing all-purpose cluster) scoped to the task, set the job's run-as identity to a dedicated service principal, and rely on the job cluster's automatic termination after task completion"
         }
       ],
       "correctOptionIds": [
-        "a"
+        "d"
       ],
       "explanation": "Job clusters are created fresh for a task's run and automatically terminate afterward — the cost-efficient default for scheduled workloads, versus an always-on all-purpose cluster. Lakeflow Jobs also support setting a \"run as\" identity to a service principal, decoupling production job ownership from any individual employee's account, which is the recommended production pattern.",
       "sourceUrls": [
@@ -4870,15 +4870,15 @@
       "options": [
         {
           "id": "a",
-          "label": "Branch protection rules requiring CI checks (e.g. automated test runs) to pass, combined with mandatory review approval, before a PR can be merged"
-        },
-        {
-          "id": "b",
           "label": "A written policy asking reviewers to \"try harder\" to catch bugs manually"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "Removing the PR review step entirely, since manual review isn't catching bugs anyway"
+        },
+        {
+          "id": "c",
+          "label": "Branch protection rules requiring CI checks (e.g. automated test runs) to pass, combined with mandatory review approval, before a PR can be merged"
         },
         {
           "id": "d",
@@ -4886,7 +4886,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "c"
       ],
       "explanation": "Branch protection combined with required CI status checks enforces that automated tests must pass — not just that a human skimmed the diff — before code reaches main. This is the standard fix for review processes that rely too heavily on manual inspection catching every issue.",
       "sourceUrls": [
@@ -4901,23 +4901,23 @@
       "options": [
         {
           "id": "a",
-          "label": "Unit tests (individual function correctness) → integration/end-to-end tests (full pipeline against sample data) → user acceptance testing (UAT, stakeholder sign-off) — each addressing a different layer of confidence"
-        },
-        {
-          "id": "b",
           "label": "A single exhaustive UAT phase is sufficient and makes unit/integration testing redundant"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "Unit tests alone cover all three needs, since they inherently validate end-to-end pipeline behavior and business expectations"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "Integration tests should be skipped entirely in data pipelines since they duplicate what unit tests already verify"
+        },
+        {
+          "id": "d",
+          "label": "Unit tests (individual function correctness) → integration/end-to-end tests (full pipeline against sample data) → user acceptance testing (UAT, stakeholder sign-off) — each addressing a different layer of confidence"
         }
       ],
       "correctOptionIds": [
-        "a"
+        "d"
       ],
       "explanation": "A layered testing strategy addresses distinct risks: unit tests validate individual transformation logic in isolation, integration/end-to-end tests validate that components work correctly together against realistic data flowing through the full pipeline, and UAT validates that the result actually satisfies business/stakeholder expectations — no single layer substitutes for the others.",
       "sourceUrls": [
@@ -4967,11 +4967,11 @@
       "options": [
         {
           "id": "a",
-          "label": "This deploys the bundle's resources (jobs, pipelines, etc.) to the prod target's workspace as defined in databricks.yml, using that target's variables and workspace host"
+          "label": "This command only validates the bundle syntax; a separate 'databricks bundle apply' command is required to actually deploy"
         },
         {
           "id": "b",
-          "label": "This command only validates the bundle syntax; a separate 'databricks bundle apply' command is required to actually deploy"
+          "label": "This deploys the bundle's resources (jobs, pipelines, etc.) to the prod target's workspace as defined in databricks.yml, using that target's variables and workspace host"
         },
         {
           "id": "c",
@@ -4983,7 +4983,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "b"
       ],
       "explanation": "`databricks bundle deploy --target <name>` is the Databricks CLI command that deploys a bundle's defined resources to the specified target environment, resolving that target's workspace host and variable overrides from databricks.yml — the standard CLI-driven deployment path for Asset Bundles.",
       "sourceUrls": [
@@ -5002,15 +5002,15 @@
       "options": [
         {
           "id": "a",
-          "label": "Have the CI runner call the Databricks REST APIs (or the CLI authenticated via a service principal / OAuth token in CI secrets) to deploy the bundle programmatically as part of the pipeline"
-        },
-        {
-          "id": "b",
           "label": "Require a human to log into the Databricks UI and manually click through every deployment step whenever CI finishes"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "Bundles cannot be deployed via API; only interactive CLI sessions are supported"
+        },
+        {
+          "id": "c",
+          "label": "Have the CI runner call the Databricks REST APIs (or the CLI authenticated via a service principal / OAuth token in CI secrets) to deploy the bundle programmatically as part of the pipeline"
         },
         {
           "id": "d",
@@ -5018,7 +5018,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "c"
       ],
       "explanation": "For CI/CD automation, deployment should happen programmatically: the CLI (which itself calls Databricks REST APIs under the hood) can be run non-interactively in a CI runner, authenticated via a service principal or OAuth token stored as a CI secret — exactly the pattern needed to trigger deployments as part of an automated pipeline without manual steps.",
       "sourceUrls": [
@@ -5033,23 +5033,23 @@
       "options": [
         {
           "id": "a",
-          "label": "The account/workspace-level usage and cluster utilization views (e.g. cluster event logs, DBU usage dashboards, and per-cluster metrics) to identify clusters running idle, oversized, or without autoscaling/auto-termination configured"
-        },
-        {
-          "id": "b",
           "label": "The Delta table transaction log, which records every cluster's cost per query"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "There's no way to investigate cost drivers; costs can only be reduced by cutting the number of jobs"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "The Unity Catalog audit log exclusively, since it tracks all cost-relevant cluster activity"
+        },
+        {
+          "id": "d",
+          "label": "The account/workspace-level usage and cluster utilization views (e.g. cluster event logs, DBU usage dashboards, and per-cluster metrics) to identify clusters running idle, oversized, or without autoscaling/auto-termination configured"
         }
       ],
       "correctOptionIds": [
-        "a"
+        "d"
       ],
       "explanation": "Cluster consumption monitoring for cost/performance optimization starts with usage and utilization data — DBU consumption dashboards, cluster event logs, and per-cluster metrics — to spot patterns like clusters lacking autoscaling/auto-termination, oversized node types for the workload, or long idle periods, which are the typical drivers of unexplained cost growth.",
       "sourceUrls": [
@@ -5095,11 +5095,11 @@
       "options": [
         {
           "id": "a",
-          "label": "Data skew: a small number of partitions contain disproportionately more data (or a hot key) than others, causing a few tasks to run far longer; check the stage's task duration distribution and partition/key cardinality in the Spark UI"
+          "label": "This is always caused by insufficient driver memory, unrelated to task duration patterns"
         },
         {
           "id": "b",
-          "label": "This is always caused by insufficient driver memory, unrelated to task duration patterns"
+          "label": "Data skew: a small number of partitions contain disproportionately more data (or a hot key) than others, causing a few tasks to run far longer; check the stage's task duration distribution and partition/key cardinality in the Spark UI"
         },
         {
           "id": "c",
@@ -5111,7 +5111,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "b"
       ],
       "explanation": "A small number of long-running tasks in an otherwise-fast stage is the classic signature of data skew — typically a hot key in a groupBy/join causing a few partitions to be much larger than others. The Spark UI's stage detail view (task duration distribution, shuffle read size per task) is exactly where this is diagnosed, often followed by techniques like salting the key or enabling adaptive query execution skew handling.",
       "sourceUrls": [
@@ -5130,11 +5130,11 @@
         },
         {
           "id": "b",
-          "label": "Ensure a broadcast join is used for the small dimension table (letting Spark send the small table to every executor instead of shuffling the large fact table), avoiding the expensive shuffle entirely"
+          "label": "Convert the join to a UNION, which never requires a shuffle"
         },
         {
           "id": "c",
-          "label": "Convert the join to a UNION, which never requires a shuffle"
+          "label": "Ensure a broadcast join is used for the small dimension table (letting Spark send the small table to every executor instead of shuffling the large fact table), avoiding the expensive shuffle entirely"
         },
         {
           "id": "d",
@@ -5142,7 +5142,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "c"
       ],
       "explanation": "When one side of a join is small enough to fit in memory, a broadcast join sends that small table to every executor so the large table never needs to be shuffled — directly eliminating the expensive shuffle stage seen in the query profile/DAG. Spark's cost-based optimizer often does this automatically below a size threshold, but it can also be hinted explicitly when needed.",
       "sourceUrls": [
@@ -5157,23 +5157,23 @@
       "options": [
         {
           "id": "a",
-          "label": "OPTIMIZE compacts small files into larger ones to improve query performance; VACUUM removes old, unreferenced data files beyond the retention window to reclaim storage — each solving a different one of the two problems"
-        },
-        {
-          "id": "b",
           "label": "OPTIMIZE and VACUUM both do the same thing: compact small files. Running either alone is sufficient for both problems"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "VACUUM compacts small files, while OPTIMIZE reclaims storage from old versions"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "Neither command is relevant to file count or storage; both only affect table statistics"
+        },
+        {
+          "id": "d",
+          "label": "OPTIMIZE compacts small files into larger ones to improve query performance; VACUUM removes old, unreferenced data files beyond the retention window to reclaim storage — each solving a different one of the two problems"
         }
       ],
       "correctOptionIds": [
-        "a"
+        "d"
       ],
       "explanation": "OPTIMIZE compacts many small files into fewer, larger ones (directly addressing the small-file query performance problem, and can be combined with Z-ordering or liquid clustering for better data layout). VACUUM removes files no longer referenced by the current table state beyond the retention threshold (addressing the storage cost of accumulated old file versions) — they solve distinct problems and are typically run together as regular maintenance.",
       "sourceUrls": [
@@ -5223,11 +5223,11 @@
       "options": [
         {
           "id": "a",
-          "label": "An Azure Monitor alert rule based on a metric/log query (e.g. against job run data streamed via diagnostic settings) with a threshold condition and an action group that pages on-call via the team's existing incident tooling"
+          "label": "A manually refreshed dashboard that someone must remember to check every hour"
         },
         {
           "id": "b",
-          "label": "A manually refreshed dashboard that someone must remember to check every hour"
+          "label": "An Azure Monitor alert rule based on a metric/log query (e.g. against job run data streamed via diagnostic settings) with a threshold condition and an action group that pages on-call via the team's existing incident tooling"
         },
         {
           "id": "c",
@@ -5239,7 +5239,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "b"
       ],
       "explanation": "Azure Monitor alert rules can be built on log queries (KQL over data ingested via diagnostic settings, such as job run outcomes) with a custom threshold condition and a defined evaluation window, then wired to an action group for paging/notification — directly satisfying a workspace-wide, threshold-based, near-real-time alerting requirement without needing a per-job-only or third-party solution.",
       "sourceUrls": [
@@ -5316,15 +5316,15 @@
       "options": [
         {
           "id": "a",
-          "label": "A plain batch read (spark.read) over the fixed file set, written once with a simple append/write — Auto Loader's incremental file-tracking machinery adds unnecessary complexity for a one-time, non-recurring load"
-        },
-        {
-          "id": "b",
           "label": "Auto Loader is mandatory for any file-based ingestion, even one-time historical backfills"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "Structured Streaming with a continuous trigger, since batch reads cannot process Parquet files"
+        },
+        {
+          "id": "c",
+          "label": "A plain batch read (spark.read) over the fixed file set, written once with a simple append/write — Auto Loader's incremental file-tracking machinery adds unnecessary complexity for a one-time, non-recurring load"
         },
         {
           "id": "d",
@@ -5332,7 +5332,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "c"
       ],
       "explanation": "Ingestion tool/method choice should match the actual pattern: a one-time, fixed-size historical backfill is a textbook batch notebook job — a simple `spark.read` over the file set followed by a write. Auto Loader's incremental, stateful file-discovery tracking exists to handle continuously arriving new files, which doesn't apply here and would just add operational overhead.",
       "sourceUrls": [
@@ -5355,19 +5355,19 @@
         },
         {
           "id": "b",
-          "label": "Streaming/continuous ingestion mode, which Lakeflow Connect supports for compatible sources — continuously applying inserts/updates/deletes with low latency instead of periodic batch snapshots"
-        },
-        {
-          "id": "c",
           "label": "A one-time full extraction, re-run manually whenever the team remembers to refresh it"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "Lakeflow Connect can only ingest from SaaS applications, never from on-prem databases"
+        },
+        {
+          "id": "d",
+          "label": "Streaming/continuous ingestion mode, which Lakeflow Connect supports for compatible sources — continuously applying inserts/updates/deletes with low latency instead of periodic batch snapshots"
         }
       ],
       "correctOptionIds": [
-        "b"
+        "d"
       ],
       "explanation": "Lakeflow Connect supports both batch and streaming ingestion depending on the source connector, and for compatible database sources it can continuously apply row-level changes with low latency — the right choice when near-real-time sync is required, versus batch mode which would only refresh periodically.",
       "sourceUrls": [
@@ -5382,11 +5382,11 @@
       "options": [
         {
           "id": "a",
-          "label": "INNER JOIN, which returns only customers who have matching orders"
+          "label": "LEFT ANTI JOIN, which returns rows from the left table (customers) that have no matching row at all in the right table (orders) — exactly \"customers with zero orders\""
         },
         {
           "id": "b",
-          "label": "LEFT ANTI JOIN, which returns rows from the left table (customers) that have no matching row at all in the right table (orders) — exactly \"customers with zero orders\""
+          "label": "INNER JOIN, which returns only customers who have matching orders"
         },
         {
           "id": "c",
@@ -5398,7 +5398,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "a"
       ],
       "explanation": "LEFT ANTI JOIN returns only rows from the left table that have no corresponding match in the right table — precisely the \"exists in customers but never appears in orders\" semantics needed here. INNER JOIN would give the opposite (customers who HAVE ordered); FULL OUTER JOIN could get there too but requires an extra NULL filter, making ANTI JOIN the more direct choice.",
       "sourceUrls": [
@@ -5417,11 +5417,11 @@
       "options": [
         {
           "id": "a",
-          "label": "Denormalization: joining the normalized tables together into one wide gold table so the BI tool can query a single flat structure without needing to perform joins itself"
+          "label": "Normalization: splitting the flat structure into more tables, which is what the BI tool actually needs"
         },
         {
           "id": "b",
-          "label": "Normalization: splitting the flat structure into more tables, which is what the BI tool actually needs"
+          "label": "Denormalization: joining the normalized tables together into one wide gold table so the BI tool can query a single flat structure without needing to perform joins itself"
         },
         {
           "id": "c",
@@ -5433,7 +5433,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "b"
       ],
       "explanation": "Denormalization — joining normalized source tables into a single wide table — is exactly the transformation needed when a downstream consumer (here, a BI tool without join capability) requires one flat structure. This is a common gold-layer pattern: normalized silver tables for storage efficiency and integrity, denormalized gold tables for consumption simplicity.",
       "sourceUrls": [
@@ -5452,15 +5452,15 @@
       "options": [
         {
           "id": "a",
-          "label": "A referential-integrity / cardinality validation check: periodically (or via a pipeline expectation) verifying that every product_id in orders exists in products, since Delta Lake has no native foreign key enforcement across tables"
-        },
-        {
-          "id": "b",
           "label": "A nullability check, since foreign key validity is the same thing as checking for NULLs"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "This cannot be validated at all; Delta Lake automatically enforces foreign keys between any two tables sharing a column name"
+        },
+        {
+          "id": "c",
+          "label": "A referential-integrity / cardinality validation check: periodically (or via a pipeline expectation) verifying that every product_id in orders exists in products, since Delta Lake has no native foreign key enforcement across tables"
         },
         {
           "id": "d",
@@ -5468,7 +5468,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "c"
       ],
       "explanation": "Delta Lake/Unity Catalog does not automatically enforce foreign-key relationships across tables the way a traditional RDBMS might, so referential integrity (every product_id resolving to a real product) has to be validated explicitly — e.g. an anti-join check run as part of a pipeline's data quality gate, or a Lakeflow Declarative Pipeline expectation. This is distinct from nullability (missing values) and schema enforcement (structure/type conformance).",
       "sourceUrls": [
@@ -5487,23 +5487,23 @@
       "options": [
         {
           "id": "a",
-          "label": "Providing an explicit strict schema plus a fail-fast evolution mode causes the stream to fail loudly on any structural mismatch (including type changes), rather than silently rescuing or auto-evolving — matching a zero-tolerance regulatory requirement"
-        },
-        {
-          "id": "b",
           "label": "cloudFiles.schemaEvolutionMode=\"addNewColumns\" is the correct choice here, since it always fails on any change"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "There is no way to make Auto Loader fail on schema drift; it always rescues or coerces mismatched data silently"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "Type changes can never be detected by Auto Loader, only new/missing columns can"
+        },
+        {
+          "id": "d",
+          "label": "Providing an explicit strict schema plus a fail-fast evolution mode causes the stream to fail loudly on any structural mismatch (including type changes), rather than silently rescuing or auto-evolving — matching a zero-tolerance regulatory requirement"
         }
       ],
       "correctOptionIds": [
-        "a"
+        "d"
       ],
       "explanation": "Providing an explicit expected schema (rather than letting Auto Loader infer one) combined with a strict/fail-fast evolution mode makes the stream stop on any structural mismatch — new columns, missing columns, or type changes — instead of silently applying rescued-data handling or auto-evolving the schema. This is the correct pattern for regulated sources where undetected drift is unacceptable, contrasting with the earlier addNewColumns example designed to tolerate additive changes.",
       "sourceUrls": [
@@ -5553,11 +5553,11 @@
       "options": [
         {
           "id": "a",
-          "label": "Auto Loader (cloudFiles) with Structured Streaming, which tracks processed files and ingests only new arrivals"
+          "label": "A nightly full-directory batch read that overwrites the bronze table"
         },
         {
           "id": "b",
-          "label": "A nightly full-directory batch read that overwrites the bronze table"
+          "label": "Auto Loader (cloudFiles) with Structured Streaming, which tracks processed files and ingests only new arrivals"
         },
         {
           "id": "c",
@@ -5569,7 +5569,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "b"
       ],
       "explanation": "Auto Loader (cloudFiles) incrementally processes new files as they arrive, using a checkpoint to track what has been ingested, giving efficient exactly-once ingestion without reprocessing the whole directory. Full re-reads are costly and not incremental, and manual COPY INTO is not continuous.",
       "sourceUrls": [
@@ -5584,15 +5584,15 @@
       "options": [
         {
           "id": "a",
-          "label": "Grant the group USE CATALOG and USE SCHEMA plus SELECT on the sales schema"
-        },
-        {
-          "id": "b",
           "label": "Grant the group ALL PRIVILEGES on the catalog to keep administration simple"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "Make each analyst the OWNER of the gold tables"
+        },
+        {
+          "id": "c",
+          "label": "Grant the group USE CATALOG and USE SCHEMA plus SELECT on the sales schema"
         },
         {
           "id": "d",
@@ -5600,7 +5600,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "c"
       ],
       "explanation": "Least privilege for read-only analytics is SELECT on the relevant schema/tables plus the USE CATALOG and USE SCHEMA traversal privileges needed to reach them. ALL PRIVILEGES, table OWNER, or workspace admin all grant far more than reading requires and violate least privilege.",
       "sourceUrls": [
@@ -5615,23 +5615,23 @@
       "options": [
         {
           "id": "a",
-          "label": "Make compute_gold depend on transform_silver (default: all succeeded), and give cleanup a Run if condition of “All done” on its upstream tasks"
-        },
-        {
-          "id": "b",
           "label": "Put all the logic in a single task so ordering is implicit and nothing needs configuring"
         },
         {
-          "id": "c",
+          "id": "b",
           "label": "Schedule three separate jobs a few minutes apart and rely on the timing holding"
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "Make cleanup depend on compute_gold with the default “all succeeded” condition"
+        },
+        {
+          "id": "d",
+          "label": "Make compute_gold depend on transform_silver (default: all succeeded), and give cleanup a Run if condition of “All done” on its upstream tasks"
         }
       ],
       "correctOptionIds": [
-        "a"
+        "d"
       ],
       "explanation": "Task dependencies enforce order: compute_gold depends on transform_silver and, by default, runs only if it succeeds. Giving cleanup a Run if condition of “All done” makes it run regardless of whether upstream tasks succeeded or failed. Separate timed jobs and single-task designs lose the DAG's ordering and conditional guarantees.",
       "sourceUrls": [
@@ -5677,11 +5677,11 @@
       "options": [
         {
           "id": "a",
-          "label": "Broadcast the small store-dimension table (broadcast hint or a higher autoBroadcastJoinThreshold) so it is sent to every executor and the fact table is not shuffled"
+          "label": "Repartition the fact table on the join key into more partitions"
         },
         {
           "id": "b",
-          "label": "Repartition the fact table on the join key into more partitions"
+          "label": "Broadcast the small store-dimension table (broadcast hint or a higher autoBroadcastJoinThreshold) so it is sent to every executor and the fact table is not shuffled"
         },
         {
           "id": "c",
@@ -5693,7 +5693,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "b"
       ],
       "explanation": "When one side of a join is small enough to fit in memory, a broadcast (broadcast hash) join ships it to every executor, eliminating the shuffle of the large fact table. A 3 MB dimension is an ideal broadcast candidate. Repartitioning or caching the fact table does not remove the shuffle, and both tables are already columnar.",
       "sourceUrls": [

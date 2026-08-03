@@ -1,10 +1,11 @@
 import React from 'react';
+import { QuizQuestionType } from '../../types/quiz';
 import styles from './AnswerPicker.module.css';
 
 interface Props {
   question: {
     id: string;
-    type: 'single' | 'multiple';
+    type: QuizQuestionType;
     options: Array<{
       id: string;
       label: string;
@@ -14,13 +15,17 @@ interface Props {
   selectedOptionIds: string[];
   submitted: boolean;
   onSelect: (optionId: string) => void;
+  answerText?: string;
+  onAnswerChange?: (text: string) => void;
 }
 
 const AnswerPicker: React.FC<Props> = ({
   question,
   selectedOptionIds,
   submitted,
-  onSelect
+  onSelect,
+  answerText = '',
+  onAnswerChange
 }) => {
   const renderOptions = () => {
     return question.options.map((option) => {
@@ -47,6 +52,25 @@ const AnswerPicker: React.FC<Props> = ({
       );
     });
   };
+
+  if (question.type === 'freeText') {
+    return (
+      <fieldset className={styles.answerPicker} aria-labelledby="quiz-legend">
+        <legend id="quiz-legend" className={styles.legend}>Write your answer:</legend>
+        <textarea
+          className={styles.answerInput}
+          name={`quiz-${question.id}`}
+          value={answerText}
+          onChange={(event) => onAnswerChange?.(event.target.value)}
+          disabled={submitted}
+          rows={4}
+          autoComplete="off"
+          spellCheck={false}
+          aria-label="Your answer"
+        />
+      </fieldset>
+    );
+  }
 
   return (
     <fieldset className={styles.answerPicker} aria-labelledby="quiz-legend">

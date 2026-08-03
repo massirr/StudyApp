@@ -14,6 +14,36 @@ const isSelectionCorrect = (
     return selected.every((id, index) => id === correct[index]);
 };
 
+// Pure + exported for the same reason as parsePersistedQuizState below: the
+// vitest env is `node`, so the rules get tested here rather than through a DOM.
+
+/** Whether the current answer is complete enough to submit. */
+export const isAnswerSubmittable = (
+    question: QuizQuestion,
+    selectedOptionIds: string[],
+    answerText: string
+): boolean =>
+    question.type === 'freeText'
+        ? answerText.trim().length > 0
+        : selectedOptionIds.length > 0;
+
+/**
+ * Correctness of a question. `null` means "not decided yet" — a free-text answer
+ * is revealed on submit but stays ungraded until the learner taps ✓/✗.
+ * Free-text text is never string-matched against sampleAnswer (see design.md).
+ */
+export const gradeQuestion = (
+    question: QuizQuestion,
+    selectedOptionIds: string[],
+    selfGrade: boolean | null
+): boolean | null =>
+    question.type === 'freeText'
+        ? selfGrade
+        : isSelectionCorrect(selectedOptionIds, question.correctOptionIds);
+
+export const scorePercent = (correctCount: number, total: number): number =>
+    total > 0 ? Math.round((correctCount / total) * 100) : 0;
+
 export interface PersistedQuizState {
     index: number;
     completedQuestionIds: string[];
@@ -52,6 +82,8 @@ export const useQuizState = (questions: QuizQuestion[], persistKey?: string) => 
     const [restored] = useState(() => loadPersistedQuizState(persistKey));
     const [index, setIndex] = useState(restored?.index ?? 0);
     const [selectedOptionIds, setSelectedOptionIds] = useState<string[]>([]);
+    const [answerText, setAnswerText] = useState('');
+    const [selfGrade, setSelfGrade] = useState<boolean | null>(null);
     const [submitted, setSubmitted] = useState(false);
     const [completedQuestionIds, setCompletedQuestionIds] = useState<string[]>(
         restored?.completedQuestionIds ?? []
@@ -77,13 +109,28 @@ export const useQuizState = (questions: QuizQuestion[], persistKey?: string) => 
 
     const currentQuestion = questions[index];
 
+    const isFreeText = currentQuestion?.type === 'freeText';
+    // A revealed free-text answer the learner has not yet marked ✓/✗.
+    const awaitingSelfGrade = !!isFreeText && submitted && selfGrade === null;
+
     const isCorrect = useMemo(() => {
         if (!currentQuestion || !submitted) {
             return false;
         }
 
-        return isSelectionCorrect(selectedOptionIds, currentQuestion.correctOptionIds);
-    }, [currentQuestion, selectedOptionIds, submitted]);
+        return gradeQuestion(currentQuestion, selectedOptionIds, selfGrade) === true;
+    }, [currentQuestion, selectedOptionIds, selfGrade, submitted]);
+
+    const record = (questionId: string, correct: boolean) => {
+        setCompletedQuestionIds((prev) =>
+            prev.includes(questionId) ? prev : [...prev, questionId]
+        );
+        if (correct) {
+            setCorrectQuestionIds((prev) =>
+                prev.includes(questionId) ? prev : [...prev, questionId]
+            );
+        }
+    };
 
     const selectOption = (optionId: string) => {
         if (!currentQuestion || submitted) {
@@ -100,30 +147,49 @@ export const useQuizState = (questions: QuizQuestion[], persistKey?: string) => 
         );
     };
 
+    const setAnswer = (text: string) => {
+        if (submitted) return;
+        setAnswerText(text);
+    };
+
     const submit = () => {
-        if (!currentQuestion || selectedOptionIds.length === 0) {
+        if (!currentQuestion || !isAnswerSubmittable(currentQuestion, selectedOptionIds, answerText)) {
             return;
         }
 
         setSubmitted(true);
-        setCompletedQuestionIds((prev) =>
-            prev.includes(currentQuestion.id) ? prev : [...prev, currentQuestion.id]
-        );
-        if (isSelectionCorrect(selectedOptionIds, currentQuestion.correctOptionIds)) {
-            setCorrectQuestionIds((prev) =>
-                prev.includes(currentQuestion.id) ? prev : [...prev, currentQuestion.id]
-            );
-        }
+
+        // Free-text only reveals here; it is scored (and counted complete) by
+        // gradeSelf once the learner marks ✓/✗.
+        const graded = gradeQuestion(currentQuestion, selectedOptionIds, selfGrade);
+        if (graded === null) return;
+        record(currentQuestion.id, graded);
     };
 
-    const next = () => {
-        if (!submitted || index >= questions.length - 1) {
+    const gradeSelf = (correct: boolean) => {
+        if (!currentQuestion || !awaitingSelfGrade) {
             return;
         }
 
-        setIndex((value) => value + 1);
+        setSelfGrade(correct);
+        record(currentQuestion.id, correct);
+    };
+
+    // Shared reset for any move off the current question.
+    const goTo = (nextIndex: number) => {
+        setIndex(nextIndex);
         setSelectedOptionIds([]);
+        setAnswerText('');
+        setSelfGrade(null);
         setSubmitted(false);
+    };
+
+    const next = () => {
+        if (!submitted || awaitingSelfGrade || index >= questions.length - 1) {
+            return;
+        }
+
+        goTo(index + 1);
     };
 
     const previous = () => {
@@ -131,15 +197,11 @@ export const useQuizState = (questions: QuizQuestion[], persistKey?: string) => 
             return;
         }
 
-        setIndex((value) => value - 1);
-        setSelectedOptionIds([]);
-        setSubmitted(false);
+        goTo(index - 1);
     };
 
     const restart = () => {
-        setIndex(0);
-        setSelectedOptionIds([]);
-        setSubmitted(false);
+        goTo(0);
         setCompletedQuestionIds([]);
         setCorrectQuestionIds([]);
         if (persistKey) localStorage.removeItem(persistKey);
@@ -150,13 +212,20 @@ export const useQuizState = (questions: QuizQuestion[], persistKey?: string) => 
         index,
         total: questions.length,
         selectedOptionIds,
+        answerText,
         submitted,
         isCorrect,
+        isFreeText: !!isFreeText,
+        awaitingSelfGrade,
+        selfGrade,
+        canSubmit: !!currentQuestion && isAnswerSubmittable(currentQuestion, selectedOptionIds, answerText),
         isComplete: finished,
         correctCount: correctQuestionIds.length,
         hasNext: index < questions.length - 1,
         hasPrevious: index > 0,
         selectOption,
+        setAnswer,
+        gradeSelf,
         submit,
         next,
         previous,

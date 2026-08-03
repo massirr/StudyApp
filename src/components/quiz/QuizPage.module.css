@@ -15,6 +15,46 @@
   box-shadow: none;
 }
 
+.passage,
+.audioBlock {
+  border: 1px solid rgba(7, 7, 7, 0.08);
+  border-radius: 0;
+  padding: 1.25rem;
+  background: rgba(246, 234, 215, 0.62);
+  box-shadow: 7px 7px 0 rgba(7, 7, 7, 1);
+}
+
+.passageTitle {
+  margin: 0 0 0.6rem;
+  font-size: 0.875rem;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+}
+
+.passageText {
+  margin: 0;
+  font-size: clamp(0.9375rem, 2.5vw + 0.25rem, 1.0625rem);
+  line-height: 1.7;
+  color: var(--ink);
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+.audioPlayer {
+  width: 100%;
+  display: block;
+}
+
+@media (max-width: 720px) {
+  .passage,
+  .audioBlock {
+    padding: 0.9rem;
+    box-shadow: 5px 5px 0 rgba(7, 7, 7, 1);
+  }
+}
+
 .submitButton {
   background: var(--paper-strong);
   color: var(--ink);

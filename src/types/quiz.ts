@@ -1,4 +1,4 @@
-export type QuizQuestionType = 'single' | 'multiple';
+export type QuizQuestionType = 'single' | 'multiple' | 'freeText';
 
 export interface QuizOption {
     id: string;
@@ -16,6 +16,9 @@ export interface QuizQuestion {
     sourceUrls: string[];
     codeSnippet?: { language: string; code: string };
     level?: number; // reserved for future tiered quizzes; unused in this release
+    // freeText only: the model answer revealed on submit. The learner self-grades
+    // against it — the app never string-matches it (see design.md).
+    sampleAnswer?: string;
 }
 
 export interface QuizResult {

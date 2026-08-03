@@ -40,6 +40,23 @@ export function validateSubject(raw: unknown): Subject {
     throw new Error(`shortLabel "${s.shortLabel}" contains an unsupported glyph (allowed: A-Z 0-9 hyphen space)`);
   }
 
+  // Only the additive freeText/media fields are checked here — existing MCQ and
+  // topic shapes are left to TypeScript, exactly as before this change.
+  for (const q of s.questions) {
+    if (q.type === 'freeText' && typeof q.sampleAnswer !== 'string') {
+      throw new Error(`freeText question "${q.id}" is missing sampleAnswer`);
+    }
+  }
+
+  for (const t of s.topics) {
+    if (t.passage !== undefined && typeof t.passage.text !== 'string') {
+      throw new Error(`topic "${t.id}" has a passage without text`);
+    }
+    if (t.audio !== undefined && typeof t.audio.src !== 'string') {
+      throw new Error(`topic "${t.id}" has audio without src`);
+    }
+  }
+
   if (s.sourcePolicy === 'microsoft-only') {
     const urls = [
       ...s.sources.map((x) => x.url),

@@ -1,17 +1,24 @@
-# Dutch source material
+# Dutch source material (NL3 / YB1398)
 
-Drop your exam source files (texts, word lists, exercises) in this folder. They are
-**not** bundled into the app — `src/data/subjects/dutch.json` is authored from them.
+Drop source files for **Nederlands 3 (YB1398)** here — texts, word lists, exercises,
+whatever the teacher handed out. They are **not** bundled into the app; they are the
+input from which `src/data/subjects/yb1398.json` is authored.
 
-## Current state: placeholder
+The subject already exists with the course's seven chapters (`h0-herhaling` …
+`h6-op-gesprek`) and 13 multiple-choice questions.
 
-`src/data/subjects/dutch.json` currently holds **one placeholder topic** ("Op het
-station") written only to validate the pipeline end-to-end: reading passage → audio
-player → MCQs → free-text self-grade → ≥70% Level-2 unlock. Replace it with real
-content from your source material.
+## Not yet used by NL3
 
-## Audio
+The quiz engine supports three things no NL3 topic uses yet:
 
-`public/audio/dutch/op-het-station.mp3` is a 2-second **silent** placeholder so the
-player has something to load. Replace it with the NotebookLM download, keeping the
-same filename (or update `topic.audio.src` in `dutch.json`).
+| Field | What it does |
+|---|---|
+| `Topic.passage` | Reading passage rendered above that chapter's questions |
+| `Topic.audio` | Native `<audio controls>` clip; mp3 under `public/audio/nl3/` |
+| `type: "freeText"` | Learner types Dutch, then self-grades against `sampleAnswer` |
+
+Free-text matters most for the written retake — it is the only question type that
+drills *producing* Dutch rather than recognising it.
+
+Adding any of them is a content change to `yb1398.json`; the engine needs nothing.
+Keep audio clips short — they ship in the deployed bundle.

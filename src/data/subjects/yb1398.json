@@ -11,6 +11,54 @@
       "url": "https://examen.thomasmore.be",
       "usageNote": "Authoritative source for exam dates, times, rooms, and lecturer assignment. Confirmed: written exam Aug 19, 2026 15:00–17:00; oral exam Aug 20, 2026 12:00, room M T1.10, lecturer An Fraipont. Always re-check here if anything changes.",
       "id": "src-1"
+    },
+    {
+      "id": "src-2",
+      "label": "Nederlands 3 — Retake 2025-2026 (exam brief)",
+      "url": "https://github.com/massirr/StudyApp/blob/master/content/dutch/retake-2025-2026.md",
+      "usageNote": "The retake slides. Written exam 50%: five grammar tasks plus lezen and schrijven, study hoofdstuk 1-6, on campus, bring your laptop. Oral exam 50%: about 15 minutes, five questions. Questions 1, 4 and 5 can be prepared at home."
+    },
+    {
+      "id": "src-3",
+      "label": "Cursus NL3 — overzicht van alle hoofdstukken",
+      "url": "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/README.md",
+      "usageNote": "Index of the course markdown, with a table mapping each retake task to the chapter that covers it."
+    },
+    {
+      "id": "src-4",
+      "label": "Hoofdstuk 1 — Belangrijke momenten in mijn leven",
+      "url": "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/01-belangrijke-momenten.md",
+      "usageNote": "This chapter of the course PDF, converted to markdown. Image-only pages transcribed by hand: p.10, 14, 16 — they are marked (afbeelding p.N) in the text, so you can tell transcribed content from extracted text."
+    },
+    {
+      "id": "src-5",
+      "label": "Hoofdstuk 2 — Er was eens …",
+      "url": "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/02-er-was-eens.md",
+      "usageNote": "This chapter of the course PDF, converted to markdown. Image-only pages transcribed by hand: p.18, 23, 25 — they are marked (afbeelding p.N) in the text, so you can tell transcribed content from extracted text."
+    },
+    {
+      "id": "src-6",
+      "label": "Hoofdstuk 3 — Gezocht!",
+      "url": "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/03-gezocht.md",
+      "usageNote": "This chapter of the course PDF, converted to markdown. Image-only pages transcribed by hand: p.27-41 (twaalf pagina's) — they are marked (afbeelding p.N) in the text, so you can tell transcribed content from extracted text."
+    },
+    {
+      "id": "src-7",
+      "label": "Hoofdstuk 4 — Zo zijn de Belgen",
+      "url": "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/04-zo-zijn-de-belgen.md",
+      "usageNote": "This chapter of the course PDF, converted to markdown. Image-only pages transcribed by hand: p.49, 53 — they are marked (afbeelding p.N) in the text, so you can tell transcribed content from extracted text."
+    },
+    {
+      "id": "src-8",
+      "label": "Hoofdstuk 5 — Tijd om bij te praten",
+      "url": "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/05-tijd-om-bij-te-praten.md",
+      "usageNote": "This chapter of the course PDF, converted to markdown. Image-only pages transcribed by hand: p.57, 58 — they are marked (afbeelding p.N) in the text, so you can tell transcribed content from extracted text."
+    },
+    {
+      "id": "src-9",
+      "label": "Hoofdstuk 6 — Op gesprek",
+      "url": "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/06-op-gesprek.md",
+      "usageNote": "This chapter of the course PDF, converted to markdown. Image-only pages transcribed by hand: p.61-63, 66-70 — they are marked (afbeelding p.N) in the text, so you can tell transcribed content from extracted text."
     }
   ],
   "topics": [
@@ -25,7 +73,16 @@
           "summary": "Refresh core vocab and basic sentence structure from earlier levels."
         }
       ],
-      "sourceLinks": [],
+      "sourceLinks": [
+        {
+          "label": "Cursus NL3 — overzicht van alle hoofdstukken",
+          "url": "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/README.md"
+        },
+        {
+          "label": "Retake brief — foundation for every task (de/het drives die/dat)",
+          "url": "https://github.com/massirr/StudyApp/blob/master/content/dutch/retake-2025-2026.md"
+        }
+      ],
       "studyOrder": 0,
       "id": "t-1"
     },
@@ -45,7 +102,16 @@
           "summary": "Zullen = future/promise ('I will'). Zouden = conditional ('I would'). The written exam tests picking the right one in context."
         }
       ],
-      "sourceLinks": [],
+      "sourceLinks": [
+        {
+          "label": "Hoofdstuk 1 — Belangrijke momenten in mijn leven",
+          "url": "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/01-belangrijke-momenten.md"
+        },
+        {
+          "label": "Retake brief — written task 1 (zouden/zullen) + oral Q5 (zou + infinitief)",
+          "url": "https://github.com/massirr/StudyApp/blob/master/content/dutch/retake-2025-2026.md"
+        }
+      ],
       "studyOrder": 1,
       "id": "t-2"
     },
@@ -70,7 +136,16 @@
           "summary": "eerst, dan, daarna, toen, 's morgens, 's middags, voor, tijdens, na — sequence a past story; trigger inversion when they open the sentence."
         }
       ],
-      "sourceLinks": [],
+      "sourceLinks": [
+        {
+          "label": "Hoofdstuk 2 — Er was eens …",
+          "url": "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/02-er-was-eens.md"
+        },
+        {
+          "label": "Retake brief — written tasks 2 & 3 (imperfectum) + oral Q1 (vroeger vertellen)",
+          "url": "https://github.com/massirr/StudyApp/blob/master/content/dutch/retake-2025-2026.md"
+        }
+      ],
       "studyOrder": 2,
       "id": "t-3",
       "passage": {
@@ -99,7 +174,16 @@
           "summary": "'Die' for de-words and plurals, 'dat' for het-words: 'het glas dat ik gisteren kocht, is vuil.' Tested on the written exam."
         }
       ],
-      "sourceLinks": [],
+      "sourceLinks": [
+        {
+          "label": "Hoofdstuk 3 — Gezocht!",
+          "url": "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/03-gezocht.md"
+        },
+        {
+          "label": "Retake brief — written task 4 (bijzinconstructie) + oral Q2 (personen vergelijken)",
+          "url": "https://github.com/massirr/StudyApp/blob/master/content/dutch/retake-2025-2026.md"
+        }
+      ],
       "studyOrder": 3,
       "id": "t-4"
     },
@@ -119,7 +203,16 @@
           "summary": "Conjunctions like als, omdat, dat, terwijl send the verb to the end of their clause: 'Ik ga naar de dokter als ik ziek ben.' Used for stating opinions with a reason — oral Q4."
         }
       ],
-      "sourceLinks": [],
+      "sourceLinks": [
+        {
+          "label": "Hoofdstuk 4 — Zo zijn de Belgen",
+          "url": "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/04-zo-zijn-de-belgen.md"
+        },
+        {
+          "label": "Retake brief — written task 5 (relatief pronomen) + oral Q3 (recept) & Q4 (mop)",
+          "url": "https://github.com/massirr/StudyApp/blob/master/content/dutch/retake-2025-2026.md"
+        }
+      ],
       "studyOrder": 4,
       "id": "t-5"
     },
@@ -139,7 +232,16 @@
           "summary": "When a sentence opens with something other than the subject (often a time word), the verb comes right after it, before the subject: '’s Middags at ik altijd een warme maaltijd.'"
         }
       ],
-      "sourceLinks": [],
+      "sourceLinks": [
+        {
+          "label": "Hoofdstuk 5 — Tijd om bij te praten",
+          "url": "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/05-tijd-om-bij-te-praten.md"
+        },
+        {
+          "label": "Retake brief — oral Q1 (structuurwoorden + inversie)",
+          "url": "https://github.com/massirr/StudyApp/blob/master/content/dutch/retake-2025-2026.md"
+        }
+      ],
       "studyOrder": 5,
       "id": "t-6"
     },
@@ -154,7 +256,16 @@
           "summary": "Jezelf voorstellen (introduce yourself), sterke/zwakke punten (strengths/weaknesses), ervaring (experience), vacature (vacancy), solliciteren (to apply)."
         }
       ],
-      "sourceLinks": [],
+      "sourceLinks": [
+        {
+          "label": "Hoofdstuk 6 — Op gesprek",
+          "url": "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/06-op-gesprek.md"
+        },
+        {
+          "label": "Retake brief — oral Q5 (sollicitatiegesprek, bring a vacature)",
+          "url": "https://github.com/massirr/StudyApp/blob/master/content/dutch/retake-2025-2026.md"
+        }
+      ],
       "studyOrder": 6,
       "id": "t-7",
       "passage": {

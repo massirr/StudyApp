@@ -54,7 +54,7 @@ Vorm van de regelmatige verba =   OF
 | jullie werk**ten** | jullie wandel**den** |
 | zij werk**ten** | zij wandel**den** |
 
-> ### De SOFTKETCHUP-regel (’t kofschip)
+> ### De SOFTKETCHUP-regel
 >
 > Kijk naar de **laatste letter van de stam** (dus van de *ik*-vorm).
 > Eindigt die klank op een letter uit **S o FT  K e T CH u P** → **JA → +TE**.

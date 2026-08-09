@@ -439,13 +439,13 @@
         },
         {
           "id": "d",
-          "label": "'s ochtends"
+          "label": "'s morgens"
         }
       ],
       "correctOptionIds": [
         "c"
       ],
-      "explanation": "'Morgen' (tomorrow) wijst naar de toekomst. Eerst, dan, daarna, toen, 's morgens/'s ochtends, 's middags, voor, tijdens, na plaatsen een verhaal juist in het verleden.",
+      "explanation": "'Morgen' betekent 'tomorrow' en wijst naar de toekomst. Let op het verschil met \"'s morgens\" (in the morning), dat wel in een verhaal over vroeger past. Structuurwoorden voor het verleden: eerst, dan, daarna, toen, 's morgens, 's middags, voor, tijdens, na (H5 5.2).",
       "sourceUrls": [],
       "id": "q-6"
     },
@@ -479,35 +479,6 @@
       "id": "q-7"
     },
     {
-      "topicId": "t-4",
-      "prompt": "Kies het juiste voornaamwoord: 'Het glas ___ ik gisteren kocht, is vuil.'",
-      "type": "single",
-      "options": [
-        {
-          "id": "a",
-          "label": "die"
-        },
-        {
-          "id": "b",
-          "label": "dat"
-        },
-        {
-          "id": "c",
-          "label": "wat"
-        },
-        {
-          "id": "d",
-          "label": "welke"
-        }
-      ],
-      "correctOptionIds": [
-        "b"
-      ],
-      "explanation": "'Glas' is een het-woord, dus het betrekkelijk voornaamwoord is 'dat', niet 'die' (dat is voor de-woorden en meervouden).",
-      "sourceUrls": [],
-      "id": "q-8"
-    },
-    {
       "topicId": "t-5",
       "prompt": "Wat is de juiste gebiedende wijs (imperatief) van 'toevoegen'?",
       "type": "single",
@@ -535,35 +506,6 @@
       "explanation": "'Toevoegen' is een scheidbaar werkwoord (toe + voegen). De imperatief laat -en vallen en splitst het voorzetsel naar achteren: voeg … toe.",
       "sourceUrls": [],
       "id": "q-9"
-    },
-    {
-      "topicId": "t-5",
-      "prompt": "Maak van twee zinnen één zin met 'als': 'Ik ga naar de dokter. Ik ben ziek.'",
-      "type": "single",
-      "options": [
-        {
-          "id": "a",
-          "label": "Ik ga naar de dokter als ik ben ziek."
-        },
-        {
-          "id": "b",
-          "label": "Ik ga naar de dokter als ik ziek ben."
-        },
-        {
-          "id": "c",
-          "label": "Als ik ziek ben ga ik naar de dokter niet."
-        },
-        {
-          "id": "d",
-          "label": "Ik ben ziek als ik naar de dokter ga."
-        }
-      ],
-      "correctOptionIds": [
-        "b"
-      ],
-      "explanation": "'Als' is een onderschikkend voegwoord — het stuurt het werkwoord naar het einde van de bijzin: als ik ziek ben (niet 'als ik ben ziek').",
-      "sourceUrls": [],
-      "id": "q-10"
     },
     {
       "topicId": "t-6",
@@ -625,20 +567,20 @@
     },
     {
       "topicId": "t-7",
-      "prompt": "Welke zin past bij het voorstellen van jezelf op een sollicitatiegesprek?",
+      "prompt": "Op je sollicitatiegesprek vraagt men: 'Wat zijn je sterke kanten?' Welk antwoord past het best?",
       "type": "single",
       "options": [
         {
           "id": "a",
-          "label": "Ik zou nooit hier willen werken."
+          "label": "Ik zou hier nooit willen werken."
         },
         {
           "id": "b",
-          "label": "Mijn sterke punten zijn dat ik goed kan samenwerken."
+          "label": "Mijn sterke kanten zijn dat ik goed kan samenwerken en dat ik snel bijleer."
         },
         {
           "id": "c",
-          "label": "Ik heb geen ervaring en geen zin."
+          "label": "Ik heb geen ervaring en geen diploma."
         },
         {
           "id": "d",
@@ -648,7 +590,7 @@
       "correctOptionIds": [
         "b"
       ],
-      "explanation": "Dit beantwoordt direct 'wat zijn je sterke punten' met een concreet, positief voorbeeld — precies wat oral Q5 verwacht.",
+      "explanation": "Noem twee concrete, positieve eigenschappen in een bijzin met 'dat': 'Mijn sterke kanten zijn DAT ik goed kan samenwerken' — persoonsvorm achteraan. Wees positief over jezelf; de slides waarschuwen tegen antwoorden die je eigen kandidatuur ondermijnen (H6 6.4).",
       "sourceUrls": [],
       "id": "q-13"
     },

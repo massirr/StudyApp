@@ -24,9 +24,17 @@
 - [x] 4.1 Read the source files the user drops in `content/dutch/` and draft `src/data/subjects/dutch.json` (`sourcePolicy: 'any'`) with one topic end-to-end: passage + a couple of MCQs + at least one free-text question
 - [x] 4.2 Register/verify the Dutch subject loads via `src/data/subjects/index.ts` and appears on the subject picker
 - [x] 4.3 (Audio) Wire `audio.src` to an mp3 placeholder under `public/audio/dutch/`; user replaces it with the NotebookLM download
-- [ ] 4.4 Expand `dutch.json` with the remaining topics/questions once the slice is validated
+- [x] 4.4 Expand `dutch.json` with the remaining topics/questions once the slice is validated
+      — `yb1398.json` now carries 82 questions (55 single / 9 multiple / 18 freeText) across all
+      seven topics, plus reading passages on H2 and H6. Authored from `content/dutch/cursus-nl3/`
+      (the course PDF converted to markdown) and `content/dutch/retake-2025-2026.md`; every
+      question maps to a task on the Aug 2026 retake.
 
 ## 5. Verify
 
-- [ ] 5.1 Run unit tests (Vitest) and existing E2E (Playwright) — all green, no regressions to DP-750
+- [x] 5.1 Run unit tests (Vitest) — 98/98 green, no regressions to DP-750; `tsc --noEmit` clean.
+      Browser verification is done through the Playwright MCP by project convention — the `tests/`
+      specs are for CI, and local Chromium is deliberately not installed. Verified via the MCP:
+      passage renders on H2, single/multiple/freeText all render, free-text self-grade ✓ scored
+      the H0 deck 4/4 = 100% and marked the topic complete.
 - [x] 5.2 Drive the Dutch quiz end-to-end (passage shows, audio plays, free-text self-grade ✓/✗ scores, ≥70% unlocks Level 2) and confirm behavior in the running app

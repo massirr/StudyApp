@@ -5,7 +5,7 @@ whatever the teacher handed out. They are **not** bundled into the app; they are
 input from which `src/data/subjects/yb1398.json` is authored.
 
 The subject covers the course's seven chapters (`h0-herhaling` … `h6-op-gesprek`)
-with **80 questions**: 30 `single`, 9 `multiple`, 23 `shortText`, 18 `freeText`.
+with **80 questions**: 21 `single`, 9 `multiple`, 32 `shortText`, 18 `freeText`.
 
 ## What's here
 
@@ -21,7 +21,7 @@ not bundled into the app.
 
 | Type | Learner experience | Used for |
 |---|---|---|
-| `single` | Radio, auto-graded | Choosing between candidate *words* — *Toen* vs *Als*, *want* vs *omdat*, *heeft* vs *is* |
+| `single` | Radio, auto-graded | Conceptual questions with no blank — *Welke zin drukt een WENS uit?*, *Welk voegwoord is onderschikkend?* |
 | `multiple` | Checkboxes, auto-graded on the whole set | Category sorting (which verbs take -de, which words are de-woorden) |
 | `shortText` | Single-line input; the app checks it against `acceptedAnswers` and marks it right or wrong | Producing a *form* from memory — zou/zullen, imperfectum, relatief pronomen, inversie |
 | `freeText` | Textarea; on submit reveals `sampleAnswer` and the learner self-grades ✓/✗ | Open-ended production: sentence combining, all five oral answers |
@@ -36,11 +36,26 @@ so `Zou`, ` zou ` and `zou.` all pass, but `werkde` does not. Spelling is never
 forgiven, because that is what the exam does. `freeText` is never string-matched,
 because "combineer deze twee zinnen" has several correct answers.
 
-**Which gap fills stayed `single`** — a question is `shortText` only when the
-learner must produce a grammatical form. Where the exercise is *choosing between
-candidate words* (q-7, q-12, q-47, q-48, q-49, q-68, q-69, q-71, q-79), the options
-are the exercise: typing `Toen` is trivial once you know it, while seeing
-*Toen / Als / Wanneer / Terwijl* forces the discrimination.
+**Every gap fill is now `shortText`.** An earlier pass kept nine word-choice items
+(`Toen` vs `Als`, `want`, `heeft`/`is`/`draagt`) as multiple choice on the grounds
+that the options *were* the exercise; that was reversed deliberately — typing is
+the better drill for all of them, and the exam never offers options.
+
+Removing the options made two prompts ambiguous, which is worth knowing before
+adding more:
+
+- **q-69** `Eerst gingen we wandelen. ____ dronken we iets` — `Daarna`, `Dan` and
+  `Vervolgens` are all correct, so all three are in `acceptedAnswers`.
+- **q-71** `____ het eten hebben we een museum bezocht` — `Voor` is as grammatical
+  as `Na`. Rather than accept both (they mean opposite things, and the point is
+  `Na` vs `Nadat`), the prompt gained a first sentence — *We hebben eerst
+  gegeten.* — which forces `Na`.
+
+When converting an MCQ to `shortText`, always re-read the prompt without its
+options: distractors often carry disambiguation the sentence itself does not.
+
+The 21 remaining `single` questions have no blank at all — they ask about a
+concept, so there is nothing to type.
 
 `Topic.passage` (reading text above a chapter's deck) is used on **H2** (the Boris
 imperfectum text, mirroring written task 2) and **H6** (a vacature, mirroring lezen).

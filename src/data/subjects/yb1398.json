@@ -436,31 +436,15 @@
     {
       "topicId": "t-4",
       "prompt": "Kies het juiste werkwoord: 'Hij ___ kort, zwart haar.'",
-      "type": "single",
-      "options": [
-        {
-          "id": "a",
-          "label": "is"
-        },
-        {
-          "id": "b",
-          "label": "heeft"
-        },
-        {
-          "id": "c",
-          "label": "doet"
-        },
-        {
-          "id": "d",
-          "label": "wordt"
-        }
-      ],
-      "correctOptionIds": [
-        "b"
-      ],
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
       "explanation": "Je 'hebt' haar/kenmerken die je bezit: hij heeft kort, zwart haar. Gebruik 'zijn' voor bouw/eigenschappen: hij is lang.",
       "sourceUrls": [],
-      "id": "q-7"
+      "id": "q-7",
+      "acceptedAnswers": [
+        "heeft"
+      ]
     },
     {
       "topicId": "t-5",
@@ -523,31 +507,15 @@
     {
       "topicId": "t-6",
       "prompt": "Welk voegwoord past het beste: 'Ik bleef thuis, ___ ik was ziek.'",
-      "type": "single",
-      "options": [
-        {
-          "id": "a",
-          "label": "en"
-        },
-        {
-          "id": "b",
-          "label": "maar"
-        },
-        {
-          "id": "c",
-          "label": "want"
-        },
-        {
-          "id": "d",
-          "label": "toen"
-        }
-      ],
-      "correctOptionIds": [
-        "c"
-      ],
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
       "explanation": "'Want' geeft een reden ('omdat/want'). 'En' voegt alleen samen, 'maar' contrasteert, 'toen' betekent 'op het moment dat' voor een gebeurtenis in het verleden.",
       "sourceUrls": [],
-      "id": "q-12"
+      "id": "q-12",
+      "acceptedAnswers": [
+        "want"
+      ]
     },
     {
       "topicId": "t-7",
@@ -1143,88 +1111,40 @@
     {
       "topicId": "t-4",
       "prompt": "Beschrijf een persoon: 'Zij ____ zwart krullend haar.'",
-      "type": "single",
+      "type": "shortText",
       "explanation": "Haar, een baard, een snor, rimpels en een grote neus HEB je. De examenslides waarschuwen expliciet voor het juiste werkwoord bij mondelinge vraag 2 (H3 3.10).",
       "sourceUrls": [],
       "id": "q-47",
-      "options": [
-        {
-          "id": "a",
-          "label": "is"
-        },
-        {
-          "id": "b",
-          "label": "draagt"
-        },
-        {
-          "id": "c",
-          "label": "heeft"
-        },
-        {
-          "id": "d",
-          "label": "staat"
-        }
-      ],
-      "correctOptionIds": [
-        "c"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "heeft"
       ]
     },
     {
       "topicId": "t-4",
       "prompt": "Beschrijf een persoon: 'Hij ____ kaal.'",
-      "type": "single",
+      "type": "shortText",
       "explanation": "Lichaamsbouw en kenmerken als kaal, mager, slank en dik zijn adjectieven: die gebruik je met ZIJN. 'Hij is kaal', 'Hij is mager' (H3 3.10).",
       "sourceUrls": [],
       "id": "q-48",
-      "options": [
-        {
-          "id": "a",
-          "label": "heeft"
-        },
-        {
-          "id": "b",
-          "label": "draagt"
-        },
-        {
-          "id": "c",
-          "label": "wordt"
-        },
-        {
-          "id": "d",
-          "label": "is"
-        }
-      ],
-      "correctOptionIds": [
-        "d"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "is"
       ]
     },
     {
       "topicId": "t-4",
       "prompt": "Beschrijf een persoon: 'Zij ____ een oranje gebloemde jurk.'",
-      "type": "single",
+      "type": "shortText",
       "explanation": "Kleding DRAAG je. De drie werkwoorden voor vraag 2: hij IS mager, zij HEEFT zwart haar, zij DRAAGT een jurk (examenslide vraag 2).",
       "sourceUrls": [],
       "id": "q-49",
-      "options": [
-        {
-          "id": "a",
-          "label": "draagt"
-        },
-        {
-          "id": "b",
-          "label": "heeft"
-        },
-        {
-          "id": "c",
-          "label": "is"
-        },
-        {
-          "id": "d",
-          "label": "doet"
-        }
-      ],
-      "correctOptionIds": [
-        "a"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "draagt"
       ]
     },
     {
@@ -1550,59 +1470,29 @@
     {
       "topicId": "t-6",
       "prompt": "Vul in: '____ ik klein was, woonde ik in Marokko.'",
-      "type": "single",
+      "type": "shortText",
       "explanation": "TOEN gebruik je voor een situatie of gebeurtenis in het VERLEDEN die een keer of doorlopend was. ALS gebruik je voor het heden of voor iets dat zich herhaalt. Bij vraag 1 vertel je over vroeger, dus je hebt 'toen' constant nodig (H5 5.2).",
       "sourceUrls": [],
       "id": "q-68",
-      "options": [
-        {
-          "id": "a",
-          "label": "Toen"
-        },
-        {
-          "id": "b",
-          "label": "Als"
-        },
-        {
-          "id": "c",
-          "label": "Wanneer"
-        },
-        {
-          "id": "d",
-          "label": "Terwijl"
-        }
-      ],
-      "correctOptionIds": [
-        "a"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "Toen"
       ]
     },
     {
       "topicId": "t-6",
       "prompt": "Welk structuurwoord past: 'Eerst gingen we wandelen. ____ dronken we iets op een terras.'",
-      "type": "single",
+      "type": "shortText",
       "explanation": "Volgorde in een verhaal: eerst - dan - daarna - ten slotte. 'Tijdens' en 'voor' zijn preposities die een naamwoord nodig hebben ('tijdens de wandeling') (H5 5.2).",
       "sourceUrls": [],
       "id": "q-69",
-      "options": [
-        {
-          "id": "a",
-          "label": "Tijdens"
-        },
-        {
-          "id": "b",
-          "label": "Daarna"
-        },
-        {
-          "id": "c",
-          "label": "Voor"
-        },
-        {
-          "id": "d",
-          "label": "Omdat"
-        }
-      ],
-      "correctOptionIds": [
-        "b"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "Daarna",
+        "Dan",
+        "Vervolgens"
       ]
     },
     {
@@ -1637,31 +1527,15 @@
     },
     {
       "topicId": "t-6",
-      "prompt": "Vul aan: '____ het eten hebben we een museum bezocht.'",
-      "type": "single",
+      "prompt": "Vul de juiste prepositie in: 'We hebben eerst gegeten. ____ het eten hebben we een museum bezocht.'",
+      "type": "shortText",
       "explanation": "NA is een prepositie en staat voor een naamwoord: na het eten, na de wandeling. NADAT is een voegwoord en heeft een hele zin nodig: 'nadat we gegeten hadden' (H5 5.3).",
       "sourceUrls": [],
       "id": "q-71",
-      "options": [
-        {
-          "id": "a",
-          "label": "Naar"
-        },
-        {
-          "id": "b",
-          "label": "Nadat"
-        },
-        {
-          "id": "c",
-          "label": "Na"
-        },
-        {
-          "id": "d",
-          "label": "Toen"
-        }
-      ],
-      "correctOptionIds": [
-        "c"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "Na"
       ]
     },
     {
@@ -1835,30 +1709,14 @@
     {
       "topicId": "t-7",
       "prompt": "Vul aan: 'Ik ben bereid ____ in ploegen te werken.'",
-      "type": "single",
+      "type": "shortText",
       "explanation": "Vaste constructie: 'Ik ben bereid OM ... TE + infinitief'. Bijvoorbeeld: 'Ik ben bereid om 's avonds te werken' (H6 6.1).",
       "sourceUrls": [],
       "id": "q-79",
-      "options": [
-        {
-          "id": "a",
-          "label": "voor"
-        },
-        {
-          "id": "b",
-          "label": "om"
-        },
-        {
-          "id": "c",
-          "label": "te"
-        },
-        {
-          "id": "d",
-          "label": "dat"
-        }
-      ],
-      "correctOptionIds": [
-        "b"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "om"
       ]
     },
     {

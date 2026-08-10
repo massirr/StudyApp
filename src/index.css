@@ -1,3 +1,13 @@
+/* Padding and borders count inside a declared width/height. Without this the
+   stylesheet's many `width: 100%` elements render at 100% PLUS their padding
+   and border, so they overflow their container — worst on narrow screens,
+   where there is no slack to absorb it. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   overflow-x: hidden;
 }

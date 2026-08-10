@@ -131,13 +131,19 @@ a:hover {
   gap: 20px;
 }
 
+/* The grid stretches each <li> to the row height; making the <li> a flex
+   container passes that height down to the card. Deliberately not height:100%
+   on the card — this stylesheet has no box-sizing reset, so a percentage
+   height would sit outside the card's padding and overflow the row. */
+.subject-picker-list > li {
+  display: flex;
+}
+
 .subject-picker-card {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  /* The grid already stretches each <li> to the row height; without this the
-     anchor inside stays content-sized, so cards in a row look uneven. */
-  height: 100%;
+  flex: 1;
   padding: 18px 20px;
   background: rgba(230, 190, 144, 0.86);
   box-shadow: 7px 7px 0 rgba(7, 7, 7, 1);

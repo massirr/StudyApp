@@ -15,6 +15,9 @@ interface Props {
   sampleAnswer?: string;
   awaitingSelfGrade?: boolean;
   onSelfGrade?: (correct: boolean) => void;
+  // shortText only: the answer the app graded against, shown when the learner
+  // got it wrong so a false negative is visible rather than mysterious.
+  expectedAnswer?: string;
 }
 
 const FeedbackPanel: React.FC<Props> = ({
@@ -26,7 +29,8 @@ const FeedbackPanel: React.FC<Props> = ({
   yourAnswer,
   sampleAnswer,
   awaitingSelfGrade = false,
-  onSelfGrade
+  onSelfGrade,
+  expectedAnswer
 }) => {
   const toneClass = awaitingSelfGrade
     ? styles.pending
@@ -58,6 +62,19 @@ const FeedbackPanel: React.FC<Props> = ({
           <div className={styles.answerBlock}>
             <span className={styles.answerLabel}>Model answer</span>
             <p className={styles.answerText}>{sampleAnswer}</p>
+          </div>
+        </div>
+      )}
+
+      {expectedAnswer !== undefined && !isCorrect && (
+        <div className={styles.answerCompare}>
+          <div className={styles.answerBlock}>
+            <span className={styles.answerLabel}>You typed</span>
+            <p className={styles.answerText}>{yourAnswer?.trim() || <em>(blank)</em>}</p>
+          </div>
+          <div className={styles.answerBlock}>
+            <span className={styles.answerLabel}>Expected</span>
+            <p className={styles.answerText}>{expectedAnswer}</p>
           </div>
         </div>
       )}

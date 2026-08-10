@@ -42,13 +42,22 @@
   resize: vertical;
 }
 
-.answerInput:focus {
+/* Same skin as the free-text textarea, one line high. width:100% is safe now
+   that the stylesheet has a border-box reset. */
+.shortAnswerInput {
+  composes: answerInput;
+  resize: none;
+}
+
+.answerInput:focus,
+.shortAnswerInput:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(7, 7, 7, 0.14);
   border-color: rgba(7, 7, 7, 0.5);
 }
 
-.answerInput:disabled {
+.answerInput:disabled,
+.shortAnswerInput:disabled {
   opacity: 0.7;
   cursor: not-allowed;
 }

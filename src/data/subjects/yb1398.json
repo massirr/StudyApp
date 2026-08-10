@@ -307,31 +307,15 @@
     {
       "topicId": "t-2",
       "prompt": "Kies de juiste vorm: 'Als ik meer geld had, ___ ik een huis kopen.'",
-      "type": "single",
-      "options": [
-        {
-          "id": "a",
-          "label": "zal"
-        },
-        {
-          "id": "b",
-          "label": "zou"
-        },
-        {
-          "id": "c",
-          "label": "zullen"
-        },
-        {
-          "id": "d",
-          "label": "heb"
-        }
-      ],
-      "correctOptionIds": [
-        "b"
-      ],
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
       "explanation": "Na een hypothetische als-zin gebruik je zou/zouden (conditional), niet zal (belofte/toekomst).",
       "sourceUrls": [],
-      "id": "q-2"
+      "id": "q-2",
+      "acceptedAnswers": [
+        "zou"
+      ]
     },
     {
       "topicId": "t-2",
@@ -667,146 +651,66 @@
     {
       "topicId": "t-2",
       "prompt": "Vul in: 'Ik ____ graag in Spanje willen wonen.'",
-      "type": "single",
+      "type": "shortText",
       "explanation": "Ik/jij/hij/zij -> zou. Wij/jullie/zij (mv) -> zouden. Hier is het subject 'ik', dus 'zou'. Na 'zou' komen de infinitieven achteraan: willen wonen (H1 1.3).",
       "sourceUrls": [],
       "id": "q-17",
-      "options": [
-        {
-          "id": "a",
-          "label": "zou"
-        },
-        {
-          "id": "b",
-          "label": "zal"
-        },
-        {
-          "id": "c",
-          "label": "zouden"
-        },
-        {
-          "id": "d",
-          "label": "zult"
-        }
-      ],
-      "correctOptionIds": [
-        "a"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "zou"
       ]
     },
     {
       "topicId": "t-2",
       "prompt": "Vul in: 'Wij ____ graag naar de film gaan, maar we hebben geen tijd.'",
-      "type": "single",
+      "type": "shortText",
       "explanation": "Meervoudig subject 'wij' -> zouden. 'Zullen' zou hier een voorstel of plan zijn, geen wens (H1 1.4).",
       "sourceUrls": [],
       "id": "q-18",
-      "options": [
-        {
-          "id": "a",
-          "label": "zou"
-        },
-        {
-          "id": "b",
-          "label": "zullen"
-        },
-        {
-          "id": "c",
-          "label": "zouden"
-        },
-        {
-          "id": "d",
-          "label": "zal"
-        }
-      ],
-      "correctOptionIds": [
-        "c"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "zouden"
       ]
     },
     {
       "topicId": "t-2",
       "prompt": "Een voorstel doen: '____ we naar de film gaan?'",
-      "type": "single",
+      "type": "shortText",
       "explanation": "ZULLEN = een voorstel ('Zullen we...?') of een belofte. ZOUDEN = een wens of een advies. Dit onderscheid is precies wat oefening 1 van het schriftelijk examen test (H1 1.4).",
       "sourceUrls": [],
       "id": "q-19",
-      "options": [
-        {
-          "id": "a",
-          "label": "Zouden"
-        },
-        {
-          "id": "b",
-          "label": "Zal"
-        },
-        {
-          "id": "c",
-          "label": "Zou"
-        },
-        {
-          "id": "d",
-          "label": "Zullen"
-        }
-      ],
-      "correctOptionIds": [
-        "d"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "Zullen"
       ]
     },
     {
       "topicId": "t-2",
       "prompt": "Een belofte: 'Dat ____ ik zeker doen.'",
-      "type": "single",
+      "type": "shortText",
       "explanation": "Een belofte staat in de toekomende tijd: ik zal, jij zult/zal, hij zal, wij/jullie/zij zullen (H1 1.4).",
       "sourceUrls": [],
       "id": "q-20",
-      "options": [
-        {
-          "id": "a",
-          "label": "zal"
-        },
-        {
-          "id": "b",
-          "label": "zou"
-        },
-        {
-          "id": "c",
-          "label": "zouden"
-        },
-        {
-          "id": "d",
-          "label": "zult"
-        }
-      ],
-      "correctOptionIds": [
-        "a"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "zal"
       ]
     },
     {
       "topicId": "t-2",
       "prompt": "Een advies geven: 'Het is koud. Je ____ een warme trui kunnen aandoen.'",
-      "type": "single",
+      "type": "shortText",
       "explanation": "ZOU + KUNNEN + INFINITIEF is de vaste constructie voor een advies (H1 1.3, punt 2).",
       "sourceUrls": [],
       "id": "q-21",
-      "options": [
-        {
-          "id": "a",
-          "label": "zal"
-        },
-        {
-          "id": "b",
-          "label": "zult"
-        },
-        {
-          "id": "c",
-          "label": "zou"
-        },
-        {
-          "id": "d",
-          "label": "zouden"
-        }
-      ],
-      "correctOptionIds": [
-        "c"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "zou"
       ]
     },
     {
@@ -841,30 +745,14 @@
     {
       "topicId": "t-2",
       "prompt": "Vul in: 'Jullie ____ morgen op tijd zijn, dat hebben jullie beloofd.'",
-      "type": "single",
+      "type": "shortText",
       "explanation": "Een belofte met een meervoudig subject: jullie zullen. Let op: 'zouden' zou er een wens of een onzekerheid van maken (H1 1.4).",
       "sourceUrls": [],
       "id": "q-23",
-      "options": [
-        {
-          "id": "a",
-          "label": "zullen"
-        },
-        {
-          "id": "b",
-          "label": "zouden"
-        },
-        {
-          "id": "c",
-          "label": "zult"
-        },
-        {
-          "id": "d",
-          "label": "zou"
-        }
-      ],
-      "correctOptionIds": [
-        "a"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "zullen"
       ]
     },
     {
@@ -922,117 +810,53 @@
     {
       "topicId": "t-3",
       "prompt": "Vul in: 'werken' -> jij ____ (imperfectum)",
-      "type": "single",
+      "type": "shortText",
       "explanation": "Stam 'werk' eindigt op /k/. Die klank zit in SOFTKETCHUP, dus -TE: werkte, werkten (H2 2.2).",
       "sourceUrls": [],
       "id": "q-27",
-      "options": [
-        {
-          "id": "a",
-          "label": "werkde"
-        },
-        {
-          "id": "b",
-          "label": "werktte"
-        },
-        {
-          "id": "c",
-          "label": "werkt"
-        },
-        {
-          "id": "d",
-          "label": "werkte"
-        }
-      ],
-      "correctOptionIds": [
-        "d"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "werkte"
       ]
     },
     {
       "topicId": "t-3",
       "prompt": "Vul in: 'koken' -> hij ____",
-      "type": "single",
+      "type": "shortText",
       "explanation": "Stam 'kook' eindigt op /k/ -> SOFTKETCHUP -> -te. De lange oo blijft dubbel omdat de lettergreep gesloten is: kookte (H2 2.2).",
       "sourceUrls": [],
       "id": "q-28",
-      "options": [
-        {
-          "id": "a",
-          "label": "kookte"
-        },
-        {
-          "id": "b",
-          "label": "kookde"
-        },
-        {
-          "id": "c",
-          "label": "kokte"
-        },
-        {
-          "id": "d",
-          "label": "kookt"
-        }
-      ],
-      "correctOptionIds": [
-        "a"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "kookte"
       ]
     },
     {
       "topicId": "t-3",
       "prompt": "Vul in: 'reizen' -> ik ____",
-      "type": "single",
+      "type": "shortText",
       "explanation": "Dit is de klassieke valstrik. Je schrijft de stam als 'reis', maar de infinitief heeft een Z: reiZen. Die /z/ staat NIET in SOFTKETCHUP, dus -DE: reisde. Kijk altijd naar de infinitief, niet naar de geschreven stam (H2 2.2).",
       "sourceUrls": [],
       "id": "q-29",
-      "options": [
-        {
-          "id": "a",
-          "label": "reiste"
-        },
-        {
-          "id": "b",
-          "label": "reisde"
-        },
-        {
-          "id": "c",
-          "label": "reizde"
-        },
-        {
-          "id": "d",
-          "label": "reisdde"
-        }
-      ],
-      "correctOptionIds": [
-        "b"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "reisde"
       ]
     },
     {
       "topicId": "t-3",
       "prompt": "Vul in: 'leven' -> ik ____",
-      "type": "single",
+      "type": "shortText",
       "explanation": "Zelfde valstrik als 'reizen': de infinitief heeft een V (leVen), en /v/ zit niet in SOFTKETCHUP, dus -DE. Je schrijft 'leefde' met f, maar je kiest de uitgang op basis van de v (H2 2.2).",
       "sourceUrls": [],
       "id": "q-30",
-      "options": [
-        {
-          "id": "a",
-          "label": "leefte"
-        },
-        {
-          "id": "b",
-          "label": "levede"
-        },
-        {
-          "id": "c",
-          "label": "leefde"
-        },
-        {
-          "id": "d",
-          "label": "leefd"
-        }
-      ],
-      "correctOptionIds": [
-        "c"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "leefde"
       ]
     },
     {
@@ -1097,117 +921,54 @@
     {
       "topicId": "t-3",
       "prompt": "Vul in: 'gaan' -> wij ____",
-      "type": "single",
+      "type": "shortText",
       "explanation": "Onregelmatig (sterk) verbum: gaan -> ging (enkelvoud) / gingen (meervoud). Sterke verba veranderen van klinker en krijgen GEEN -te/-de. Uit het hoofd leren (H2 2.3).",
       "sourceUrls": [],
       "id": "q-33",
-      "options": [
-        {
-          "id": "a",
-          "label": "gingen"
-        },
-        {
-          "id": "b",
-          "label": "gaanden"
-        },
-        {
-          "id": "c",
-          "label": "gingden"
-        },
-        {
-          "id": "d",
-          "label": "gaden"
-        }
-      ],
-      "correctOptionIds": [
-        "a"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "gingen"
       ]
     },
     {
       "topicId": "t-3",
       "prompt": "Vul in: 'brengen' -> ik ____",
-      "type": "single",
+      "type": "shortText",
       "explanation": "Brengen -> bracht / brachten. Hoort bij het groepje denken -> dacht, kopen -> kocht, zoeken -> zocht (H2 2.3).",
       "sourceUrls": [],
       "id": "q-34",
-      "options": [
-        {
-          "id": "a",
-          "label": "brengde"
-        },
-        {
-          "id": "b",
-          "label": "bracht"
-        },
-        {
-          "id": "c",
-          "label": "brong"
-        },
-        {
-          "id": "d",
-          "label": "brachtte"
-        }
-      ],
-      "correctOptionIds": [
-        "b"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "bracht"
       ]
     },
     {
       "topicId": "t-3",
       "prompt": "Vul in: 'denken' -> zij (meervoud) ____",
-      "type": "single",
+      "type": "shortText",
       "explanation": "Denken -> dacht / dachten. Let op de meervoudsvorm met -en, met maar een t (H2 2.3).",
       "sourceUrls": [],
       "id": "q-35",
-      "options": [
-        {
-          "id": "a",
-          "label": "denkten"
-        },
-        {
-          "id": "b",
-          "label": "dochten"
-        },
-        {
-          "id": "c",
-          "label": "dachten"
-        },
-        {
-          "id": "d",
-          "label": "dachtten"
-        }
-      ],
-      "correctOptionIds": [
-        "c"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "dachten"
       ]
     },
     {
       "topicId": "t-3",
       "prompt": "Vul in: 'zijn' -> jullie ____",
-      "type": "single",
+      "type": "shortText",
       "explanation": "Zijn is het enige verbum met twee verschillende stammen in het imperfectum: ik/jij/hij WAS, wij/jullie/zij WAREN (H2 2.3).",
       "sourceUrls": [],
       "id": "q-36",
-      "options": [
-        {
-          "id": "a",
-          "label": "waaren"
-        },
-        {
-          "id": "b",
-          "label": "zijnden"
-        },
-        {
-          "id": "c",
-          "label": "was"
-        },
-        {
-          "id": "d",
-          "label": "waren"
-        }
-      ],
-      "correctOptionIds": [
-        "d"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "waren",
+        "jullie waren"
       ]
     },
     {
@@ -1297,30 +1058,14 @@
     {
       "topicId": "t-4",
       "prompt": "Vul aan: 'Omdat ze geen auto heeft, ____ met de trein.'",
-      "type": "single",
+      "type": "shortText",
       "explanation": "Als de bijzin EERST staat, telt hij als eerste zinsdeel. De persoonsvorm van de hoofdzin blijft op plaats twee en komt dus voor het subject: inversie. 'Omdat ze geen auto heeft, GAAT ZE...' (H3 3.6).",
       "sourceUrls": [],
       "id": "q-43",
-      "options": [
-        {
-          "id": "a",
-          "label": "ze gaat"
-        },
-        {
-          "id": "b",
-          "label": "gaat zij niet"
-        },
-        {
-          "id": "c",
-          "label": "gaat ze"
-        },
-        {
-          "id": "d",
-          "label": "ze gaan"
-        }
-      ],
-      "correctOptionIds": [
-        "c"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "gaat ze"
       ]
     },
     {
@@ -1385,30 +1130,14 @@
     {
       "topicId": "t-4",
       "prompt": "Vul aan: 'Ik kan niet naar de les komen, want ik ____ ziek.'",
-      "type": "single",
+      "type": "shortText",
       "explanation": "'Want' is nevenschikkend, dus de tweede zin houdt de normale volgorde subject + persoonsvorm: 'want ik ben ziek'. Met 'omdat' zou het worden: 'omdat ik ziek ben' (H3 3.5).",
       "sourceUrls": [],
       "id": "q-46",
-      "options": [
-        {
-          "id": "a",
-          "label": "ben"
-        },
-        {
-          "id": "b",
-          "label": "zijn"
-        },
-        {
-          "id": "c",
-          "label": "is"
-        },
-        {
-          "id": "d",
-          "label": "ben ik"
-        }
-      ],
-      "correctOptionIds": [
-        "a"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "ben"
       ]
     },
     {
@@ -1564,146 +1293,66 @@
     {
       "topicId": "t-5",
       "prompt": "Vul in: 'Het glas ____ ik gisteren kocht, is vuil.'",
-      "type": "single",
+      "type": "shortText",
       "explanation": "HET glas is een het-woord, dus 'dat'. Dit is letterlijk het voorbeeld uit de examenslides (H4 4.6).",
       "sourceUrls": [],
       "id": "q-54",
-      "options": [
-        {
-          "id": "a",
-          "label": "dat"
-        },
-        {
-          "id": "b",
-          "label": "die"
-        },
-        {
-          "id": "c",
-          "label": "wat"
-        },
-        {
-          "id": "d",
-          "label": "waarop"
-        }
-      ],
-      "correctOptionIds": [
-        "a"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "dat"
       ]
     },
     {
       "topicId": "t-5",
       "prompt": "Vul in: 'De nieuwe telefoon ____ ik gisteren heb gekocht, is nu al stuk!'",
-      "type": "single",
+      "type": "shortText",
       "explanation": "DE telefoon is een de-woord -> die. Onthoud: de-woord -> die, het-woord -> dat (H4 4.6).",
       "sourceUrls": [],
       "id": "q-55",
-      "options": [
-        {
-          "id": "a",
-          "label": "dat"
-        },
-        {
-          "id": "b",
-          "label": "aan wie"
-        },
-        {
-          "id": "c",
-          "label": "die"
-        },
-        {
-          "id": "d",
-          "label": "waarop"
-        }
-      ],
-      "correctOptionIds": [
-        "c"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "die"
       ]
     },
     {
       "topicId": "t-5",
       "prompt": "Vul in: 'Wij hebben een collega ____ een fan van de Spice Girls is.'",
-      "type": "single",
+      "type": "shortText",
       "explanation": "DE collega -> die. 'Wie' gebruik je in het Nederlands niet als gewoon betrekkelijk voornaamwoord bij een persoon zonder prepositie (H4 4.6).",
       "sourceUrls": [],
       "id": "q-56",
-      "options": [
-        {
-          "id": "a",
-          "label": "dat"
-        },
-        {
-          "id": "b",
-          "label": "wie"
-        },
-        {
-          "id": "c",
-          "label": "aan wie"
-        },
-        {
-          "id": "d",
-          "label": "die"
-        }
-      ],
-      "correctOptionIds": [
-        "d"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "die"
       ]
     },
     {
       "topicId": "t-5",
       "prompt": "Vul in: 'Dat is de stoel ____ ik zit.'",
-      "type": "single",
+      "type": "shortText",
       "explanation": "Je zit OP een stoel. Bij een prepositie kan je 'die/dat' niet gebruiken: je maakt waar + prepositie -> waarop (H4 4.6, punt 3).",
       "sourceUrls": [],
       "id": "q-57",
-      "options": [
-        {
-          "id": "a",
-          "label": "waarop"
-        },
-        {
-          "id": "b",
-          "label": "waarin"
-        },
-        {
-          "id": "c",
-          "label": "waarmee"
-        },
-        {
-          "id": "d",
-          "label": "die"
-        }
-      ],
-      "correctOptionIds": [
-        "a"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "waarop"
       ]
     },
     {
       "topicId": "t-5",
       "prompt": "Vul in: 'Dit is het mes ____ ik vlees snijd.'",
-      "type": "single",
+      "type": "shortText",
       "explanation": "Je snijdt MET een mes. Let op de uitzondering: waar + met wordt niet 'waarmet' maar WAARMEE (H4 4.6, 'Let op!').",
       "sourceUrls": [],
       "id": "q-58",
-      "options": [
-        {
-          "id": "a",
-          "label": "dat"
-        },
-        {
-          "id": "b",
-          "label": "waarin"
-        },
-        {
-          "id": "c",
-          "label": "waarmee"
-        },
-        {
-          "id": "d",
-          "label": "waarop"
-        }
-      ],
-      "correctOptionIds": [
-        "c"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "waarmee"
       ]
     },
     {
@@ -1859,30 +1508,14 @@
     {
       "topicId": "t-6",
       "prompt": "Vul aan: \"'s Middags ____ altijd met mijn mama een warme maaltijd.\"",
-      "type": "single",
+      "type": "shortText",
       "explanation": "Dit is het voorbeeld dat de examenslides zelf geven bij vraag 1. Als een tijdsbepaling vooraan staat, komt de persoonsvorm op plaats twee en het subject erna: inversie (H5 5.2).",
       "sourceUrls": [],
       "id": "q-66",
-      "options": [
-        {
-          "id": "a",
-          "label": "at ik"
-        },
-        {
-          "id": "b",
-          "label": "ik at"
-        },
-        {
-          "id": "c",
-          "label": "ik eet"
-        },
-        {
-          "id": "d",
-          "label": "at ik niet"
-        }
-      ],
-      "correctOptionIds": [
-        "a"
+      "options": [],
+      "correctOptionIds": [],
+      "acceptedAnswers": [
+        "at ik"
       ]
     },
     {

@@ -62,6 +62,30 @@ describe('validateSubject', () => {
     expect(() => validateSubject(s)).toThrow(/sampleAnswer/);
   });
 
+  it('accepts a shortText question with acceptedAnswers and no options', () => {
+    const s = {
+      ...valid,
+      questions: [{
+        id: 'q1', topicId: 't1', prompt: "Vul in: 'Ik ____ graag ...'", type: 'shortText',
+        options: [], correctOptionIds: [], acceptedAnswers: ['zou'],
+        explanation: 'Conditional.', sourceUrls: [],
+      }],
+    };
+    expect(validateSubject(s).questions[0].acceptedAnswers).toEqual(['zou']);
+  });
+
+  it('rejects a shortText question with missing or empty acceptedAnswers', () => {
+    const base = {
+      id: 'q1', topicId: 't1', prompt: 'p', type: 'shortText',
+      options: [], correctOptionIds: [], explanation: 'e', sourceUrls: [],
+    };
+    for (const acceptedAnswers of [undefined, [], ['   '], 'zou']) {
+      const s = { ...valid, questions: [{ ...base, acceptedAnswers }] };
+      expect(() => validateSubject(s), `acceptedAnswers=${JSON.stringify(acceptedAnswers)}`)
+        .toThrow(/acceptedAnswers/);
+    }
+  });
+
   it('accepts a topic carrying passage and audio', () => {
     const s = {
       ...valid,

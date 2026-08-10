@@ -53,6 +53,27 @@ const AnswerPicker: React.FC<Props> = ({
     });
   };
 
+  if (question.type === 'shortText') {
+    return (
+      <fieldset className={styles.answerPicker} aria-labelledby="quiz-legend">
+        <legend id="quiz-legend" className={styles.legend}>Type your answer:</legend>
+        <input
+          type="text"
+          className={styles.shortAnswerInput}
+          name={`quiz-${question.id}`}
+          value={answerText}
+          onChange={(event) => onAnswerChange?.(event.target.value)}
+          disabled={submitted}
+          autoComplete="off"
+          autoCapitalize="off"
+          autoCorrect="off"
+          spellCheck={false}
+          aria-label="Your answer"
+        />
+      </fieldset>
+    );
+  }
+
   if (question.type === 'freeText') {
     return (
       <fieldset className={styles.answerPicker} aria-labelledby="quiz-legend">

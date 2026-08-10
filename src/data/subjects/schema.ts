@@ -46,6 +46,14 @@ export function validateSubject(raw: unknown): Subject {
     if (q.type === 'freeText' && typeof q.sampleAnswer !== 'string') {
       throw new Error(`freeText question "${q.id}" is missing sampleAnswer`);
     }
+    // shortText is auto-graded, so it is useless without something to grade against.
+    if (
+      q.type === 'shortText' &&
+      (!Array.isArray(q.acceptedAnswers) ||
+        q.acceptedAnswers.filter((a) => typeof a === 'string' && a.trim()).length === 0)
+    ) {
+      throw new Error(`shortText question "${q.id}" needs a non-empty acceptedAnswers array`);
+    }
   }
 
   for (const t of s.topics) {

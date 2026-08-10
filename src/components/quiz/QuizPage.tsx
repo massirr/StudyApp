@@ -51,6 +51,7 @@ const QuizPage: React.FC<QuizPageProps> = ({ subject, topicSlug, level = 1 }) =>
     submitted,
     isCorrect,
     isFreeText,
+    isShortText,
     awaitingSelfGrade,
     canSubmit,
     isComplete,
@@ -242,8 +243,9 @@ const QuizPage: React.FC<QuizPageProps> = ({ subject, topicSlug, level = 1 }) =>
             explanation={currentQuestion.explanation}
             sourceUrls={currentQuestion.sourceUrls}
             onClose={() => setShowFeedback(false)}
-            yourAnswer={isFreeText ? answerText : undefined}
+            yourAnswer={isFreeText || isShortText ? answerText : undefined}
             sampleAnswer={isFreeText ? currentQuestion.sampleAnswer : undefined}
+            expectedAnswer={isShortText ? currentQuestion.acceptedAnswers?.[0] : undefined}
             awaitingSelfGrade={awaitingSelfGrade}
             onSelfGrade={gradeSelf}
           />

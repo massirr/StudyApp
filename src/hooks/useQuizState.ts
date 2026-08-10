@@ -17,29 +17,62 @@ const isSelectionCorrect = (
 // Pure + exported for the same reason as parsePersistedQuizState below: the
 // vitest env is `node`, so the rules get tested here rather than through a DOM.
 
+/** Question types where the learner types instead of picking options. */
+export const isTypedQuestion = (question: QuizQuestion): boolean =>
+    question.type === 'freeText' || question.type === 'shortText';
+
+/**
+ * Normalises a short answer before comparison. Only differences that cannot be
+ * a Dutch mistake are erased: case, surrounding and repeated whitespace,
+ * curly-vs-straight apostrophes (phone keyboards produce ’ in "'s morgens"),
+ * and trailing sentence punctuation. Spelling and accents are left alone —
+ * `werkde` must stay wrong (see design.md).
+ */
+export const normalizeAnswer = (value: string): string =>
+    value
+        .replace(/[‘’ʼ]/g, "'")
+        .replace(/[“”]/g, '"')
+        .replace(/\s+/gu, ' ')
+        .trim()
+        .toLowerCase()
+        .replace(/[.,!?;:]+$/, '')
+        .trim();
+
 /** Whether the current answer is complete enough to submit. */
 export const isAnswerSubmittable = (
     question: QuizQuestion,
     selectedOptionIds: string[],
     answerText: string
 ): boolean =>
-    question.type === 'freeText'
+    isTypedQuestion(question)
         ? answerText.trim().length > 0
         : selectedOptionIds.length > 0;
 
 /**
  * Correctness of a question. `null` means "not decided yet" — a free-text answer
  * is revealed on submit but stays ungraded until the learner taps ✓/✗.
- * Free-text text is never string-matched against sampleAnswer (see design.md).
+ * Free-text text is never string-matched against sampleAnswer (see design.md);
+ * shortText is the opposite — the app grades it and never asks the learner.
  */
 export const gradeQuestion = (
     question: QuizQuestion,
     selectedOptionIds: string[],
-    selfGrade: boolean | null
-): boolean | null =>
-    question.type === 'freeText'
-        ? selfGrade
-        : isSelectionCorrect(selectedOptionIds, question.correctOptionIds);
+    selfGrade: boolean | null,
+    answerText = ''
+): boolean | null => {
+    if (question.type === 'freeText') {
+        return selfGrade;
+    }
+
+    if (question.type === 'shortText') {
+        const typed = normalizeAnswer(answerText);
+        return (question.acceptedAnswers ?? []).some(
+            (accepted) => normalizeAnswer(accepted) === typed
+        );
+    }
+
+    return isSelectionCorrect(selectedOptionIds, question.correctOptionIds);
+};
 
 export const scorePercent = (correctCount: number, total: number): number =>
     total > 0 ? Math.round((correctCount / total) * 100) : 0;
@@ -110,7 +143,9 @@ export const useQuizState = (questions: QuizQuestion[], persistKey?: string) => 
     const currentQuestion = questions[index];
 
     const isFreeText = currentQuestion?.type === 'freeText';
-    // A revealed free-text answer the learner has not yet marked ✓/✗.
+    // A revealed free-text answer the learner has not yet marked ✓/✗. Deliberately
+    // keyed to freeText, not "is typed": a shortText answer is already graded, so
+    // waiting on a self-grade here would block Finish Quiz forever.
     const awaitingSelfGrade = !!isFreeText && submitted && selfGrade === null;
 
     const isCorrect = useMemo(() => {
@@ -118,8 +153,8 @@ export const useQuizState = (questions: QuizQuestion[], persistKey?: string) => 
             return false;
         }
 
-        return gradeQuestion(currentQuestion, selectedOptionIds, selfGrade) === true;
-    }, [currentQuestion, selectedOptionIds, selfGrade, submitted]);
+        return gradeQuestion(currentQuestion, selectedOptionIds, selfGrade, answerText) === true;
+    }, [currentQuestion, selectedOptionIds, selfGrade, submitted, answerText]);
 
     const record = (questionId: string, correct: boolean) => {
         setCompletedQuestionIds((prev) =>
@@ -160,8 +195,9 @@ export const useQuizState = (questions: QuizQuestion[], persistKey?: string) => 
         setSubmitted(true);
 
         // Free-text only reveals here; it is scored (and counted complete) by
-        // gradeSelf once the learner marks ✓/✗.
-        const graded = gradeQuestion(currentQuestion, selectedOptionIds, selfGrade);
+        // gradeSelf once the learner marks ✓/✗. shortText returns a real boolean,
+        // so it is recorded immediately like an MCQ.
+        const graded = gradeQuestion(currentQuestion, selectedOptionIds, selfGrade, answerText);
         if (graded === null) return;
         record(currentQuestion.id, graded);
     };
@@ -216,6 +252,7 @@ export const useQuizState = (questions: QuizQuestion[], persistKey?: string) => 
         submitted,
         isCorrect,
         isFreeText: !!isFreeText,
+        isShortText: currentQuestion?.type === 'shortText',
         awaitingSelfGrade,
         selfGrade,
         canSubmit: !!currentQuestion && isAnswerSubmittable(currentQuestion, selectedOptionIds, answerText),

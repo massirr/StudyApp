@@ -1,4 +1,4 @@
-export type QuizQuestionType = 'single' | 'multiple' | 'freeText';
+export type QuizQuestionType = 'single' | 'multiple' | 'freeText' | 'shortText';
 
 export interface QuizOption {
     id: string;
@@ -19,6 +19,10 @@ export interface QuizQuestion {
     // freeText only: the model answer revealed on submit. The learner self-grades
     // against it — the app never string-matches it (see design.md).
     sampleAnswer?: string;
+    // shortText only: every answer counted correct, compared after normalisation
+    // (case, whitespace, apostrophe style, trailing punctuation). Required and
+    // non-empty for shortText; the app grades these itself, with no self-grade.
+    acceptedAnswers?: string[];
 }
 
 export interface QuizResult {

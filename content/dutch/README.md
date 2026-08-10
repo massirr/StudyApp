@@ -5,7 +5,7 @@ whatever the teacher handed out. They are **not** bundled into the app; they are
 input from which `src/data/subjects/yb1398.json` is authored.
 
 The subject covers the course's seven chapters (`h0-herhaling` … `h6-op-gesprek`)
-with **82 questions**: 55 `single`, 9 `multiple`, 18 `freeText`.
+with **80 questions**: 30 `single`, 9 `multiple`, 23 `shortText`, 18 `freeText`.
 
 ## What's here
 
@@ -21,13 +21,26 @@ not bundled into the app.
 
 | Type | Learner experience | Used for |
 |---|---|---|
-| `single` | Radio, auto-graded | Gap-fill where recognising the form is enough (relatief pronomen, zou/zullen) |
+| `single` | Radio, auto-graded | Choosing between candidate *words* — *Toen* vs *Als*, *want* vs *omdat*, *heeft* vs *is* |
 | `multiple` | Checkboxes, auto-graded on the whole set | Category sorting (which verbs take -de, which words are de-woorden) |
-| `freeText` | Textarea; on submit reveals `sampleAnswer` and the learner self-grades ✓/✗ | Producing Dutch: irregular verb lists, sentence combining, all five oral answers |
+| `shortText` | Single-line input; the app checks it against `acceptedAnswers` and marks it right or wrong | Producing a *form* from memory — zou/zullen, imperfectum, relatief pronomen, inversie |
+| `freeText` | Textarea; on submit reveals `sampleAnswer` and the learner self-grades ✓/✗ | Open-ended production: sentence combining, all five oral answers |
 
-Free-text matters most for the retake — it is the only type that drills *producing*
-Dutch rather than recognising it, and the written exam's sentence-combining task
-cannot be tested any other way. It is never string-matched; see `design.md`.
+Typed answers matter most for the retake — they are the only types that drill
+*producing* Dutch rather than recognising it.
+
+**`shortText` vs `freeText`** is the difference between an answer the app can check
+and one it cannot. `shortText` compares the typed answer against `acceptedAnswers`
+after normalising case, whitespace, apostrophe style and trailing punctuation —
+so `Zou`, ` zou ` and `zou.` all pass, but `werkde` does not. Spelling is never
+forgiven, because that is what the exam does. `freeText` is never string-matched,
+because "combineer deze twee zinnen" has several correct answers.
+
+**Which gap fills stayed `single`** — a question is `shortText` only when the
+learner must produce a grammatical form. Where the exercise is *choosing between
+candidate words* (q-7, q-12, q-47, q-48, q-49, q-68, q-69, q-71, q-79), the options
+are the exercise: typing `Toen` is trivial once you know it, while seeing
+*Toen / Als / Wanneer / Terwijl* forces the discrimination.
 
 `Topic.passage` (reading text above a chapter's deck) is used on **H2** (the Boris
 imperfectum text, mirroring written task 2) and **H6** (a vacature, mirroring lezen).

@@ -306,7 +306,7 @@
     },
     {
       "topicId": "t-2",
-      "prompt": "Kies de juiste vorm: 'Als ik meer geld had, ___ ik een huis kopen.'",
+      "prompt": "Zullen of zouden? Vul de juiste vorm in: 'Als ik meer geld had, ____ ik een huis kopen.'",
       "type": "shortText",
       "options": [],
       "correctOptionIds": [],
@@ -435,7 +435,7 @@
     },
     {
       "topicId": "t-4",
-      "prompt": "Kies het juiste werkwoord: 'Hij ___ kort, zwart haar.'",
+      "prompt": "Vul het juiste werkwoord in (hebben, zijn of dragen): 'Hij ____ kort, zwart haar.'",
       "type": "shortText",
       "options": [],
       "correctOptionIds": [],
@@ -506,7 +506,7 @@
     },
     {
       "topicId": "t-6",
-      "prompt": "Welk voegwoord past het beste: 'Ik bleef thuis, ___ ik was ziek.'",
+      "prompt": "Welk voegwoord? Let op: 'ik was ziek' heeft hoofdzinvolgorde. 'Ik bleef thuis, ____ ik was ziek.'",
       "type": "shortText",
       "options": [],
       "correctOptionIds": [],
@@ -618,7 +618,7 @@
     },
     {
       "topicId": "t-2",
-      "prompt": "Vul in: 'Ik ____ graag in Spanje willen wonen.'",
+      "prompt": "Zullen of zouden? Vul de juiste vorm in: 'Ik ____ graag in Spanje willen wonen.'",
       "type": "shortText",
       "explanation": "Ik/jij/hij/zij -> zou. Wij/jullie/zij (mv) -> zouden. Hier is het subject 'ik', dus 'zou'. Na 'zou' komen de infinitieven achteraan: willen wonen (H1 1.3).",
       "sourceUrls": [],
@@ -631,7 +631,7 @@
     },
     {
       "topicId": "t-2",
-      "prompt": "Vul in: 'Wij ____ graag naar de film gaan, maar we hebben geen tijd.'",
+      "prompt": "Zullen of zouden? Vul de juiste vorm in: 'Wij ____ graag naar de film gaan, maar we hebben geen tijd.'",
       "type": "shortText",
       "explanation": "Meervoudig subject 'wij' -> zouden. 'Zullen' zou hier een voorstel of plan zijn, geen wens (H1 1.4).",
       "sourceUrls": [],
@@ -644,7 +644,7 @@
     },
     {
       "topicId": "t-2",
-      "prompt": "Een voorstel doen: '____ we naar de film gaan?'",
+      "prompt": "Zullen of zouden? Een voorstel doen: '____ we naar de film gaan?'",
       "type": "shortText",
       "explanation": "ZULLEN = een voorstel ('Zullen we...?') of een belofte. ZOUDEN = een wens of een advies. Dit onderscheid is precies wat oefening 1 van het schriftelijk examen test (H1 1.4).",
       "sourceUrls": [],
@@ -657,7 +657,7 @@
     },
     {
       "topicId": "t-2",
-      "prompt": "Een belofte: 'Dat ____ ik zeker doen.'",
+      "prompt": "Zullen of zouden? Een belofte: 'Dat ____ ik zeker doen.'",
       "type": "shortText",
       "explanation": "Een belofte staat in de toekomende tijd: ik zal, jij zult/zal, hij zal, wij/jullie/zij zullen (H1 1.4).",
       "sourceUrls": [],
@@ -670,7 +670,7 @@
     },
     {
       "topicId": "t-2",
-      "prompt": "Een advies geven: 'Het is koud. Je ____ een warme trui kunnen aandoen.'",
+      "prompt": "Zullen of zouden? Een advies geven: 'Het is koud. Je ____ een warme trui kunnen aandoen.'",
       "type": "shortText",
       "explanation": "ZOU + KUNNEN + INFINITIEF is de vaste constructie voor een advies (H1 1.3, punt 2).",
       "sourceUrls": [],
@@ -712,7 +712,7 @@
     },
     {
       "topicId": "t-2",
-      "prompt": "Vul in: 'Jullie ____ morgen op tijd zijn, dat hebben jullie beloofd.'",
+      "prompt": "Zullen of zouden? Een belofte: 'Jullie ____ morgen op tijd zijn, dat hebben jullie beloofd.'",
       "type": "shortText",
       "explanation": "Een belofte met een meervoudig subject: jullie zullen. Let op: 'zouden' zou er een wens of een onzekerheid van maken (H1 1.4).",
       "sourceUrls": [],
@@ -777,7 +777,7 @@
     },
     {
       "topicId": "t-3",
-      "prompt": "Vul in: 'werken' -> jij ____ (imperfectum)",
+      "prompt": "Imperfectum van 'werken': jij ____",
       "type": "shortText",
       "explanation": "Stam 'werk' eindigt op /k/. Die klank zit in SOFTKETCHUP, dus -TE: werkte, werkten (H2 2.2).",
       "sourceUrls": [],
@@ -790,7 +790,7 @@
     },
     {
       "topicId": "t-3",
-      "prompt": "Vul in: 'koken' -> hij ____",
+      "prompt": "Imperfectum van 'koken': hij ____",
       "type": "shortText",
       "explanation": "Stam 'kook' eindigt op /k/ -> SOFTKETCHUP -> -te. De lange oo blijft dubbel omdat de lettergreep gesloten is: kookte (H2 2.2).",
       "sourceUrls": [],
@@ -803,7 +803,7 @@
     },
     {
       "topicId": "t-3",
-      "prompt": "Vul in: 'reizen' -> ik ____",
+      "prompt": "Imperfectum van 'reizen': ik ____",
       "type": "shortText",
       "explanation": "Dit is de klassieke valstrik. Je schrijft de stam als 'reis', maar de infinitief heeft een Z: reiZen. Die /z/ staat NIET in SOFTKETCHUP, dus -DE: reisde. Kijk altijd naar de infinitief, niet naar de geschreven stam (H2 2.2).",
       "sourceUrls": [],
@@ -816,7 +816,7 @@
     },
     {
       "topicId": "t-3",
-      "prompt": "Vul in: 'leven' -> ik ____",
+      "prompt": "Imperfectum van 'leven': ik ____",
       "type": "shortText",
       "explanation": "Zelfde valstrik als 'reizen': de infinitief heeft een V (leVen), en /v/ zit niet in SOFTKETCHUP, dus -DE. Je schrijft 'leefde' met f, maar je kiest de uitgang op basis van de v (H2 2.2).",
       "sourceUrls": [],
@@ -888,7 +888,7 @@
     },
     {
       "topicId": "t-3",
-      "prompt": "Vul in: 'gaan' -> wij ____",
+      "prompt": "Imperfectum van 'gaan': wij ____",
       "type": "shortText",
       "explanation": "Onregelmatig (sterk) verbum: gaan -> ging (enkelvoud) / gingen (meervoud). Sterke verba veranderen van klinker en krijgen GEEN -te/-de. Uit het hoofd leren (H2 2.3).",
       "sourceUrls": [],
@@ -901,7 +901,7 @@
     },
     {
       "topicId": "t-3",
-      "prompt": "Vul in: 'brengen' -> ik ____",
+      "prompt": "Imperfectum van 'brengen': ik ____",
       "type": "shortText",
       "explanation": "Brengen -> bracht / brachten. Hoort bij het groepje denken -> dacht, kopen -> kocht, zoeken -> zocht (H2 2.3).",
       "sourceUrls": [],
@@ -914,7 +914,7 @@
     },
     {
       "topicId": "t-3",
-      "prompt": "Vul in: 'denken' -> zij (meervoud) ____",
+      "prompt": "Imperfectum van 'denken': zij (meervoud) ____",
       "type": "shortText",
       "explanation": "Denken -> dacht / dachten. Let op de meervoudsvorm met -en, met maar een t (H2 2.3).",
       "sourceUrls": [],
@@ -927,7 +927,7 @@
     },
     {
       "topicId": "t-3",
-      "prompt": "Vul in: 'zijn' -> jullie ____",
+      "prompt": "Imperfectum van 'zijn': jullie ____",
       "type": "shortText",
       "explanation": "Zijn is het enige verbum met twee verschillende stammen in het imperfectum: ik/jij/hij WAS, wij/jullie/zij WAREN (H2 2.3).",
       "sourceUrls": [],
@@ -1025,7 +1025,7 @@
     },
     {
       "topicId": "t-4",
-      "prompt": "Vul aan: 'Omdat ze geen auto heeft, ____ met de trein.'",
+      "prompt": "De bijzin staat eerst, dus inversie in de hoofdzin. Vul werkwoord + onderwerp in: 'Omdat ze geen auto heeft, ____ met de trein.'",
       "type": "shortText",
       "explanation": "Als de bijzin EERST staat, telt hij als eerste zinsdeel. De persoonsvorm van de hoofdzin blijft op plaats twee en komt dus voor het subject: inversie. 'Omdat ze geen auto heeft, GAAT ZE...' (H3 3.6).",
       "sourceUrls": [],
@@ -1097,7 +1097,7 @@
     },
     {
       "topicId": "t-4",
-      "prompt": "Vul aan: 'Ik kan niet naar de les komen, want ik ____ ziek.'",
+      "prompt": "Na 'want' blijft de normale volgorde. Vul het werkwoord in: 'Ik kan niet naar de les komen, want ik ____ ziek.'",
       "type": "shortText",
       "explanation": "'Want' is nevenschikkend, dus de tweede zin houdt de normale volgorde subject + persoonsvorm: 'want ik ben ziek'. Met 'omdat' zou het worden: 'omdat ik ziek ben' (H3 3.5).",
       "sourceUrls": [],
@@ -1110,7 +1110,7 @@
     },
     {
       "topicId": "t-4",
-      "prompt": "Beschrijf een persoon: 'Zij ____ zwart krullend haar.'",
+      "prompt": "Vul het juiste werkwoord in (hebben, zijn of dragen): 'Zij ____ zwart krullend haar.'",
       "type": "shortText",
       "explanation": "Haar, een baard, een snor, rimpels en een grote neus HEB je. De examenslides waarschuwen expliciet voor het juiste werkwoord bij mondelinge vraag 2 (H3 3.10).",
       "sourceUrls": [],
@@ -1123,7 +1123,7 @@
     },
     {
       "topicId": "t-4",
-      "prompt": "Beschrijf een persoon: 'Hij ____ kaal.'",
+      "prompt": "Vul het juiste werkwoord in (hebben, zijn of dragen): 'Hij ____ kaal.'",
       "type": "shortText",
       "explanation": "Lichaamsbouw en kenmerken als kaal, mager, slank en dik zijn adjectieven: die gebruik je met ZIJN. 'Hij is kaal', 'Hij is mager' (H3 3.10).",
       "sourceUrls": [],
@@ -1136,7 +1136,7 @@
     },
     {
       "topicId": "t-4",
-      "prompt": "Beschrijf een persoon: 'Zij ____ een oranje gebloemde jurk.'",
+      "prompt": "Vul het juiste werkwoord in (hebben, zijn of dragen): 'Zij ____ een oranje gebloemde jurk.'",
       "type": "shortText",
       "explanation": "Kleding DRAAG je. De drie werkwoorden voor vraag 2: hij IS mager, zij HEEFT zwart haar, zij DRAAGT een jurk (examenslide vraag 2).",
       "sourceUrls": [],
@@ -1212,7 +1212,7 @@
     },
     {
       "topicId": "t-5",
-      "prompt": "Vul in: 'Het glas ____ ik gisteren kocht, is vuil.'",
+      "prompt": "Die of dat? 'Het glas ____ ik gisteren kocht, is vuil.'",
       "type": "shortText",
       "explanation": "HET glas is een het-woord, dus 'dat'. Dit is letterlijk het voorbeeld uit de examenslides (H4 4.6).",
       "sourceUrls": [],
@@ -1225,7 +1225,7 @@
     },
     {
       "topicId": "t-5",
-      "prompt": "Vul in: 'De nieuwe telefoon ____ ik gisteren heb gekocht, is nu al stuk!'",
+      "prompt": "Die of dat? 'De nieuwe telefoon ____ ik gisteren heb gekocht, is nu al stuk!'",
       "type": "shortText",
       "explanation": "DE telefoon is een de-woord -> die. Onthoud: de-woord -> die, het-woord -> dat (H4 4.6).",
       "sourceUrls": [],
@@ -1238,7 +1238,7 @@
     },
     {
       "topicId": "t-5",
-      "prompt": "Vul in: 'Wij hebben een collega ____ een fan van de Spice Girls is.'",
+      "prompt": "Die of dat? 'Wij hebben een collega ____ een fan van de Spice Girls is.'",
       "type": "shortText",
       "explanation": "DE collega -> die. 'Wie' gebruik je in het Nederlands niet als gewoon betrekkelijk voornaamwoord bij een persoon zonder prepositie (H4 4.6).",
       "sourceUrls": [],
@@ -1251,7 +1251,7 @@
     },
     {
       "topicId": "t-5",
-      "prompt": "Vul in: 'Dat is de stoel ____ ik zit.'",
+      "prompt": "Er hoort een prepositie bij, dus waar + prepositie. 'Ik zit OP een stoel.' -> 'Dat is de stoel ____ ik zit.'",
       "type": "shortText",
       "explanation": "Je zit OP een stoel. Bij een prepositie kan je 'die/dat' niet gebruiken: je maakt waar + prepositie -> waarop (H4 4.6, punt 3).",
       "sourceUrls": [],
@@ -1264,7 +1264,7 @@
     },
     {
       "topicId": "t-5",
-      "prompt": "Vul in: 'Dit is het mes ____ ik vlees snijd.'",
+      "prompt": "Er hoort een prepositie bij, dus waar + prepositie. 'Ik snijd vlees MET een mes.' -> 'Dit is het mes ____ ik vlees snijd.'",
       "type": "shortText",
       "explanation": "Je snijdt MET een mes. Let op de uitzondering: waar + met wordt niet 'waarmet' maar WAARMEE (H4 4.6, 'Let op!').",
       "sourceUrls": [],
@@ -1427,7 +1427,7 @@
     },
     {
       "topicId": "t-6",
-      "prompt": "Vul aan: \"'s Middags ____ altijd met mijn mama een warme maaltijd.\"",
+      "prompt": "Het tijdswoord staat vooraan, dus inversie. Vul werkwoord (imperfectum) + onderwerp in: \"'s Middags ____ altijd met mijn mama een warme maaltijd.\"",
       "type": "shortText",
       "explanation": "Dit is het voorbeeld dat de examenslides zelf geven bij vraag 1. Als een tijdsbepaling vooraan staat, komt de persoonsvorm op plaats twee en het subject erna: inversie (H5 5.2).",
       "sourceUrls": [],
@@ -1469,7 +1469,7 @@
     },
     {
       "topicId": "t-6",
-      "prompt": "Vul in: '____ ik klein was, woonde ik in Marokko.'",
+      "prompt": "Toen of als? '____ ik klein was, woonde ik in Marokko.'",
       "type": "shortText",
       "explanation": "TOEN gebruik je voor een situatie of gebeurtenis in het VERLEDEN die een keer of doorlopend was. ALS gebruik je voor het heden of voor iets dat zich herhaalt. Bij vraag 1 vertel je over vroeger, dus je hebt 'toen' constant nodig (H5 5.2).",
       "sourceUrls": [],
@@ -1482,7 +1482,7 @@
     },
     {
       "topicId": "t-6",
-      "prompt": "Welk structuurwoord past: 'Eerst gingen we wandelen. ____ dronken we iets op een terras.'",
+      "prompt": "Welk structuurwoord? 'Eerst gingen we wandelen. ____ dronken we iets op een terras.'",
       "type": "shortText",
       "explanation": "Volgorde in een verhaal: eerst - dan - daarna - ten slotte. 'Tijdens' en 'voor' zijn preposities die een naamwoord nodig hebben ('tijdens de wandeling') (H5 5.2).",
       "sourceUrls": [],
@@ -1527,7 +1527,7 @@
     },
     {
       "topicId": "t-6",
-      "prompt": "Vul de juiste prepositie in: 'We hebben eerst gegeten. ____ het eten hebben we een museum bezocht.'",
+      "prompt": "Vul de juiste prepositie in (niet 'nadat'): 'We hebben eerst gegeten. ____ het eten hebben we een museum bezocht.'",
       "type": "shortText",
       "explanation": "NA is een prepositie en staat voor een naamwoord: na het eten, na de wandeling. NADAT is een voegwoord en heeft een hele zin nodig: 'nadat we gegeten hadden' (H5 5.3).",
       "sourceUrls": [],
@@ -1708,7 +1708,7 @@
     },
     {
       "topicId": "t-7",
-      "prompt": "Vul aan: 'Ik ben bereid ____ in ploegen te werken.'",
+      "prompt": "Vaste constructie: 'bereid ____ ... te + infinitief'. 'Ik ben bereid ____ in ploegen te werken.'",
       "type": "shortText",
       "explanation": "Vaste constructie: 'Ik ben bereid OM ... TE + infinitief'. Bijvoorbeeld: 'Ik ben bereid om 's avonds te werken' (H6 6.1).",
       "sourceUrls": [],

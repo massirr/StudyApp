@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { getCodeSnippetQuestionsForTopic, getContentNotesForTopic, getQuestionCountForTopic, getSourceByUrl } from '../data/subjects';
 import { Subject, Topic } from '../types/study';
 import { useProgress } from '../hooks/useProgress';
+import { bestAttempt, latestAttempt } from '../utils/progressStorage';
 
 interface TopicPageProps {
     subject: Subject;
@@ -9,16 +10,16 @@ interface TopicPageProps {
 }
 
 const TopicPage: React.FC<TopicPageProps> = ({ subject, topic }) => {
-    const { progress, setLastVisitedTopic, attemptsFor, bestFor, latestFor } = useProgress(
-        subject.id
-    );
+    const { progress, setLastVisitedTopic, attemptsFor } = useProgress(subject.id);
     const notes = getContentNotesForTopic(subject, topic.id);
     const questionCount = getQuestionCountForTopic(subject, topic.id);
     const level2Count = getCodeSnippetQuestionsForTopic(subject, topic.id).length;
     const level2Unlocked = (progress.level2UnlockedTopicIds ?? []).includes(topic.id);
+    // Derive from the list already in hand — bestFor/latestFor would each re-read
+    // and re-validate the same stored array.
     const attempts = attemptsFor(topic.id);
-    const best = bestFor(topic.id);
-    const latest = latestFor(topic.id);
+    const best = bestAttempt(attempts);
+    const latest = latestAttempt(attempts);
 
     useEffect(() => {
         setLastVisitedTopic(topic.slug);

@@ -7,6 +7,10 @@ const DEFAULT_SUBJECT = 'dp-750';
  *  against localStorage, while an uncapped list grows on every retake. */
 export const ATTEMPT_LIMIT = 20;
 
+/** Two identical writes closer together than this are the same finish, not two
+ *  retakes — see appendAttempt. */
+const DUPLICATE_WINDOW_MS = 2000;
+
 const isAttempt = (a: unknown): a is QuizAttempt => {
     if (typeof a !== 'object' || a === null) return false;
     const o = a as Record<string, unknown>;
@@ -51,7 +55,7 @@ export const appendAttempt = (
     const last = latestAttempt(existing);
     if (last && last.correct === attempt.correct && last.total === attempt.total) {
         const gapMs = Date.parse(attempt.finishedAt) - Date.parse(last.finishedAt);
-        if (Number.isFinite(gapMs) && gapMs >= 0 && gapMs < 2000) return progress;
+        if (Number.isFinite(gapMs) && gapMs >= 0 && gapMs < DUPLICATE_WINDOW_MS) return progress;
     }
 
     return {

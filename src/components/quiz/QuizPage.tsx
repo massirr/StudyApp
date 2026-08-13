@@ -18,7 +18,8 @@ interface QuizPageProps {
 
 const QuizPage: React.FC<QuizPageProps> = ({ subject, topicSlug, level = 1 }) => {
   const [showFeedback, setShowFeedback] = useState(false);
-  const { progress, markTopicComplete, markLevel2Unlocked } = useProgress(subject.id);
+  const { progress, markTopicComplete, markLevel2Unlocked, recordAttempt, latestFor } =
+    useProgress(subject.id);
 
   const quizTitle = `${subject.shortLabel} Quiz`;
   const dashboardHref = `/${subject.slug}`;
@@ -67,10 +68,16 @@ const QuizPage: React.FC<QuizPageProps> = ({ subject, topicSlug, level = 1 }) =>
     restart
   } = useQuizState(questions, persistKey);
 
+  // The attempt we are about to append would otherwise become "the previous
+  // one", so capture the real previous score before recording.
+  const [previousPercent, setPreviousPercent] = useState<number | null>(null);
+
   useEffect(() => {
     if (isComplete && topicSlug && topic) {
+      setPreviousPercent(latestFor(topic.id)?.percent ?? null);
       markTopicComplete(topic.id);
       const pct = scorePercent(correctCount, total);
+      recordAttempt(topic.id, correctCount, total);
       if (level === 1 && pct >= 70) {
         markLevel2Unlocked(topic.id);
       }
@@ -147,6 +154,17 @@ const QuizPage: React.FC<QuizPageProps> = ({ subject, topicSlug, level = 1 }) =>
             {correctCount} / {total}
           </div>
           <div className={styles.scorePercent}>{pct}%</div>
+          {topicSlug && (
+            <p className={styles.attemptDelta}>
+              {previousPercent === null
+                ? 'First attempt on this topic.'
+                : pct > previousPercent
+                ? `+${pct - previousPercent}% since your last attempt (${previousPercent}%)`
+                : pct < previousPercent
+                ? `${pct - previousPercent}% since your last attempt (${previousPercent}%)`
+                : `Same as your last attempt (${previousPercent}%)`}
+            </p>
+          )}
           <p className={`${styles.scoreMessage} ${passed ? styles.pass : styles.fail}`}>
             {scoreMessage}
           </p>

@@ -9,11 +9,16 @@ interface TopicPageProps {
 }
 
 const TopicPage: React.FC<TopicPageProps> = ({ subject, topic }) => {
-    const { progress, setLastVisitedTopic } = useProgress(subject.id);
+    const { progress, setLastVisitedTopic, attemptsFor, bestFor, latestFor } = useProgress(
+        subject.id
+    );
     const notes = getContentNotesForTopic(subject, topic.id);
     const questionCount = getQuestionCountForTopic(subject, topic.id);
     const level2Count = getCodeSnippetQuestionsForTopic(subject, topic.id).length;
     const level2Unlocked = (progress.level2UnlockedTopicIds ?? []).includes(topic.id);
+    const attempts = attemptsFor(topic.id);
+    const best = bestFor(topic.id);
+    const latest = latestFor(topic.id);
 
     useEffect(() => {
         setLastVisitedTopic(topic.slug);
@@ -69,6 +74,43 @@ const TopicPage: React.FC<TopicPageProps> = ({ subject, topic }) => {
                         {notes.map((note) => (
                             <li key={note.id}>
                                 <p>{note.text}</p>
+                            </li>
+                        ))}
+                    </ul>
+                </section>
+            )}
+
+            {attempts.length > 0 && (
+                <section className="topic-section">
+                    <h2>Your attempts</h2>
+                    <div className="attempt-summary">
+                        <div className="attempt-stat">
+                            <span className="attempt-stat-value">{best?.percent ?? 0}%</span>
+                            <span className="attempt-stat-label">Best</span>
+                        </div>
+                        <div className="attempt-stat">
+                            <span className="attempt-stat-value">{latest?.percent ?? 0}%</span>
+                            <span className="attempt-stat-label">Latest</span>
+                        </div>
+                        <div className="attempt-stat">
+                            <span className="attempt-stat-value">{attempts.length}</span>
+                            <span className="attempt-stat-label">
+                                {attempts.length === 1 ? 'Attempt' : 'Attempts'}
+                            </span>
+                        </div>
+                    </div>
+                    <ul className="attempt-list">
+                        {[...attempts].reverse().map((a) => (
+                            <li key={a.finishedAt}>
+                                <span className="attempt-date">
+                                    {new Date(a.finishedAt).toLocaleDateString(undefined, {
+                                        day: 'numeric',
+                                        month: 'short'
+                                    })}
+                                </span>
+                                <span className="attempt-score">
+                                    {a.correct}/{a.total} · {a.percent}%
+                                </span>
                             </li>
                         ))}
                     </ul>

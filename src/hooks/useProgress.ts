@@ -1,6 +1,13 @@
 import { useContext } from 'react';
 import { ProgressContext } from '../context/ProgressContext';
-import { emptySubjectProgress } from '../utils/progressStorage';
+import {
+    appendAttempt,
+    bestAttempt,
+    emptySubjectProgress,
+    latestAttempt,
+    readAttempts
+} from '../utils/progressStorage';
+import { scorePercent } from './useQuizState';
 
 export const useProgress = (subjectId: string) => {
     const ctx = useContext(ProgressContext);
@@ -35,6 +42,18 @@ export const useProgress = (subjectId: string) => {
             ctx.updateSubject(subjectId, (p) =>
                 p.lastVisitedTopicSlug === slug ? p : { ...p, lastVisitedTopicSlug: slug }
             ),
+        recordAttempt: (topicId: string, correct: number, total: number) =>
+            ctx.updateSubject(subjectId, (p) =>
+                appendAttempt(p, topicId, {
+                    finishedAt: new Date().toISOString(),
+                    correct,
+                    total,
+                    percent: scorePercent(correct, total)
+                })
+            ),
+        attemptsFor: (topicId: string) => readAttempts(progress, topicId),
+        bestFor: (topicId: string) => bestAttempt(readAttempts(progress, topicId)),
+        latestFor: (topicId: string) => latestAttempt(readAttempts(progress, topicId)),
         resetProgress: ctx.resetProgress
     };
 };

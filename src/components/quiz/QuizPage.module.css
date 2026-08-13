@@ -148,6 +148,13 @@
   font-style: italic;
 }
 
+.attemptDelta {
+  margin: 0 0 4px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: rgba(7, 7, 7, 0.7);
+}
+
 .level2Button {
   display: inline-block;
   background: var(--ink);

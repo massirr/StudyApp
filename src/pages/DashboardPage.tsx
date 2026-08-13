@@ -10,7 +10,7 @@ interface DashboardPageProps {
 }
 
 const DashboardPage: React.FC<DashboardPageProps> = ({ subject }) => {
-    const { progress, toggleTopicComplete, resetProgress } = useProgress(subject.id);
+    const { progress, toggleTopicComplete, resetProgress, bestFor } = useProgress(subject.id);
 
     const completedCount = progress.completedTopicIds.length;
     const totalCount = subject.topics.length;
@@ -62,6 +62,7 @@ const DashboardPage: React.FC<DashboardPageProps> = ({ subject }) => {
                 {subject.topics.map((topic) => {
                     const completed = progress.completedTopicIds.includes(topic.id);
                     const questionCount = getQuestionCountForTopic(subject, topic.id);
+                    const best = bestFor(topic.id);
                     return (
                         <li key={topic.id} className="topic-card">
                             <div>
@@ -72,6 +73,11 @@ const DashboardPage: React.FC<DashboardPageProps> = ({ subject }) => {
                             </div>
                             <div className="topic-controls">
                                 <span className="topic-count">{questionCount} Q</span>
+                                {best && (
+                                    <span className="pill best-score" title="Best score so far">
+                                        Best {best.percent}%
+                                    </span>
+                                )}
                                 <span className={completed ? 'pill completed' : 'pill pending'}>
                                     {completed ? 'Completed' : 'In Progress'}
                                 </span>

@@ -525,6 +525,69 @@ a:hover {
   color: var(--ink);
 }
 
+.pill.best-score {
+  background: transparent;
+  border: 2px solid var(--ink);
+  font-weight: 700;
+}
+
+/* Attempt history — topic page */
+.attempt-summary {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.attempt-stat {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--ink);
+  padding: 8px 14px;
+  min-width: 82px;
+}
+
+.attempt-stat-value {
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.attempt-stat-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+  font-weight: 650;
+}
+
+.attempt-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.attempt-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(7, 7, 7, 0.12);
+  font-size: 0.9rem;
+}
+
+.attempt-list li:last-child {
+  border-bottom: none;
+}
+
+.attempt-date {
+  color: var(--ink-soft);
+}
+
+.attempt-score {
+  font-weight: 700;
+}
+
 .complete-state {
   margin: 0;
   font-weight: 650;

@@ -66,12 +66,24 @@ export interface Subject {
     notes: ContentNote[];
 }
 
+/** One finished quiz deck. Raw counts are kept alongside the percentage so an
+ *  attempt stays interpretable if a topic's question count later changes. */
+export interface QuizAttempt {
+    finishedAt: string; // ISO 8601 — survives JSON round-tripping, sorts lexicographically
+    correct: number;
+    total: number;
+    percent: number;
+}
+
 export interface SubjectProgress {
     completedTopicIds: string[];
     completedSubtopicIds: Record<string, string[]>;
     lastVisitedTopicSlug?: string;
     // Topic ids whose Level 1 quiz was passed at >=70%, which unlocks Level 2.
     level2UnlockedTopicIds?: string[];
+    // Finished attempts per topic id, oldest first, capped at ATTEMPT_LIMIT.
+    // Optional so existing v2 payloads stay valid without a migration.
+    attempts?: Record<string, QuizAttempt[]>;
 }
 
 export interface ProgressStateV2 {

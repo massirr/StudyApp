@@ -54,6 +54,15 @@ export function validateSubject(raw: unknown): Subject {
     ) {
       throw new Error(`shortText question "${q.id}" needs a non-empty acceptedAnswers array`);
     }
+    // An image without alt text makes a describe-the-picture question unanswerable
+    // for a screen-reader user, so fail at load rather than ship it silently.
+    if (q.image !== undefined) {
+      const img = q.image as { src?: unknown; alt?: unknown };
+      const ok = (v: unknown) => typeof v === 'string' && v.trim().length > 0;
+      if (typeof q.image !== 'object' || q.image === null || !ok(img.src) || !ok(img.alt)) {
+        throw new Error(`question "${q.id}" has an image without a non-empty src and alt`);
+      }
+    }
   }
 
   for (const t of s.topics) {

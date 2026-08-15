@@ -1302,9 +1302,9 @@
     },
     {
       "topicId": "t-4",
-      "prompt": "Mondeling vraag 2: vergelijk deze twee vrouwen. A is ongeveer 30, slank, en heeft lang blond steil haar en een kleine neus. B is ongeveer 60, normaal gebouwd, en heeft kort grijs krullend haar, rimpels en een bril. Denk je dat ze familie zijn? Schrijf vijf zinnen met de gelijkenissen en de verschillen. (Op het examen krijg je hiervoor een echte foto.)",
+      "prompt": "Mondeling vraag 2: kijk naar de foto van Anne en Lies. Denk je dat ze familie zijn? Schrijf vijf zinnen met de gelijkenissen en de verschillen (haar, lichaamsbouw, gezicht, opvallende kenmerken).",
       "type": "freeText",
-      "explanation": "Begin met 'Ik denk dat...' of 'Ik denk niet dat...' — dat is een bijzin, dus de persoonsvorm gaat naar het einde: 'Ik denk dat ze familie ZIJN'. Let op de werkwoorden: zij IS slank, zij HEEFT grijs haar, zij DRAAGT een bril. Oefen ook met echte foto's; op het examen krijg je er een.",
+      "explanation": "Begin met 'Ik denk dat...' of 'Ik denk niet dat...' — dat is een bijzin, dus de persoonsvorm gaat naar het einde: 'Ik denk dat ze familie ZIJN'. Let op de werkwoorden: zij IS slank, zij HEEFT lang blond haar, zij DRAAGT een gele jurk. Zie je de foto niet, gebruik dan de beschrijving: beiden zijn jong, blond en slank; Lies draagt grote oorbellen en Anne niet.",
       "sourceUrls": [
         "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/03-gezocht.md",
         "https://github.com/massirr/StudyApp/blob/master/content/dutch/retake-2025-2026.md"
@@ -1312,7 +1312,11 @@
       "id": "q-53",
       "options": [],
       "correctOptionIds": [],
-      "sampleAnswer": "Ik denk dat ze familie zijn. Ze hebben allebei bruin krullend haar en een rond gezicht. De vrouw links is slank, maar de vrouw rechts is normaal gebouwd. De oudste vrouw heeft rimpels en draagt een bril. Ze hebben niet dezelfde neus: de ene heeft een kleine neus en de andere een scherpe neus."
+      "sampleAnswer": "Ik denk dat ze familie zijn. Ze hebben allebei bruin krullend haar en een rond gezicht. De vrouw links is slank, maar de vrouw rechts is normaal gebouwd. De oudste vrouw heeft rimpels en draagt een bril. Ze hebben niet dezelfde neus: de ene heeft een kleine neus en de andere een scherpe neus.",
+      "image": {
+        "src": "/images/nl3/tweeling-anne-lies.jpg",
+        "alt": "Twee jonge blonde vrouwen staan naast elkaar in een tuin. Links Anne: lang steil blond haar, slank, een lichtgele jurk zonder mouwen. Rechts Lies: lang blond haar, grote ronde oorbellen, een lichtgele jurk met korte mouwen, een hand in de zij. Ze lijken sterk op elkaar."
+      }
     },
     {
       "topicId": "t-5",
@@ -1449,7 +1453,11 @@
       ],
       "correctOptionIds": [
         "a"
-      ]
+      ],
+      "image": {
+        "src": "/images/nl3/kookwerkwoorden.jpg",
+        "alt": "Een plaat uit de cursus: links een lijst infinitieven (bakken, braden, gieten, koken, kruiden, smelten, sudderen, mengen, roeren, schillen, smeren, stoven, toevoegen), rechts foto's van die handelingen — een pan met soep op het vuur, olie in een pan gieten, aardappelen schillen, bloem mengen in een kom, boter smelten, in tomatensaus roeren, groenten afgieten, een kip in de oven, saus op brood smeren, kruiden toevoegen aan stoofvlees."
+      }
     },
     {
       "topicId": "t-5",
@@ -1480,7 +1488,11 @@
       ],
       "correctOptionIds": [
         "b"
-      ]
+      ],
+      "image": {
+        "src": "/images/nl3/kookwerkwoorden.jpg",
+        "alt": "Een plaat uit de cursus: links een lijst infinitieven (bakken, braden, gieten, koken, kruiden, smelten, sudderen, mengen, roeren, schillen, smeren, stoven, toevoegen), rechts foto's van die handelingen — een pan met soep op het vuur, olie in een pan gieten, aardappelen schillen, bloem mengen in een kom, boter smelten, in tomatensaus roeren, groenten afgieten, een kip in de oven, saus op brood smeren, kruiden toevoegen aan stoofvlees."
+      }
     },
     {
       "topicId": "t-5",
@@ -1526,7 +1538,11 @@
       "id": "q-63",
       "options": [],
       "correctOptionIds": [],
-      "sampleAnswer": "Neem eerst drie eieren en breek ze in een kom. Klop de eieren goed los met een vork en voeg een beetje zout en peper toe. Verwarm daarna een pan met een klontje boter. Giet het mengsel in de pan en bak de omelet drie minuten op een laag vuur. Vouw ten slotte de omelet dubbel en serveer hem met brood."
+      "sampleAnswer": "Neem eerst drie eieren en breek ze in een kom. Klop de eieren goed los met een vork en voeg een beetje zout en peper toe. Verwarm daarna een pan met een klontje boter. Giet het mengsel in de pan en bak de omelet drie minuten op een laag vuur. Vouw ten slotte de omelet dubbel en serveer hem met brood.",
+      "image": {
+        "src": "/images/nl3/kookwerkwoorden.jpg",
+        "alt": "Een plaat uit de cursus: links een lijst infinitieven (bakken, braden, gieten, koken, kruiden, smelten, sudderen, mengen, roeren, schillen, smeren, stoven, toevoegen), rechts foto's van die handelingen — een pan met soep op het vuur, olie in een pan gieten, aardappelen schillen, bloem mengen in een kom, boter smelten, in tomatensaus roeren, groenten afgieten, een kip in de oven, saus op brood smeren, kruiden toevoegen aan stoofvlees."
+      }
     },
     {
       "topicId": "t-5",

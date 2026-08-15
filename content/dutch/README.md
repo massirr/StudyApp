@@ -67,6 +67,25 @@ wired up because the course audio lives on Canvas, not in the PDF. Adding it is 
 content change to `yb1398.json`; the engine needs nothing. Keep clips short — they
 ship in the deployed bundle.
 
+## Images
+
+Two figures from the course PDF are reproduced under `public/images/nl3/`, because
+the exercises they belong to are visual and cannot be written out without losing
+what they teach:
+
+| File | Source | Used by |
+|---|---|---|
+| `tweeling-anne-lies.jpg` | Cursus NL3 p.32, H3 3.4 "Een tweeling" | q-53 — oral Q2, compare two people |
+| `kookwerkwoorden.jpg` | Cursus NL3 p.48, H4 4.5 cooking verbs | q-60, q-61, q-63 — imperatief and oral Q3 |
+
+They are figures from An Fraipont & Katrijn Leemans' course, reproduced here in an
+unofficial personal study aid. No other images from the PDF are bundled.
+
+`QuizQuestion.image` requires a non-empty `alt`, enforced by `validateSubject` —
+these are describe-what-you-see questions, so alt text is what makes them
+answerable without the picture, not a nicety. Write it with the visual facts the
+answer needs (age, build, hair, distinguishing features), not "photo of two women".
+
 ## Answer-letter policy
 
 `answerDistribution.test.ts` fails if any topic's correct `single` answers cluster on

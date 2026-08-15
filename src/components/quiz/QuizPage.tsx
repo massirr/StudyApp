@@ -227,7 +227,8 @@ const QuizPage: React.FC<QuizPageProps> = ({ subject, topicSlug, level = 1 }) =>
           question={{
             prompt: currentQuestion.prompt,
             sourceUrls: currentQuestion.sourceUrls,
-            codeSnippet: currentQuestion.codeSnippet
+            codeSnippet: currentQuestion.codeSnippet,
+            image: currentQuestion.image
           }}
           onSourceClick={(url) => window.open(url, '_blank', 'noopener,noreferrer')}
         />

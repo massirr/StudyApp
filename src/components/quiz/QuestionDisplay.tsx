@@ -5,8 +5,8 @@ interface Props {
   question: {
     prompt: string;
     sourceUrls: string[];
-    mediaUrl?: string;
     codeSnippet?: { language: string; code: string };
+    image?: { src: string; alt: string };
   };
   onSourceClick: (url: string) => void;
 }
@@ -25,9 +25,13 @@ const QuestionDisplay: React.FC<Props> = ({ question, onSourceClick }) => {
           </pre>
         </div>
       )}
-      {question.mediaUrl && (
+      {question.image && (
         <div className={styles.mediaContainer}>
-          <img src={question.mediaUrl} alt="Quiz media" className={styles.media} />
+          <img
+            src={question.image.src}
+            alt={question.image.alt}
+            className={styles.media}
+          />
         </div>
       )}
       {primarySourceUrl && (

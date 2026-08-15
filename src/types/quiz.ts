@@ -15,6 +15,10 @@ export interface QuizQuestion {
     explanation: string;
     sourceUrls: string[];
     codeSnippet?: { language: string; code: string };
+    // One illustration shown with the question. `alt` is mandatory when present:
+    // these are describe-what-you-see questions, so missing alt text makes them
+    // impossible rather than merely worse. Enforced by validateSubject.
+    image?: { src: string; alt: string };
     level?: number; // reserved for future tiered quizzes; unused in this release
     // freeText only: the model answer revealed on submit. The learner self-grades
     // against it — the app never string-matches it (see design.md).

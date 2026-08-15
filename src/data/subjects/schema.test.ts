@@ -86,6 +86,38 @@ describe('validateSubject', () => {
     }
   });
 
+  it('accepts a question with a well-formed image', () => {
+    const s = {
+      ...valid,
+      questions: [{
+        id: 'q1', topicId: 't1', prompt: 'Beschrijf', type: 'freeText',
+        options: [], correctOptionIds: [], sampleAnswer: 'a',
+        image: { src: '/images/nl3/x.jpg', alt: 'Twee vrouwen naast elkaar' },
+        explanation: 'e', sourceUrls: [],
+      }],
+    };
+    expect(validateSubject(s).questions[0].image?.alt).toBe('Twee vrouwen naast elkaar');
+  });
+
+  it('rejects an image without a non-empty src and alt', () => {
+    const base = {
+      id: 'q1', topicId: 't1', prompt: 'p', type: 'freeText',
+      options: [], correctOptionIds: [], sampleAnswer: 'a', explanation: 'e', sourceUrls: [],
+    };
+    const bad = [
+      { src: '/x.jpg' },                       // no alt
+      { src: '/x.jpg', alt: '' },              // empty alt
+      { src: '/x.jpg', alt: '   ' },           // whitespace alt
+      { alt: 'beschrijving' },                 // no src
+      { src: '', alt: 'beschrijving' },        // empty src
+      'not-an-object',
+    ];
+    for (const image of bad) {
+      const s = { ...valid, questions: [{ ...base, image }] };
+      expect(() => validateSubject(s), JSON.stringify(image)).toThrow(/image/);
+    }
+  });
+
   it('accepts a topic carrying passage and audio', () => {
     const s = {
       ...valid,

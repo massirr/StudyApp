@@ -301,7 +301,9 @@
         "b"
       ],
       "explanation": "'Huis' is een het-woord: het huis.",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/README.md"
+      ],
       "id": "q-1"
     },
     {
@@ -311,7 +313,9 @@
       "options": [],
       "correctOptionIds": [],
       "explanation": "Na een hypothetische als-zin gebruik je zou/zouden (conditional), niet zal (belofte/toekomst).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/01-belangrijke-momenten.md"
+      ],
       "id": "q-2",
       "acceptedAnswers": [
         "zou"
@@ -343,7 +347,9 @@
         "b"
       ],
       "explanation": "'Will' is een belofte/toekomstige actie → zullen (zal voor ik). Zou is voor hypotheses/voorwaardelijke zinnen.",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/01-belangrijke-momenten.md"
+      ],
       "id": "q-3"
     },
     {
@@ -372,7 +378,9 @@
         "a"
       ],
       "explanation": "Stam 'werk' eindigt op /k/. Die klank zit in SOFTKETCHUP (S-o-F-T-K-e-T-CH-u-P), dus -TE: ik werkte, wij werkten (H2 2.2).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/02-er-was-eens.md"
+      ],
       "id": "q-4"
     },
     {
@@ -401,7 +409,9 @@
         "b"
       ],
       "explanation": "'Gaan' is een sterk/onregelmatig werkwoord — imperfectum is 'ging' (ik/hij/zij ging, wij/jullie/zij gingen), geen -de/-te vorm.",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/02-er-was-eens.md"
+      ],
       "id": "q-5"
     },
     {
@@ -430,7 +440,9 @@
         "c"
       ],
       "explanation": "'Morgen' betekent 'tomorrow' en wijst naar de toekomst. Let op het verschil met \"'s morgens\" (in the morning), dat wel in een verhaal over vroeger past. Structuurwoorden voor het verleden: eerst, dan, daarna, toen, 's morgens, 's middags, voor, tijdens, na (H5 5.2).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/02-er-was-eens.md"
+      ],
       "id": "q-6"
     },
     {
@@ -440,7 +452,9 @@
       "options": [],
       "correctOptionIds": [],
       "explanation": "Je 'hebt' haar/kenmerken die je bezit: hij heeft kort, zwart haar. Gebruik 'zijn' voor bouw/eigenschappen: hij is lang.",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/03-gezocht.md"
+      ],
       "id": "q-7",
       "acceptedAnswers": [
         "heeft"
@@ -472,7 +486,9 @@
         "b"
       ],
       "explanation": "'Toevoegen' is een scheidbaar werkwoord (toe + voegen). De imperatief laat -en vallen en splitst het voorzetsel naar achteren: voeg … toe.",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/04-zo-zijn-de-belgen.md"
+      ],
       "id": "q-9"
     },
     {
@@ -501,7 +517,9 @@
         "b"
       ],
       "explanation": "Als het tijdswoord ('s middags) de zin opent, komt het werkwoord op de tweede plaats, vóór het onderwerp: 's Middags at ik…",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/05-tijd-om-bij-te-praten.md"
+      ],
       "id": "q-11"
     },
     {
@@ -511,7 +529,9 @@
       "options": [],
       "correctOptionIds": [],
       "explanation": "'Want' geeft een reden ('omdat/want'). 'En' voegt alleen samen, 'maar' contrasteert, 'toen' betekent 'op het moment dat' voor een gebeurtenis in het verleden.",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/05-tijd-om-bij-te-praten.md"
+      ],
       "id": "q-12",
       "acceptedAnswers": [
         "want"
@@ -543,7 +563,9 @@
         "b"
       ],
       "explanation": "Noem twee concrete, positieve eigenschappen in een bijzin met 'dat': 'Mijn sterke kanten zijn DAT ik goed kan samenwerken' — persoonsvorm achteraan. Wees positief over jezelf; de slides waarschuwen tegen antwoorden die je eigen kandidatuur ondermijnen (H6 6.4).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/06-op-gesprek.md"
+      ],
       "id": "q-13"
     },
     {
@@ -551,7 +573,9 @@
       "prompt": "Welk lidwoord hoort bij 'meisje'?",
       "type": "single",
       "explanation": "Alle verkleinwoorden op -je zijn het-woorden: het meisje, het huisje, het broodje. Dit is belangrijk voor de relatieve bijzin (H4): het-woord -> dat.",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/README.md"
+      ],
       "id": "q-14",
       "options": [
         {
@@ -580,7 +604,9 @@
       "prompt": "Welke van deze zijn de-woorden? Kies alles wat past.",
       "type": "multiple",
       "explanation": "De-woorden nemen 'die' in een relatieve bijzin, het-woorden nemen 'dat' (H4 4.6).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/README.md"
+      ],
       "id": "q-15",
       "options": [
         {
@@ -610,7 +636,9 @@
       "prompt": "Schrijf drie zinnen over jezelf in de tegenwoordige tijd: waar je woont, wat je studeert, en wat je graag doet.",
       "type": "freeText",
       "explanation": "Warming-up. Let op de persoonsvorm op plaats 2 en op inversie na een bijwoord ('In mijn vrije tijd lees ik...').",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/README.md"
+      ],
       "id": "q-16",
       "options": [],
       "correctOptionIds": [],
@@ -621,7 +649,9 @@
       "prompt": "Zullen of zouden? Vul de juiste vorm in: 'Ik ____ graag in Spanje willen wonen.'",
       "type": "shortText",
       "explanation": "Ik/jij/hij/zij -> zou. Wij/jullie/zij (mv) -> zouden. Hier is het subject 'ik', dus 'zou'. Na 'zou' komen de infinitieven achteraan: willen wonen (H1 1.3).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/01-belangrijke-momenten.md"
+      ],
       "id": "q-17",
       "options": [],
       "correctOptionIds": [],
@@ -634,7 +664,9 @@
       "prompt": "Zullen of zouden? Vul de juiste vorm in: 'Wij ____ graag naar de film gaan, maar we hebben geen tijd.'",
       "type": "shortText",
       "explanation": "Meervoudig subject 'wij' -> zouden. 'Zullen' zou hier een voorstel of plan zijn, geen wens (H1 1.4).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/01-belangrijke-momenten.md"
+      ],
       "id": "q-18",
       "options": [],
       "correctOptionIds": [],
@@ -647,7 +679,9 @@
       "prompt": "Zullen of zouden? Een voorstel doen: '____ we naar de film gaan?'",
       "type": "shortText",
       "explanation": "ZULLEN = een voorstel ('Zullen we...?') of een belofte. ZOUDEN = een wens of een advies. Dit onderscheid is precies wat oefening 1 van het schriftelijk examen test (H1 1.4).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/01-belangrijke-momenten.md"
+      ],
       "id": "q-19",
       "options": [],
       "correctOptionIds": [],
@@ -660,7 +694,9 @@
       "prompt": "Zullen of zouden? Een belofte: 'Dat ____ ik zeker doen.'",
       "type": "shortText",
       "explanation": "Een belofte staat in de toekomende tijd: ik zal, jij zult/zal, hij zal, wij/jullie/zij zullen (H1 1.4).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/01-belangrijke-momenten.md"
+      ],
       "id": "q-20",
       "options": [],
       "correctOptionIds": [],
@@ -673,7 +709,9 @@
       "prompt": "Zullen of zouden? Een advies geven: 'Het is koud. Je ____ een warme trui kunnen aandoen.'",
       "type": "shortText",
       "explanation": "ZOU + KUNNEN + INFINITIEF is de vaste constructie voor een advies (H1 1.3, punt 2).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/01-belangrijke-momenten.md"
+      ],
       "id": "q-21",
       "options": [],
       "correctOptionIds": [],
@@ -686,7 +724,9 @@
       "prompt": "Welke zin drukt een WENS uit?",
       "type": "single",
       "explanation": "'Zou graag + infinitief' = een wens. De andere zinnen zijn een belofte, een voorstel en een plan (H1 1.3).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/01-belangrijke-momenten.md"
+      ],
       "id": "q-22",
       "options": [
         {
@@ -715,7 +755,9 @@
       "prompt": "Zullen of zouden? Een belofte: 'Jullie ____ morgen op tijd zijn, dat hebben jullie beloofd.'",
       "type": "shortText",
       "explanation": "Een belofte met een meervoudig subject: jullie zullen. Let op: 'zouden' zou er een wens of een onzekerheid van maken (H1 1.4).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/01-belangrijke-momenten.md"
+      ],
       "id": "q-23",
       "options": [],
       "correctOptionIds": [],
@@ -728,7 +770,9 @@
       "prompt": "Welke vormen horen bij ZOUDEN? Kies alles wat past.",
       "type": "multiple",
       "explanation": "Zouden: ik/jij/hij/zij zou, wij/jullie/zij zouden. Zullen: ik zal, jij zult of zal, hij zal, wij/jullie/zij zullen (H1 1.4).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/01-belangrijke-momenten.md"
+      ],
       "id": "q-24",
       "options": [
         {
@@ -758,7 +802,9 @@
       "prompt": "Vul de juiste vorm in: 'Als ik rijk was, ____ ik een groot huis kopen.' Schrijf daarna de hele zin over.",
       "type": "freeText",
       "explanation": "Irreele wens -> zou. Merk ook de inversie op: de bijzin ('Als ik rijk was') staat eerst, dus in de hoofdzin komt de persoonsvorm voor het subject: 'zou ik' (H1 1.3 + H3 3.6).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/01-belangrijke-momenten.md"
+      ],
       "id": "q-25",
       "options": [],
       "correctOptionIds": [],
@@ -769,7 +815,10 @@
       "prompt": "Mondeling vraag 5: 'Hoe zie je jezelf in de toekomst?' Antwoord in twee of drie zinnen met ZOU + INFINITIEF.",
       "type": "freeText",
       "explanation": "De slides zeggen expliciet dat vraag 5 de constructie 'zou + infinitief' test. Bereid dit thuis voor: het is een van de drie vragen die je op voorhand kan instuderen.",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/01-belangrijke-momenten.md",
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/retake-2025-2026.md"
+      ],
       "id": "q-26",
       "options": [],
       "correctOptionIds": [],
@@ -780,7 +829,9 @@
       "prompt": "Imperfectum (verleden tijd) van 'werken': jij ____",
       "type": "shortText",
       "explanation": "Stam 'werk' eindigt op /k/. Die klank zit in SOFTKETCHUP, dus -TE: werkte, werkten (H2 2.2).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/02-er-was-eens.md"
+      ],
       "id": "q-27",
       "options": [],
       "correctOptionIds": [],
@@ -793,7 +844,9 @@
       "prompt": "Imperfectum (verleden tijd) van 'koken': hij ____",
       "type": "shortText",
       "explanation": "Stam 'kook' eindigt op /k/ -> SOFTKETCHUP -> -te. De lange oo blijft dubbel omdat de lettergreep gesloten is: kookte (H2 2.2).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/02-er-was-eens.md"
+      ],
       "id": "q-28",
       "options": [],
       "correctOptionIds": [],
@@ -806,7 +859,9 @@
       "prompt": "Imperfectum (verleden tijd) van 'reizen': ik ____",
       "type": "shortText",
       "explanation": "Dit is de klassieke valstrik. Je schrijft de stam als 'reis', maar de infinitief heeft een Z: reiZen. Die /z/ staat NIET in SOFTKETCHUP, dus -DE: reisde. Kijk altijd naar de infinitief, niet naar de geschreven stam (H2 2.2).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/02-er-was-eens.md"
+      ],
       "id": "q-29",
       "options": [],
       "correctOptionIds": [],
@@ -819,7 +874,9 @@
       "prompt": "Imperfectum (verleden tijd) van 'leven': ik ____",
       "type": "shortText",
       "explanation": "Zelfde valstrik als 'reizen': de infinitief heeft een V (leVen), en /v/ zit niet in SOFTKETCHUP, dus -DE. Je schrijft 'leefde' met f, maar je kiest de uitgang op basis van de v (H2 2.2).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/02-er-was-eens.md"
+      ],
       "id": "q-30",
       "options": [],
       "correctOptionIds": [],
@@ -832,7 +889,9 @@
       "prompt": "Welke stam krijgt -TE(N)?",
       "type": "single",
       "explanation": "/s/ zit in SOFTKETCHUP -> poetste. De andere stammen eindigen op /r/, /l/ en /n/ - geen SOFTKETCHUP-klanken, dus hoorde, huilde, tekende (H2 2.2).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/02-er-was-eens.md"
+      ],
       "id": "q-31",
       "options": [
         {
@@ -861,7 +920,9 @@
       "prompt": "Welke werkwoorden krijgen -DE(N) in het imperfectum? Kies alles wat past.",
       "type": "multiple",
       "explanation": "Horen -> hoorde en luisteren -> luisterde: /r/ staat niet in SOFTKETCHUP. Werken -> werkte en poetsen -> poetste wel (H2 2.2).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/02-er-was-eens.md"
+      ],
       "id": "q-32",
       "options": [
         {
@@ -891,7 +952,9 @@
       "prompt": "Imperfectum (verleden tijd) van 'gaan': wij ____",
       "type": "shortText",
       "explanation": "Onregelmatig (sterk) verbum: gaan -> ging (enkelvoud) / gingen (meervoud). Sterke verba veranderen van klinker en krijgen GEEN -te/-de. Uit het hoofd leren (H2 2.3).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/02-er-was-eens.md"
+      ],
       "id": "q-33",
       "options": [],
       "correctOptionIds": [],
@@ -904,7 +967,9 @@
       "prompt": "Imperfectum (verleden tijd) van 'brengen': ik ____",
       "type": "shortText",
       "explanation": "Brengen -> bracht / brachten. Hoort bij het groepje denken -> dacht, kopen -> kocht, zoeken -> zocht (H2 2.3).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/02-er-was-eens.md"
+      ],
       "id": "q-34",
       "options": [],
       "correctOptionIds": [],
@@ -917,7 +982,9 @@
       "prompt": "Imperfectum (verleden tijd) van 'denken': zij (meervoud) ____",
       "type": "shortText",
       "explanation": "Denken -> dacht / dachten. Let op de meervoudsvorm met -en, met maar een t (H2 2.3).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/02-er-was-eens.md"
+      ],
       "id": "q-35",
       "options": [],
       "correctOptionIds": [],
@@ -930,7 +997,9 @@
       "prompt": "Imperfectum (verleden tijd) van 'zijn': jullie ____",
       "type": "shortText",
       "explanation": "Zijn is het enige verbum met twee verschillende stammen in het imperfectum: ik/jij/hij WAS, wij/jullie/zij WAREN (H2 2.3).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/02-er-was-eens.md"
+      ],
       "id": "q-36",
       "options": [],
       "correctOptionIds": [],
@@ -944,7 +1013,9 @@
       "prompt": "Zet in het imperfectum (ik-vorm): hebben, zijn, gaan, doen, komen.",
       "type": "freeText",
       "explanation": "De vijf frequentste onregelmatige verba. Deze komen zeker terug in oefening 3 van het schriftelijk examen (H2 2.3).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/02-er-was-eens.md"
+      ],
       "id": "q-37",
       "options": [],
       "correctOptionIds": [],
@@ -955,7 +1026,9 @@
       "prompt": "Zet in het imperfectum (ik-vorm): geven, drinken, nemen, eten, blijven.",
       "type": "freeText",
       "explanation": "Let op de meervoudsvormen, die vaak een lange klinker krijgen: gaven, dronken, namen, aten, bleven (H2 2.3).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/02-er-was-eens.md"
+      ],
       "id": "q-38",
       "options": [],
       "correctOptionIds": [],
@@ -966,7 +1039,9 @@
       "prompt": "Zet in het imperfectum (ik-vorm): houden, dragen, hangen, beginnen, breken.",
       "type": "freeText",
       "explanation": "Meervoud: hielden, droegen, hingen, begonnen, braken. Allemaal uit het kruiswoordraadsel van p.23, dat de docent als oefenlijst gebruikt (H2 2.3).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/02-er-was-eens.md"
+      ],
       "id": "q-39",
       "options": [],
       "correctOptionIds": [],
@@ -977,7 +1052,9 @@
       "prompt": "Zet in het imperfectum (ik-vorm): kiezen, helpen, begrijpen, bewegen, bezoeken.",
       "type": "freeText",
       "explanation": "Meervoud: kozen, hielpen, begrepen, bewogen, bezochten (H2 2.3).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/02-er-was-eens.md"
+      ],
       "id": "q-40",
       "options": [],
       "correctOptionIds": [],
@@ -988,7 +1065,9 @@
       "prompt": "Zet de tekst in het imperfectum (zie de passage hierboven). Schrijf alle werkwoordsvormen op.",
       "type": "freeText",
       "explanation": "Precies het formaat van oefening 2 op het schriftelijk examen. Alle acht zijn regelmatig: wonen -> woonde (/n/, geen SOFTKETCHUP), werken -> werkte (/k/), bakken -> bakte (/k/), lachen -> lachte (/ch/), spelen -> speelde (/l/), maken -> maakte (/k/), leren -> leerde (/r/).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/02-er-was-eens.md"
+      ],
       "id": "q-41",
       "options": [],
       "correctOptionIds": [],
@@ -999,7 +1078,9 @@
       "prompt": "Maak een zin: 'Ik ga naar de dokter. Ik ben ziek. (ALS)'",
       "type": "single",
       "explanation": "Na een onderschikkend voegwoord (als, omdat, toen, dat, of) gaan ALLE verba naar het einde van de bijzin: '...als ik ziek BEN'. Dit is letterlijk het voorbeeld uit de examenslides (H3 3.6).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/03-gezocht.md"
+      ],
       "id": "q-42",
       "options": [
         {
@@ -1028,7 +1109,9 @@
       "prompt": "De bijzin (het deel met 'omdat') staat vooraan, dus het werkwoord komt vóór het onderwerp. Vul werkwoord + onderwerp in: 'Omdat ze geen auto heeft, ____ met de trein.'",
       "type": "shortText",
       "explanation": "Als de bijzin EERST staat, telt hij als eerste zinsdeel. De persoonsvorm van de hoofdzin blijft op plaats twee en komt dus voor het subject: inversie. 'Omdat ze geen auto heeft, GAAT ZE...' (H3 3.6).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/03-gezocht.md"
+      ],
       "id": "q-43",
       "options": [],
       "correctOptionIds": [],
@@ -1041,7 +1124,9 @@
       "prompt": "'Jan is moe, omdat hij heel de dag ____.' Welke volgordes zijn correct?",
       "type": "multiple",
       "explanation": "Als verbum 2 een participium is, mag verbum 1 ervoor OF erna staan. Allebei goed. Dat geldt alleen bij een participium, niet bij een infinitief (H3 3.6, 'Let op!').",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/03-gezocht.md"
+      ],
       "id": "q-44",
       "options": [
         {
@@ -1071,7 +1156,9 @@
       "prompt": "Welk voegwoord is ONDERSCHIKKEND en verandert dus de woordvolgorde?",
       "type": "single",
       "explanation": "Want, en, maar en of (keuze) zijn nevenschikkend: de volgorde blijft gewoon. Omdat, als, toen en dat zijn onderschikkend: de verba gaan naar achteren (H3 3.5 HERHALING).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/03-gezocht.md"
+      ],
       "id": "q-45",
       "options": [
         {
@@ -1100,7 +1187,9 @@
       "prompt": "Na 'want' blijft de gewone volgorde (onderwerp + werkwoord). Vul het werkwoord in: 'Ik kan niet naar de les komen, want ik ____ ziek.'",
       "type": "shortText",
       "explanation": "'Want' is nevenschikkend, dus de tweede zin houdt de normale volgorde subject + persoonsvorm: 'want ik ben ziek'. Met 'omdat' zou het worden: 'omdat ik ziek ben' (H3 3.5).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/03-gezocht.md"
+      ],
       "id": "q-46",
       "options": [],
       "correctOptionIds": [],
@@ -1113,7 +1202,9 @@
       "prompt": "Vul het juiste werkwoord in (hebben, zijn of dragen): 'Zij ____ zwart krullend haar.'",
       "type": "shortText",
       "explanation": "Haar, een baard, een snor, rimpels en een grote neus HEB je. De examenslides waarschuwen expliciet voor het juiste werkwoord bij mondelinge vraag 2 (H3 3.10).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/03-gezocht.md"
+      ],
       "id": "q-47",
       "options": [],
       "correctOptionIds": [],
@@ -1126,7 +1217,9 @@
       "prompt": "Vul het juiste werkwoord in (hebben, zijn of dragen): 'Hij ____ kaal.'",
       "type": "shortText",
       "explanation": "Lichaamsbouw en kenmerken als kaal, mager, slank en dik zijn adjectieven: die gebruik je met ZIJN. 'Hij is kaal', 'Hij is mager' (H3 3.10).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/03-gezocht.md"
+      ],
       "id": "q-48",
       "options": [],
       "correctOptionIds": [],
@@ -1139,7 +1232,9 @@
       "prompt": "Vul het juiste werkwoord in (hebben, zijn of dragen): 'Zij ____ een oranje gebloemde jurk.'",
       "type": "shortText",
       "explanation": "Kleding DRAAG je. De drie werkwoorden voor vraag 2: hij IS mager, zij HEEFT zwart haar, zij DRAAGT een jurk (examenslide vraag 2).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/03-gezocht.md"
+      ],
       "id": "q-49",
       "options": [],
       "correctOptionIds": [],
@@ -1152,7 +1247,9 @@
       "prompt": "Welke woorden beschrijven de LICHAAMSBOUW? Kies alles wat past.",
       "type": "multiple",
       "explanation": "Lichaamsbouw: mager, slank, normaal gebouwd, zwaar gebouwd, dik. Kaal en gekruld horen bij het haar (H3 3.10).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/03-gezocht.md"
+      ],
       "id": "q-50",
       "options": [
         {
@@ -1182,7 +1279,9 @@
       "prompt": "Combineer met OMDAT: 'Ze drinkt een cola. Ze heeft dorst.'",
       "type": "freeText",
       "explanation": "De persoonsvorm 'heeft' gaat naar het einde van de bijzin. Vergelijk met 'want': 'Ze drinkt een cola, want ze heeft dorst' - daar verandert er niets (H3 3.5).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/03-gezocht.md"
+      ],
       "id": "q-51",
       "options": [],
       "correctOptionIds": [],
@@ -1193,7 +1292,9 @@
       "prompt": "Combineer met TOEN en begin met de bijzin (het deel met 'toen'): 'Ik was heel blij. Ik had een auto gekocht.'",
       "type": "freeText",
       "explanation": "Twee dingen tegelijk: de verba achteraan in de bijzin (had gekocht / gekocht had, allebei goed bij een participium) en inversie in de hoofdzin omdat de bijzin eerst staat: 'was ik' (H3 3.6).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/03-gezocht.md"
+      ],
       "id": "q-52",
       "options": [],
       "correctOptionIds": [],
@@ -1201,10 +1302,13 @@
     },
     {
       "topicId": "t-4",
-      "prompt": "Mondeling vraag 2: kijk naar twee personen en beschrijf de gelijkenissen en verschillen. Schrijf vijf zinnen.",
+      "prompt": "Mondeling vraag 2: vergelijk deze twee vrouwen. A is ongeveer 30, slank, en heeft lang blond steil haar en een kleine neus. B is ongeveer 60, normaal gebouwd, en heeft kort grijs krullend haar, rimpels en een bril. Denk je dat ze familie zijn? Schrijf vijf zinnen met de gelijkenissen en de verschillen. (Op het examen krijg je hiervoor een echte foto.)",
       "type": "freeText",
-      "explanation": "Begin met 'Ik denk dat...' of 'Ik denk niet dat...' - dat is meteen een bijzin, dus let op de woordvolgorde: 'Ik denk dat ze familie ZIJN' (examenslide vraag 2).",
-      "sourceUrls": [],
+      "explanation": "Begin met 'Ik denk dat...' of 'Ik denk niet dat...' — dat is een bijzin, dus de persoonsvorm gaat naar het einde: 'Ik denk dat ze familie ZIJN'. Let op de werkwoorden: zij IS slank, zij HEEFT grijs haar, zij DRAAGT een bril. Oefen ook met echte foto's; op het examen krijg je er een.",
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/03-gezocht.md",
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/retake-2025-2026.md"
+      ],
       "id": "q-53",
       "options": [],
       "correctOptionIds": [],
@@ -1215,7 +1319,9 @@
       "prompt": "Die of dat? 'Het glas ____ ik gisteren kocht, is vuil.'",
       "type": "shortText",
       "explanation": "HET glas is een het-woord, dus 'dat'. Dit is letterlijk het voorbeeld uit de examenslides (H4 4.6).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/04-zo-zijn-de-belgen.md"
+      ],
       "id": "q-54",
       "options": [],
       "correctOptionIds": [],
@@ -1228,7 +1334,9 @@
       "prompt": "Die of dat? 'De nieuwe telefoon ____ ik gisteren heb gekocht, is nu al stuk!'",
       "type": "shortText",
       "explanation": "DE telefoon is een de-woord -> die. Onthoud: de-woord -> die, het-woord -> dat (H4 4.6).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/04-zo-zijn-de-belgen.md"
+      ],
       "id": "q-55",
       "options": [],
       "correctOptionIds": [],
@@ -1241,7 +1349,9 @@
       "prompt": "Die of dat? 'Wij hebben een collega ____ een fan van de Spice Girls is.'",
       "type": "shortText",
       "explanation": "DE collega -> die. 'Wie' gebruik je in het Nederlands niet als gewoon betrekkelijk voornaamwoord bij een persoon zonder prepositie (H4 4.6).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/04-zo-zijn-de-belgen.md"
+      ],
       "id": "q-56",
       "options": [],
       "correctOptionIds": [],
@@ -1254,7 +1364,9 @@
       "prompt": "Bij een prepositie (een woordje als op, in, met) gebruik je waar + prepositie. 'Ik zit OP een stoel.' -> 'Dat is de stoel ____ ik zit.'",
       "type": "shortText",
       "explanation": "Je zit OP een stoel. Bij een prepositie kan je 'die/dat' niet gebruiken: je maakt waar + prepositie -> waarop (H4 4.6, punt 3).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/04-zo-zijn-de-belgen.md"
+      ],
       "id": "q-57",
       "options": [],
       "correctOptionIds": [],
@@ -1267,7 +1379,9 @@
       "prompt": "Bij een prepositie (een woordje als op, in, met) gebruik je waar + prepositie. 'Ik snijd vlees MET een mes.' -> 'Dit is het mes ____ ik vlees snijd.'",
       "type": "shortText",
       "explanation": "Je snijdt MET een mes. Let op de uitzondering: waar + met wordt niet 'waarmet' maar WAARMEE (H4 4.6, 'Let op!').",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/04-zo-zijn-de-belgen.md"
+      ],
       "id": "q-58",
       "options": [],
       "correctOptionIds": [],
@@ -1280,7 +1394,9 @@
       "prompt": "Waarom is het 'de man DIE naast mij zit' en niet 'de man DAT naast mij zit'?",
       "type": "single",
       "explanation": "De keuze hangt alleen af van het lidwoord, niet van persoon of ding: de-woord -> die, het-woord -> dat. 'Het meisje DAT naast mij zit' is ook een persoon (H4 4.6).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/04-zo-zijn-de-belgen.md"
+      ],
       "id": "q-59",
       "options": [
         {
@@ -1309,7 +1425,9 @@
       "prompt": "Welke zin is een correcte kookinstructie (imperatief)?",
       "type": "single",
       "explanation": "De imperatief is de STAM zonder subject en staat vooraan: Snijd, Bak, Roer, Voeg toe. Mondelinge vraag 3 test precies dit (H4 4.5).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/04-zo-zijn-de-belgen.md"
+      ],
       "id": "q-60",
       "options": [
         {
@@ -1338,7 +1456,9 @@
       "prompt": "Wat is de imperatief (jij-vorm) van 'nemen'?",
       "type": "single",
       "explanation": "Imperatief = stam. Nemen -> stam 'neem' -> 'Neem een grote pan'. Geen -t erachter (H4 4.5).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/04-zo-zijn-de-belgen.md"
+      ],
       "id": "q-61",
       "options": [
         {
@@ -1367,7 +1487,9 @@
       "prompt": "Welke structuurwoorden gebruik je om kookinstructies te ordenen? Kies alles wat past.",
       "type": "multiple",
       "explanation": "Eerst, dan, daarna, vervolgens, ten slotte. De slides noemen structuurwoorden expliciet bij vraag 3 (H4 4.5 + H5 5.2).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/04-zo-zijn-de-belgen.md"
+      ],
       "id": "q-62",
       "options": [
         {
@@ -1397,7 +1519,10 @@
       "prompt": "Mondeling vraag 3: leg in vijf stappen uit hoe je een omelet maakt. Gebruik de imperatief en structuurwoorden.",
       "type": "freeText",
       "explanation": "Elke zin begint met een imperatief of een structuurwoord. Let op: na 'eerst', 'daarna' en 'ten slotte' vooraan komt er inversie als je geen imperatief gebruikt (H4 4.5).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/04-zo-zijn-de-belgen.md",
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/retake-2025-2026.md"
+      ],
       "id": "q-63",
       "options": [],
       "correctOptionIds": [],
@@ -1408,7 +1533,10 @@
       "prompt": "Mondeling vraag 4: geef een goede en een slechte eigenschap van de Belgen, en van je eigen nationaliteit. Gebruik 'Ik vind dat...' — na 'dat' gaat het werkwoord naar het einde.",
       "type": "freeText",
       "explanation": "'Ik vind dat...' is een bijzin, dus de persoonsvorm gaat naar het einde: 'Ik vind dat de Belgen behulpzaam ZIJN'. De slides zeggen expliciet: let op de constructie van de bijzin (H4 + H3 3.6).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/04-zo-zijn-de-belgen.md",
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/retake-2025-2026.md"
+      ],
       "id": "q-64",
       "options": [],
       "correctOptionIds": [],
@@ -1419,7 +1547,9 @@
       "prompt": "Vertel een korte mop over een nationaliteit en zeg of je het ermee eens bent.",
       "type": "freeText",
       "explanation": "Bereid dit thuis voor: het is een van de drie vragen die je op voorhand mag voorbereiden. Sluit altijd af met je eigen mening in een bijzin (examenslide vraag 4).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/04-zo-zijn-de-belgen.md"
+      ],
       "id": "q-65",
       "options": [],
       "correctOptionIds": [],
@@ -1430,7 +1560,9 @@
       "prompt": "Het tijdswoord staat vooraan, dus het werkwoord komt vóór het onderwerp. Vul werkwoord (verleden tijd) + onderwerp in: \"'s Middags ____ altijd met mijn mama een warme maaltijd.\"",
       "type": "shortText",
       "explanation": "Dit is het voorbeeld dat de examenslides zelf geven bij vraag 1. Als een tijdsbepaling vooraan staat, komt de persoonsvorm op plaats twee en het subject erna: inversie (H5 5.2).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/05-tijd-om-bij-te-praten.md"
+      ],
       "id": "q-66",
       "options": [],
       "correctOptionIds": [],
@@ -1443,7 +1575,9 @@
       "prompt": "Welke zin heeft de juiste woordvolgorde?",
       "type": "single",
       "explanation": "'Vorige week' is het eerste zinsdeel, dus de persoonsvorm 'zijn' staat op plaats twee, voor het subject 'we'. De laatste optie is een vraag, geen mededeling (H5 5.3).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/05-tijd-om-bij-te-praten.md"
+      ],
       "id": "q-67",
       "options": [
         {
@@ -1472,7 +1606,9 @@
       "prompt": "Toen of als? '____ ik klein was, woonde ik in Marokko.'",
       "type": "shortText",
       "explanation": "TOEN gebruik je voor een situatie of gebeurtenis in het VERLEDEN die een keer of doorlopend was. ALS gebruik je voor het heden of voor iets dat zich herhaalt. Bij vraag 1 vertel je over vroeger, dus je hebt 'toen' constant nodig (H5 5.2).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/05-tijd-om-bij-te-praten.md"
+      ],
       "id": "q-68",
       "options": [],
       "correctOptionIds": [],
@@ -1485,7 +1621,9 @@
       "prompt": "Welk structuurwoord? 'Eerst gingen we wandelen. ____ dronken we iets op een terras.'",
       "type": "shortText",
       "explanation": "Volgorde in een verhaal: eerst - dan - daarna - ten slotte. 'Tijdens' en 'voor' zijn preposities die een naamwoord nodig hebben ('tijdens de wandeling') (H5 5.2).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/05-tijd-om-bij-te-praten.md"
+      ],
       "id": "q-69",
       "options": [],
       "correctOptionIds": [],
@@ -1500,7 +1638,9 @@
       "prompt": "Welke woorden zijn tijdsaanduidingen of structuurwoorden voor vraag 1? Kies alles wat past.",
       "type": "multiple",
       "explanation": "De slides geven de lijst: eerst, dan, daarna, toen, 's morgens, 's middags, voor, tijdens, na. 'Omdat' is een voegwoord van reden en 'die' een betrekkelijk voornaamwoord (examenslide vraag 1).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/05-tijd-om-bij-te-praten.md"
+      ],
       "id": "q-70",
       "options": [
         {
@@ -1530,7 +1670,9 @@
       "prompt": "Vul de juiste prepositie in — een klein woordje als op, in, voor, na (dus niet 'nadat'): 'We hebben eerst gegeten. ____ het eten hebben we een museum bezocht.'",
       "type": "shortText",
       "explanation": "NA is een prepositie en staat voor een naamwoord: na het eten, na de wandeling. NADAT is een voegwoord en heeft een hele zin nodig: 'nadat we gegeten hadden' (H5 5.3).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/05-tijd-om-bij-te-praten.md"
+      ],
       "id": "q-71",
       "options": [],
       "correctOptionIds": [],
@@ -1543,7 +1685,10 @@
       "prompt": "Mondeling vraag 1: vertel over je kindertijd. Schrijf zes zinnen in het imperfectum met minstens drie structuurwoorden en twee zinnen met inversie.",
       "type": "freeText",
       "explanation": "Vink af: imperfectum overal, minstens drie structuurwoorden, inversie na 's morgens / 's middags / daarna, en complexe zinnen met want, omdat, toen, maar. Dit is de vraag met de meeste punten om te winnen, want je mag hem thuis voorbereiden (examenslide vraag 1).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/05-tijd-om-bij-te-praten.md",
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/retake-2025-2026.md"
+      ],
       "id": "q-72",
       "options": [],
       "correctOptionIds": [],
@@ -1554,7 +1699,9 @@
       "prompt": "Vul de structuurwoorden in: 'Zoals jullie weten, leer ik nu ook Engels. ____ (1) was het examen en we waren allebei geslaagd. ____ (2) hebben we een wandeling door de stad gemaakt. ____ (3) de wandeling zijn we iets gaan drinken.' Kies uit: eerst - tijdens - vorige week.",
       "type": "freeText",
       "explanation": "Let op wat er na het gat komt: 'tijdens' krijgt een naamwoord ('de wandeling'), 'vorige week' en 'eerst' zijn zinsdelen die inversie veroorzaken ('vorige week WAS het examen') (H5 5.3).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/05-tijd-om-bij-te-praten.md"
+      ],
       "id": "q-73",
       "options": [],
       "correctOptionIds": [],
@@ -1565,7 +1712,9 @@
       "prompt": "Waarmee sluit je een formele sollicitatiebrief af?",
       "type": "single",
       "explanation": "Formele slotformules: 'Met vriendelijke groet' of 'Hoogachtend'. 'Groetjes' is informeel en hoort in een mail aan een vriend (H6 6.4).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/06-op-gesprek.md"
+      ],
       "id": "q-74",
       "options": [
         {
@@ -1594,7 +1743,9 @@
       "prompt": "Welke inleiding is het best voor een sollicitatiebrief?",
       "type": "single",
       "explanation": "De tips op p.69 zeggen: begin creatief en wees POSITIEF over jezelf. Nooit vermelden dat je al lang werkloos bent of ontslagen werd - dat staat in de slechte voorbeelden (H6 6.4).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/06-op-gesprek.md"
+      ],
       "id": "q-75",
       "options": [
         {
@@ -1623,7 +1774,9 @@
       "prompt": "Welke zin hoort in het MIDDEN van de brief?",
       "type": "single",
       "explanation": "Het midden beschrijft je studies, je ervaring en waarom je geschikt bent. De andere drie zijn begroeting en slot (H6 6.4).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/06-op-gesprek.md"
+      ],
       "id": "q-76",
       "options": [
         {
@@ -1652,7 +1805,9 @@
       "prompt": "Welke rubrieken staan er in het CV van Samira? Kies alles wat past.",
       "type": "multiple",
       "explanation": "De zeven rubrieken: Personalia, Opleiding, Werkervaring, Talenkennis, Computerkennis, Vaardigheden, Varia (H6 6.3).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/06-op-gesprek.md"
+      ],
       "id": "q-77",
       "options": [
         {
@@ -1682,7 +1837,9 @@
       "prompt": "Je hebt geen eigen auto maar de job vraagt weekendwerk. Wat zeg je het best?",
       "type": "single",
       "explanation": "Blijf positief en bied een oplossing aan. Het slechte voorbeeld op p.68 doet net het omgekeerde: 'Weekend- en avondwerk zijn voor mij onmogelijk, omdat ik geen eigen vervoer heb' (H6 6.4).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/06-op-gesprek.md"
+      ],
       "id": "q-78",
       "options": [
         {
@@ -1711,7 +1868,9 @@
       "prompt": "Vaste constructie: 'bereid ____ ... te + werkwoord'. 'Ik ben bereid ____ in ploegen te werken.'",
       "type": "shortText",
       "explanation": "Vaste constructie: 'Ik ben bereid OM ... TE + infinitief'. Bijvoorbeeld: 'Ik ben bereid om 's avonds te werken' (H6 6.1).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/06-op-gesprek.md"
+      ],
       "id": "q-79",
       "options": [],
       "correctOptionIds": [],
@@ -1724,7 +1883,9 @@
       "prompt": "Welke eigenschappen kan je noemen bij 'Ik ben ...'? Kies alles wat past.",
       "type": "multiple",
       "explanation": "'Ik ben' + adjectief (flexibel, gemotiveerd, ordelijk, stressbestendig). 'Ik heb' + naamwoord (een rijbewijs, ervaring, een diploma). 'Ik kan' + infinitief (zelfstandig werken) (H6 6.4).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/06-op-gesprek.md"
+      ],
       "id": "q-80",
       "options": [
         {
@@ -1754,7 +1915,10 @@
       "prompt": "Mondeling vraag 5: 'Waarom ben je geinteresseerd in deze job en waarom zouden we voor jou moeten kiezen?' Antwoord in vier of vijf zinnen.",
       "type": "freeText",
       "explanation": "Let op de bijzinnen na 'omdat': de persoonsvorm gaat naar het einde. Breng een echte vacature mee en pas dit antwoord daarop aan (examenslide vraag 5).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/06-op-gesprek.md",
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/retake-2025-2026.md"
+      ],
       "id": "q-81",
       "options": [],
       "correctOptionIds": [],
@@ -1765,7 +1929,10 @@
       "prompt": "Mondeling vraag 5: wat zijn je sterke en je zwakke kanten? Noem er twee van elk en maak van je zwakke kant iets positiefs.",
       "type": "freeText",
       "explanation": "Elke zin met 'dat' of 'omdat' is een bijzin: verbum achteraan. Draai je zwakke kant altijd om naar iets bruikbaars (H6 6.4).",
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/06-op-gesprek.md",
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/retake-2025-2026.md"
+      ],
       "id": "q-82",
       "options": [],
       "correctOptionIds": [],

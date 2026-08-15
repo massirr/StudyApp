@@ -302,7 +302,7 @@
       ],
       "explanation": "'Huis' is een het-woord: het huis.",
       "sourceUrls": [
-        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/README.md"
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/04-zo-zijn-de-belgen.md"
       ],
       "id": "q-1"
     },
@@ -530,6 +530,7 @@
       "correctOptionIds": [],
       "explanation": "'Want' geeft een reden ('omdat/want'). 'En' voegt alleen samen, 'maar' contrasteert, 'toen' betekent 'op het moment dat' voor een gebeurtenis in het verleden.",
       "sourceUrls": [
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/03-gezocht.md",
         "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/05-tijd-om-bij-te-praten.md"
       ],
       "id": "q-12",
@@ -574,7 +575,7 @@
       "type": "single",
       "explanation": "Alle verkleinwoorden op -je zijn het-woorden: het meisje, het huisje, het broodje. Dit is belangrijk voor de relatieve bijzin (H4): het-woord -> dat.",
       "sourceUrls": [
-        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/README.md"
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/04-zo-zijn-de-belgen.md"
       ],
       "id": "q-14",
       "options": [
@@ -605,7 +606,7 @@
       "type": "multiple",
       "explanation": "De-woorden nemen 'die' in een relatieve bijzin, het-woorden nemen 'dat' (H4 4.6).",
       "sourceUrls": [
-        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/README.md"
+        "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/04-zo-zijn-de-belgen.md"
       ],
       "id": "q-15",
       "options": [

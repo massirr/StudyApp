@@ -193,6 +193,35 @@ Schrijf kort jouw favoriete recept op en geef daarna instructies.
 
 `____`
 
+### Kookwerkwoorden *(plaat p.48, was een afbeelding)*
+
+De cursus koppelt deze infinitieven aan foto's van de handeling. Dit is de lijst die je
+nodig hebt voor mondelinge vraag 3 (instructies geven bij een recept).
+
+| Infinitief | Wat het is | Imperatief (jij-vorm) |
+|---|---|---|
+| bakken | in een pan met vet gaar maken | Bak |
+| braden | in de oven of pan bruin maken (vlees) | Braad |
+| gieten | een vloeistof ergens in laten lopen | Giet |
+| koken | in kokend water gaar maken | Kook |
+| kruiden | zout, peper en kruiden toevoegen | Kruid |
+| smelten | vast laten vloeibaar worden (boter) | Smelt |
+| sudderen | heel zacht laten koken | Sudder |
+| mengen | twee dingen door elkaar doen | Meng |
+| roeren | met een lepel rondgaan | Roer |
+| schillen | de schil eraf halen (aardappel) | Schil |
+| smeren | uitstrijken op brood | Smeer |
+| stoven | langzaam gaar maken met vocht | Stoof |
+| toevoegen | er iets bij doen | **Voeg** … **toe** |
+
+> **De imperatief is altijd de stam** — het werkwoord zonder -en, vooraan in de zin, zonder
+> onderwerp: *nemen* → **Neem** een grote pan. *gaan* → **Ga** verder. *snijden* → **Snijd**
+> de ui. Geen -t erachter.
+
+> **Let op — scheidbare werkwoorden.** *Toevoegen* is *toe + voegen*. In de imperatief
+> valt -en weg én gaat het voorzetsel naar achteren: **Voeg** het zout **toe**.
+> Zo ook: *opwarmen* → **Warm** de saus **op**. *Afgieten* → **Giet** de pasta **af**.
+
 Vertel iets over je favoriete recept.
 
 ## 4.6. Relatieve bijzin (twee zinnen combineren)

@@ -5,8 +5,11 @@ description: |
   engaging GitHub issues with productivity insights, community highlights,
   and project recommendations.
 
+engine: copilot
+model: gpt-5-mini
+
 on:
-  schedule: daily
+  schedule: weekly
   workflow_dispatch:
 
 permissions:

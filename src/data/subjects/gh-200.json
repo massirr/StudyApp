@@ -243,6 +243,39 @@
       ],
       "studyOrder": 4,
       "id": "t-4"
+    },
+    {
+      "slug": "secure-and-optimize-automation",
+      "title": "Secure and optimize automation",
+      "summary": "Official exam domain 5 (10–15% of questions, the smallest domain but dense with distinct exam-relevant facts). Covers security best practices (OIDC, GITHUB_TOKEN, SHA pinning, attestations) and performance/cost optimization.",
+      "subtopics": [
+        {
+          "id": "t5-s1",
+          "title": "Implement security best practices",
+          "summary": "Environment protections and approval gates; identifying and using trustworthy actions from the Marketplace; mitigating script injection (sanitize/validate inputs, least-privilege permissions, avoid untrusted data in run:, proper shell quoting, prefer vetted actions over inline scripts); GITHUB_TOKEN lifecycle (ephemeral, scoped), configuring granular permissions, contrasting with PAT, restricting write scopes; using OIDC (id-token permission) for cloud provider federation to eliminate long-lived cloud secrets; pinning third-party actions to full commit SHAs, aligning with immutable actions enforcement, avoiding floating @main/@v* without justification; enforcing action usage policies (org/repo allow/deny lists, required reviewers for unverified actions); generating and verifying artifact attestations/provenance (SLSA, build metadata) and integrating into deployment verification."
+        },
+        {
+          "id": "t5-s2",
+          "title": "Optimize workflow performance and cost",
+          "summary": "Configuring caching and artifact retention for efficiency, including retention policies applied programmatically via REST APIs; recommending strategies for scaling and optimizing workflows (matrix size, runner sizing, concurrency, self-hosted vs hosted trade-offs)."
+        }
+      ],
+      "sourceLinks": [
+        {
+          "label": "Security hardening for GitHub Actions",
+          "url": "https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions"
+        },
+        {
+          "label": "Security hardening your deployments (OIDC)",
+          "url": "https://docs.github.com/actions/deployment/security-hardening-your-deployments"
+        },
+        {
+          "label": "Artifact attestations",
+          "url": "https://docs.github.com/en/actions/concepts/security/artifact-attestations"
+        }
+      ],
+      "studyOrder": 5,
+      "id": "t-5"
     }
   ],
   "questions": [],

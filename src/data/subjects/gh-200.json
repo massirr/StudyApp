@@ -71,6 +71,12 @@
       "url": "https://learn.microsoft.com/en-us/training/modules/manage-github-actions-enterprise/",
       "usageNote": "Microsoft Learn module: governance, policies, runner management at enterprise scale.",
       "id": "src-11"
+    },
+    {
+      "label": "Self-hosted runners (concepts)",
+      "url": "https://docs.github.com/en/actions/concepts/runners",
+      "usageNote": "GitHub-hosted vs self-hosted runners, larger runners, runner scale sets.",
+      "id": "src-12"
     }
   ],
   "topics": [],

@@ -29,6 +29,12 @@
       "url": "https://docs.github.com/actions/writing-workflows/workflow-syntax-for-github-actions",
       "usageNote": "Full YAML syntax reference: triggers, jobs, steps, strategy/matrix, service containers.",
       "id": "src-4"
+    },
+    {
+      "label": "Contexts reference",
+      "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/contexts",
+      "usageNote": "github/runner/env/vars/secrets/inputs/matrix/needs/strategy/job/steps contexts and expression evaluation.",
+      "id": "src-5"
     }
   ],
   "topics": [],

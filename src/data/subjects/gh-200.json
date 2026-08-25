@@ -369,6 +369,37 @@
         "https://docs.github.com/en/actions/how-tos/reuse-automations/reuse-workflows"
       ],
       "id": "q-2"
+    },
+    {
+      "topicId": "t-1",
+      "prompt": "A workflow defines `defaults: &defaults\\n  runs-on: ubuntu-latest\\n  timeout-minutes: 10` and then two jobs each use `<<: *defaults`. What does `<<: *defaults` do in each job?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Imports a separate reusable workflow file named defaults.yml"
+        },
+        {
+          "id": "b",
+          "label": "Merges the mapping defined under the &defaults anchor into this job, so both jobs inherit runs-on and timeout-minutes without repeating them"
+        },
+        {
+          "id": "c",
+          "label": "Creates a job dependency so both jobs always run sequentially"
+        },
+        {
+          "id": "d",
+          "label": "Is invalid syntax; anchors are not supported in GitHub Actions workflow files"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "& defines a YAML anchor, * references (aliases) it, and << merges the anchored mapping into the current mapping — a standard YAML feature GitHub Actions supports for de-duplicating repeated config within one workflow file.",
+      "sourceUrls": [
+        "https://docs.github.com/actions/writing-workflows/workflow-syntax-for-github-actions"
+      ],
+      "id": "q-3"
     }
   ],
   "notes": []

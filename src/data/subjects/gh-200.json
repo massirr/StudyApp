@@ -803,6 +803,37 @@
         "https://learn.microsoft.com/en-us/training/modules/manage-github-actions-enterprise/"
       ],
       "id": "q-16"
+    },
+    {
+      "topicId": "t-1",
+      "prompt": "You want a workflow's `schedule` trigger to run every day at 2:30 AM UTC. Which cron expression is correct?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "`30 2 * * *`"
+        },
+        {
+          "id": "b",
+          "label": "`2 30 * * *`"
+        },
+        {
+          "id": "c",
+          "label": "`* * 30 2 *`"
+        },
+        {
+          "id": "d",
+          "label": "`0 2:30 * * *`"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Cron format is minute hour day-of-month month day-of-week. \"30 2 * * *\" means minute 30, hour 2, every day/month/weekday — i.e. 2:30 AM UTC daily.",
+      "sourceUrls": [
+        "https://docs.github.com/actions/writing-workflows/workflow-syntax-for-github-actions"
+      ],
+      "id": "q-17"
     }
   ],
   "notes": []

@@ -927,6 +927,37 @@
         "https://docs.github.com/actions/writing-workflows/workflow-syntax-for-github-actions"
       ],
       "id": "q-20"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "You need to download a workflow run's artifacts from a script rather than the browser UI. Which approach is correct?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Artifacts can only ever be downloaded manually through the Actions UI"
+        },
+        {
+          "id": "b",
+          "label": "Use the REST API's list/download artifact endpoints for a workflow run, authenticating with a token that has the appropriate repo scope"
+        },
+        {
+          "id": "c",
+          "label": "Clone the repository and look in a hidden .artifacts/ folder"
+        },
+        {
+          "id": "d",
+          "label": "Artifacts are only accessible from within the same workflow run that created them"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Artifacts are accessible programmatically via GitHub's REST API (list/download workflow run artifacts), which is the standard way to pull artifacts from a script rather than the browser UI.",
+      "sourceUrls": [
+        "https://docs.github.com/en/actions/concepts/workflows-and-actions/workflow-artifacts"
+      ],
+      "id": "q-21"
     }
   ],
   "notes": []

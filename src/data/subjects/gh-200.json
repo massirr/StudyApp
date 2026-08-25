@@ -748,7 +748,7 @@
       ],
       "explanation": "OIDC lets a workflow request a short-lived, cryptographically verifiable token from GitHub's OIDC provider (via id-token: write), which the cloud provider trusts through a federated credential tied to the repo/workflow — eliminating the need to store any long-lived cloud secret.",
       "sourceUrls": [
-        "https://docs.github.com/actions/deployment/security-hardening-your-deployments"
+        "https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers"
       ],
       "id": "q-14"
     },

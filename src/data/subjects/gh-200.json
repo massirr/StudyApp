@@ -372,7 +372,7 @@
     },
     {
       "topicId": "t-1",
-      "prompt": "A workflow defines `defaults: &defaults\\n  runs-on: ubuntu-latest\\n  timeout-minutes: 10` and then two jobs each use `<<: *defaults`. What does `<<: *defaults` do in each job?",
+      "prompt": "A workflow uses the YAML anchor/alias/merge pattern shown below. What does `<<: *defaults` do in each job?",
       "type": "single",
       "options": [
         {
@@ -399,7 +399,11 @@
       "sourceUrls": [
         "https://docs.github.com/actions/writing-workflows/workflow-syntax-for-github-actions"
       ],
-      "id": "q-3"
+      "id": "q-3",
+      "codeSnippet": {
+        "language": "yaml",
+        "code": "defaults: &defaults\n  runs-on: ubuntu-latest\n  timeout-minutes: 10\n\njobs:\n  build:\n    <<: *defaults\n    steps:\n      - run: npm run build\n\n  test:\n    <<: *defaults\n    steps:\n      - run: npm test"
+      }
     },
     {
       "topicId": "t-1",

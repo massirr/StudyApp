@@ -101,6 +101,12 @@
       "url": "https://docs.github.com/en/actions/concepts/security/artifact-attestations",
       "usageNote": "Sigstore-backed build provenance/SLSA attestations for artifacts and container images.",
       "id": "src-16"
+    },
+    {
+      "label": "GITHUB_TOKEN (Security in GitHub Actions)",
+      "url": "https://docs.github.com/en/actions/concepts/security/github_token",
+      "usageNote": "Specific current concept page: how GITHUB_TOKEN is generated per job, its lifetime, and scoping via permissions:.",
+      "id": "src-17"
     }
   ],
   "topics": [

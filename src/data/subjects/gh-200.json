@@ -834,6 +834,37 @@
         "https://docs.github.com/actions/writing-workflows/workflow-syntax-for-github-actions"
       ],
       "id": "q-17"
+    },
+    {
+      "topicId": "t-1",
+      "prompt": "Job B has `needs: A` but no explicit `if:` condition. By default, if job A fails, what happens to job B?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "B still runs regardless of A's outcome"
+        },
+        {
+          "id": "b",
+          "label": "B is skipped, since the implicit condition for a job with needs: is success() unless overridden with an explicit if:"
+        },
+        {
+          "id": "c",
+          "label": "B runs but all of its steps are automatically skipped"
+        },
+        {
+          "id": "d",
+          "label": "B fails immediately without executing any steps"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "A job's implicit condition when it declares needs: is success() unless overridden — so if the dependency fails, the dependent job is skipped by default. always() or specific status functions must be used to change that.",
+      "sourceUrls": [
+        "https://docs.github.com/actions/writing-workflows/workflow-syntax-for-github-actions"
+      ],
+      "id": "q-18"
     }
   ],
   "notes": []

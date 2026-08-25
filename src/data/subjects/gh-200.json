@@ -91,9 +91,9 @@
       "id": "src-14"
     },
     {
-      "label": "Security hardening your deployments (OIDC)",
-      "url": "https://docs.github.com/actions/deployment/security-hardening-your-deployments",
-      "usageNote": "Using OpenID Connect to authenticate with cloud providers instead of long-lived secrets.",
+      "label": "Configuring OpenID Connect in cloud providers",
+      "url": "https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers",
+      "usageNote": "Specific how-to page (not just the parent index) for id-token: write, federated credentials, and cloud login actions.",
       "id": "src-15"
     },
     {

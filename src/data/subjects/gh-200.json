@@ -41,6 +41,12 @@
       "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-commands",
       "usageNote": "GITHUB_STEP_SUMMARY, GITHUB_ENV, GITHUB_OUTPUT environment files and workflow commands.",
       "id": "src-6"
+    },
+    {
+      "label": "Reuse workflows",
+      "url": "https://docs.github.com/en/actions/how-tos/reuse-automations/reuse-workflows",
+      "usageNote": "workflow_call, inputs/secrets mapping, reusable workflow outputs, secrets.inherit.",
+      "id": "src-7"
     }
   ],
   "topics": [],

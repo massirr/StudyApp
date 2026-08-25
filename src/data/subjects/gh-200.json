@@ -779,7 +779,7 @@
       ],
       "explanation": "Since copilot-requests: write is org-only, personal-account repos must use a manually-configured PAT stored as a secret instead of relying on the auto-generated GITHUB_TOKEN or that org-only permission — a direct illustration of GITHUB_TOKEN's scope limits versus a PAT.",
       "sourceUrls": [
-        "https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions"
+        "https://docs.github.com/en/actions/concepts/security/github_token"
       ],
       "id": "q-15"
     },

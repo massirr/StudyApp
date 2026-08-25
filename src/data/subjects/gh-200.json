@@ -679,6 +679,37 @@
         "https://learn.microsoft.com/en-us/training/modules/manage-github-actions-enterprise/"
       ],
       "id": "q-12"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "What is a key difference between the automatically-generated GITHUB_TOKEN and a personal access token (PAT) used in a workflow?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "GITHUB_TOKEN is a long-lived credential stored as a secret; PAT is ephemeral and regenerated every run"
+        },
+        {
+          "id": "b",
+          "label": "GITHUB_TOKEN is ephemeral — created fresh per job run and expiring when the job finishes — with permissions scoped via the workflow's permissions: key; a PAT is a longer-lived credential with its own separately configured scopes"
+        },
+        {
+          "id": "c",
+          "label": "They are functionally identical in every respect"
+        },
+        {
+          "id": "d",
+          "label": "GITHUB_TOKEN can only be used for read operations, never write"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "GITHUB_TOKEN is auto-generated per job run, expires when the job ends, and its permissions are controlled via the workflow's permissions: key. A PAT is a separately managed, typically longer-lived credential used when GITHUB_TOKEN's scope or lifetime isn't sufficient (e.g. triggering other workflows).",
+      "sourceUrls": [
+        "https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions"
+      ],
+      "id": "q-13"
     }
   ],
   "notes": []

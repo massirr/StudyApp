@@ -400,6 +400,37 @@
         "https://docs.github.com/actions/writing-workflows/workflow-syntax-for-github-actions"
       ],
       "id": "q-3"
+    },
+    {
+      "topicId": "t-1",
+      "prompt": "A step needs to (1) make a value available as an environment variable to later steps in the same job, and (2) expose a value that a downstream job can read via `needs.<job>.outputs`. Which mechanisms handle (1) and (2) respectively?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "GITHUB_ENV for (1); a step writes GITHUB_OUTPUT and the job declares an outputs: mapping for (2)"
+        },
+        {
+          "id": "b",
+          "label": "GITHUB_OUTPUT for (1); GITHUB_STEP_SUMMARY for (2)"
+        },
+        {
+          "id": "c",
+          "label": "GITHUB_ENV handles both automatically — job outputs are derived from environment variables"
+        },
+        {
+          "id": "d",
+          "label": "GITHUB_STEP_SUMMARY for (1); GITHUB_ENV for (2)"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "GITHUB_ENV sets env vars visible to later steps in the same job. To share a value across jobs, a step writes to GITHUB_OUTPUT and the job declares outputs: name: ${{ steps.<id>.outputs.<name> }}, which downstream jobs read via needs.<job>.outputs.<name>.",
+      "sourceUrls": [
+        "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-commands"
+      ],
+      "id": "q-4"
     }
   ],
   "notes": []

@@ -617,6 +617,37 @@
         "https://docs.github.com/actions/sharing-automations/creating-actions/releasing-and-maintaining-actions"
       ],
       "id": "q-10"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "An enterprise wants to allow only GitHub-created actions plus a specific vetted list of third-party actions, and block everything else across all org repos. What should be configured?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "A branch protection rule configured individually on each repo"
+        },
+        {
+          "id": "b",
+          "label": "An organization (or enterprise) actions policy restricting allowed actions to GitHub-created actions plus a specified allow-list, enforced centrally rather than per repo"
+        },
+        {
+          "id": "c",
+          "label": "A required CODEOWNERS file listing approved actions"
+        },
+        {
+          "id": "d",
+          "label": "There is no centralized way to restrict which actions repos can use; it must rely on code review alone"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Organization/enterprise-level actions policies centrally restrict which actions can run across repos (e.g. GitHub-created plus an approved allow-list), rather than relying on per-repo enforcement.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/training/modules/manage-github-actions-enterprise/"
+      ],
+      "id": "q-11"
     }
   ],
   "notes": []

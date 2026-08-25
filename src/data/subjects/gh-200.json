@@ -65,6 +65,12 @@
       "url": "https://docs.github.com/actions/sharing-automations/creating-actions/releasing-and-maintaining-actions",
       "usageNote": "Versioning strategy, tags vs SHA, publishing to Marketplace.",
       "id": "src-10"
+    },
+    {
+      "label": "Manage GitHub Actions for the enterprise",
+      "url": "https://learn.microsoft.com/en-us/training/modules/manage-github-actions-enterprise/",
+      "usageNote": "Microsoft Learn module: governance, policies, runner management at enterprise scale.",
+      "id": "src-11"
     }
   ],
   "topics": [],

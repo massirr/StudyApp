@@ -59,6 +59,12 @@
       "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/metadata-syntax",
       "usageNote": "action.yml/action.yaml structure for JavaScript, Docker, and composite actions.",
       "id": "src-9"
+    },
+    {
+      "label": "Releasing and maintaining actions",
+      "url": "https://docs.github.com/actions/sharing-automations/creating-actions/releasing-and-maintaining-actions",
+      "usageNote": "Versioning strategy, tags vs SHA, publishing to Marketplace.",
+      "id": "src-10"
     }
   ],
   "topics": [],

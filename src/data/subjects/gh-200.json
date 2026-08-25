@@ -77,6 +77,12 @@
       "url": "https://docs.github.com/en/actions/concepts/runners",
       "usageNote": "GitHub-hosted vs self-hosted runners, larger runners, runner scale sets.",
       "id": "src-12"
+    },
+    {
+      "label": "Runner groups",
+      "url": "https://docs.github.com/en/actions/concepts/runners/runner-groups",
+      "usageNote": "Controlling access to self-hosted and larger runners via runner groups.",
+      "id": "src-13"
     }
   ],
   "topics": [],

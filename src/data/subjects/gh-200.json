@@ -5,7 +5,14 @@
   "shortLabel": "GH-200",
   "tagline": "GitHub Actions Certification — progress saved automatically as you go.",
   "sourcePolicy": "any",
-  "sources": [],
+  "sources": [
+    {
+      "label": "GH-200 Study Guide",
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/gh-200",
+      "usageNote": "Official exam skills-measured outline (Jan 2026 version) and domain weightings.",
+      "id": "src-1"
+    }
+  ],
   "topics": [],
   "questions": [],
   "notes": []

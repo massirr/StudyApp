@@ -431,6 +431,37 @@
         "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-commands"
       ],
       "id": "q-4"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "A workflow run has a 2x3 matrix (6 jobs). Only the (macos-latest, python 3.11) job failed due to a flaky test. What's the most efficient way to get a clean run without re-running the other 5 jobs?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Re-run the entire workflow from scratch"
+        },
+        {
+          "id": "b",
+          "label": "Use \"Re-run failed jobs\" so only the failing matrix job re-executes while the other 5 results are kept"
+        },
+        {
+          "id": "c",
+          "label": "Cancel the run and manually trigger workflow_dispatch six separate times"
+        },
+        {
+          "id": "d",
+          "label": "Delete the workflow run and push an empty commit to retrigger everything"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "GitHub Actions lets you selectively rerun only the failed jobs in a run (including individual matrix jobs), preserving successful results and avoiding wasted CI time.",
+      "sourceUrls": [
+        "https://docs.github.com/actions/writing-workflows/workflow-syntax-for-github-actions"
+      ],
+      "id": "q-5"
     }
   ],
   "notes": []

@@ -741,6 +741,37 @@
         "https://docs.github.com/actions/deployment/security-hardening-your-deployments"
       ],
       "id": "q-14"
+    },
+    {
+      "topicId": "t-6",
+      "prompt": "Your `gh aw` setup in StudyApp authenticates via `gh aw secrets set COPILOT_GITHUB_TOKEN` using a fine-grained PAT, because `copilot-requests: write` is an org-only permission not available on your personal account repo. What exam-relevant principle does this illustrate?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "GITHUB_TOKEN can always be elevated to org-only permissions with the right permissions: block"
+        },
+        {
+          "id": "b",
+          "label": "Some capabilities are gated by account/org tier, so workflows on personal repos sometimes require a manually-configured PAT stored as a secret instead of relying on the auto-generated GITHUB_TOKEN"
+        },
+        {
+          "id": "c",
+          "label": "Fine-grained PATs are never valid for repository-level secrets"
+        },
+        {
+          "id": "d",
+          "label": "COPILOT_GITHUB_TOKEN is a reserved name that GitHub populates automatically"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Since copilot-requests: write is org-only, personal-account repos must use a manually-configured PAT stored as a secret instead of relying on the auto-generated GITHUB_TOKEN or that org-only permission — a direct illustration of GITHUB_TOKEN's scope limits versus a PAT.",
+      "sourceUrls": [
+        "https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions"
+      ],
+      "id": "q-15"
     }
   ],
   "notes": []

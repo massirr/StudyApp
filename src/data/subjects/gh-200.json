@@ -209,6 +209,40 @@
       ],
       "studyOrder": 3,
       "id": "t-3"
+    },
+    {
+      "slug": "manage-github-actions-for-the-enterprise",
+      "title": "Manage GitHub Actions for the enterprise",
+      "summary": "Official exam domain 4 (20–25% of questions, tied for the largest domain). Covers governing actions/workflows org-wide, managing runners at scale (hosted and self-hosted), and scoping encrypted secrets/variables.",
+      "subtopics": [
+        {
+          "id": "t4-s1",
+          "title": "Distribute and govern actions and workflows",
+          "summary": "Defining and managing reusable components and templates; controlling access to actions and workflows within the enterprise; configuring organizational use policies (allow/deny lists)."
+        },
+        {
+          "id": "t4-s2",
+          "title": "Manage runners at scale",
+          "summary": "Configuring and monitoring GitHub-hosted and self-hosted runners; applying IP allow lists and networking settings; managing runner groups and troubleshooting runner issues; identifying preinstalled software/tool versions on GitHub-hosted runners (image release notes, toolcache) and installing additional software at runtime (setup-* actions, package managers, caching, container images, custom self-hosted images)."
+        },
+        {
+          "id": "t4-s3",
+          "title": "Manage encrypted secrets and variables",
+          "summary": "Defining and scoping encrypted secrets and variables at the organization, repository, and environment levels; accessing and using secrets/variables in workflows and actions; managing secrets and variables programmatically via REST APIs."
+        }
+      ],
+      "sourceLinks": [
+        {
+          "label": "Manage GitHub Actions for the enterprise",
+          "url": "https://learn.microsoft.com/en-us/training/modules/manage-github-actions-enterprise/"
+        },
+        {
+          "label": "Runner groups",
+          "url": "https://docs.github.com/en/actions/concepts/runners/runner-groups"
+        }
+      ],
+      "studyOrder": 4,
+      "id": "t-4"
     }
   ],
   "questions": [],

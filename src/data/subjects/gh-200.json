@@ -772,6 +772,37 @@
         "https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions"
       ],
       "id": "q-15"
+    },
+    {
+      "topicId": "t-6",
+      "prompt": "Your Azure CI/CD pipeline in skills-deploy-to-azure-1 requires a classic PAT (`CR_PAT`) with `repo` + `write:packages` scopes to push images to GHCR, because fine-grained PATs don't support GitHub Packages. Which exam domain does this map to?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Manage encrypted secrets and variables — specifically choosing the right credential type/scope for a given integration's requirements"
+        },
+        {
+          "id": "b",
+          "label": "Optimize workflow performance and cost"
+        },
+        {
+          "id": "c",
+          "label": "Use and manage workflow templates"
+        },
+        {
+          "id": "d",
+          "label": "Matrix strategy for job variations"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "This maps to the enterprise domain's secrets/variables topic: choosing the credential type and scope (classic PAT with the right scopes vs. fine-grained) that actually matches what the target integration (GHCR) requires.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/training/modules/manage-github-actions-enterprise/"
+      ],
+      "id": "q-16"
     }
   ],
   "notes": []

@@ -103,7 +103,46 @@
       "id": "src-16"
     }
   ],
-  "topics": [],
+  "topics": [
+    {
+      "slug": "author-and-manage-workflows",
+      "title": "Author and manage workflows",
+      "summary": "Official exam domain 1 (20–25% of questions, tied for the largest domain). Covers triggers/events, workflow structure (jobs, steps, matrix, YAML anchors, contexts/expressions), and managing execution/outputs (caching, artifacts, job summaries).",
+      "subtopics": [
+        {
+          "id": "t1-s1",
+          "title": "Configure workflow triggers and events",
+          "summary": "Scheduled (cron), manual (workflow_dispatch), webhook, and repository events; choosing scope/permissions/events for automation; defining and validating workflow_dispatch inputs (types, required, defaults); passing inputs to reusable workflows via workflow_call with inputs and secrets mapping."
+        },
+        {
+          "id": "t1-s2",
+          "title": "Design and implement workflow structure",
+          "summary": "Jobs, steps, and conditional logic (if:); job dependencies (needs:); workflow commands and environment variables; service containers (services:) for databases/queues with ports and health checks; strategy/matrix for job variations (OS, runtime versions) with include/exclude, fail-fast, max-parallel, and cost/perf optimization; runner image changes (Ubuntu 20.04 deprecation, Windows Server 2025 migration); YAML anchors/aliases (&, *, merge <<) to reuse mappings/steps; predefined contexts (github, runner, env, vars, secrets, inputs, matrix, needs, strategy, job, steps) and immutable actions/version pinning; expression evaluation with ${{ }} — static (parse-time) vs runtime, and preventing secret leakage; editor tooling (VS Code Actions extension, YAML schema/IntelliSense)."
+        },
+        {
+          "id": "t1-s3",
+          "title": "Manage workflow execution and outputs",
+          "summary": "Caching and artifact management, plus retention policies applied via REST APIs (logs, artifacts, workflow runs) at org/repo level; passing data between jobs/steps (artifacts, outputs, GITHUB_ENV/GITHUB_OUTPUT environment files, reusable workflow outputs); generating rich Markdown job summaries with GITHUB_STEP_SUMMARY (test results, coverage, links); workflow status badges and environment protections."
+        }
+      ],
+      "sourceLinks": [
+        {
+          "label": "Workflow syntax for GitHub Actions",
+          "url": "https://docs.github.com/actions/writing-workflows/workflow-syntax-for-github-actions"
+        },
+        {
+          "label": "Contexts reference",
+          "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/contexts"
+        },
+        {
+          "label": "Workflow commands (GITHUB_STEP_SUMMARY)",
+          "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-commands"
+        }
+      ],
+      "studyOrder": 1,
+      "id": "t-1"
+    }
+  ],
   "questions": [],
   "notes": []
 }

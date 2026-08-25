@@ -89,6 +89,12 @@
       "url": "https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions",
       "usageNote": "Script injection mitigation, GITHUB_TOKEN permissions, secret redaction, third-party action risk.",
       "id": "src-14"
+    },
+    {
+      "label": "Security hardening your deployments (OIDC)",
+      "url": "https://docs.github.com/actions/deployment/security-hardening-your-deployments",
+      "usageNote": "Using OpenID Connect to authenticate with cloud providers instead of long-lived secrets.",
+      "id": "src-15"
     }
   ],
   "topics": [],

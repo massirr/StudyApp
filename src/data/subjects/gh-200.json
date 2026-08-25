@@ -23,6 +23,12 @@
       "url": "https://docs.github.com/actions",
       "usageNote": "Primary product documentation hub for authoring and maintaining workflows.",
       "id": "src-3"
+    },
+    {
+      "label": "Workflow syntax for GitHub Actions",
+      "url": "https://docs.github.com/actions/writing-workflows/workflow-syntax-for-github-actions",
+      "usageNote": "Full YAML syntax reference: triggers, jobs, steps, strategy/matrix, service containers.",
+      "id": "src-4"
     }
   ],
   "topics": [],

@@ -17,6 +17,12 @@
       "url": "https://learn.microsoft.com/en-us/training/paths/github-actions/",
       "usageNote": "Microsoft Learn training path recommended by the study guide.",
       "id": "src-2"
+    },
+    {
+      "label": "GitHub Actions documentation",
+      "url": "https://docs.github.com/actions",
+      "usageNote": "Primary product documentation hub for authoring and maintaining workflows.",
+      "id": "src-3"
     }
   ],
   "topics": [],

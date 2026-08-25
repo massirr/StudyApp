@@ -6,7 +6,7 @@ description: |
   and project recommendations.
 
 engine: copilot
-model: agent
+model: small-agent
 
 on:
   schedule: weekly

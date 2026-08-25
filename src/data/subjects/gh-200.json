@@ -524,6 +524,37 @@
         "https://docs.github.com/actions"
       ],
       "id": "q-7"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "With immutable actions rollout on hosted runners, once an action version (e.g. a semver tag) is published as an immutable package, what's true about consuming it?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "The tag can still be silently repointed by the publisher to different code at any time"
+        },
+        {
+          "id": "b",
+          "label": "The published version's tag/package becomes locked — it can't be overwritten to point at different code, giving workflows a stable, verifiable target for that version"
+        },
+        {
+          "id": "c",
+          "label": "Immutable actions can only ever be referenced by full commit SHA, never by tag"
+        },
+        {
+          "id": "d",
+          "label": "Immutable actions apply only to actions published by GitHub itself"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Immutable actions are served as versioned packages (via GHCR) where the tag/version becomes locked once published, preventing the retroactive tampering that floating tags allow.",
+      "sourceUrls": [
+        "https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions"
+      ],
+      "id": "q-8"
     }
   ],
   "notes": []

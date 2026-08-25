@@ -11,6 +11,12 @@
       "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/gh-200",
       "usageNote": "Official exam skills-measured outline (Jan 2026 version) and domain weightings.",
       "id": "src-1"
+    },
+    {
+      "label": "Automate your workflow with GitHub Actions",
+      "url": "https://learn.microsoft.com/en-us/training/paths/github-actions/",
+      "usageNote": "Microsoft Learn training path recommended by the study guide.",
+      "id": "src-2"
     }
   ],
   "topics": [],

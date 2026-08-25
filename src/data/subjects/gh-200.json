@@ -35,6 +35,12 @@
       "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/contexts",
       "usageNote": "github/runner/env/vars/secrets/inputs/matrix/needs/strategy/job/steps contexts and expression evaluation.",
       "id": "src-5"
+    },
+    {
+      "label": "Workflow commands for GitHub Actions",
+      "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-commands",
+      "usageNote": "GITHUB_STEP_SUMMARY, GITHUB_ENV, GITHUB_OUTPUT environment files and workflow commands.",
+      "id": "src-6"
     }
   ],
   "topics": [],

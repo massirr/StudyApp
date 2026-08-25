@@ -865,6 +865,37 @@
         "https://docs.github.com/actions/writing-workflows/workflow-syntax-for-github-actions"
       ],
       "id": "q-18"
+    },
+    {
+      "topicId": "t-1",
+      "prompt": "A job defines a `postgres` service container with `options: --health-cmd pg_isready --health-interval 10s --health-retries 5`. Why is the health check configuration important here?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's purely cosmetic and only affects what's shown in the Actions UI"
+        },
+        {
+          "id": "b",
+          "label": "Without it, GitHub silently skips the service container and the job's DB connection step fails"
+        },
+        {
+          "id": "c",
+          "label": "It lets the runner wait until Postgres is actually ready to accept connections before running subsequent steps, since the container starting doesn't mean the database is ready yet"
+        },
+        {
+          "id": "d",
+          "label": "It sets the postgres container's CPU/memory limits"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "A container starting is not the same as the service inside it being ready to accept connections. The health check lets the runner poll readiness and hold subsequent steps until Postgres actually accepts connections, avoiding race-condition failures.",
+      "sourceUrls": [
+        "https://docs.github.com/actions/writing-workflows/workflow-syntax-for-github-actions"
+      ],
+      "id": "q-19"
     }
   ],
   "notes": []

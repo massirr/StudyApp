@@ -141,6 +141,40 @@
       ],
       "studyOrder": 1,
       "id": "t-1"
+    },
+    {
+      "slug": "consume-and-troubleshoot-workflows",
+      "title": "Consume and troubleshoot workflows",
+      "summary": "Official exam domain 2 (15–20% of questions). Covers interpreting workflow behavior/logs, accessing artifacts and logs via UI/API, and understanding the template ecosystem (starter workflows, reusable workflows, composite actions).",
+      "subtopics": [
+        {
+          "id": "t2-s1",
+          "title": "Interpret workflow behavior and results",
+          "summary": "Identifying workflow triggers and their effects from configuration and logs; diagnosing failed workflow runs using logs and run history; expanding and interpreting YAML anchors, aliases, and merged mappings when analyzing workflow configuration; interpreting matrix expansions, correlating job names to matrix axes, analyzing failures across variants, and selectively rerunning individual matrix jobs."
+        },
+        {
+          "id": "t2-s2",
+          "title": "Access workflow artifacts and logs",
+          "summary": "Locating workflows, logs, and artifacts in the UI and via the REST API; downloading and managing workflow artifacts."
+        },
+        {
+          "id": "t2-s3",
+          "title": "Use and manage workflow templates",
+          "summary": "Consuming organization-level and reusable workflows, including non-public organization workflow templates; using starter workflows (public and private/non-public templates), customizing and adapting them; distinguishing starter workflows (copy scaffold, independent after creation) vs reusable workflows (central versioned definition invoked via workflow_call) vs composite actions (encapsulated step logic); contrasting disabling vs deleting workflows."
+        }
+      ],
+      "sourceLinks": [
+        {
+          "label": "Reuse workflows",
+          "url": "https://docs.github.com/en/actions/how-tos/reuse-automations/reuse-workflows"
+        },
+        {
+          "label": "Workflow artifacts",
+          "url": "https://docs.github.com/en/actions/concepts/workflows-and-actions/workflow-artifacts"
+        }
+      ],
+      "studyOrder": 2,
+      "id": "t-2"
     }
   ],
   "questions": [],

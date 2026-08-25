@@ -586,6 +586,37 @@
         "https://docs.github.com/en/actions/reference/workflows-and-actions/metadata-syntax"
       ],
       "id": "q-9"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Which distribution model is appropriate for an action meant to be used only by other repos inside the same organization, and never made public?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Publish it to the public GitHub Marketplace with a private flag set"
+        },
+        {
+          "id": "b",
+          "label": "Keep it in a private (or internal) repository within the org, referenced by other org repos via `uses: org/repo-name@ref`, without publishing to the Marketplace at all"
+        },
+        {
+          "id": "c",
+          "label": "Actions cannot be shared privately within an org — only public Marketplace distribution is supported"
+        },
+        {
+          "id": "d",
+          "label": "Copy-paste the action's code into every consuming repo's workflow file"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Actions meant only for internal use don't need Marketplace publication at all; keeping them in a private/internal repo and referencing them with uses: org/repo@ref is the standard private distribution model.",
+      "sourceUrls": [
+        "https://docs.github.com/actions/sharing-automations/creating-actions/releasing-and-maintaining-actions"
+      ],
+      "id": "q-10"
     }
   ],
   "notes": []

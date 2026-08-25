@@ -958,6 +958,37 @@
         "https://docs.github.com/en/actions/concepts/workflows-and-actions/workflow-artifacts"
       ],
       "id": "q-21"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "A company wants only specific repositories in an org to be able to use a set of self-hosted runners with access to an internal network. What's the right mechanism?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "IP allow lists alone, with no runner-level grouping"
+        },
+        {
+          "id": "b",
+          "label": "A runner group configured with a repository access policy limiting which repos can target that group's runners"
+        },
+        {
+          "id": "c",
+          "label": "Repository secrets that gate which runners are used"
+        },
+        {
+          "id": "d",
+          "label": "There's no way to restrict which repos can use a given self-hosted runner"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Runner groups let admins scope which repositories can target a given set of self-hosted runners, which is the standard mechanism for restricting internal-network runner access to only approved repos.",
+      "sourceUrls": [
+        "https://docs.github.com/en/actions/concepts/runners/runner-groups"
+      ],
+      "id": "q-22"
     }
   ],
   "notes": []

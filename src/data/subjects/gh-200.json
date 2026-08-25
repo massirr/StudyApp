@@ -717,7 +717,7 @@
       ],
       "explanation": "GITHUB_TOKEN is auto-generated per job run, expires when the job ends, and its permissions are controlled via the workflow's permissions: key. A PAT is a separately managed, typically longer-lived credential used when GITHUB_TOKEN's scope or lifetime isn't sufficient (e.g. triggering other workflows).",
       "sourceUrls": [
-        "https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions"
+        "https://docs.github.com/en/actions/concepts/security/github_token"
       ],
       "id": "q-13"
     },

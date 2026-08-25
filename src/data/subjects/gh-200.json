@@ -648,6 +648,37 @@
         "https://learn.microsoft.com/en-us/training/modules/manage-github-actions-enterprise/"
       ],
       "id": "q-11"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "DEPLOY_KEY should be available to workflows in every repo in the org. A more sensitive PROD_DB_PASSWORD should only be usable by workflows targeting the `production` environment in one specific repo, with required reviewer approval. How should these be scoped?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both as repository secrets in every repo, relying on developers not to misuse them"
+        },
+        {
+          "id": "b",
+          "label": "DEPLOY_KEY as an organization-level secret scoped to relevant repos; PROD_DB_PASSWORD as an environment secret on the production environment of that one repo, layering in required reviewers/protection rules"
+        },
+        {
+          "id": "c",
+          "label": "Both as environment secrets on every repo's default environment"
+        },
+        {
+          "id": "d",
+          "label": "Both must be repository-level secrets; organization and environment scoping don't exist"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Organization secrets can be scoped to relevant repos for broad availability; environment secrets add a stricter layer (protection rules, required reviewers) for the most sensitive credentials.",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/training/modules/manage-github-actions-enterprise/"
+      ],
+      "id": "q-12"
     }
   ],
   "notes": []

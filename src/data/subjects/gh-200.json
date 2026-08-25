@@ -896,6 +896,37 @@
         "https://docs.github.com/actions/writing-workflows/workflow-syntax-for-github-actions"
       ],
       "id": "q-19"
+    },
+    {
+      "topicId": "t-1",
+      "prompt": "Your matrix defines `os: [ubuntu-latest, windows-latest]` and `node: [18, 20]` with `fail-fast: true` (the default, left unset). One job (windows-latest, node 18) fails early. What happens to the other 3 matrix jobs?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "They continue running unaffected because fail-fast only applies within a single job"
+        },
+        {
+          "id": "b",
+          "label": "GitHub cancels all other in-progress and queued matrix jobs as soon as one fails, since fail-fast defaults to true"
+        },
+        {
+          "id": "c",
+          "label": "Only jobs sharing the same node version are cancelled"
+        },
+        {
+          "id": "d",
+          "label": "Only jobs sharing the same os are cancelled"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "fail-fast: true (the default) cancels all other in-progress and queued matrix jobs as soon as any one job fails. Setting it to false lets every combination run to completion for full visibility.",
+      "sourceUrls": [
+        "https://docs.github.com/actions/writing-workflows/workflow-syntax-for-github-actions"
+      ],
+      "id": "q-20"
     }
   ],
   "notes": []

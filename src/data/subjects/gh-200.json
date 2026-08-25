@@ -47,6 +47,12 @@
       "url": "https://docs.github.com/en/actions/how-tos/reuse-automations/reuse-workflows",
       "usageNote": "workflow_call, inputs/secrets mapping, reusable workflow outputs, secrets.inherit.",
       "id": "src-7"
+    },
+    {
+      "label": "Workflow artifacts",
+      "url": "https://docs.github.com/en/actions/concepts/workflows-and-actions/workflow-artifacts",
+      "usageNote": "Artifact upload/download, retention, difference from caching.",
+      "id": "src-8"
     }
   ],
   "topics": [],

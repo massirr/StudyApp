@@ -462,6 +462,37 @@
         "https://docs.github.com/actions/writing-workflows/workflow-syntax-for-github-actions"
       ],
       "id": "q-5"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Which statement correctly distinguishes starter workflows, reusable workflows, and composite actions?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Starter workflows are copied into a repo and become independent afterward; reusable workflows stay centrally defined and are invoked via workflow_call; composite actions encapsulate step logic and are referenced with uses: inside a job's steps"
+        },
+        {
+          "id": "b",
+          "label": "All three are functionally identical; the only difference is which folder the YAML file lives in"
+        },
+        {
+          "id": "c",
+          "label": "Reusable workflows are copied like starter workflows, while composite actions are invoked via workflow_call"
+        },
+        {
+          "id": "d",
+          "label": "Composite actions can only be used across repositories, never within the same repo"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Starter workflows are a one-time scaffold (edits afterward don't sync back); reusable workflows remain centrally versioned and are called with workflow_call so updates propagate; composite actions bundle steps and are consumed like any other action.",
+      "sourceUrls": [
+        "https://docs.github.com/en/actions/how-tos/reuse-automations/reuse-workflows"
+      ],
+      "id": "q-6"
     }
   ],
   "notes": []

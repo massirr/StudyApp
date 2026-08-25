@@ -562,7 +562,7 @@
       ],
       "explanation": "Immutable actions are served as versioned packages (via GHCR) where the tag/version becomes locked once published, preventing the retroactive tampering that floating tags allow.",
       "sourceUrls": [
-        "https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions"
+        "https://docs.github.com/actions/sharing-automations/creating-actions/releasing-and-maintaining-actions"
       ],
       "id": "q-8"
     },

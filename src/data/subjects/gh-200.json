@@ -338,6 +338,37 @@
         "https://docs.github.com/actions/writing-workflows/workflow-syntax-for-github-actions"
       ],
       "id": "q-1"
+    },
+    {
+      "topicId": "t-1",
+      "prompt": "A reusable workflow declares `on: workflow_call: inputs: environment: {required: true, type: string} secrets: DEPLOY_TOKEN: {required: true}`. The caller workflow's job uses `secrets: inherit`. What does `secrets: inherit` do?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Passes only the DEPLOY_TOKEN secret declared in the called workflow's inputs"
+        },
+        {
+          "id": "b",
+          "label": "Passes every secret available to the calling workflow into the called workflow, without listing them individually"
+        },
+        {
+          "id": "c",
+          "label": "Automatically generates a new short-lived secret scoped to just this call"
+        },
+        {
+          "id": "d",
+          "label": "Has no effect unless the called workflow also sets secrets: inherit"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "secrets: inherit passes all of the calling workflow's secrets down to the called workflow, as an alternative to explicitly mapping each secret under a secrets: block.",
+      "sourceUrls": [
+        "https://docs.github.com/en/actions/how-tos/reuse-automations/reuse-workflows"
+      ],
+      "id": "q-2"
     }
   ],
   "notes": []

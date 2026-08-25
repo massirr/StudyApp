@@ -710,6 +710,37 @@
         "https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions"
       ],
       "id": "q-13"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "A workflow currently authenticates to Azure using a long-lived service principal secret stored as a repo secret. Security wants to eliminate that stored credential entirely. What should replace it?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rotate the existing secret weekly instead of removing it"
+        },
+        {
+          "id": "b",
+          "label": "Configure OIDC: grant the job `permissions: id-token: write`, set up a federated credential/trust relationship in Azure AD tied to the repo/workflow, and use an OIDC-aware login action with no client secret"
+        },
+        {
+          "id": "c",
+          "label": "Store the secret in an environment instead of at repo level; this alone removes the long-lived-credential risk"
+        },
+        {
+          "id": "d",
+          "label": "OIDC is only supported for AWS, not Azure"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "OIDC lets a workflow request a short-lived, cryptographically verifiable token from GitHub's OIDC provider (via id-token: write), which the cloud provider trusts through a federated credential tied to the repo/workflow — eliminating the need to store any long-lived cloud secret.",
+      "sourceUrls": [
+        "https://docs.github.com/actions/deployment/security-hardening-your-deployments"
+      ],
+      "id": "q-14"
     }
   ],
   "notes": []

@@ -493,6 +493,37 @@
         "https://docs.github.com/en/actions/how-tos/reuse-automations/reuse-workflows"
       ],
       "id": "q-6"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "A team wants to temporarily stop a noisy scheduled workflow from running, without losing its run history or having to recreate the file later. What should they do?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Delete the workflow file from the default branch"
+        },
+        {
+          "id": "b",
+          "label": "Disable the workflow from the Actions tab (or via API) — this stops new runs but preserves the file and all past run history"
+        },
+        {
+          "id": "c",
+          "label": "Change the on: trigger to an invalid event so it silently fails validation"
+        },
+        {
+          "id": "d",
+          "label": "Delete the entire .github/workflows directory"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Disabling a workflow stops it from being triggered while keeping the file and its run history intact; deleting the file removes it from the repo and can affect history/visibility of past runs.",
+      "sourceUrls": [
+        "https://docs.github.com/actions"
+      ],
+      "id": "q-7"
     }
   ],
   "notes": []

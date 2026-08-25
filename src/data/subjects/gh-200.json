@@ -175,6 +175,40 @@
       ],
       "studyOrder": 2,
       "id": "t-2"
+    },
+    {
+      "slug": "author-and-maintain-actions",
+      "title": "Author and maintain actions",
+      "summary": "Official exam domain 3 (15–20% of questions). Covers creating and troubleshooting custom actions (JavaScript, Docker, composite), required metadata/structure, and distributing/versioning actions.",
+      "subtopics": [
+        {
+          "id": "t3-s1",
+          "title": "Create and troubleshoot custom actions",
+          "summary": "Identifying and implementing action types (JavaScript, Docker, composite); understanding the immutable actions rollout on hosted runners and its implications for version pinning and registry sources; troubleshooting action execution and errors."
+        },
+        {
+          "id": "t3-s2",
+          "title": "Define action structure and metadata",
+          "summary": "Specifying required files, directory structure, and metadata (action.yml/action.yaml: name, description, inputs, outputs, runs); implementing workflow commands within actions."
+        },
+        {
+          "id": "t3-s3",
+          "title": "Distribute and maintain actions",
+          "summary": "Selecting distribution models (public, private, marketplace); publishing actions to the GitHub Marketplace; applying versioning and release strategies (major version tags vs full commit SHAs)."
+        }
+      ],
+      "sourceLinks": [
+        {
+          "label": "Metadata syntax reference (actions)",
+          "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/metadata-syntax"
+        },
+        {
+          "label": "Releasing and maintaining actions",
+          "url": "https://docs.github.com/actions/sharing-automations/creating-actions/releasing-and-maintaining-actions"
+        }
+      ],
+      "studyOrder": 3,
+      "id": "t-3"
     }
   ],
   "questions": [],

@@ -95,6 +95,12 @@
       "url": "https://docs.github.com/actions/deployment/security-hardening-your-deployments",
       "usageNote": "Using OpenID Connect to authenticate with cloud providers instead of long-lived secrets.",
       "id": "src-15"
+    },
+    {
+      "label": "Artifact attestations",
+      "url": "https://docs.github.com/en/actions/concepts/security/artifact-attestations",
+      "usageNote": "Sigstore-backed build provenance/SLSA attestations for artifacts and container images.",
+      "id": "src-16"
     }
   ],
   "topics": [],

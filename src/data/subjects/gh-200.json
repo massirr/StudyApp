@@ -85,9 +85,9 @@
       "id": "src-13"
     },
     {
-      "label": "Security hardening for GitHub Actions",
-      "url": "https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions",
-      "usageNote": "Script injection mitigation, GITHUB_TOKEN permissions, secret redaction, third-party action risk.",
+      "label": "Script injections (Security in GitHub Actions)",
+      "url": "https://docs.github.com/en/actions/concepts/security/script-injections",
+      "usageNote": "Current GitHub docs page (replaces the old, now-restructured security-guides/security-hardening-for-github-actions path). Covers untrusted-input script injection risks and mitigation.",
       "id": "src-14"
     },
     {

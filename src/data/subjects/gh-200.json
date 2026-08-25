@@ -555,6 +555,37 @@
         "https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions"
       ],
       "id": "q-8"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "In a composite action's action.yml, steps need to read a declared input like `first_name`. Composite actions don't automatically get INPUT_<NAME> environment variables the way Docker/JS actions do. How do composite action steps access it?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "`${{ inputs.first_name }}` inside the composite action's own steps"
+        },
+        {
+          "id": "b",
+          "label": "`env.INPUT_FIRST_NAME`, same as JavaScript actions"
+        },
+        {
+          "id": "c",
+          "label": "Composite actions can't declare or accept inputs at all"
+        },
+        {
+          "id": "d",
+          "label": "`${{ github.event.inputs.first_name }}`"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Composite actions access their declared inputs via the inputs context (${{ inputs.<name> }}), unlike Docker/JS actions which automatically receive INPUT_<VARIABLE_NAME> environment variables.",
+      "sourceUrls": [
+        "https://docs.github.com/en/actions/reference/workflows-and-actions/metadata-syntax"
+      ],
+      "id": "q-9"
     }
   ],
   "notes": []

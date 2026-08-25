@@ -307,6 +307,38 @@
       "id": "t-6"
     }
   ],
-  "questions": [],
+  "questions": [
+    {
+      "topicId": "t-1",
+      "prompt": "You define a workflow_dispatch input `environment` (type: choice, required: true, no default). Someone triggers the workflow via the REST API without supplying `environment`. What happens?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "The API request is rejected with a validation error and no workflow run is created, since required inputs must be supplied"
+        },
+        {
+          "id": "b",
+          "label": "GitHub automatically defaults it to the first choice option"
+        },
+        {
+          "id": "c",
+          "label": "The step resolves inputs.environment to an empty string and the job continues"
+        },
+        {
+          "id": "d",
+          "label": "The run queues indefinitely waiting for someone to supply the missing input"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Required workflow_dispatch inputs without a default must be supplied. Triggering via the API without one causes the request itself to fail validation — no run is ever created.",
+      "sourceUrls": [
+        "https://docs.github.com/actions/writing-workflows/workflow-syntax-for-github-actions"
+      ],
+      "id": "q-1"
+    }
+  ],
   "notes": []
 }

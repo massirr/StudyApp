@@ -53,6 +53,12 @@
       "url": "https://docs.github.com/en/actions/concepts/workflows-and-actions/workflow-artifacts",
       "usageNote": "Artifact upload/download, retention, difference from caching.",
       "id": "src-8"
+    },
+    {
+      "label": "Metadata syntax reference (actions)",
+      "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/metadata-syntax",
+      "usageNote": "action.yml/action.yaml structure for JavaScript, Docker, and composite actions.",
+      "id": "src-9"
     }
   ],
   "topics": [],

@@ -83,6 +83,12 @@
       "url": "https://docs.github.com/en/actions/concepts/runners/runner-groups",
       "usageNote": "Controlling access to self-hosted and larger runners via runner groups.",
       "id": "src-13"
+    },
+    {
+      "label": "Security hardening for GitHub Actions",
+      "url": "https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions",
+      "usageNote": "Script injection mitigation, GITHUB_TOKEN permissions, secret redaction, third-party action risk.",
+      "id": "src-14"
     }
   ],
   "topics": [],

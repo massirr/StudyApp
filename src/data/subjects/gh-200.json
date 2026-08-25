@@ -899,7 +899,11 @@
       "sourceUrls": [
         "https://docs.github.com/actions/writing-workflows/workflow-syntax-for-github-actions"
       ],
-      "id": "q-19"
+      "id": "q-19",
+      "codeSnippet": {
+        "language": "yaml",
+        "code": "jobs:\n  test:\n    runs-on: ubuntu-latest\n    services:\n      postgres:\n        image: postgres:16\n        ports:\n          - 5432:5432\n        options: >-\n          --health-cmd pg_isready\n          --health-interval 10s\n          --health-timeout 5s\n          --health-retries 5\n    steps:\n      - run: psql -h localhost -U postgres -c 'SELECT 1'"
+      }
     },
     {
       "topicId": "t-1",

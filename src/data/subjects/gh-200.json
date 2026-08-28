@@ -1071,6 +1071,41 @@
         "https://docs.github.com/en/actions/concepts/runners"
       ],
       "id": "q-24"
+    },
+    {
+      "topicId": "t-6",
+      "prompt": "Your build job compiles the app and a later deploy job needs those compiled files without rebuilding. What does `actions/upload-artifact` do here, and why is it needed given build and deploy run on separate runners?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "It commits the build output back to the repository automatically"
+        },
+        {
+          "id": "b",
+          "label": "It packages and stores the specified files as a named artifact attached to the workflow run, so a separate job on a completely separate runner can retrieve those exact files via actions/download-artifact instead of re-running the build"
+        },
+        {
+          "id": "c",
+          "label": "It caches dependencies so the next run installs them faster"
+        },
+        {
+          "id": "d",
+          "label": "It pushes the files directly to GHCR as a container layer"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "upload-artifact stores files from one job as a named artifact attached to the run. Because build and deploy run on separate, independently-provisioned runners with nothing shared between them, download-artifact is how the deploy job retrieves those exact files instead of rebuilding from scratch.",
+      "sourceUrls": [
+        "https://docs.github.com/en/actions/concepts/workflows-and-actions/workflow-artifacts"
+      ],
+      "codeSnippet": {
+        "language": "yaml",
+        "code": "jobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - run: npm run build\n      - uses: actions/upload-artifact@v4\n        with:\n          name: build-output\n          path: dist/\n\n  deploy:\n    needs: build\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/download-artifact@v4\n        with:\n          name: build-output\n          path: dist/\n      - run: ./deploy.sh"
+      },
+      "id": "q-25"
     }
   ],
   "notes": []

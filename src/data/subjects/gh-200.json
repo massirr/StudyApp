@@ -1009,6 +1009,37 @@
         "https://docs.github.com/en/actions/concepts/runners/runner-groups"
       ],
       "id": "q-22"
+    },
+    {
+      "topicId": "t-6",
+      "prompt": "In a workflow, both `actions/checkout@v4` and a custom Docker container action run within the same job on the same runner. Which statement about how they actually execute is correct?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both run in the same isolated Docker container that GitHub spins up for the job"
+        },
+        {
+          "id": "b",
+          "label": "actions/checkout runs directly on the runner's VM with no extra isolation, while the Docker container action spins up its own separate container on top of that same runner"
+        },
+        {
+          "id": "c",
+          "label": "The runner IS a Docker container, so all actions are equally isolated from it"
+        },
+        {
+          "id": "d",
+          "label": "actions/checkout requires its own dedicated runner, separate from the rest of the job"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "A runner is just a fresh VM hosting the job. Most action types (composite, JavaScript, and actions/checkout specifically) execute directly on that VM with no extra isolation. Docker container actions are the one exception — they spin up their own separate container on top of the same runner.",
+      "sourceUrls": [
+        "https://docs.github.com/en/actions/concepts/runners"
+      ],
+      "id": "q-23"
     }
   ],
   "notes": []

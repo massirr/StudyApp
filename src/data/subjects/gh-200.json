@@ -1137,6 +1137,37 @@
         "https://docs.github.com/en/actions/concepts/workflows-and-actions/deployment-environments"
       ],
       "id": "q-26"
+    },
+    {
+      "topicId": "t-6",
+      "prompt": "In a workflow, the build job uploads an artifact named `build-output`. The deploy job's `actions/download-artifact` step uses `name: build-artifacts` (a typo) instead of `build-output`. What happens?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "It would still work — artifact names are matched loosely by prefix"
+        },
+        {
+          "id": "b",
+          "label": "The step would fail because no artifact with that exact name exists in this workflow run"
+        },
+        {
+          "id": "c",
+          "label": "It would download all artifacts from the entire repository's history"
+        },
+        {
+          "id": "d",
+          "label": "GitHub would auto-correct the typo based on the closest match"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Artifact names must match exactly between upload and download steps within the same workflow run — artifacts are scoped to the run that created them, and there's no fuzzy or prefix matching.",
+      "sourceUrls": [
+        "https://docs.github.com/en/actions/concepts/workflows-and-actions/workflow-artifacts"
+      ],
+      "id": "q-27"
     }
   ],
   "notes": []

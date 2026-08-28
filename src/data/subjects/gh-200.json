@@ -1168,6 +1168,37 @@
         "https://docs.github.com/en/actions/concepts/workflows-and-actions/workflow-artifacts"
       ],
       "id": "q-27"
+    },
+    {
+      "topicId": "t-6",
+      "prompt": "A job has `environment: production`, and that environment has a required-reviewers protection rule configured. At what point can the job actually read the environment's secrets?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "As soon as the workflow is triggered, before any approval"
+        },
+        {
+          "id": "b",
+          "label": "Only after all the environment's protection rules (e.g. the required reviewer approval) have passed and the job has been sent to a runner — never before"
+        },
+        {
+          "id": "c",
+          "label": "Environment secrets are always readable by any job in the repo, regardless of environment"
+        },
+        {
+          "id": "d",
+          "label": "Only after the job completes successfully"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Environment protection rules gate the job before it's dispatched to a runner. Secrets scoped to that environment only become accessible once every protection rule (required reviewers, wait timer, branch restriction) has passed — never before.",
+      "sourceUrls": [
+        "https://docs.github.com/en/actions/concepts/workflows-and-actions/deployment-environments"
+      ],
+      "id": "q-28"
     }
   ],
   "notes": []

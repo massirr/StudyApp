@@ -1199,6 +1199,37 @@
         "https://docs.github.com/en/actions/concepts/workflows-and-actions/deployment-environments"
       ],
       "id": "q-28"
+    },
+    {
+      "topicId": "t-6",
+      "prompt": "Your GHCR push job includes `permissions: packages: write` at the job level, using the auto-generated GITHUB_TOKEN instead of a PAT. Why is this permissions block necessary?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "GITHUB_TOKEN has no default permissions at all until explicitly granted every scope"
+        },
+        {
+          "id": "b",
+          "label": "GITHUB_TOKEN's default permissions for packages are read-only; the job must explicitly request write access to push images to GHCR with it"
+        },
+        {
+          "id": "c",
+          "label": "permissions: blocks are purely cosmetic and don't actually change what GITHUB_TOKEN can do"
+        },
+        {
+          "id": "d",
+          "label": "packages: write is required only for private repositories, not public ones"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "GITHUB_TOKEN's default permissions for packages are read-only. A job must explicitly request packages: write in its permissions: block before it can push images to GHCR with it.",
+      "sourceUrls": [
+        "https://docs.github.com/en/actions/concepts/security/github_token"
+      ],
+      "id": "q-29"
     }
   ],
   "notes": []

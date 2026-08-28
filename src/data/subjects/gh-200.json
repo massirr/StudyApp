@@ -1354,6 +1354,37 @@
         "https://docs.github.com/en/actions/reference/workflows-and-actions/metadata-syntax"
       ],
       "id": "q-33"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "An enterprise enables an IP allow list to restrict access to GitHub resources. What's a direct consequence for GitHub Actions?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "GitHub-hosted runners can no longer be used at all — only self-hosted runners (or larger runners with static IPs) will work, since GitHub-hosted runner IP ranges are too broad and dynamic to allow-list"
+        },
+        {
+          "id": "b",
+          "label": "Nothing changes; GitHub-hosted runners work exactly the same"
+        },
+        {
+          "id": "c",
+          "label": "Only Docker container actions are affected"
+        },
+        {
+          "id": "d",
+          "label": "IP allow lists only affect Git operations, never Actions"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "GitHub explicitly documents that enforcing an IP allow list for your org/enterprise means GitHub-hosted runners cannot be used, since their IP ranges are too broad, shared, and dynamic to safely allow-list — self-hosted runners (or larger runners with static IPs) become required.",
+      "sourceUrls": [
+        "https://docs.github.com/en/actions/concepts/runners/github-hosted-runners"
+      ],
+      "id": "q-34"
     }
   ],
   "notes": []

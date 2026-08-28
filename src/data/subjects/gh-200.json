@@ -296,12 +296,12 @@
       "subtopics": [
         {
           "id": "t6-s1",
-          "title": "Case study: StudyApp gh aw agentic workflow",
+          "title": "StudyApp gh aw agentic workflow",
           "summary": "The repo-status.md workflow, copilot-setup-steps.yml, .github/agents/, .github/mcp.json, and secrets setup (fine-grained PAT via gh aw secrets set COPILOT_GITHUB_TOKEN) map directly to exam topics: workflow triggers/scheduling, secrets scoping, GITHUB_TOKEN vs PAT, troubleshooting failed runs from logs, and model-pinning as a workflow input/config choice."
         },
         {
           "id": "t6-s2",
-          "title": "Case study: skills-deploy-to-azure-1 Azure/GHCR pipeline",
+          "title": "skills-deploy-to-azure-1 Azure/GHCR pipeline",
           "summary": "The Node.js build → Docker image → GHCR push → Azure Web App deploy pipeline maps to exam topics: service containers vs. Docker build/push actions, classic PAT (CR_PAT) vs fine-grained PAT for GHCR, secrets (CR_PAT, Azure credentials JSON) scoped at repo/environment level, and where OIDC federation could replace the stored Azure service-principal secret entirely."
         }
       ],

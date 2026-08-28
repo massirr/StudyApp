@@ -290,9 +290,9 @@
       "id": "t-5"
     },
     {
-      "slug": "case-study-your-repos",
-      "title": "Case study: applied review across your own repos",
-      "summary": "Exam-style application of all five domains, anchored in projects you've already built — massirr/StudyApp's gh aw agentic workflow and massirr/skills-deploy-to-azure-1's Azure/GHCR CI/CD pipeline. Good final review the night before the exam.",
+      "slug": "your-repos-in-practice",
+      "title": "Your Repos in Practice",
+      "summary": "Targeted, exam-style practice anchored in projects you've already built — massirr/StudyApp's gh aw agentic workflow and massirr/skills-deploy-to-azure-1's Azure/GHCR CI/CD pipeline — plus the specific runner, action, env/environment, and security concepts you've asked about most. Good final review the night before (or morning of) the exam.",
       "subtopics": [
         {
           "id": "t6-s1",

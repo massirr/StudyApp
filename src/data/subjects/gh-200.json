@@ -1040,6 +1040,37 @@
         "https://docs.github.com/en/actions/concepts/runners"
       ],
       "id": "q-23"
+    },
+    {
+      "topicId": "t-6",
+      "prompt": "Almost every job you write starts with `actions/checkout@v4`. Why is this step necessary given how runners work?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's required to authenticate the job with GITHUB_TOKEN"
+        },
+        {
+          "id": "b",
+          "label": "A runner is a fresh VM with nothing on it by default — checkout clones your repository's code onto the runner so later steps have something to build, test, or package"
+        },
+        {
+          "id": "c",
+          "label": "It sets up the Node.js/Python toolchain automatically"
+        },
+        {
+          "id": "d",
+          "label": "It only matters for private repositories; public repos don't need it"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "A runner is a fresh VM with nothing pre-loaded. checkout clones your repo onto it so later steps (build, test, package) have code to work with — without it, there is no source code on the runner at all.",
+      "sourceUrls": [
+        "https://docs.github.com/en/actions/concepts/runners"
+      ],
+      "id": "q-24"
     }
   ],
   "notes": []

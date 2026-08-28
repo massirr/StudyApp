@@ -1323,6 +1323,37 @@
         "https://docs.github.com/en/actions/reference/workflows-and-actions/metadata-syntax"
       ],
       "id": "q-32"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "A JavaScript action reads an input named `greeting` and needs to set an output named `result`. Which is correct?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "It reads process.env.INPUT_GREETING and sets the output by writing to the GITHUB_OUTPUT file (e.g. via @actions/core's setOutput helper)"
+        },
+        {
+          "id": "b",
+          "label": "It reads ${{ inputs.greeting }} directly as JavaScript syntax and returns the output as a function return value"
+        },
+        {
+          "id": "c",
+          "label": "JavaScript actions cannot accept inputs, only Docker actions can"
+        },
+        {
+          "id": "d",
+          "label": "It must call the GitHub REST API to fetch its own inputs"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "JS/Docker actions receive declared inputs as INPUT_<NAME> (uppercased) environment variables and set outputs by writing to the GITHUB_OUTPUT file — typically via the @actions/core toolkit's setOutput(), which wraps that same mechanism used in plain workflow steps.",
+      "sourceUrls": [
+        "https://docs.github.com/en/actions/reference/workflows-and-actions/metadata-syntax"
+      ],
+      "id": "q-33"
     }
   ],
   "notes": []

@@ -1261,6 +1261,37 @@
         "https://docs.github.com/en/actions/concepts/runners"
       ],
       "id": "q-30"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "What is the required filename and minimum required fields for a custom action's metadata file?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "action.json with name and version only"
+        },
+        {
+          "id": "b",
+          "label": "action.yml or action.yaml, requiring at minimum name, description, and a runs: configuration"
+        },
+        {
+          "id": "c",
+          "label": "metadata.yml with inputs and outputs only, name is optional"
+        },
+        {
+          "id": "d",
+          "label": "Dockerfile, since all actions are Docker-based"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "action.yml (or action.yaml) is the required metadata filename. At minimum it needs name, description, and a runs: block defining the action type (node, docker, or composite) and entry point.",
+      "sourceUrls": [
+        "https://docs.github.com/en/actions/reference/workflows-and-actions/metadata-syntax"
+      ],
+      "id": "q-31"
     }
   ],
   "notes": []

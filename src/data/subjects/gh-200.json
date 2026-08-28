@@ -1416,6 +1416,37 @@
         "https://docs.github.com/en/actions/concepts/runners/self-hosted-runners"
       ],
       "id": "q-35"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Why does GitHub recommend against using self-hosted runners with public repositories?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Public repos have lower CI minute limits, making self-hosted runners unnecessary"
+        },
+        {
+          "id": "b",
+          "label": "Anyone can fork a public repo and open a pull request whose workflow executes on that self-hosted runner, potentially running dangerous code with access to the runner's environment and network"
+        },
+        {
+          "id": "c",
+          "label": "Self-hosted runners are technically incompatible with the pull_request event"
+        },
+        {
+          "id": "d",
+          "label": "Public repos require a paid GitHub plan to register self-hosted runners"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "GitHub's own guidance is explicit: self-hosted runners should almost never be used with public repos, since anyone can fork the repo and open a pull request whose workflow then executes arbitrary code on that runner.",
+      "sourceUrls": [
+        "https://docs.github.com/en/actions/concepts/runners/self-hosted-runners"
+      ],
+      "id": "q-36"
     }
   ],
   "notes": []

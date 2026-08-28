@@ -1230,6 +1230,37 @@
         "https://docs.github.com/en/actions/concepts/security/github_token"
       ],
       "id": "q-29"
+    },
+    {
+      "topicId": "t-6",
+      "prompt": "Your GHCR pipeline runs `docker/login-action@v3` as a separate step before `docker/build-push-action@v6`. Why can't build-push just handle authentication itself?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's optional; docker/build-push-action can authenticate on its own using GITHUB_TOKEN automatically"
+        },
+        {
+          "id": "b",
+          "label": "It authenticates the Docker CLI on the runner against the registry (GHCR) before any push happens; without it, the push step is rejected since the runner has no credentials for that registry"
+        },
+        {
+          "id": "c",
+          "label": "It only matters for private repositories; public repos can push without logging in"
+        },
+        {
+          "id": "d",
+          "label": "It replaces the need for a permissions: packages: write block entirely"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Authentication has to happen before any push attempt, or the Docker CLI on the runner has no credentials to talk to the registry and the push is rejected — login and build-push are separate steps precisely so auth is established first.",
+      "sourceUrls": [
+        "https://docs.github.com/en/actions/concepts/runners"
+      ],
+      "id": "q-30"
     }
   ],
   "notes": []

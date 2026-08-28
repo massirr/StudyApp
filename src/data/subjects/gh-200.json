@@ -1385,6 +1385,37 @@
         "https://docs.github.com/en/actions/concepts/runners/github-hosted-runners"
       ],
       "id": "q-34"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "How do GitHub-hosted runners and self-hosted runners differ in terms of environment cleanliness between jobs?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "GitHub-hosted runners are ephemeral, clean VMs destroyed after each job; self-hosted runners have no such guarantee by default and can be persistently compromised by code run in an earlier job"
+        },
+        {
+          "id": "b",
+          "label": "Both are equally ephemeral and clean by default"
+        },
+        {
+          "id": "c",
+          "label": "Self-hosted runners are always ephemeral; only GitHub-hosted runners can persist state"
+        },
+        {
+          "id": "d",
+          "label": "Persistence only matters for Docker container actions"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "GitHub-hosted runners are always fresh, ephemeral VMs destroyed after the job. Self-hosted runners have no such guarantee by default — the same machine can run job after job, so malicious code in one job can persist and affect later jobs.",
+      "sourceUrls": [
+        "https://docs.github.com/en/actions/concepts/runners/self-hosted-runners"
+      ],
+      "id": "q-35"
     }
   ],
   "notes": []

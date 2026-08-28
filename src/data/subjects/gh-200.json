@@ -107,6 +107,12 @@
       "url": "https://docs.github.com/en/actions/concepts/security/github_token",
       "usageNote": "Specific current concept page: how GITHUB_TOKEN is generated per job, its lifetime, and scoping via permissions:.",
       "id": "src-17"
+    },
+    {
+      "label": "Deployment environments",
+      "url": "https://docs.github.com/en/actions/concepts/workflows-and-actions/deployment-environments",
+      "usageNote": "environment: on a job vs env: context — protection rules, required reviewers, and environment-scoped secrets that only unlock after rules pass.",
+      "id": "src-18"
     }
   ],
   "topics": [

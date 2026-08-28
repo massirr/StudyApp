@@ -1292,6 +1292,37 @@
         "https://docs.github.com/en/actions/reference/workflows-and-actions/metadata-syntax"
       ],
       "id": "q-31"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "You need an action that must run inside a fully isolated environment with specific system libraries pre-installed, regardless of what's on the runner. Which action type fits, and why?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Composite action — because composite actions always run in Docker containers"
+        },
+        {
+          "id": "b",
+          "label": "Docker container action — because it packages the action's own container image with exact OS/library versions baked in, independent of the runner's environment"
+        },
+        {
+          "id": "c",
+          "label": "JavaScript action — because Node.js actions are always sandboxed"
+        },
+        {
+          "id": "d",
+          "label": "Starter workflow — because starter workflows include their own container"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "A Docker container action bundles its own image with exact OS and library versions, running fully isolated from the runner's environment — exactly what's needed when dependencies must be pinned regardless of the host.",
+      "sourceUrls": [
+        "https://docs.github.com/en/actions/reference/workflows-and-actions/metadata-syntax"
+      ],
+      "id": "q-32"
     }
   ],
   "notes": []

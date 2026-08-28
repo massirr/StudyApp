@@ -1106,6 +1106,37 @@
         "code": "jobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - run: npm run build\n      - uses: actions/upload-artifact@v4\n        with:\n          name: build-output\n          path: dist/\n\n  deploy:\n    needs: build\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/download-artifact@v4\n        with:\n          name: build-output\n          path: dist/\n      - run: ./deploy.sh"
       },
       "id": "q-25"
+    },
+    {
+      "topicId": "t-6",
+      "prompt": "What's the core difference between `env:` and `environment:` in a GitHub Actions workflow — two keywords that are easy to mix up?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "They're two spellings of the same feature; either works"
+        },
+        {
+          "id": "b",
+          "label": "env: sets plain environment variables (workflow/job/step level) for run: commands and expressions; environment: (singular, on a job) references a named deployment target like production that can carry protection rules, required reviewers, and its own scoped secrets that only unlock once those rules pass"
+        },
+        {
+          "id": "c",
+          "label": "environment: is only for Docker actions; env: is only for JavaScript actions"
+        },
+        {
+          "id": "d",
+          "label": "env: requires enterprise-tier GitHub; environment: is available on all plans"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "env: is a plain key-value context available at workflow/job/step level for variable substitution in commands and expressions. environment: (singular, job-level) references a named deployment target that can carry protection rules, required reviewers, and its own scoped secrets — a fundamentally different, security-relevant feature, not just a spelling variant.",
+      "sourceUrls": [
+        "https://docs.github.com/en/actions/concepts/workflows-and-actions/deployment-environments"
+      ],
+      "id": "q-26"
     }
   ],
   "notes": []

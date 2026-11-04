@@ -20,4 +20,4 @@
 - [x] 4.2 `npm run test:unit` (155/155 pass)
 - [x] 4.3 `npm run build`
 - [x] 4.4 View the quiz at phone width and check every image loads (Playwright MCP, 390 px: q-42, q-80, q-81)
-- [ ] 4.5 Archive with `openspec archive vehicle-check-real-photos`
+- [x] 4.5 Archive with `openspec archive vehicle-check-real-photos`

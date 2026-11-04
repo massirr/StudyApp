@@ -393,11 +393,11 @@
         },
         {
           "id": "b",
-          "label": "Merges the mapping defined under the &defaults anchor into this job, so both jobs inherit runs-on and timeout-minutes without repeating them"
+          "label": "Creates a job dependency so both jobs always run sequentially"
         },
         {
           "id": "c",
-          "label": "Creates a job dependency so both jobs always run sequentially"
+          "label": "Merges the mapping defined under the &defaults anchor into this job, so both jobs inherit runs-on and timeout-minutes without repeating them"
         },
         {
           "id": "d",
@@ -405,7 +405,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "c"
       ],
       "explanation": "& defines a YAML anchor, * references (aliases) it, and << merges the anchored mapping into the current mapping — a standard YAML feature GitHub Actions supports for de-duplicating repeated config within one workflow file.",
       "sourceUrls": [
@@ -424,7 +424,7 @@
       "options": [
         {
           "id": "a",
-          "label": "GITHUB_ENV for (1); a step writes GITHUB_OUTPUT and the job declares an outputs: mapping for (2)"
+          "label": "GITHUB_STEP_SUMMARY for (1); GITHUB_ENV for (2)"
         },
         {
           "id": "b",
@@ -436,11 +436,11 @@
         },
         {
           "id": "d",
-          "label": "GITHUB_STEP_SUMMARY for (1); GITHUB_ENV for (2)"
+          "label": "GITHUB_ENV for (1); a step writes GITHUB_OUTPUT and the job declares an outputs: mapping for (2)"
         }
       ],
       "correctOptionIds": [
-        "a"
+        "d"
       ],
       "explanation": "GITHUB_ENV sets env vars visible to later steps in the same job. To share a value across jobs, a step writes to GITHUB_OUTPUT and the job declares outputs: name: ${{ steps.<id>.outputs.<name> }}, which downstream jobs read via needs.<job>.outputs.<name>.",
       "sourceUrls": [
@@ -455,11 +455,11 @@
       "options": [
         {
           "id": "a",
-          "label": "Re-run the entire workflow from scratch"
+          "label": "Use \"Re-run failed jobs\" so only the failing matrix job re-executes while the other 5 results are kept"
         },
         {
           "id": "b",
-          "label": "Use \"Re-run failed jobs\" so only the failing matrix job re-executes while the other 5 results are kept"
+          "label": "Re-run the entire workflow from scratch"
         },
         {
           "id": "c",
@@ -471,7 +471,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "a"
       ],
       "explanation": "GitHub Actions lets you selectively rerun only the failed jobs in a run (including individual matrix jobs), preserving successful results and avoiding wasted CI time.",
       "sourceUrls": [
@@ -486,11 +486,11 @@
       "options": [
         {
           "id": "a",
-          "label": "Starter workflows are copied into a repo and become independent afterward; reusable workflows stay centrally defined and are invoked via workflow_call; composite actions encapsulate step logic and are referenced with uses: inside a job's steps"
+          "label": "All three are functionally identical; the only difference is which folder the YAML file lives in"
         },
         {
           "id": "b",
-          "label": "All three are functionally identical; the only difference is which folder the YAML file lives in"
+          "label": "Starter workflows are copied into a repo and become independent afterward; reusable workflows stay centrally defined and are invoked via workflow_call; composite actions encapsulate step logic and are referenced with uses: inside a job's steps"
         },
         {
           "id": "c",
@@ -502,7 +502,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "b"
       ],
       "explanation": "Starter workflows are a one-time scaffold (edits afterward don't sync back); reusable workflows remain centrally versioned and are called with workflow_call so updates propagate; composite actions bundle steps and are consumed like any other action.",
       "sourceUrls": [
@@ -521,11 +521,11 @@
         },
         {
           "id": "b",
-          "label": "Disable the workflow from the Actions tab (or via API) — this stops new runs but preserves the file and all past run history"
+          "label": "Change the on: trigger to an invalid event so it silently fails validation"
         },
         {
           "id": "c",
-          "label": "Change the on: trigger to an invalid event so it silently fails validation"
+          "label": "Disable the workflow from the Actions tab (or via API) — this stops new runs but preserves the file and all past run history"
         },
         {
           "id": "d",
@@ -533,7 +533,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "c"
       ],
       "explanation": "Disabling a workflow stops it from being triggered while keeping the file and its run history intact; deleting the file removes it from the repo and can affect history/visibility of past runs.",
       "sourceUrls": [
@@ -548,11 +548,11 @@
       "options": [
         {
           "id": "a",
-          "label": "The tag can still be silently repointed by the publisher to different code at any time"
+          "label": "The published version's tag/package becomes locked — it can't be overwritten to point at different code, giving workflows a stable, verifiable target for that version"
         },
         {
           "id": "b",
-          "label": "The published version's tag/package becomes locked — it can't be overwritten to point at different code, giving workflows a stable, verifiable target for that version"
+          "label": "The tag can still be silently repointed by the publisher to different code at any time"
         },
         {
           "id": "c",
@@ -564,7 +564,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "a"
       ],
       "explanation": "Immutable actions are served as versioned packages (via GHCR) where the tag/version becomes locked once published, preventing the retroactive tampering that floating tags allow.",
       "sourceUrls": [
@@ -579,11 +579,11 @@
       "options": [
         {
           "id": "a",
-          "label": "`${{ inputs.first_name }}` inside the composite action's own steps"
+          "label": "`env.INPUT_FIRST_NAME`, same as JavaScript actions"
         },
         {
           "id": "b",
-          "label": "`env.INPUT_FIRST_NAME`, same as JavaScript actions"
+          "label": "`${{ inputs.first_name }}` inside the composite action's own steps"
         },
         {
           "id": "c",
@@ -595,7 +595,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "b"
       ],
       "explanation": "Composite actions access their declared inputs via the inputs context (${{ inputs.<name> }}), unlike Docker/JS actions which automatically receive INPUT_<VARIABLE_NAME> environment variables.",
       "sourceUrls": [
@@ -614,11 +614,11 @@
         },
         {
           "id": "b",
-          "label": "Keep it in a private (or internal) repository within the org, referenced by other org repos via `uses: org/repo-name@ref`, without publishing to the Marketplace at all"
+          "label": "Actions cannot be shared privately within an org — only public Marketplace distribution is supported"
         },
         {
           "id": "c",
-          "label": "Actions cannot be shared privately within an org — only public Marketplace distribution is supported"
+          "label": "Keep it in a private (or internal) repository within the org, referenced by other org repos via `uses: org/repo-name@ref`, without publishing to the Marketplace at all"
         },
         {
           "id": "d",
@@ -626,7 +626,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "c"
       ],
       "explanation": "Actions meant only for internal use don't need Marketplace publication at all; keeping them in a private/internal repo and referencing them with uses: org/repo@ref is the standard private distribution model.",
       "sourceUrls": [
@@ -641,11 +641,11 @@
       "options": [
         {
           "id": "a",
-          "label": "A branch protection rule configured individually on each repo"
+          "label": "An organization (or enterprise) actions policy restricting allowed actions to GitHub-created actions plus a specified allow-list, enforced centrally rather than per repo"
         },
         {
           "id": "b",
-          "label": "An organization (or enterprise) actions policy restricting allowed actions to GitHub-created actions plus a specified allow-list, enforced centrally rather than per repo"
+          "label": "A branch protection rule configured individually on each repo"
         },
         {
           "id": "c",
@@ -657,7 +657,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "a"
       ],
       "explanation": "Organization/enterprise-level actions policies centrally restrict which actions can run across repos (e.g. GitHub-created plus an approved allow-list), rather than relying on per-repo enforcement.",
       "sourceUrls": [
@@ -765,11 +765,11 @@
       "options": [
         {
           "id": "a",
-          "label": "GITHUB_TOKEN can always be elevated to org-only permissions with the right permissions: block"
+          "label": "Some capabilities are gated by account/org tier, so workflows on personal repos sometimes require a manually-configured PAT stored as a secret instead of relying on the auto-generated GITHUB_TOKEN"
         },
         {
           "id": "b",
-          "label": "Some capabilities are gated by account/org tier, so workflows on personal repos sometimes require a manually-configured PAT stored as a secret instead of relying on the auto-generated GITHUB_TOKEN"
+          "label": "GITHUB_TOKEN can always be elevated to org-only permissions with the right permissions: block"
         },
         {
           "id": "c",
@@ -781,7 +781,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "a"
       ],
       "explanation": "Since copilot-requests: write is org-only, personal-account repos must use a manually-configured PAT stored as a secret instead of relying on the auto-generated GITHUB_TOKEN or that org-only permission — a direct illustration of GITHUB_TOKEN's scope limits versus a PAT.",
       "sourceUrls": [
@@ -796,11 +796,11 @@
       "options": [
         {
           "id": "a",
-          "label": "Manage encrypted secrets and variables — specifically choosing the right credential type/scope for a given integration's requirements"
+          "label": "Optimize workflow performance and cost"
         },
         {
           "id": "b",
-          "label": "Optimize workflow performance and cost"
+          "label": "Manage encrypted secrets and variables — specifically choosing the right credential type/scope for a given integration's requirements"
         },
         {
           "id": "c",
@@ -812,7 +812,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "b"
       ],
       "explanation": "This maps to the enterprise domain's secrets/variables topic: choosing the credential type and scope (classic PAT with the right scopes vs. fine-grained) that actually matches what the target integration (GHCR) requires.",
       "sourceUrls": [
@@ -928,7 +928,7 @@
         },
         {
           "id": "b",
-          "label": "GitHub cancels all other in-progress and queued matrix jobs as soon as one fails, since fail-fast defaults to true"
+          "label": "Only jobs sharing the same os are cancelled"
         },
         {
           "id": "c",
@@ -936,11 +936,11 @@
         },
         {
           "id": "d",
-          "label": "Only jobs sharing the same os are cancelled"
+          "label": "GitHub cancels all other in-progress and queued matrix jobs as soon as one fails, since fail-fast defaults to true"
         }
       ],
       "correctOptionIds": [
-        "b"
+        "d"
       ],
       "explanation": "fail-fast: true (the default) cancels all other in-progress and queued matrix jobs as soon as any one job fails. Setting it to false lets every combination run to completion for full visibility.",
       "sourceUrls": [
@@ -959,7 +959,7 @@
         },
         {
           "id": "b",
-          "label": "Use the REST API's list/download artifact endpoints for a workflow run, authenticating with a token that has the appropriate repo scope"
+          "label": "Artifacts are only accessible from within the same workflow run that created them"
         },
         {
           "id": "c",
@@ -967,11 +967,11 @@
         },
         {
           "id": "d",
-          "label": "Artifacts are only accessible from within the same workflow run that created them"
+          "label": "Use the REST API's list/download artifact endpoints for a workflow run, authenticating with a token that has the appropriate repo scope"
         }
       ],
       "correctOptionIds": [
-        "b"
+        "d"
       ],
       "explanation": "Artifacts are accessible programmatically via GitHub's REST API (list/download workflow run artifacts), which is the standard way to pull artifacts from a script rather than the browser UI.",
       "sourceUrls": [
@@ -990,11 +990,11 @@
         },
         {
           "id": "b",
-          "label": "A runner group configured with a repository access policy limiting which repos can target that group's runners"
+          "label": "Repository secrets that gate which runners are used"
         },
         {
           "id": "c",
-          "label": "Repository secrets that gate which runners are used"
+          "label": "A runner group configured with a repository access policy limiting which repos can target that group's runners"
         },
         {
           "id": "d",
@@ -1002,7 +1002,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "c"
       ],
       "explanation": "Runner groups let admins scope which repositories can target a given set of self-hosted runners, which is the standard mechanism for restricting internal-network runner access to only approved repos.",
       "sourceUrls": [
@@ -1021,11 +1021,11 @@
         },
         {
           "id": "b",
-          "label": "actions/checkout runs directly on the runner's VM with no extra isolation, while the Docker container action spins up its own separate container on top of that same runner"
+          "label": "The runner IS a Docker container, so all actions are equally isolated from it"
         },
         {
           "id": "c",
-          "label": "The runner IS a Docker container, so all actions are equally isolated from it"
+          "label": "actions/checkout runs directly on the runner's VM with no extra isolation, while the Docker container action spins up its own separate container on top of that same runner"
         },
         {
           "id": "d",
@@ -1033,7 +1033,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "c"
       ],
       "explanation": "A runner is just a fresh VM hosting the job. Most action types (composite, JavaScript, and actions/checkout specifically) execute directly on that VM with no extra isolation. Docker container actions are the one exception — they spin up their own separate container on top of the same runner.",
       "sourceUrls": [
@@ -1052,7 +1052,7 @@
         },
         {
           "id": "b",
-          "label": "A runner is a fresh VM with nothing on it by default — checkout clones your repository's code onto the runner so later steps have something to build, test, or package"
+          "label": "It only matters for private repositories; public repos don't need it"
         },
         {
           "id": "c",
@@ -1060,11 +1060,11 @@
         },
         {
           "id": "d",
-          "label": "It only matters for private repositories; public repos don't need it"
+          "label": "A runner is a fresh VM with nothing on it by default — checkout clones your repository's code onto the runner so later steps have something to build, test, or package"
         }
       ],
       "correctOptionIds": [
-        "b"
+        "d"
       ],
       "explanation": "A runner is a fresh VM with nothing pre-loaded. checkout clones your repo onto it so later steps (build, test, package) have code to work with — without it, there is no source code on the runner at all.",
       "sourceUrls": [
@@ -1079,11 +1079,11 @@
       "options": [
         {
           "id": "a",
-          "label": "It commits the build output back to the repository automatically"
+          "label": "It packages and stores the specified files as a named artifact attached to the workflow run, so a separate job on a completely separate runner can retrieve those exact files via actions/download-artifact instead of re-running the build"
         },
         {
           "id": "b",
-          "label": "It packages and stores the specified files as a named artifact attached to the workflow run, so a separate job on a completely separate runner can retrieve those exact files via actions/download-artifact instead of re-running the build"
+          "label": "It commits the build output back to the repository automatically"
         },
         {
           "id": "c",
@@ -1095,7 +1095,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "a"
       ],
       "explanation": "upload-artifact stores files from one job as a named artifact attached to the run. Because build and deploy run on separate, independently-provisioned runners with nothing shared between them, download-artifact is how the deploy job retrieves those exact files instead of rebuilding from scratch.",
       "sourceUrls": [
@@ -1149,11 +1149,11 @@
         },
         {
           "id": "b",
-          "label": "The step would fail because no artifact with that exact name exists in this workflow run"
+          "label": "It would download all artifacts from the entire repository's history"
         },
         {
           "id": "c",
-          "label": "It would download all artifacts from the entire repository's history"
+          "label": "The step would fail because no artifact with that exact name exists in this workflow run"
         },
         {
           "id": "d",
@@ -1161,7 +1161,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "c"
       ],
       "explanation": "Artifact names must match exactly between upload and download steps within the same workflow run — artifacts are scoped to the run that created them, and there's no fuzzy or prefix matching.",
       "sourceUrls": [
@@ -1180,7 +1180,7 @@
         },
         {
           "id": "b",
-          "label": "Only after all the environment's protection rules (e.g. the required reviewer approval) have passed and the job has been sent to a runner — never before"
+          "label": "Only after the job completes successfully"
         },
         {
           "id": "c",
@@ -1188,11 +1188,11 @@
         },
         {
           "id": "d",
-          "label": "Only after the job completes successfully"
+          "label": "Only after all the environment's protection rules (e.g. the required reviewer approval) have passed and the job has been sent to a runner — never before"
         }
       ],
       "correctOptionIds": [
-        "b"
+        "d"
       ],
       "explanation": "Environment protection rules gate the job before it's dispatched to a runner. Secrets scoped to that environment only become accessible once every protection rule (required reviewers, wait timer, branch restriction) has passed — never before.",
       "sourceUrls": [
@@ -1207,11 +1207,11 @@
       "options": [
         {
           "id": "a",
-          "label": "GITHUB_TOKEN has no default permissions at all until explicitly granted every scope"
+          "label": "GITHUB_TOKEN's default permissions for packages are read-only; the job must explicitly request write access to push images to GHCR with it"
         },
         {
           "id": "b",
-          "label": "GITHUB_TOKEN's default permissions for packages are read-only; the job must explicitly request write access to push images to GHCR with it"
+          "label": "GITHUB_TOKEN has no default permissions at all until explicitly granted every scope"
         },
         {
           "id": "c",
@@ -1223,7 +1223,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "a"
       ],
       "explanation": "GITHUB_TOKEN's default permissions for packages are read-only. A job must explicitly request packages: write in its permissions: block before it can push images to GHCR with it.",
       "sourceUrls": [
@@ -1273,7 +1273,7 @@
         },
         {
           "id": "b",
-          "label": "action.yml or action.yaml, requiring at minimum name, description, and a runs: configuration"
+          "label": "Dockerfile, since all actions are Docker-based"
         },
         {
           "id": "c",
@@ -1281,11 +1281,11 @@
         },
         {
           "id": "d",
-          "label": "Dockerfile, since all actions are Docker-based"
+          "label": "action.yml or action.yaml, requiring at minimum name, description, and a runs: configuration"
         }
       ],
       "correctOptionIds": [
-        "b"
+        "d"
       ],
       "explanation": "action.yml (or action.yaml) is the required metadata filename. At minimum it needs name, description, and a runs: block defining the action type (node, docker, or composite) and entry point.",
       "sourceUrls": [
@@ -1300,11 +1300,11 @@
       "options": [
         {
           "id": "a",
-          "label": "Composite action — because composite actions always run in Docker containers"
+          "label": "Docker container action — because it packages the action's own container image with exact OS/library versions baked in, independent of the runner's environment"
         },
         {
           "id": "b",
-          "label": "Docker container action — because it packages the action's own container image with exact OS/library versions baked in, independent of the runner's environment"
+          "label": "Composite action — because composite actions always run in Docker containers"
         },
         {
           "id": "c",
@@ -1316,7 +1316,7 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "a"
       ],
       "explanation": "A Docker container action bundles its own image with exact OS and library versions, running fully isolated from the runner's environment — exactly what's needed when dependencies must be pinned regardless of the host.",
       "sourceUrls": [
@@ -1331,11 +1331,11 @@
       "options": [
         {
           "id": "a",
-          "label": "It reads process.env.INPUT_GREETING and sets the output by writing to the GITHUB_OUTPUT file (e.g. via @actions/core's setOutput helper)"
+          "label": "It reads ${{ inputs.greeting }} directly as JavaScript syntax and returns the output as a function return value"
         },
         {
           "id": "b",
-          "label": "It reads ${{ inputs.greeting }} directly as JavaScript syntax and returns the output as a function return value"
+          "label": "It reads process.env.INPUT_GREETING and sets the output by writing to the GITHUB_OUTPUT file (e.g. via @actions/core's setOutput helper)"
         },
         {
           "id": "c",
@@ -1347,7 +1347,7 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "b"
       ],
       "explanation": "JS/Docker actions receive declared inputs as INPUT_<NAME> (uppercased) environment variables and set outputs by writing to the GITHUB_OUTPUT file — typically via the @actions/core toolkit's setOutput(), which wraps that same mechanism used in plain workflow steps.",
       "sourceUrls": [
@@ -1362,7 +1362,7 @@
       "options": [
         {
           "id": "a",
-          "label": "GitHub-hosted runners can no longer be used at all — only self-hosted runners (or larger runners with static IPs) will work, since GitHub-hosted runner IP ranges are too broad and dynamic to allow-list"
+          "label": "IP allow lists only affect Git operations, never Actions"
         },
         {
           "id": "b",
@@ -1374,11 +1374,11 @@
         },
         {
           "id": "d",
-          "label": "IP allow lists only affect Git operations, never Actions"
+          "label": "GitHub-hosted runners can no longer be used at all — only self-hosted runners (or larger runners with static IPs) will work, since GitHub-hosted runner IP ranges are too broad and dynamic to allow-list"
         }
       ],
       "correctOptionIds": [
-        "a"
+        "d"
       ],
       "explanation": "GitHub explicitly documents that enforcing an IP allow list for your org/enterprise means GitHub-hosted runners cannot be used, since their IP ranges are too broad, shared, and dynamic to safely allow-list — self-hosted runners (or larger runners with static IPs) become required.",
       "sourceUrls": [

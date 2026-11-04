@@ -20,5 +20,5 @@
 
 ## 5. Review and ship
 - [x] 5.1 Open the app and check the picker, topic page and an image question at phone width
-- [ ] 5.2 Commit on branch `vehicle-check-subject`, push and open a PR
-- [ ] 5.3 After merge, archive the change with `openspec archive vehicle-check-subject`
+- [x] 5.2 Commit on branch `vehicle-check-subject`, push and open a PR (shipped directly to master; no PR)
+- [x] 5.3 After merge, archive the change with `openspec archive vehicle-check-subject`

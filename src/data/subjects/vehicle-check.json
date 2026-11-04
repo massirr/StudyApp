@@ -1,0 +1,2605 @@
+{
+  "id": "vehicle-check",
+  "slug": "vehicle-check",
+  "name": "Autocontrole: Belgisch rijexamen B (Vehicle Check)",
+  "shortLabel": "CAR CHECK",
+  "tagline": "Voorafgaande controles in het Nederlands en het Engels (Preliminary checks in Dutch and English). Progress saved automatically.",
+  "sourcePolicy": "any",
+  "sources": [
+    {
+      "id": "src-1",
+      "label": "GOCA Vlaanderen DOC. 133 - Cat. B praktijkexamen",
+      "url": "https://autoveiligheid.be/downloaden/cat-b",
+      "usageNote": "Official exam structure: voorafgaande controles (voorzorgen, instellingen, controles), systematic vs random checks, timings, interpreter rule."
+    },
+    {
+      "id": "src-2",
+      "label": "Belgisch Staatsblad exam text (Codex Vlaanderen)",
+      "url": "https://codex.vlaanderen.be/PrintDocument.ashx?id=1025928",
+      "usageNote": "Legal text listing what the candidate checks and sets before driving."
+    },
+    {
+      "id": "src-3",
+      "label": "Code de la route - exam amendment (FR)",
+      "url": "https://code-de-la-route.be/fr/regulation/amendment/download/tmt4bdtyrz",
+      "usageNote": "French copy of the same Moniteur belge exam text."
+    },
+    {
+      "id": "src-4",
+      "label": "VRT NWS - dagrijlichten en dimlichten",
+      "url": "https://www.vrt.be/vrtnws/nl/2021/12/28/dagrijlichten-en-dimlichten-op-je-auto-wat-is-het-verschil-en-h/",
+      "usageNote": "Daytime running lights vs dipped beam in Belgium (200 m, tunnels, front only)."
+    },
+    {
+      "id": "src-5",
+      "label": "AutoScout24.be - wanneer mistlichten aan",
+      "url": "https://www.autoscout24.be/nl/informeren/advies/kosten-en-wetgeving/wanneer-mistlichten-aan/",
+      "usageNote": "Belgian fog light rules: rear fog light below 100 m; front fog lights never mandatory."
+    },
+    {
+      "id": "src-6",
+      "label": "ANWB - mistlampen",
+      "url": "https://www.anwb.nl/auto/onderhoud-en-reparatie/verlichting/mistlampen",
+      "usageNote": "Dutch source used only to confirm the NL threshold (50 m) differs from Belgium (100 m)."
+    },
+    {
+      "id": "src-7",
+      "label": "Kwik-Fit - oliepeil controleren",
+      "url": "https://www.kwik-fit.nl/kennisbank/gidsen/hoe-controleer-ik-het-oliepeil-van-mijn-auto",
+      "usageNote": "Dipstick procedure and MIN/MAX reading."
+    },
+    {
+      "id": "src-8",
+      "label": "ANWB - oliepeil controleren",
+      "url": "https://www.anwb.nl/auto/onderhoud-en-reparatie/onderhoud-doe-het-zelf/oliepeil-controleren",
+      "usageNote": "Conditions for checking oil: level ground, engine off, wait after driving."
+    },
+    {
+      "id": "src-9",
+      "label": "ANWB - koelvloeistof bijvullen",
+      "url": "https://www.anwb.nl/auto/onderhoud-en-reparatie/vloeistoffen/koelvloeistof-bijvullen",
+      "usageNote": "Coolant level on the reservoir; never open when hot."
+    },
+    {
+      "id": "src-10",
+      "label": "Kia handleiding - remvloeistof",
+      "url": "https://ownersmanual.kia.com/docview/webhelp/doc/51376c09-deee-4dbe-b8c6-d4408a11ce66/topics/chapter8_9_1.html",
+      "usageNote": "Brake fluid reservoir MIN/MAX and why the level drops slowly."
+    },
+    {
+      "id": "src-11",
+      "label": "Kwik-Fit - ruitensproeiervloeistof bijvullen",
+      "url": "https://www.kwik-fit.nl/kennisbank/gidsen/hoe-vul-ik-mijn-ruitensproeiervloeistof-bij",
+      "usageNote": "Washer fluid reservoir and cap symbol."
+    },
+    {
+      "id": "src-12",
+      "label": "ANWB - banden",
+      "url": "https://www.anwb.nl/auto/onderhoud-en-reparatie/onderhoud-doe-het-zelf/banden",
+      "usageNote": "Checking tyre pressure and tread."
+    },
+    {
+      "id": "src-13",
+      "label": "AutoRAI - bandenspanning",
+      "url": "https://autorai.nl/bandenspanning-alles-wat-je-moet-weten/",
+      "usageNote": "Cold tyres, sticker location, do not deflate warm tyres."
+    },
+    {
+      "id": "src-14",
+      "label": "Test-Aankoop - banden",
+      "url": "https://www.test-aankoop.be/mobiliteit/banden/antwoord-van-expert/bandengrip-verkeersveiligheid",
+      "usageNote": "Belgian minimum tread depth 1.6 mm and wear indicators."
+    },
+    {
+      "id": "src-15",
+      "label": "AutoScout24.be - lichtjes op het dashboard",
+      "url": "https://www.autoscout24.be/nl/informeren/advies/autotechnologie/wat-betekenen-de-lichtjes-op-uw-dashboard/",
+      "usageNote": "Dashboard colour code and common warning symbols."
+    },
+    {
+      "id": "src-16",
+      "label": "ANWB - waarschuwingslampjes",
+      "url": "https://www.anwb.nl/auto/onderhoud-en-reparatie/autopech/waarschuwingslampjes",
+      "usageNote": "What to do when a red or orange warning light comes on."
+    },
+    {
+      "id": "src-17",
+      "label": "ViaBOVAG - juiste zithouding in de auto",
+      "url": "https://www.viabovag.nl/blog/de-juiste-ergonomische-zithouding-in-de-auto",
+      "usageNote": "Seat, backrest, steering wheel distance and elbow position."
+    },
+    {
+      "id": "src-18",
+      "label": "SWOV - technische aspecten hoofdsteunen",
+      "url": "https://swov.nl/node/14201",
+      "usageNote": "Why headrest adjustment matters (whiplash)."
+    },
+    {
+      "id": "src-19",
+      "label": "Mensura - comfortabele autorit",
+      "url": "https://mensura.be/shared/media/download/5e1c423785d34",
+      "usageNote": "Belgian prevention service: seat far back, wrists on wheel, turn only your head to use mirrors."
+    },
+    {
+      "id": "src-20",
+      "label": "Kia handleiding - veiligheidsgordels",
+      "url": "https://ownersmanual.kia.com/docview/webhelp/doc/d0a825cf-35f9-4504-9a87-8ee21099256f/topics/t00110.html",
+      "usageNote": "Where lap and shoulder belt lie on the body."
+    },
+    {
+      "id": "src-21",
+      "label": "kwb - correcte zithouding",
+      "url": "https://cdn.nimbu.io/s/lmjzxez/assets/1630481308486/RAAK%20september%202021%20definitief.pdf",
+      "usageNote": "Belgian driver organisation: lower back against the backrest, check distance to pedals."
+    }
+  ],
+  "topics": [
+    {
+      "id": "t-1",
+      "slug": "examendag-procedure",
+      "title": "Examendag: zo verloopt het (Exam day)",
+      "summary": "Official structure of the Flemish category-B practical exam at the AIBV centre: risk perception test, road test, and the three parts of the voorafgaande controles.",
+      "subtopics": [
+        {
+          "id": "t1-s1",
+          "title": "Onderdelen van het examen (Parts of the exam)",
+          "summary": "Risk perception test, road test, and the three parts of the road test."
+        },
+        {
+          "id": "t1-s2",
+          "title": "Systematisch en steekproef (Always vs random check)",
+          "summary": "Items you always do, and the one item the computer picks; timings; interpreter rule."
+        }
+      ],
+      "sourceLinks": [
+        {
+          "label": "GOCA Vlaanderen DOC. 133 - Cat. B praktijkexamen",
+          "url": "https://autoveiligheid.be/downloaden/cat-b"
+        },
+        {
+          "label": "Belgisch Staatsblad exam text (Codex Vlaanderen)",
+          "url": "https://codex.vlaanderen.be/PrintDocument.ashx?id=1025928"
+        },
+        {
+          "label": "Code de la route - exam amendment (FR)",
+          "url": "https://code-de-la-route.be/fr/regulation/amendment/download/tmt4bdtyrz"
+        }
+      ],
+      "studyOrder": 1
+    },
+    {
+      "id": "t-2",
+      "slug": "voorzorgen-en-instellingen",
+      "title": "Voorzorgen en instellingen (Precautions and settings)",
+      "summary": "What you say and do when you get in: leaving and locking the car, seat, backrest, headrest, mirrors, seat belt.",
+      "subtopics": [
+        {
+          "id": "t2-s1",
+          "title": "Voorzorgen (Precautions)",
+          "summary": "Switch off, get out, get back in, lock the car."
+        },
+        {
+          "id": "t2-s2",
+          "title": "Zithouding en instellingen (Seating and settings)",
+          "summary": "Seat, steering wheel distance, headrest, mirrors and seat belt, with vocabulary."
+        }
+      ],
+      "sourceLinks": [
+        {
+          "label": "GOCA Vlaanderen DOC. 133 - Cat. B praktijkexamen",
+          "url": "https://autoveiligheid.be/downloaden/cat-b"
+        },
+        {
+          "label": "ViaBOVAG - juiste zithouding in de auto",
+          "url": "https://www.viabovag.nl/blog/de-juiste-ergonomische-zithouding-in-de-auto"
+        },
+        {
+          "label": "Mensura - comfortabele autorit",
+          "url": "https://mensura.be/shared/media/download/5e1c423785d34"
+        },
+        {
+          "label": "SWOV - technische aspecten hoofdsteunen",
+          "url": "https://swov.nl/node/14201"
+        },
+        {
+          "label": "Kia handleiding - veiligheidsgordels",
+          "url": "https://ownersmanual.kia.com/docview/webhelp/doc/d0a825cf-35f9-4504-9a87-8ee21099256f/topics/t00110.html"
+        },
+        {
+          "label": "kwb - correcte zithouding",
+          "url": "https://cdn.nimbu.io/s/lmjzxez/assets/1630481308486/RAAK%20september%202021%20definitief.pdf"
+        }
+      ],
+      "studyOrder": 2
+    },
+    {
+      "id": "t-3",
+      "slug": "verlichting-en-bediening",
+      "title": "Verlichting en bediening (Lights and controls)",
+      "summary": "The systematic checks: demisting, dipped beam, main beam, fog lights, horn, indicators, brake lights, plus Belgian lighting rules.",
+      "subtopics": [
+        {
+          "id": "t3-s1",
+          "title": "Lichten herkennen (Recognise the lights)",
+          "summary": "Front and rear lights and control symbols, with Dutch and English names."
+        },
+        {
+          "id": "t3-s2",
+          "title": "Verlichtingsregels in België (Belgian lighting rules)",
+          "summary": "Rear fog light below 100 m, front fog lights, dipped beam by day, daytime running lights."
+        }
+      ],
+      "sourceLinks": [
+        {
+          "label": "GOCA Vlaanderen DOC. 133 - Cat. B praktijkexamen",
+          "url": "https://autoveiligheid.be/downloaden/cat-b"
+        },
+        {
+          "label": "VRT NWS - dagrijlichten en dimlichten",
+          "url": "https://www.vrt.be/vrtnws/nl/2021/12/28/dagrijlichten-en-dimlichten-op-je-auto-wat-is-het-verschil-en-h/"
+        },
+        {
+          "label": "AutoScout24.be - wanneer mistlichten aan",
+          "url": "https://www.autoscout24.be/nl/informeren/advies/kosten-en-wetgeving/wanneer-mistlichten-aan/"
+        },
+        {
+          "label": "ANWB - mistlampen",
+          "url": "https://www.anwb.nl/auto/onderhoud-en-reparatie/verlichting/mistlampen"
+        }
+      ],
+      "studyOrder": 3
+    },
+    {
+      "id": "t-4",
+      "slug": "banden-en-vloeistoffen",
+      "title": "Banden en vloeistoffen (Tyres and fluids)",
+      "summary": "The random check: tyre wear, tyre pressure, engine oil, brake fluid, coolant, washer fluid. Where they are and how you check them.",
+      "subtopics": [
+        {
+          "id": "t4-s1",
+          "title": "Onder de motorkap (Under the bonnet)",
+          "summary": "Engine bay parts, oil dipstick procedure, coolant, brake fluid, washer fluid."
+        },
+        {
+          "id": "t4-s2",
+          "title": "Banden (Tyres)",
+          "summary": "Tyre pressure and tread depth, wear indicators."
+        }
+      ],
+      "sourceLinks": [
+        {
+          "label": "GOCA Vlaanderen DOC. 133 - Cat. B praktijkexamen",
+          "url": "https://autoveiligheid.be/downloaden/cat-b"
+        },
+        {
+          "label": "Kwik-Fit - oliepeil controleren",
+          "url": "https://www.kwik-fit.nl/kennisbank/gidsen/hoe-controleer-ik-het-oliepeil-van-mijn-auto"
+        },
+        {
+          "label": "ANWB - oliepeil controleren",
+          "url": "https://www.anwb.nl/auto/onderhoud-en-reparatie/onderhoud-doe-het-zelf/oliepeil-controleren"
+        },
+        {
+          "label": "ANWB - koelvloeistof bijvullen",
+          "url": "https://www.anwb.nl/auto/onderhoud-en-reparatie/vloeistoffen/koelvloeistof-bijvullen"
+        },
+        {
+          "label": "Kia handleiding - remvloeistof",
+          "url": "https://ownersmanual.kia.com/docview/webhelp/doc/51376c09-deee-4dbe-b8c6-d4408a11ce66/topics/chapter8_9_1.html"
+        },
+        {
+          "label": "Kwik-Fit - ruitensproeiervloeistof bijvullen",
+          "url": "https://www.kwik-fit.nl/kennisbank/gidsen/hoe-vul-ik-mijn-ruitensproeiervloeistof-bij"
+        },
+        {
+          "label": "ANWB - banden",
+          "url": "https://www.anwb.nl/auto/onderhoud-en-reparatie/onderhoud-doe-het-zelf/banden"
+        },
+        {
+          "label": "AutoRAI - bandenspanning",
+          "url": "https://autorai.nl/bandenspanning-alles-wat-je-moet-weten/"
+        },
+        {
+          "label": "Test-Aankoop - banden",
+          "url": "https://www.test-aankoop.be/mobiliteit/banden/antwoord-van-expert/bandengrip-verkeersveiligheid"
+        }
+      ],
+      "studyOrder": 4
+    },
+    {
+      "id": "t-5",
+      "slug": "dashboardlampjes",
+      "title": "Dashboardlampjes (Dashboard warning lights)",
+      "summary": "Bonus: not on the official exam list, but handy for a car you do not know. Colour code and the eight most common symbols.",
+      "subtopics": [
+        {
+          "id": "t5-s1",
+          "title": "Kleurcode en symbolen (Colour code and symbols)",
+          "summary": "Red, orange, green, blue; what to do; common symbols."
+        }
+      ],
+      "sourceLinks": [
+        {
+          "label": "AutoScout24.be - lichtjes op het dashboard",
+          "url": "https://www.autoscout24.be/nl/informeren/advies/autotechnologie/wat-betekenen-de-lichtjes-op-uw-dashboard/"
+        },
+        {
+          "label": "ANWB - waarschuwingslampjes",
+          "url": "https://www.anwb.nl/auto/onderhoud-en-reparatie/autopech/waarschuwingslampjes"
+        }
+      ],
+      "studyOrder": 5
+    }
+  ],
+  "questions": [
+    {
+      "topicId": "t-1",
+      "prompt": "Uit welke twee onderdelen bestaat het praktijkexamen B bij GOCA? (Which two parts make up the category-B practical exam?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Risicoperceptietest op de computer en proef op de openbare weg (Computer risk perception test and road test)"
+        },
+        {
+          "id": "b",
+          "label": "Schriftelijk theorie-examen en rijproef op een circuit (Written theory exam and circuit test)"
+        },
+        {
+          "id": "c",
+          "label": "Gezondheidskeuring en rijproef (Medical check and road test)"
+        },
+        {
+          "id": "d",
+          "label": "Enkel een proef op de openbare weg (Only a road test)"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Het praktijkexamen bestaat uit de GOCA-risicoperceptietest en de proef op de openbare weg, beide in hetzelfde centrum. / The practical exam is the GOCA risk perception test plus the road test, both at the same centre.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "id": "q-1"
+    },
+    {
+      "topicId": "t-1",
+      "prompt": "Welke drie delen heeft de proef op de openbare weg? Kies er drie. (Which three parts does the road test have? Pick three.)",
+      "type": "multiple",
+      "options": [
+        {
+          "id": "a",
+          "label": "Voorafgaande controles (Preliminary checks)"
+        },
+        {
+          "id": "b",
+          "label": "Manoeuvres in beweging (Manoeuvres in motion)"
+        },
+        {
+          "id": "c",
+          "label": "Zelfstandig rijden (Independent driving)"
+        },
+        {
+          "id": "d",
+          "label": "Theorie-examen (Theory exam)"
+        }
+      ],
+      "correctOptionIds": [
+        "a",
+        "b",
+        "c"
+      ],
+      "explanation": "De proef bestaat uit voorafgaande controles, manoeuvres in beweging en zelfstandig rijden (10 tot 15 minuten met GPS en verkeersborden). Het theorie-examen is een apart examen. / The road test is preliminary checks, manoeuvres in motion and independent driving.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "id": "q-2"
+    },
+    {
+      "topicId": "t-1",
+      "prompt": "Welke drie onderdelen hebben de voorafgaande controles? (What are the three parts of the preliminary checks?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Remmen, sturen en banden (Brakes, steering and tyres)"
+        },
+        {
+          "id": "b",
+          "label": "Voorzorgen, instellingen en controles (Precautions, settings and checks)"
+        },
+        {
+          "id": "c",
+          "label": "Papieren, verzekering en keuring (Papers, insurance and inspection)"
+        },
+        {
+          "id": "d",
+          "label": "Parkeren, keren en achteruit rijden (Parking, turning and reversing)"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "GOCA deelt de voorafgaande controles op in voorzorgen, instellingen en controles. / GOCA splits the preliminary checks into precautions, settings and checks.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "id": "q-3"
+    },
+    {
+      "topicId": "t-1",
+      "prompt": "Welke controles doe je altijd, één voor één? (Which checks do you always do, one by one?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bandenspanning, motorolie en koelvloeistof (Tyre pressure, engine oil and coolant)"
+        },
+        {
+          "id": "b",
+          "label": "Enkel de lichten, niets anders (Only the lights, nothing else)"
+        },
+        {
+          "id": "c",
+          "label": "Ontwaseming voor en achter, dimlicht, grootlicht, mistlicht, toeter, richtingaanwijzers, remlichten (Demisting, dipped, main and fog lights, horn, indicators, brake lights)"
+        },
+        {
+          "id": "d",
+          "label": "Remvloeistof, ruitenwisservloeistof en bandenslijtage (Brake fluid, washer fluid and tyre wear)"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "Dit zijn de systematische controles. Banden en vloeistoffen horen bij de steekproef. / These are the systematic checks; tyres and fluids belong to the random check.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "id": "q-4"
+    },
+    {
+      "topicId": "t-1",
+      "prompt": "Hoeveel steekproefcontroles krijg je en wie kiest die? (How many random checks do you get, and who picks it?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Alle zes, gekozen door de examinator (All six, chosen by the examiner)"
+        },
+        {
+          "id": "b",
+          "label": "Twee, gekozen door de examinator (Two, chosen by the examiner)"
+        },
+        {
+          "id": "c",
+          "label": "Eén, gekozen door jezelf (One, chosen by you)"
+        },
+        {
+          "id": "d",
+          "label": "Eén, gekozen door de computer (One, chosen by the computer)"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "explanation": "De computer kiest één item: bandenslijtage, bandenspanning, motorolie, remvloeistof, koelvloeistof of ruitenwisservloeistof. / The computer picks one item.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "id": "q-5"
+    },
+    {
+      "topicId": "t-1",
+      "prompt": "Hoeveel tijd heb je voor een steekproefcontrole waarvoor de motorkap open moet? (How much time for a random check that needs the bonnet open?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "2 minuten 30 seconden (2 min 30 s)"
+        },
+        {
+          "id": "b",
+          "label": "1 minuut 30 seconden (1 min 30 s)"
+        },
+        {
+          "id": "c",
+          "label": "5 minuten (5 min)"
+        },
+        {
+          "id": "d",
+          "label": "30 seconden (30 s)"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Met motorkap: 2 min 30 s. Zonder motorkap: 1 min 30 s. / With the bonnet open 2:30, otherwise 1:30.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "id": "q-6"
+    },
+    {
+      "topicId": "t-1",
+      "prompt": "Je spreekt weinig Nederlands. Wat is toegelaten tijdens de rijproef? (You speak little Dutch. What is allowed during the road test?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Elke Nederlandstalige vriend mag vertalen (Any Dutch-speaking friend may translate)"
+        },
+        {
+          "id": "b",
+          "label": "Een beëdigd tolk Engels mag mee, maar mag niet je begeleider zijn (A sworn English interpreter may come, but cannot be your accompanying person)"
+        },
+        {
+          "id": "c",
+          "label": "Geen enkele tolk is toegelaten (No interpreter at all)"
+        },
+        {
+          "id": "d",
+          "label": "Je begeleider mag vertalen zolang hij meerijdt (Your accompanying person may translate)"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "GOCA laat een beëdigd tolk Frans, Duits of Engels toe, maar de tolk mag niet de begeleider zijn. / A sworn interpreter (French, German, English) is allowed, but not as the accompanying person.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "id": "q-7"
+    },
+    {
+      "topicId": "t-1",
+      "prompt": "Leg stap voor stap uit wat er gebeurt bij de voorafgaande controles. (Explain step by step what happens in the preliminary checks.)",
+      "type": "freeText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Dit is de volgorde uit de GOCA-brochure; de exacte zinnen van de examinator verschillen. / Order from the GOCA brochure; the examiner's exact words vary.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "sampleAnswer": "NL: Eerst de voorzorgen: motor uit, uitstappen, weer instappen, auto afsluiten. Dan de instellingen: ik leg uit hoe ik zit en stel rugleuning, hoofdsteun en spiegels in en maak mijn gordel vast. Dan de controles: altijd ontwaseming voor en achter, dimlicht, grootlicht, mistlicht, toeter, richtingaanwijzers en remlichten; daarna één steekproef (banden of een vloeistof) die de computer kiest. EN: First the precautions (engine off, get out, get in, lock). Then the settings (seat, backrest, headrest, mirrors, belt). Then the checks: always the lights, demisting and horn, then one random check chosen by the computer.",
+      "id": "q-8"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Wat zijn de 'voorzorgen'? (What are the 'precautions'?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Motor uitzetten, uitstappen, weer instappen en de auto afsluiten (Switch off, get out, get back in, lock the car)"
+        },
+        {
+          "id": "b",
+          "label": "Een rondje rond de auto lopen om schade te zoeken (Walk around the car looking for damage)"
+        },
+        {
+          "id": "c",
+          "label": "De banden meten met een profielmeter (Measure the tyres with a depth gauge)"
+        },
+        {
+          "id": "d",
+          "label": "De papieren van de auto tonen (Show the car papers)"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "De examinator vraagt de motor af te zetten, uit te stappen, weer in te stappen en de auto af te sluiten. / The examiner asks you to switch off, get out, get in and lock the car.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "id": "q-9"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Waar zit je onderrug bij een correcte zithouding? (Where is your lower back in a correct seating position?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ervoor, zodat je kunt voorover leunen (In front of it so you can lean forward)"
+        },
+        {
+          "id": "b",
+          "label": "Goed tegen de rugleuning (Firmly against the backrest)"
+        },
+        {
+          "id": "c",
+          "label": "Op de rand van de zitting (On the edge of the seat)"
+        },
+        {
+          "id": "d",
+          "label": "Dat maakt niet uit (It does not matter)"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Schuif goed naar achter met je onderrug tegen de rugleuning; zo bereik je alle bedieningen. / Sit well back with the lower back against the backrest.",
+      "sourceUrls": [
+        "https://cdn.nimbu.io/s/lmjzxez/assets/1630481308486/RAAK%20september%202021%20definitief.pdf",
+        "https://www.viabovag.nl/blog/de-juiste-ergonomische-zithouding-in-de-auto"
+      ],
+      "id": "q-10"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Hoe check je de afstand tot het stuur? (How do you check the distance to the steering wheel?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Armen volledig gestrekt op het stuur (Arms fully stretched on the wheel)"
+        },
+        {
+          "id": "b",
+          "label": "Zo dichtbij dat je buik het stuur bijna raakt (So close that your stomach almost touches it)"
+        },
+        {
+          "id": "c",
+          "label": "Rug en schouders tegen de rugleuning, polsen kunnen op de bovenkant van het stuur (Back and shoulders on the backrest, wrists reach the top of the wheel)"
+        },
+        {
+          "id": "d",
+          "label": "Je ellebogen tegen je ribben geklemd (Elbows clamped to your ribs)"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "Strek een arm uit: de pols hoort op het stuur te rusten. / Reach out: the wrist should rest on the wheel.",
+      "sourceUrls": [
+        "https://www.viabovag.nl/blog/de-juiste-ergonomische-zithouding-in-de-auto",
+        "https://mensura.be/shared/media/download/5e1c423785d34"
+      ],
+      "id": "q-11"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Hoe staan je ellebogen als je het stuur vasthoudt? (How are your elbows when you hold the wheel?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Volledig gestrekt (Fully stretched)"
+        },
+        {
+          "id": "b",
+          "label": "Zo scherp gebogen dat je handen tegen je borst zitten (Bent sharply, hands against your chest)"
+        },
+        {
+          "id": "c",
+          "label": "Dat hangt af van de gordel (It depends on the belt)"
+        },
+        {
+          "id": "d",
+          "label": "Licht gebogen, niet volledig gestrekt (Slightly bent, not fully stretched)"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "explanation": "Bij een correcte afstand zijn de ellebogen licht gebogen. / At the correct distance the elbows stay slightly bent.",
+      "sourceUrls": [
+        "https://www.viabovag.nl/blog/de-juiste-ergonomische-zithouding-in-de-auto"
+      ],
+      "id": "q-12"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Hoeveel ruimte laat je ongeveer tussen kniekuil en zitting? (Roughly how much space between the back of the knee and the seat?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "5 tot 10 cm (5 to 10 cm)"
+        },
+        {
+          "id": "b",
+          "label": "0 cm: de zitting raakt de kniekuil (0 cm: seat touches the knee)"
+        },
+        {
+          "id": "c",
+          "label": "20 tot 25 cm (20 to 25 cm)"
+        },
+        {
+          "id": "d",
+          "label": "Zoveel dat de benen gestrekt zijn (So much the legs are stretched)"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "ViaBOVAG noemt 5 tot 10 centimeter als ideale afstand. / The ideal gap is 5 to 10 centimetres.",
+      "sourceUrls": [
+        "https://www.viabovag.nl/blog/de-juiste-ergonomische-zithouding-in-de-auto"
+      ],
+      "id": "q-13"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Waarom stel je de hoofdsteun goed af? (Why do you adjust the headrest correctly?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Om beter in de spiegels te kunnen kijken (To see the mirrors better)"
+        },
+        {
+          "id": "b",
+          "label": "Om het risico op nekletsel (whiplash) bij een aanrijding te verkleinen (To reduce the risk of whiplash in a collision)"
+        },
+        {
+          "id": "c",
+          "label": "Zodat je langer kunt rijden zonder pauze (So you can drive longer without a break)"
+        },
+        {
+          "id": "d",
+          "label": "Om het stuur beter vast te houden (To hold the wheel better)"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Een onjuist afgestelde hoofdsteun verhoogt de kans op whiplash. / A wrongly set headrest increases the risk of whiplash.",
+      "sourceUrls": [
+        "https://swov.nl/node/14201"
+      ],
+      "id": "q-14"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Waar ligt de schoudergordel? (Where does the shoulder belt lie?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Tegen je hals zodat hij niet verschuift (Against your neck so it does not slip)"
+        },
+        {
+          "id": "b",
+          "label": "Onder je oksel (Under your armpit)"
+        },
+        {
+          "id": "c",
+          "label": "Midden over de schouder en het sleutelbeen, niet tegen de hals (Over the middle of the shoulder and collarbone, not on the neck)"
+        },
+        {
+          "id": "d",
+          "label": "Over je bovenarm (Over your upper arm)"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "De schoudergordel loopt midden over de schouder; de nek blijft vrij. / The shoulder belt runs over the middle of the shoulder, neck free.",
+      "sourceUrls": [
+        "https://ownersmanual.kia.com/docview/webhelp/doc/d0a825cf-35f9-4504-9a87-8ee21099256f/topics/t00110.html"
+      ],
+      "id": "q-15"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Waar ligt de heupgordel? (Where does the lap belt lie?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Losjes over de buik voor comfort (Loose over the stomach for comfort)"
+        },
+        {
+          "id": "b",
+          "label": "Over de ribben (Over the ribs)"
+        },
+        {
+          "id": "c",
+          "label": "Dat maakt niet uit zolang hij klikt (Does not matter as long as it clicks)"
+        },
+        {
+          "id": "d",
+          "label": "Laag en strak over het bekken, niet over de buik (Low and tight over the hips, not over the stomach)"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "explanation": "De gordel moet laag over het bekken liggen. / The belt must lie low across the pelvis.",
+      "sourceUrls": [
+        "https://ownersmanual.kia.com/docview/webhelp/doc/d0a825cf-35f9-4504-9a87-8ee21099256f/topics/t00110.html"
+      ],
+      "id": "q-16"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Je moet uitleggen hoe je je zithouding, hoofdsteun, spiegels en gordel instelt. (Explain how you set your seat, headrest, mirrors and belt.)",
+      "type": "freeText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Combineert zithouding (ViaBOVAG, Mensura), hoofdsteun (SWOV) en gordel (Kia). De examinator vraagt dit in woorden; zijn exacte zinnen kunnen verschillen. / Combines posture, headrest and belt; the examiner asks in words and his exact phrasing varies.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b",
+        "https://www.viabovag.nl/blog/de-juiste-ergonomische-zithouding-in-de-auto",
+        "https://mensura.be/shared/media/download/5e1c423785d34",
+        "https://ownersmanual.kia.com/docview/webhelp/doc/d0a825cf-35f9-4504-9a87-8ee21099256f/topics/t00110.html"
+      ],
+      "sampleAnswer": "NL: Ik zit ver naar achter met mijn onderrug tegen de rugleuning, hoog genoeg om goed te zien. Mijn pols kan op de bovenkant van het stuur rusten en mijn ellebogen blijven licht gebogen. Ik stel de hoofdsteun correct af. Ik stel de spiegels zo af dat ik alleen mijn hoofd moet draaien. Ik maak mijn gordel vast: de schoudergordel midden over de schouder, de heupgordel laag over het bekken. EN: I sit well back, lower back on the backrest; my wrist reaches the top of the wheel with slightly bent elbows; headrest set; mirrors set so I only turn my head; belt fastened (shoulder belt on the middle of the shoulder, lap belt low over the hips).",
+      "id": "q-17"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Wat is 'headrest' in het Nederlands? (What is 'headrest' in Dutch?)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Hoofdsteun. / Headrest.",
+      "sourceUrls": [
+        "https://swov.nl/node/14201"
+      ],
+      "acceptedAnswers": [
+        "hoofdsteun",
+        "de hoofdsteun"
+      ],
+      "id": "q-18"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Wat is 'backrest' in het Nederlands? (What is 'backrest' in Dutch?)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Rugleuning. / Backrest.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "acceptedAnswers": [
+        "rugleuning",
+        "de rugleuning",
+        "rugsteun"
+      ],
+      "id": "q-19"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Wat is 'veiligheidsgordel' in het Engels? (What is 'veiligheidsgordel' in English?)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Seat belt. In het Nederlands ook gewoon 'gordel'. / Also just 'gordel' in Dutch.",
+      "sourceUrls": [
+        "https://ownersmanual.kia.com/docview/webhelp/doc/d0a825cf-35f9-4504-9a87-8ee21099256f/topics/t00110.html"
+      ],
+      "acceptedAnswers": [
+        "seat belt",
+        "seatbelt",
+        "safety belt",
+        "the seat belt"
+      ],
+      "id": "q-20"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Welk nummer is het dagrijlicht? (Which number is the daytime running light?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "3"
+        },
+        {
+          "id": "b",
+          "label": "1"
+        },
+        {
+          "id": "c",
+          "label": "2"
+        },
+        {
+          "id": "d",
+          "label": "4"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Nummer 3 is het dagrijlicht. 1 koplamp, 2 richtingaanwijzer, 4 mistlicht. / 3 is the daytime running light.",
+      "sourceUrls": [
+        "https://www.vrt.be/vrtnws/nl/2021/12/28/dagrijlichten-en-dimlichten-op-je-auto-wat-is-het-verschil-en-h/"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/front-lights.svg",
+        "alt": "Schematic front of a car with five numbered parts: 1 headlamp, 2 indicator, 3 daytime running light, 4 front fog light, 5 windscreen wipers."
+      },
+      "id": "q-21"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Wat is nummer 4 op de afbeelding? (What is number 4 in the picture?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Dagrijlicht (Daytime running light)"
+        },
+        {
+          "id": "b",
+          "label": "Mistlicht vooraan (Front fog light)"
+        },
+        {
+          "id": "c",
+          "label": "Richtingaanwijzer (Indicator)"
+        },
+        {
+          "id": "d",
+          "label": "Koplamp (Headlamp)"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Nummer 4 is het mistlicht vooraan. / Number 4 is the front fog light.",
+      "sourceUrls": [
+        "https://www.autoscout24.be/nl/informeren/advies/kosten-en-wetgeving/wanneer-mistlichten-aan/"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/front-lights.svg",
+        "alt": "Schematic front of a car with five numbered parts: 1 headlamp, 2 indicator, 3 daytime running light, 4 front fog light, 5 windscreen wipers."
+      },
+      "id": "q-22"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Wat is nummer 2? Schrijf de Nederlandse term. (What is number 2? Type the Dutch term.)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Richtingaanwijzer (indicator). Je controleert links en rechts. / Indicator; you check left and right.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "acceptedAnswers": [
+        "richtingaanwijzer",
+        "richtingaanwijzers",
+        "knipperlicht",
+        "de richtingaanwijzer"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/front-lights.svg",
+        "alt": "Schematic front of a car with five numbered parts: 1 headlamp, 2 indicator, 3 daytime running light, 4 front fog light, 5 windscreen wipers."
+      },
+      "id": "q-23"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Wat is nummer 5? Schrijf de Nederlandse term. (What is number 5? Type the Dutch term.)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Ruitenwissers (windscreen wipers). Ze staan niet in de officiële lijst; ruitenwisservloeistof wel. / Wipers are not on the official list, washer fluid is.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "acceptedAnswers": [
+        "ruitenwissers",
+        "ruitenwisser",
+        "de ruitenwissers",
+        "wissers"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/front-lights.svg",
+        "alt": "Schematic front of a car with five numbered parts: 1 headlamp, 2 indicator, 3 daytime running light, 4 front fog light, 5 windscreen wipers."
+      },
+      "id": "q-24"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Welk nummer is het mistachterlicht? (Which number is the rear fog light?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "1"
+        },
+        {
+          "id": "b",
+          "label": "3"
+        },
+        {
+          "id": "c",
+          "label": "4"
+        },
+        {
+          "id": "d",
+          "label": "5"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "Nummer 4. Het mistachterlicht is rood en schijnt naar achteren. / Number 4 is the rear fog light.",
+      "sourceUrls": [
+        "https://www.autoscout24.be/nl/informeren/advies/kosten-en-wetgeving/wanneer-mistlichten-aan/"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/rear-lights.svg",
+        "alt": "Schematic rear of a car with six numbered parts: 1 tail and brake light, 2 indicator, 3 reversing light, 4 rear fog light, 5 number-plate light, 6 rear window demister."
+      },
+      "id": "q-25"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Wat is nummer 3 op de afbeelding? (What is number 3 in the picture?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Remlicht (Brake light)"
+        },
+        {
+          "id": "b",
+          "label": "Mistachterlicht (Rear fog light)"
+        },
+        {
+          "id": "c",
+          "label": "Nummerplaatverlichting (Number-plate light)"
+        },
+        {
+          "id": "d",
+          "label": "Achteruitrijlicht (Reversing light)"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "explanation": "Nummer 3 is het achteruitrijlicht. / Number 3 is the reversing light.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/rear-lights.svg",
+        "alt": "Schematic rear of a car with six numbered parts: 1 tail and brake light, 2 indicator, 3 reversing light, 4 rear fog light, 5 number-plate light, 6 rear window demister."
+      },
+      "id": "q-26"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Wat is nummer 5? Schrijf de Nederlandse term. (What is number 5? Type the Dutch term.)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Nummerplaatverlichting (number-plate light). / Number-plate light.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "acceptedAnswers": [
+        "nummerplaatverlichting",
+        "nummerplaatlicht",
+        "kentekenverlichting",
+        "nummerplaatlamp"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/rear-lights.svg",
+        "alt": "Schematic rear of a car with six numbered parts: 1 tail and brake light, 2 indicator, 3 reversing light, 4 rear fog light, 5 number-plate light, 6 rear window demister."
+      },
+      "id": "q-27"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Wat is nummer 6 in het Engels? (What is number 6 in English?)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Achterruitverwarming / ontwaseming achter. / Rear window demister.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "acceptedAnswers": [
+        "rear window demister",
+        "rear demister",
+        "rear window heater",
+        "rear window defroster",
+        "rear defroster",
+        "rear window heating",
+        "demister",
+        "rear demist"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/rear-lights.svg",
+        "alt": "Schematic rear of a car with six numbered parts: 1 tail and brake light, 2 indicator, 3 reversing light, 4 rear fog light, 5 number-plate light, 6 rear window demister."
+      },
+      "id": "q-28"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Wanneer gebruik je het mistachterlicht in België? (When do you use the rear fog light in Belgium?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bij mist of sneeuw met zicht minder dan 100 m (In fog or snow with visibility below 100 m)"
+        },
+        {
+          "id": "b",
+          "label": "Bij elke regenbui (In every rain shower)"
+        },
+        {
+          "id": "c",
+          "label": "Bij zicht minder dan 50 m, zoals in Nederland (Below 50 m, like in the Netherlands)"
+        },
+        {
+          "id": "d",
+          "label": "Altijd 's nachts (Always at night)"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "In België geldt 100 m. Nederland gebruikt 50 m. Zet het uit in een file: het verblindt. / Belgium uses 100 m, the Netherlands 50 m. Switch it off in queues.",
+      "sourceUrls": [
+        "https://www.autoscout24.be/nl/informeren/advies/kosten-en-wetgeving/wanneer-mistlichten-aan/",
+        "https://www.anwb.nl/auto/onderhoud-en-reparatie/verlichting/mistlampen"
+      ],
+      "id": "q-29"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Wat geldt voor de mistlichten vooraan? (What applies to the front fog lights?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Verplicht bij elke mist (Mandatory in any fog)"
+        },
+        {
+          "id": "b",
+          "label": "Nooit verplicht; toegestaan bij mist, sneeuwval of hevige regen (Never mandatory; allowed in fog, snowfall or heavy rain)"
+        },
+        {
+          "id": "c",
+          "label": "Verplicht in tunnels (Mandatory in tunnels)"
+        },
+        {
+          "id": "d",
+          "label": "Verboden in België (Forbidden in Belgium)"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Mistlichten vooraan zijn nooit verplicht. / Front fog lights are never mandatory.",
+      "sourceUrls": [
+        "https://www.autoscout24.be/nl/informeren/advies/kosten-en-wetgeving/wanneer-mistlichten-aan/"
+      ],
+      "id": "q-30"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Wanneer is dimlicht overdag verplicht? (When is dipped beam compulsory by day?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Enkel als het donker is (Only when it is dark)"
+        },
+        {
+          "id": "b",
+          "label": "Enkel op de autosnelweg (Only on the motorway)"
+        },
+        {
+          "id": "c",
+          "label": "Bij zicht minder dan 200 m (regen, hagel, sneeuw) en in tunnels (Visibility below 200 m and in tunnels)"
+        },
+        {
+          "id": "d",
+          "label": "Nooit overdag (Never by day)"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "Dimlicht is overdag verplicht bij zicht onder 200 m en in tunnels. / Dipped beam is compulsory below 200 m visibility and in tunnels.",
+      "sourceUrls": [
+        "https://www.vrt.be/vrtnws/nl/2021/12/28/dagrijlichten-en-dimlichten-op-je-auto-wat-is-het-verschil-en-h/"
+      ],
+      "id": "q-31"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Waarom volstaan dagrijlichten niet als dimlicht? (Why are daytime running lights not enough instead of dipped beam?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ze verlichten enkel de zijkant (They light only the side)"
+        },
+        {
+          "id": "b",
+          "label": "Ze mogen enkel 's nachts aan (They may only be on at night)"
+        },
+        {
+          "id": "c",
+          "label": "Ze doven vanzelf bij regen (They switch off by themselves in rain)"
+        },
+        {
+          "id": "d",
+          "label": "Ze branden enkel vooraan; de achterlichten blijven uit (They only light the front; the rear lights stay off)"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "explanation": "Dagrijlichten werken enkel vooraan. Bij slecht zicht moet je ook van achteren zichtbaar zijn. / DRLs are front only.",
+      "sourceUrls": [
+        "https://www.vrt.be/vrtnws/nl/2021/12/28/dagrijlichten-en-dimlichten-op-je-auto-wat-is-het-verschil-en-h/"
+      ],
+      "id": "q-32"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Welk symbool is de ontwaseming achter? (Which symbol is the rear demist?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "6"
+        },
+        {
+          "id": "b",
+          "label": "1"
+        },
+        {
+          "id": "c",
+          "label": "5"
+        },
+        {
+          "id": "d",
+          "label": "7"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Symbool 6. Symbool 5 is de voorruit. / Symbol 6 is the rear demist; 5 is the front.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/control-symbols.svg",
+        "alt": "Eight numbered dashboard control symbols: 1 dipped beam, 2 main beam, 3 front fog light, 4 rear fog light, 5 front demist, 6 rear demist, 7 hazard lights, 8 horn."
+      },
+      "id": "q-33"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Wat is symbool 2? (What is symbol 2?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Dimlicht (Dipped beam)"
+        },
+        {
+          "id": "b",
+          "label": "Grootlicht (Main beam)"
+        },
+        {
+          "id": "c",
+          "label": "Mistlicht vooraan (Front fog light)"
+        },
+        {
+          "id": "d",
+          "label": "Alarmlichten (Hazard lights)"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Symbool 2 is het grootlicht, meestal blauw op het dashboard. / Symbol 2 is the main beam.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/control-symbols.svg",
+        "alt": "Eight numbered dashboard control symbols: 1 dipped beam, 2 main beam, 3 front fog light, 4 rear fog light, 5 front demist, 6 rear demist, 7 hazard lights, 8 horn."
+      },
+      "id": "q-34"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Welke twee symbolen zijn ontwaseming? (Which two symbols are demisting?)",
+      "type": "multiple",
+      "options": [
+        {
+          "id": "a",
+          "label": "3"
+        },
+        {
+          "id": "b",
+          "label": "5"
+        },
+        {
+          "id": "c",
+          "label": "6"
+        },
+        {
+          "id": "d",
+          "label": "7"
+        }
+      ],
+      "correctOptionIds": [
+        "b",
+        "c"
+      ],
+      "explanation": "5 is ontwaseming voor, 6 is ontwaseming achter. / 5 is front, 6 is rear demisting.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/control-symbols.svg",
+        "alt": "Eight numbered dashboard control symbols: 1 dipped beam, 2 main beam, 3 front fog light, 4 rear fog light, 5 front demist, 6 rear demist, 7 hazard lights, 8 horn."
+      },
+      "id": "q-35"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Wat is symbool 1? Schrijf de Nederlandse term. (What is symbol 1? Type the Dutch term.)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Dimlicht (dipped beam). / Dipped beam.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "acceptedAnswers": [
+        "dimlicht",
+        "dimlichten",
+        "kruislicht",
+        "het dimlicht"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/control-symbols.svg",
+        "alt": "Eight numbered dashboard control symbols: 1 dipped beam, 2 main beam, 3 front fog light, 4 rear fog light, 5 front demist, 6 rear demist, 7 hazard lights, 8 horn."
+      },
+      "id": "q-36"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Wat is symbool 7? Schrijf de Nederlandse term. (What is symbol 7? Type the Dutch term.)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Alarmlichten (hazard lights). Dit staat niet in de officiële lijst. / Hazard lights are not on the official list.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "acceptedAnswers": [
+        "alarmlichten",
+        "alarmlicht",
+        "gevarenlichten",
+        "noodlichten",
+        "waarschuwingslichten",
+        "havarielichten"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/control-symbols.svg",
+        "alt": "Eight numbered dashboard control symbols: 1 dipped beam, 2 main beam, 3 front fog light, 4 rear fog light, 5 front demist, 6 rear demist, 7 hazard lights, 8 horn."
+      },
+      "id": "q-37"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Wat is symbool 8? Schrijf de Nederlandse term. (What is symbol 8? Type the Dutch term.)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Toeter (horn). / Horn.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "acceptedAnswers": [
+        "toeter",
+        "claxon",
+        "de toeter",
+        "hoorn"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/control-symbols.svg",
+        "alt": "Eight numbered dashboard control symbols: 1 dipped beam, 2 main beam, 3 front fog light, 4 rear fog light, 5 front demist, 6 rear demist, 7 hazard lights, 8 horn."
+      },
+      "id": "q-38"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Wat is 'remlicht' in het Engels? (What is 'remlicht' in English?)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Remlicht. Je laat zien dat de remlichten werken. / Brake light.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "acceptedAnswers": [
+        "brake light",
+        "brake lights",
+        "stop light",
+        "stoplight",
+        "brakelight",
+        "brake lamp"
+      ],
+      "id": "q-39"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Wat is 'main beam' in het Nederlands? (What is 'main beam' in Dutch?)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Grootlicht. / Main beam.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "acceptedAnswers": [
+        "grootlicht",
+        "groot licht",
+        "grootlichten",
+        "grote lichten",
+        "het grootlicht"
+      ],
+      "id": "q-40"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Leg uit welke lichten en bedieningen je systematisch controleert. (Explain which lights and controls you check every time.)",
+      "type": "freeText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Dit zijn de systematische controles. Hoe je de remlichten precies toont staat niet in de officiële bronnen; vraag je instructeur. / How you show the brake lights is not documented; ask your instructor.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "sampleAnswer": "NL: Ik zet de ontwaseming voor en achter aan, dan dimlicht, grootlicht en mistlicht, ik gebruik de toeter, ik zet links en rechts de richtingaanwijzer aan en ik toon dat de remlichten werken. EN: I switch on front and rear demisting, dipped beam, main beam and fog lights, I sound the horn, I use left and right indicators and I show the brake lights work.",
+      "id": "q-41"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Welk nummer is de oliepeilstok? (Which number is the oil dipstick?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "1"
+        },
+        {
+          "id": "b",
+          "label": "2"
+        },
+        {
+          "id": "c",
+          "label": "3"
+        },
+        {
+          "id": "d",
+          "label": "4"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Nummer 1 is de oliepeilstok. Nummer 2 is de olievuldop. / 1 is the dipstick; 2 is the oil filler cap.",
+      "sourceUrls": [
+        "https://www.kwik-fit.nl/kennisbank/gidsen/hoe-controleer-ik-het-oliepeil-van-mijn-auto"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/engine-bay.svg",
+        "alt": "Schematic top view of an engine bay with six numbered parts: 1 oil dipstick, 2 oil filler cap, 3 coolant reservoir, 4 brake fluid reservoir, 5 washer fluid reservoir, 6 battery."
+      },
+      "id": "q-42"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Welk nummer is het koelvloeistofreservoir? (Which number is the coolant reservoir?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "1"
+        },
+        {
+          "id": "b",
+          "label": "3"
+        },
+        {
+          "id": "c",
+          "label": "4"
+        },
+        {
+          "id": "d",
+          "label": "5"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Nummer 3. Het reservoir is doorzichtig met MIN en MAX. / 3 is the coolant reservoir.",
+      "sourceUrls": [
+        "https://www.anwb.nl/auto/onderhoud-en-reparatie/vloeistoffen/koelvloeistof-bijvullen"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/engine-bay.svg",
+        "alt": "Schematic top view of an engine bay with six numbered parts: 1 oil dipstick, 2 oil filler cap, 3 coolant reservoir, 4 brake fluid reservoir, 5 washer fluid reservoir, 6 battery."
+      },
+      "id": "q-43"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Wat is nummer 4 op de afbeelding? (What is number 4 in the picture?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ruitenwisservloeistof (Washer fluid)"
+        },
+        {
+          "id": "b",
+          "label": "Koelvloeistofreservoir (Coolant reservoir)"
+        },
+        {
+          "id": "c",
+          "label": "Remvloeistofreservoir (Brake fluid reservoir)"
+        },
+        {
+          "id": "d",
+          "label": "Olievuldop (Oil filler cap)"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "Nummer 4 is het remvloeistofreservoir. / Number 4 is the brake fluid reservoir.",
+      "sourceUrls": [
+        "https://ownersmanual.kia.com/docview/webhelp/doc/51376c09-deee-4dbe-b8c6-d4408a11ce66/topics/chapter8_9_1.html"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/engine-bay.svg",
+        "alt": "Schematic top view of an engine bay with six numbered parts: 1 oil dipstick, 2 oil filler cap, 3 coolant reservoir, 4 brake fluid reservoir, 5 washer fluid reservoir, 6 battery."
+      },
+      "id": "q-44"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Wat is nummer 5 in het Engels? (What is number 5 in English?)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Ruitenwisservloeistof / ruitensproeiervloeistof. / Washer fluid.",
+      "sourceUrls": [
+        "https://www.kwik-fit.nl/kennisbank/gidsen/hoe-vul-ik-mijn-ruitensproeiervloeistof-bij"
+      ],
+      "acceptedAnswers": [
+        "washer fluid",
+        "windscreen washer fluid",
+        "windshield washer fluid",
+        "wiper fluid",
+        "washer fluid reservoir",
+        "screenwash",
+        "washer reservoir"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/engine-bay.svg",
+        "alt": "Schematic top view of an engine bay with six numbered parts: 1 oil dipstick, 2 oil filler cap, 3 coolant reservoir, 4 brake fluid reservoir, 5 washer fluid reservoir, 6 battery."
+      },
+      "id": "q-45"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Wat is nummer 2? Schrijf de Nederlandse term. (What is number 2? Type the Dutch term.)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Olievuldop (oil filler cap). Niet verwarren met de peilstok. / Do not confuse it with the dipstick.",
+      "sourceUrls": [
+        "https://www.kwik-fit.nl/kennisbank/gidsen/hoe-controleer-ik-het-oliepeil-van-mijn-auto"
+      ],
+      "acceptedAnswers": [
+        "olievuldop",
+        "oliedop",
+        "vuldop",
+        "de olievuldop"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/engine-bay.svg",
+        "alt": "Schematic top view of an engine bay with six numbered parts: 1 oil dipstick, 2 oil filler cap, 3 coolant reservoir, 4 brake fluid reservoir, 5 washer fluid reservoir, 6 battery."
+      },
+      "id": "q-46"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Welke peilstok toont te weinig olie? (Which dipstick shows too little oil?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "A"
+        },
+        {
+          "id": "b",
+          "label": "B"
+        },
+        {
+          "id": "c",
+          "label": "C"
+        },
+        {
+          "id": "d",
+          "label": "Alle drie zijn goed (All three are fine)"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "A staat onder MIN: olie bijvullen. / A is below MIN: top up.",
+      "sourceUrls": [
+        "https://www.kwik-fit.nl/kennisbank/gidsen/hoe-controleer-ik-het-oliepeil-van-mijn-auto"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/dipstick-levels.svg",
+        "alt": "Three dipsticks side by side with MIN and MAX marks. A: oil film below MIN. B: oil film between MIN and MAX. C: oil film above MAX."
+      },
+      "id": "q-47"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Welke peilstok toont een correct oliepeil? (Which dipstick shows a correct oil level?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "A"
+        },
+        {
+          "id": "b",
+          "label": "B"
+        },
+        {
+          "id": "c",
+          "label": "C"
+        },
+        {
+          "id": "d",
+          "label": "Geen van de drie (None of them)"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "B staat tussen MIN en MAX. / B is between MIN and MAX.",
+      "sourceUrls": [
+        "https://www.kwik-fit.nl/kennisbank/gidsen/hoe-controleer-ik-het-oliepeil-van-mijn-auto"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/dipstick-levels.svg",
+        "alt": "Three dipsticks side by side with MIN and MAX marks. A: oil film below MIN. B: oil film between MIN and MAX. C: oil film above MAX."
+      },
+      "id": "q-48"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Peilstok C staat boven MAX. Is dat een probleem? (Dipstick C is above MAX. Is that a problem?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nee, meer olie is altijd beter (No, more oil is always better)"
+        },
+        {
+          "id": "b",
+          "label": "Nee, dat is het ideale peil (No, that is the ideal level)"
+        },
+        {
+          "id": "c",
+          "label": "Alleen in de winter (Only in winter)"
+        },
+        {
+          "id": "d",
+          "label": "Ja, te veel olie is ook schadelijk (Yes, too much oil is harmful too)"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "explanation": "Te veel olie is ook schadelijk. Het ideale peil ligt ongeveer halverwege MIN en MAX. / Too much oil is harmful; ideal is about halfway.",
+      "sourceUrls": [
+        "https://www.kwik-fit.nl/kennisbank/gidsen/hoe-controleer-ik-het-oliepeil-van-mijn-auto",
+        "https://www.anwb.nl/auto/onderhoud-en-reparatie/onderhoud-doe-het-zelf/oliepeil-controleren"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/dipstick-levels.svg",
+        "alt": "Three dipsticks side by side with MIN and MAX marks. A: oil film below MIN. B: oil film between MIN and MAX. C: oil film above MAX."
+      },
+      "id": "q-49"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Wat doe je als de peilstok onder MIN staat? (What do you do if the dipstick is below MIN?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Niets, een laag peil is beter (Nothing, low is better)"
+        },
+        {
+          "id": "b",
+          "label": "Olie aflaten tot MAX (Drain oil to MAX)"
+        },
+        {
+          "id": "c",
+          "label": "Olie bijvullen tot tussen MIN en MAX (Top up the oil to between MIN and MAX)"
+        },
+        {
+          "id": "d",
+          "label": "Doorrijden en later kijken (Keep driving, look later)"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "Vul bij tot tussen MIN en MAX. / Top up to between MIN and MAX.",
+      "sourceUrls": [
+        "https://www.kwik-fit.nl/kennisbank/gidsen/hoe-controleer-ik-het-oliepeil-van-mijn-auto"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/dipstick-levels.svg",
+        "alt": "Three dipsticks side by side with MIN and MAX marks. A: oil film below MIN. B: oil film between MIN and MAX. C: oil film above MAX."
+      },
+      "id": "q-50"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Wat is de juiste volgorde om het oliepeil te controleren? (What is the correct order to check the oil level?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Peilstok uittrekken en meteen aflezen (Pull and read straight away)"
+        },
+        {
+          "id": "b",
+          "label": "Motor laten draaien terwijl je aanleest (Read with the engine running)"
+        },
+        {
+          "id": "c",
+          "label": "Uittrekken, afvegen en niet terugsteken (Pull, wipe and do not reinsert)"
+        },
+        {
+          "id": "d",
+          "label": "Peilstok uittrekken, afvegen, helemaal terugduwen, opnieuw uittrekken en aflezen (Pull, wipe, push all the way in, pull again, read)"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "explanation": "De peilstok afvegen en terugsteken geeft een betrouwbare film om af te lezen. / Wiping and reinserting gives a reliable reading.",
+      "sourceUrls": [
+        "https://www.kwik-fit.nl/kennisbank/gidsen/hoe-controleer-ik-het-oliepeil-van-mijn-auto"
+      ],
+      "id": "q-51"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Wanneer controleer je het oliepeil best? (When is the best moment to check the oil?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Op een helling met draaiende motor (On a slope with the engine running)"
+        },
+        {
+          "id": "b",
+          "label": "Meteen na het rijden, heet en draaiend (Right after driving, hot and running)"
+        },
+        {
+          "id": "c",
+          "label": "Op vlakke grond, motor uit; koud of minstens 10 minuten na het rijden (Level ground, engine off, cold or 10+ minutes after driving)"
+        },
+        {
+          "id": "d",
+          "label": "Dat maakt niet uit (It does not matter)"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "Vlakke grond, motor uit en even wachten. / Level ground, engine off and wait.",
+      "sourceUrls": [
+        "https://www.anwb.nl/auto/onderhoud-en-reparatie/onderhoud-doe-het-zelf/oliepeil-controleren",
+        "https://www.kwik-fit.nl/kennisbank/gidsen/hoe-controleer-ik-het-oliepeil-van-mijn-auto"
+      ],
+      "id": "q-52"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Hoe controleer je de koelvloeistof? (How do you check the coolant?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "De dop openen bij een warme motor (Open the cap on a hot engine)"
+        },
+        {
+          "id": "b",
+          "label": "Met de oliepeilstok (With the oil dipstick)"
+        },
+        {
+          "id": "c",
+          "label": "Aan de kleur van de uitlaat (By the colour of the exhaust)"
+        },
+        {
+          "id": "d",
+          "label": "Koude motor, aflezen op het doorzichtige reservoir tussen MIN en MAX (Cold engine, read the see-through reservoir between MIN and MAX)"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "explanation": "Lees het niveau af op het reservoir. / Read the level on the reservoir.",
+      "sourceUrls": [
+        "https://www.anwb.nl/auto/onderhoud-en-reparatie/vloeistoffen/koelvloeistof-bijvullen"
+      ],
+      "id": "q-53"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Waarom open je de dop van de koelvloeistof niet bij een warme motor? (Why not open the coolant cap on a hot engine?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "De hete vloeistof kan eruit spuiten en brandwonden geven (The hot liquid can spray out and burn you)"
+        },
+        {
+          "id": "b",
+          "label": "De dop breekt dan af (The cap breaks off)"
+        },
+        {
+          "id": "c",
+          "label": "De motor slaat dan af (The engine stalls)"
+        },
+        {
+          "id": "d",
+          "label": "Het peil lijkt dan altijd verkeerd (The level always looks wrong)"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Open de dop nooit bij een warme motor. / Never open the cap when hot.",
+      "sourceUrls": [
+        "https://www.anwb.nl/auto/onderhoud-en-reparatie/vloeistoffen/koelvloeistof-bijvullen"
+      ],
+      "id": "q-54"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Het remvloeistofpeil zakt heel langzaam met de tijd. Wat betekent dat meestal? (The brake fluid level drops very slowly over time. What does it usually mean?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Altijd een lek (Always a leak)"
+        },
+        {
+          "id": "b",
+          "label": "Normaal: de remblokken slijten; bij een plotse, grote daling naar de garage (Normal: brake pads wear; a sudden large drop needs a workshop)"
+        },
+        {
+          "id": "c",
+          "label": "De vloeistof moet worden weggeschept (The fluid must be scooped out)"
+        },
+        {
+          "id": "d",
+          "label": "De motor is oververhit (The engine is overheating)"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Een trage daling volgt de slijtage van de remblokken. / A slow drop follows pad wear.",
+      "sourceUrls": [
+        "https://ownersmanual.kia.com/docview/webhelp/doc/51376c09-deee-4dbe-b8c6-d4408a11ce66/topics/chapter8_9_1.html"
+      ],
+      "id": "q-55"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Waaraan herken je de dop van de ruitensproeiervloeistof? (How do you recognise the washer fluid cap?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Een oliekannetje (An oil can)"
+        },
+        {
+          "id": "b",
+          "label": "Een thermometer in golven (A thermometer in waves)"
+        },
+        {
+          "id": "c",
+          "label": "Een voorruit met sproeiende vloeistof (A windscreen with spraying liquid)"
+        },
+        {
+          "id": "d",
+          "label": "Een cirkel met uitroepteken (A circle with an exclamation mark)"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "Het symbool van een voorruit met sproeivloeistof staat meestal op de dop. / The cap usually shows a windscreen with spray.",
+      "sourceUrls": [
+        "https://www.kwik-fit.nl/kennisbank/gidsen/hoe-vul-ik-mijn-ruitensproeiervloeistof-bij"
+      ],
+      "id": "q-56"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Wanneer controleer je de bandenspanning? (When do you check tyre pressure?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Net na een lange rit (Right after a long drive)"
+        },
+        {
+          "id": "b",
+          "label": "Alleen als de auto op een krik staat (Only with the car on a jack)"
+        },
+        {
+          "id": "c",
+          "label": "Nadat je lucht hebt afgelaten (After letting air out)"
+        },
+        {
+          "id": "d",
+          "label": "Met koude banden (With cold tyres)"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "explanation": "Meet met koude banden. / Measure cold.",
+      "sourceUrls": [
+        "https://www.anwb.nl/auto/onderhoud-en-reparatie/onderhoud-doe-het-zelf/banden",
+        "https://autorai.nl/bandenspanning-alles-wat-je-moet-weten/"
+      ],
+      "id": "q-57"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Waar vind je de juiste bandenspanning? (Where do you find the correct tyre pressure?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "In het instructieboekje en op een sticker in het portier of de tankklep (In the manual and on a sticker in the door frame or fuel flap)"
+        },
+        {
+          "id": "b",
+          "label": "Op de nummerplaat (On the number plate)"
+        },
+        {
+          "id": "c",
+          "label": "Op het rijbewijs (On the driving licence)"
+        },
+        {
+          "id": "d",
+          "label": "Op het dashboard na het starten (On the dashboard after starting)"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Sticker in portier of tankklep, en het instructieboekje. / Sticker in door or fuel flap, and the manual.",
+      "sourceUrls": [
+        "https://www.anwb.nl/auto/onderhoud-en-reparatie/onderhoud-doe-het-zelf/banden",
+        "https://autorai.nl/bandenspanning-alles-wat-je-moet-weten/"
+      ],
+      "id": "q-58"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Je banden zijn warm en de spanning lijkt te hoog. Wat doe je? (Your tyres are warm and the pressure looks too high. What do you do?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lucht aflaten tot de waarde klopt (Let air out until it matches)"
+        },
+        {
+          "id": "b",
+          "label": "Geen lucht aflaten; meet opnieuw als de banden koud zijn (Do not let air out; measure again when cold)"
+        },
+        {
+          "id": "c",
+          "label": "De banden extra opblazen (Inflate them further)"
+        },
+        {
+          "id": "d",
+          "label": "De waarde negeren (Ignore the value)"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Warme banden geven een hogere waarde. / Warm tyres read higher.",
+      "sourceUrls": [
+        "https://autorai.nl/bandenspanning-alles-wat-je-moet-weten/"
+      ],
+      "id": "q-59"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Wat is de wettelijke minimale profieldiepte in België? (What is the legal minimum tread depth in Belgium?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "1,0 mm (1.0 mm)"
+        },
+        {
+          "id": "b",
+          "label": "2,5 mm (2.5 mm)"
+        },
+        {
+          "id": "c",
+          "label": "1,6 mm (1.6 mm)"
+        },
+        {
+          "id": "d",
+          "label": "3,0 mm (3.0 mm)"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "Het minimum is 1,6 mm. / The minimum is 1.6 mm.",
+      "sourceUrls": [
+        "https://www.test-aankoop.be/mobiliteit/banden/antwoord-van-expert/bandengrip-verkeersveiligheid"
+      ],
+      "id": "q-60"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Welke doorsnede is helemaal versleten? (Which cross-section is worn out?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "A"
+        },
+        {
+          "id": "b",
+          "label": "B"
+        },
+        {
+          "id": "c",
+          "label": "Beide (Both)"
+        },
+        {
+          "id": "d",
+          "label": "Geen van beide (Neither)"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Bij B is het profiel gelijk met de slijtage-indicatoren. / On B the tread is level with the wear indicators.",
+      "sourceUrls": [
+        "https://www.test-aankoop.be/mobiliteit/banden/antwoord-van-expert/bandengrip-verkeersveiligheid"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/tyre-tread.svg",
+        "alt": "Two tyre tread cross-sections with orange wear indicators. A: new tyre with deep grooves. B: worn tyre whose tread is level with the wear indicators."
+      },
+      "id": "q-61"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Waar wijst 'TWI' op de bandenflank naartoe? (What does 'TWI' on the sidewall point to?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "De maximale snelheid (The maximum speed)"
+        },
+        {
+          "id": "b",
+          "label": "De productiedatum (The production date)"
+        },
+        {
+          "id": "c",
+          "label": "Het winterbandtype (The winter tyre type)"
+        },
+        {
+          "id": "d",
+          "label": "De slijtage-indicatoren in de groeven (The wear indicators in the grooves)"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "explanation": "TWI wijst naar de slijtage-indicatoren. / TWI marks the wear indicators.",
+      "sourceUrls": [
+        "https://www.test-aankoop.be/mobiliteit/banden/antwoord-van-expert/bandengrip-verkeersveiligheid"
+      ],
+      "id": "q-62"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Wat is 'tyre pressure' in het Nederlands? (What is 'tyre pressure' in Dutch?)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Bandenspanning. / Tyre pressure.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "acceptedAnswers": [
+        "bandenspanning",
+        "de bandenspanning",
+        "bandendruk"
+      ],
+      "id": "q-63"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Wat is 'engine oil' in het Nederlands? (What is 'engine oil' in Dutch?)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Motorolie. / Engine oil.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "acceptedAnswers": [
+        "motorolie",
+        "de motorolie",
+        "olie"
+      ],
+      "id": "q-64"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Wat is 'coolant' in het Nederlands? (What is 'coolant' in Dutch?)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Koelvloeistof. / Coolant.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "acceptedAnswers": [
+        "koelvloeistof",
+        "de koelvloeistof",
+        "koelmiddel",
+        "koelwater"
+      ],
+      "id": "q-65"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Wat is 'brake fluid' in het Nederlands? (What is 'brake fluid' in Dutch?)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Remvloeistof. / Brake fluid.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "acceptedAnswers": [
+        "remvloeistof",
+        "de remvloeistof"
+      ],
+      "id": "q-66"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Wat is 'bandenslijtage' in het Engels? (What is 'bandenslijtage' in English?)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Bandenslijtage. / Tyre wear.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ],
+      "acceptedAnswers": [
+        "tyre wear",
+        "tire wear",
+        "tyre tread wear",
+        "tread wear"
+      ],
+      "id": "q-67"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "De computer kiest 'motorolie'. Leg uit hoe je die controleert. (The computer picks 'engine oil'. Explain how you check it.)",
+      "type": "freeText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Procedure volgens Kwik-Fit en ANWB. / Procedure per Kwik-Fit and ANWB.",
+      "sourceUrls": [
+        "https://www.kwik-fit.nl/kennisbank/gidsen/hoe-controleer-ik-het-oliepeil-van-mijn-auto",
+        "https://www.anwb.nl/auto/onderhoud-en-reparatie/onderhoud-doe-het-zelf/oliepeil-controleren"
+      ],
+      "sampleAnswer": "NL: Ik open de motorkap, trek de oliepeilstok uit, veeg hem af, steek hem helemaal terug en trek hem opnieuw uit. Ik lees af of de olie tussen MIN en MAX staat; ideaal is ongeveer halverwege. Te weinig bijvullen, te veel is ook slecht. EN: Open the bonnet, pull the dipstick, wipe it, push it fully back, pull it again and read: between MIN and MAX, ideally about halfway.",
+      "id": "q-68"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "De computer kiest 'bandenspanning' of 'bandenslijtage'. Leg uit hoe je dat controleert. (Explain how you check tyre pressure or tyre wear.)",
+      "type": "freeText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Bronnen: ANWB, AutoRAI, Test-Aankoop. / Sources: ANWB, AutoRAI, Test-Aankoop.",
+      "sourceUrls": [
+        "https://www.anwb.nl/auto/onderhoud-en-reparatie/onderhoud-doe-het-zelf/banden",
+        "https://autorai.nl/bandenspanning-alles-wat-je-moet-weten/",
+        "https://www.test-aankoop.be/mobiliteit/banden/antwoord-van-expert/bandengrip-verkeersveiligheid"
+      ],
+      "sampleAnswer": "NL: Bandenspanning: met koude banden meten met de bandenspanningsmeter en vergelijken met de waarde op de sticker in het portier of de tankklep. Bandenslijtage: ik kijk naar de profieldiepte van een voorband (minimum 1,6 mm) en naar de slijtage-indicatoren (TWI); als het profiel gelijk is met de indicator is de band versleten. EN: Pressure: cold tyres, compare with the sticker. Wear: tread depth on a front tyre (minimum 1.6 mm) and the wear indicators.",
+      "id": "q-69"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "De computer kiest een vloeistof (rem-, koel- of ruitenwisservloeistof). Leg uit hoe je die controleert. (A fluid is picked. Explain how you check brake, coolant or washer fluid.)",
+      "type": "freeText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Bronnen: Kia, ANWB, Kwik-Fit. / Sources: Kia, ANWB, Kwik-Fit.",
+      "sourceUrls": [
+        "https://ownersmanual.kia.com/docview/webhelp/doc/51376c09-deee-4dbe-b8c6-d4408a11ce66/topics/chapter8_9_1.html",
+        "https://www.anwb.nl/auto/onderhoud-en-reparatie/vloeistoffen/koelvloeistof-bijvullen",
+        "https://www.kwik-fit.nl/kennisbank/gidsen/hoe-vul-ik-mijn-ruitensproeiervloeistof-bij"
+      ],
+      "sampleAnswer": "NL: Remvloeistof en koelvloeistof: ik lees het niveau af op het doorzichtige reservoir tussen MIN en MAX; de koelvloeistof alleen bij een koude motor, ik open de dop nooit warm. Ruitenwisservloeistof: ik zoek het reservoir met het symbool van een voorruit met sproeiers en controleer of het gevuld is. EN: Brake and coolant: read the see-through reservoir between MIN and MAX; coolant cold only. Washer fluid: reservoir with the windscreen-spray symbol, check it is filled.",
+      "id": "q-70"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "Wat betekent een rood lampje? (What does a red warning light mean?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nu handelen: veilig stoppen (Act now: stop safely)"
+        },
+        {
+          "id": "b",
+          "label": "Alles in orde (All is well)"
+        },
+        {
+          "id": "c",
+          "label": "Binnenkort laten nakijken (Have it checked soon)"
+        },
+        {
+          "id": "d",
+          "label": "Enkel informatie (Information only)"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Rood is dringend. / Red is urgent.",
+      "sourceUrls": [
+        "https://www.autoscout24.be/nl/informeren/advies/autotechnologie/wat-betekenen-de-lichtjes-op-uw-dashboard/",
+        "https://www.anwb.nl/auto/onderhoud-en-reparatie/autopech/waarschuwingslampjes"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/warning-lights.svg",
+        "alt": "Eight numbered dashboard warning symbols: 1 oil pressure (red), 2 battery (red), 3 brake system (red), 4 coolant temperature (red), 5 check engine (amber), 6 airbag (red), 7 tyre pressure (amber), 8 ABS (amber)."
+      },
+      "id": "q-71"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "Wat betekent een oranje lampje? (What does an orange warning light mean?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Onmiddellijk stoppen (Stop immediately)"
+        },
+        {
+          "id": "b",
+          "label": "Laat het binnenkort nakijken (Have it checked soon)"
+        },
+        {
+          "id": "c",
+          "label": "Een systeem werkt (A system is working)"
+        },
+        {
+          "id": "d",
+          "label": "Het grootlicht staat aan (Main beam is on)"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Oranje is een waarschuwing. / Orange is a caution.",
+      "sourceUrls": [
+        "https://www.autoscout24.be/nl/informeren/advies/autotechnologie/wat-betekenen-de-lichtjes-op-uw-dashboard/"
+      ],
+      "id": "q-72"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "Wat betekent een groen of blauw lampje? (What does a green or blue light mean?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je moet meteen stoppen (Stop at once)"
+        },
+        {
+          "id": "b",
+          "label": "De motor is defect (The engine is faulty)"
+        },
+        {
+          "id": "c",
+          "label": "Een systeem is actief of het is een informatielampje, zoals grootlicht (A system is on, or information such as main beam)"
+        },
+        {
+          "id": "d",
+          "label": "De accu is leeg (The battery is flat)"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "Groen en blauw zijn informatief. / Green and blue are informational.",
+      "sourceUrls": [
+        "https://www.autoscout24.be/nl/informeren/advies/autotechnologie/wat-betekenen-de-lichtjes-op-uw-dashboard/"
+      ],
+      "id": "q-73"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "Bij het starten branden alle lampjes kort. Waarom? (Why do all lights come on briefly at start?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Omdat er een storing is (Because of a fault)"
+        },
+        {
+          "id": "b",
+          "label": "Om de accu op te laden (To charge the battery)"
+        },
+        {
+          "id": "c",
+          "label": "Het zijn lampjes van de vorige rit (They are from the last trip)"
+        },
+        {
+          "id": "d",
+          "label": "Als lampjescontrole (As a bulb check)"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "explanation": "Het systeem test de lampjes bij het starten. / The system checks the bulbs at ignition.",
+      "sourceUrls": [
+        "https://www.autoscout24.be/nl/informeren/advies/autotechnologie/wat-betekenen-de-lichtjes-op-uw-dashboard/"
+      ],
+      "id": "q-74"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "Welk nummer is de oliedruk? (Which number is oil pressure?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "1"
+        },
+        {
+          "id": "b",
+          "label": "2"
+        },
+        {
+          "id": "c",
+          "label": "6"
+        },
+        {
+          "id": "d",
+          "label": "8"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Nummer 1. Rode oliedruk betekent stoppen. / 1 is oil pressure; red means stop.",
+      "sourceUrls": [
+        "https://www.autoscout24.be/nl/informeren/advies/autotechnologie/wat-betekenen-de-lichtjes-op-uw-dashboard/"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/warning-lights.svg",
+        "alt": "Eight numbered dashboard warning symbols: 1 oil pressure (red), 2 battery (red), 3 brake system (red), 4 coolant temperature (red), 5 check engine (amber), 6 airbag (red), 7 tyre pressure (amber), 8 ABS (amber)."
+      },
+      "id": "q-75"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "Wat is nummer 7? (What is number 7?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Airbag (Airbag)"
+        },
+        {
+          "id": "b",
+          "label": "Bandenspanning (Tyre pressure)"
+        },
+        {
+          "id": "c",
+          "label": "ABS (ABS)"
+        },
+        {
+          "id": "d",
+          "label": "Remsysteem (Brake system)"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Nummer 7 is de bandenspanning. / Number 7 is tyre pressure.",
+      "sourceUrls": [
+        "https://www.autoscout24.be/nl/informeren/advies/autotechnologie/wat-betekenen-de-lichtjes-op-uw-dashboard/"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/warning-lights.svg",
+        "alt": "Eight numbered dashboard warning symbols: 1 oil pressure (red), 2 battery (red), 3 brake system (red), 4 coolant temperature (red), 5 check engine (amber), 6 airbag (red), 7 tyre pressure (amber), 8 ABS (amber)."
+      },
+      "id": "q-76"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "Het oliedruklampje (nr. 1) brandt rood tijdens het rijden. Wat doe je? (The oil pressure light (no. 1) is red while driving. What do you do?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Doorrijden tot de volgende garage (Drive on to the next garage)"
+        },
+        {
+          "id": "b",
+          "label": "Olie bijvullen terwijl je rijdt (Top up oil while driving)"
+        },
+        {
+          "id": "c",
+          "label": "Veilig stoppen en de motor afzetten (Stop safely and switch off the engine)"
+        },
+        {
+          "id": "d",
+          "label": "Negeren: het is maar een melding (Ignore it)"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "Rood oliedruk of accu betekent stoppen. / Red oil pressure or battery means stop.",
+      "sourceUrls": [
+        "https://www.autoscout24.be/nl/informeren/advies/autotechnologie/wat-betekenen-de-lichtjes-op-uw-dashboard/",
+        "https://www.anwb.nl/auto/onderhoud-en-reparatie/autopech/waarschuwingslampjes"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/warning-lights.svg",
+        "alt": "Eight numbered dashboard warning symbols: 1 oil pressure (red), 2 battery (red), 3 brake system (red), 4 coolant temperature (red), 5 check engine (amber), 6 airbag (red), 7 tyre pressure (amber), 8 ABS (amber)."
+      },
+      "id": "q-77"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "Welke symbolen zijn oranje (laat binnenkort nakijken)? Kies er drie. (Which symbols are orange? Pick three.)",
+      "type": "multiple",
+      "options": [
+        {
+          "id": "a",
+          "label": "2"
+        },
+        {
+          "id": "b",
+          "label": "5"
+        },
+        {
+          "id": "c",
+          "label": "7"
+        },
+        {
+          "id": "d",
+          "label": "8"
+        }
+      ],
+      "correctOptionIds": [
+        "b",
+        "c",
+        "d"
+      ],
+      "explanation": "5 motorstoring, 7 bandenspanning en 8 ABS zijn oranje; 2 (accu) is rood. / 5, 7 and 8 are orange; 2 is red.",
+      "sourceUrls": [
+        "https://www.autoscout24.be/nl/informeren/advies/autotechnologie/wat-betekenen-de-lichtjes-op-uw-dashboard/"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/warning-lights.svg",
+        "alt": "Eight numbered dashboard warning symbols: 1 oil pressure (red), 2 battery (red), 3 brake system (red), 4 coolant temperature (red), 5 check engine (amber), 6 airbag (red), 7 tyre pressure (amber), 8 ABS (amber)."
+      },
+      "id": "q-78"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "Wat is 'oil pressure' in het Nederlands? (What is 'oil pressure' in Dutch?)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Oliedruk. / Oil pressure.",
+      "sourceUrls": [
+        "https://www.autoscout24.be/nl/informeren/advies/autotechnologie/wat-betekenen-de-lichtjes-op-uw-dashboard/"
+      ],
+      "acceptedAnswers": [
+        "oliedruk",
+        "de oliedruk",
+        "oliedruklampje"
+      ],
+      "id": "q-79"
+    }
+  ],
+  "notes": [
+    {
+      "id": "note-1",
+      "topicId": "t-1",
+      "text": "Het praktijkexamen B bij GOCA heeft twee delen: de risicoperceptietest op computer en de proef op de openbare weg. De proef bestaat uit voorafgaande controles, manoeuvres in beweging en zelfstandig rijden. (The practical exam has a computer risk perception test and a road test with three parts.) Een beëdigd tolk (Frans, Duits, Engels) mag mee op de proef maar mag niet je begeleider zijn.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ]
+    },
+    {
+      "id": "note-2",
+      "topicId": "t-2",
+      "text": "Bij de voorzorgen vraagt de examinator je de motor uit te zetten, uit te stappen, weer in te stappen en de auto af te sluiten. Bij de instellingen leg je uit hoe je correct zit en hoe je rugleuning, hoofdsteun en spiegels instelt, en je maakt je gordel vast. (You explain, in words, how you set the seat, backrest, headrest and mirrors.)",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b",
+        "https://codex.vlaanderen.be/PrintDocument.ashx?id=1025928"
+      ]
+    },
+    {
+      "id": "note-3",
+      "topicId": "t-3",
+      "text": "Systematisch (altijd): ontwaseming voor en achter, dimlicht, grootlicht, mistlicht, toeter, richtingaanwijzers en remlichten. Ruitenwissers staan niet in de officiële lijst; ruitenwisservloeistof wel. In België gebruik je het mistachterlicht bij mist of sneeuw met zicht onder 100 m (in Nederland 50 m). Hoe je de remlichten precies toont, staat niet in de officiële bronnen: vraag het je rij-instructeur.",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b",
+        "https://www.autoscout24.be/nl/informeren/advies/kosten-en-wetgeving/wanneer-mistlichten-aan/",
+        "https://www.anwb.nl/auto/onderhoud-en-reparatie/verlichting/mistlampen"
+      ]
+    },
+    {
+      "id": "note-4",
+      "topicId": "t-4",
+      "text": "Steekproef: de computer kiest één item: slijtage van een voorband, bandenspanning, motorolie, remvloeistof, koelvloeistof of ruitenwisservloeistof. 2 min 30 s als de motorkap open moet, anders 1 min 30 s. Waar alles zit verschilt per auto: zoek het op de examenwagen zelf. (The layout differs per car; find each part on your own exam car.)",
+      "sourceUrls": [
+        "https://autoveiligheid.be/downloaden/cat-b"
+      ]
+    },
+    {
+      "id": "note-5",
+      "topicId": "t-5",
+      "text": "Dashboardlampjes staan niet op de officiële examenlijst. Rood: nu handelen (veilig stoppen). Oranje: binnenkort laten nakijken. Groen: systeem actief. Blauw: informatie. Bij het starten branden de lampjes kort als lampjescontrole.",
+      "sourceUrls": [
+        "https://www.autoscout24.be/nl/informeren/advies/autotechnologie/wat-betekenen-de-lichtjes-op-uw-dashboard/",
+        "https://www.anwb.nl/auto/onderhoud-en-reparatie/autopech/waarschuwingslampjes"
+      ]
+    }
+  ]
+}

@@ -6,7 +6,7 @@ description: |
   and project recommendations.
 
 engine: copilot
-model: small-agent
+model: gpt-5-mini
 
 on:
   schedule: weekly

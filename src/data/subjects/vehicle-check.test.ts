@@ -70,6 +70,20 @@ describe('vehicle-check subject', () => {
     }
   });
 
+  // ponytail: "photo" = any non-SVG image (the SVGs are the app's own diagrams).
+  // If the learner adds their own photos, give them a credit-free path here.
+  it('credits every photo with author, licence and a listed source', () => {
+    const listed = new Set(subject!.sources.map((s) => s.url));
+    const photos = subject!.questions.filter((q) => q.image && !q.image.src.endsWith('.svg'));
+    expect(photos.length).toBeGreaterThan(0);
+    for (const q of photos) {
+      expect(q.explanation, q.id).toMatch(/Foto \/ Photo: .+, (CC|Public domain)/);
+      const commons = q.sourceUrls.filter((u) => u.startsWith('https://commons.wikimedia.org/wiki/File:'));
+      expect(commons.length, q.id).toBeGreaterThan(0);
+      for (const u of commons) expect(listed, `${q.id} ${u}`).toContain(u);
+    }
+  });
+
   it('makes every prompt bilingual (Dutch with an English rendering in brackets)', () => {
     for (const q of subject!.questions) {
       expect(q.prompt, q.id).toMatch(/\(.+\)\s*$/);

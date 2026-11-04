@@ -14,7 +14,7 @@ Question images SHALL be either original files created for the app or photograph
 ## ADDED Requirements
 
 ### Requirement: Engine-bay questions use a real photo
-The engine-bay questions SHALL use a photograph of a real car with numbered markers, and the numbers named in prompts and answers SHALL match the markers in the photo.
+The engine-bay questions SHALL use a photograph of a real car with numbered markers, and the numbers named in prompts and answers SHALL match the markers in the photo. A part that is not visible in the photo (e.g. the washer fluid cap) MAY keep the schematic diagram, using the same number as the diagram.
 
 #### Scenario: Marker numbers match the questions
 - **WHEN** a question asks "Welk nummer is de oliepeilstok?"

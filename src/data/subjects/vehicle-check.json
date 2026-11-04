@@ -131,6 +131,24 @@
       "label": "kwb - correcte zithouding",
       "url": "https://cdn.nimbu.io/s/lmjzxez/assets/1630481308486/RAAK%20september%202021%20definitief.pdf",
       "usageNote": "Belgian driver organisation: lower back against the backrest, check distance to pedals."
+    },
+    {
+      "id": "src-photo-1",
+      "label": "Wikimedia Commons - Opel Corsa E Motorraum (KarleHorn, CC BY 3.0)",
+      "url": "https://commons.wikimedia.org/wiki/File:Opel_Corsa_E_Motorraum.JPG",
+      "usageNote": "Engine-bay photo; numbered markers added. Licence: https://creativecommons.org/licenses/by/3.0"
+    },
+    {
+      "id": "src-photo-2",
+      "label": "Wikimedia Commons - Engine oil dipstick (Dvortygirl, CC BY-SA 3.0)",
+      "url": "https://commons.wikimedia.org/wiki/File:Engine_oil_dipstick.JPG",
+      "usageNote": "Dipstick photo, resized. Licence: https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    {
+      "id": "src-photo-3",
+      "label": "Wikimedia Commons - Autoreifen mit Verschleissanzeige (Quallyptus, CC0)",
+      "url": "https://commons.wikimedia.org/wiki/File:Autoreifen_mit_Verschlei%C3%9Fanzeige.JPG",
+      "usageNote": "Tyre tread photo with TWI marking; ring and number added. Licence: CC0 1.0"
     }
   ],
   "topics": [
@@ -1489,13 +1507,14 @@
       "correctOptionIds": [
         "a"
       ],
-      "explanation": "Nummer 1 is de oliepeilstok. Nummer 2 is de olievuldop. / 1 is the dipstick; 2 is the oil filler cap.",
+      "explanation": "Nummer 1 is de oliepeilstok. Nummer 2 is de olievuldop. / 1 is the dipstick; 2 is the oil filler cap. Foto / Photo: KarleHorn, CC BY 3.0, Wikimedia Commons (nummers toegevoegd / numbers added).",
       "sourceUrls": [
-        "https://www.kwik-fit.nl/kennisbank/gidsen/hoe-controleer-ik-het-oliepeil-van-mijn-auto"
+        "https://www.kwik-fit.nl/kennisbank/gidsen/hoe-controleer-ik-het-oliepeil-van-mijn-auto",
+        "https://commons.wikimedia.org/wiki/File:Opel_Corsa_E_Motorraum.JPG"
       ],
       "image": {
-        "src": "/images/vehicle-check/engine-bay.svg",
-        "alt": "Schematic top view of an engine bay with six numbered parts: 1 oil dipstick, 2 oil filler cap, 3 coolant reservoir, 4 brake fluid reservoir, 5 washer fluid reservoir, 6 battery."
+        "src": "/images/vehicle-check/engine-bay-photo.jpg",
+        "alt": "Photo of a real engine bay (Opel Corsa E, bonnet open, seen from the front) with numbered markers: 1 oil dipstick (yellow loop), 2 oil filler cap (yellow), 3 coolant reservoir (pressure cap with warning symbol), 4 brake fluid reservoir, 6 battery."
       },
       "id": "q-42"
     },
@@ -1518,19 +1537,20 @@
         },
         {
           "id": "d",
-          "label": "5"
+          "label": "6"
         }
       ],
       "correctOptionIds": [
         "b"
       ],
-      "explanation": "Nummer 3. Het reservoir is doorzichtig met MIN en MAX. / 3 is the coolant reservoir.",
+      "explanation": "Nummer 3. Het reservoir is doorzichtig met MIN en MAX. / 3 is the coolant reservoir. Foto / Photo: KarleHorn, CC BY 3.0, Wikimedia Commons (nummers toegevoegd / numbers added).",
       "sourceUrls": [
-        "https://www.anwb.nl/auto/onderhoud-en-reparatie/vloeistoffen/koelvloeistof-bijvullen"
+        "https://www.anwb.nl/auto/onderhoud-en-reparatie/vloeistoffen/koelvloeistof-bijvullen",
+        "https://commons.wikimedia.org/wiki/File:Opel_Corsa_E_Motorraum.JPG"
       ],
       "image": {
-        "src": "/images/vehicle-check/engine-bay.svg",
-        "alt": "Schematic top view of an engine bay with six numbered parts: 1 oil dipstick, 2 oil filler cap, 3 coolant reservoir, 4 brake fluid reservoir, 5 washer fluid reservoir, 6 battery."
+        "src": "/images/vehicle-check/engine-bay-photo.jpg",
+        "alt": "Photo of a real engine bay (Opel Corsa E, bonnet open, seen from the front) with numbered markers: 1 oil dipstick (yellow loop), 2 oil filler cap (yellow), 3 coolant reservoir (pressure cap with warning symbol), 4 brake fluid reservoir, 6 battery."
       },
       "id": "q-43"
     },
@@ -1559,13 +1579,14 @@
       "correctOptionIds": [
         "c"
       ],
-      "explanation": "Nummer 4 is het remvloeistofreservoir. / Number 4 is the brake fluid reservoir.",
+      "explanation": "Nummer 4 is het remvloeistofreservoir. / Number 4 is the brake fluid reservoir. Foto / Photo: KarleHorn, CC BY 3.0, Wikimedia Commons (nummers toegevoegd / numbers added).",
       "sourceUrls": [
-        "https://ownersmanual.kia.com/docview/webhelp/doc/51376c09-deee-4dbe-b8c6-d4408a11ce66/topics/chapter8_9_1.html"
+        "https://ownersmanual.kia.com/docview/webhelp/doc/51376c09-deee-4dbe-b8c6-d4408a11ce66/topics/chapter8_9_1.html",
+        "https://commons.wikimedia.org/wiki/File:Opel_Corsa_E_Motorraum.JPG"
       ],
       "image": {
-        "src": "/images/vehicle-check/engine-bay.svg",
-        "alt": "Schematic top view of an engine bay with six numbered parts: 1 oil dipstick, 2 oil filler cap, 3 coolant reservoir, 4 brake fluid reservoir, 5 washer fluid reservoir, 6 battery."
+        "src": "/images/vehicle-check/engine-bay-photo.jpg",
+        "alt": "Photo of a real engine bay (Opel Corsa E, bonnet open, seen from the front) with numbered markers: 1 oil dipstick (yellow loop), 2 oil filler cap (yellow), 3 coolant reservoir (pressure cap with warning symbol), 4 brake fluid reservoir, 6 battery."
       },
       "id": "q-44"
     },
@@ -1600,9 +1621,10 @@
       "type": "shortText",
       "options": [],
       "correctOptionIds": [],
-      "explanation": "Olievuldop (oil filler cap). Niet verwarren met de peilstok. / Do not confuse it with the dipstick.",
+      "explanation": "Olievuldop (oil filler cap). Niet verwarren met de peilstok. / Do not confuse it with the dipstick. Foto / Photo: KarleHorn, CC BY 3.0, Wikimedia Commons (nummers toegevoegd / numbers added).",
       "sourceUrls": [
-        "https://www.kwik-fit.nl/kennisbank/gidsen/hoe-controleer-ik-het-oliepeil-van-mijn-auto"
+        "https://www.kwik-fit.nl/kennisbank/gidsen/hoe-controleer-ik-het-oliepeil-van-mijn-auto",
+        "https://commons.wikimedia.org/wiki/File:Opel_Corsa_E_Motorraum.JPG"
       ],
       "acceptedAnswers": [
         "olievuldop",
@@ -1611,8 +1633,8 @@
         "de olievuldop"
       ],
       "image": {
-        "src": "/images/vehicle-check/engine-bay.svg",
-        "alt": "Schematic top view of an engine bay with six numbered parts: 1 oil dipstick, 2 oil filler cap, 3 coolant reservoir, 4 brake fluid reservoir, 5 washer fluid reservoir, 6 battery."
+        "src": "/images/vehicle-check/engine-bay-photo.jpg",
+        "alt": "Photo of a real engine bay (Opel Corsa E, bonnet open, seen from the front) with numbered markers: 1 oil dipstick (yellow loop), 2 oil filler cap (yellow), 3 coolant reservoir (pressure cap with warning symbol), 4 brake fluid reservoir, 6 battery."
       },
       "id": "q-46"
     },
@@ -2554,6 +2576,78 @@
         "oliedruklampje"
       ],
       "id": "q-79"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Wat trekt deze persoon uit de motor? (What is this person pulling out of the engine?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "De oliepeilstok (The oil dipstick)"
+        },
+        {
+          "id": "b",
+          "label": "De olievuldop (The oil filler cap)"
+        },
+        {
+          "id": "c",
+          "label": "De dop van het koelvloeistofreservoir (The coolant reservoir cap)"
+        },
+        {
+          "id": "d",
+          "label": "De dop van het remvloeistofreservoir (The brake fluid reservoir cap)"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Dit is de oliepeilstok: een lange metalen stok met een (vaak gele) lus als handgreep. Trek hem uit, veeg hem af, steek hem terug en lees het peil tussen MIN en MAX. / This is the oil dipstick: pull it out, wipe it, put it back and read the level between MIN and MAX. Foto / Photo: Dvortygirl, CC BY-SA 3.0, Wikimedia Commons.",
+      "sourceUrls": [
+        "https://www.kwik-fit.nl/kennisbank/gidsen/hoe-controleer-ik-het-oliepeil-van-mijn-auto",
+        "https://commons.wikimedia.org/wiki/File:Engine_oil_dipstick.JPG"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/dipstick-photo.jpg",
+        "alt": "Photo of a hand pulling a yellow-handled oil dipstick marked ENGINE OIL out of its tube in an engine bay."
+      },
+      "id": "q-80"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Waar wijst nummer 1 naar? (What does number 1 point to?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "De bandenspanning (The tyre pressure)"
+        },
+        {
+          "id": "b",
+          "label": "Het productiejaar van de band (The production year of the tyre)"
+        },
+        {
+          "id": "c",
+          "label": "De TWI-markering: daar zit een slijtage-indicator in de groef (The TWI mark: a tread wear indicator sits in the groove there)"
+        },
+        {
+          "id": "d",
+          "label": "De maximale snelheid van de band (The speed rating of the tyre)"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "TWI = Tread Wear Indicator. De letters tonen waar een verhoogd blokje in de groef zit. Is het profiel even hoog als dat blokje, dan is de band versleten (minimum 1,6 mm in België). / TWI shows where a raised bar sits in the groove; tread level with the bar means the tyre is worn out (1.6 mm minimum in Belgium). Foto / Photo: Quallyptus, CC0, Wikimedia Commons (markering toegevoegd / marking added).",
+      "sourceUrls": [
+        "https://www.test-aankoop.be/mobiliteit/banden/antwoord-van-expert/bandengrip-verkeersveiligheid",
+        "https://commons.wikimedia.org/wiki/File:Autoreifen_mit_Verschlei%C3%9Fanzeige.JPG"
+      ],
+      "image": {
+        "src": "/images/vehicle-check/tyre-twi-photo.jpg",
+        "alt": "Close-up photo of a car tyre tread; number 1 points to the small letters TWI on the tyre shoulder, marking the tread wear indicator."
+      },
+      "id": "q-81"
     }
   ],
   "notes": [

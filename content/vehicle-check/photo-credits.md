@@ -11,7 +11,7 @@ All photos are from Wikimedia Commons under a free licence. They were copied int
 
 ## Marker numbers on the engine-bay photo
 
-They use the numbers of the former schematic diagram (`engine-bay.svg`, now removed because no question uses it):
+The engine-bay questions number the parts 1 to 6. This photo carries these markers:
 
 1. Oliepeilstok / oil dipstick (yellow loop)
 2. Olievuldop / oil filler cap (yellow)

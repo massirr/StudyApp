@@ -1,6 +1,6 @@
 import { describe, expect, it, vi, beforeEach } from 'vitest';
 import { z } from 'zod';
-import { registerTools } from './tools';
+import { registerTools, type ToolResult } from './tools';
 import { validateSubject } from '../src/data/subjects/schema';
 
 // Mock the github layer so tests never touch the network
@@ -26,12 +26,16 @@ const baseSubject = {
   notes: [],
 };
 
+// Handlers as the tests call them: loosely typed args, typed result.
+// The server hands each handler args typed from its own zod schema; `never` accepts any of them.
+type Handler = (args: Record<string, unknown>) => Promise<ToolResult>;
+
 // Fake server that records registered handlers by tool name
 function makeFakeServer() {
-  const handlers: Record<string, (args: any) => Promise<any>> = {};
+  const handlers: Record<string, Handler> = {};
   const server = {
-    tool(_name: string, _desc: string, _schema: unknown, run: (args: any) => Promise<any>) {
-      handlers[_name] = run;
+    tool(name: string, _desc: string, _schema: unknown, run: (args: never) => Promise<ToolResult>) {
+      handlers[name] = run as Handler;
     },
   };
   return { server, handlers };
@@ -39,18 +43,18 @@ function makeFakeServer() {
 
 // Schema-validating server: mimics real MCP behavior (schema parsed before handler runs)
 function makeValidatingServer() {
-  const handlers: Record<string, (args: any) => Promise<any>> = {};
+  const handlers: Record<string, Handler> = {};
   const schemas: Record<string, z.ZodTypeAny> = {};
   const server = {
-    tool(_name: string, _desc: string, _schema: unknown, run: (args: any) => Promise<any>) {
-      handlers[_name] = run;
-      schemas[_name] = z.object(_schema as Record<string, z.ZodTypeAny>);
+    tool(name: string, _desc: string, schema: unknown, run: (args: never) => Promise<ToolResult>) {
+      handlers[name] = run as Handler;
+      schemas[name] = z.object(schema as Record<string, z.ZodTypeAny>);
     },
   };
-  const call = async (name: string, args: any) => {
+  const call = async (name: string, args: unknown): Promise<ToolResult> => {
     const parsed = schemas[name].safeParse(args);
     if (!parsed.success) return { content: [{ type: 'text', text: parsed.error.message }], isError: true };
-    return handlers[name](parsed.data);
+    return handlers[name](parsed.data as Record<string, unknown>);
   };
   return { server, call };
 }

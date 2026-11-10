@@ -149,6 +149,12 @@
       "label": "Wikimedia Commons - Autoreifen mit Verschleissanzeige (Quallyptus, CC0)",
       "url": "https://commons.wikimedia.org/wiki/File:Autoreifen_mit_Verschlei%C3%9Fanzeige.JPG",
       "usageNote": "Tyre tread photo with TWI marking; ring and number added. Licence: CC0 1.0"
+    },
+    {
+      "id": "src-photo-4",
+      "label": "Wikimedia Commons - Opel Corsa-e engine bay seen from top (Harald Linden, CC BY-SA 4.0)",
+      "url": "https://commons.wikimedia.org/wiki/File:Opel_Corsa-e_engine_bay_seen_from_top.jpg",
+      "usageNote": "Washer-cap photo; cropped, marker 5 added. Licence: https://creativecommons.org/licenses/by-sa/4.0"
     }
   ],
   "topics": [
@@ -1596,9 +1602,10 @@
       "type": "shortText",
       "options": [],
       "correctOptionIds": [],
-      "explanation": "Ruitenwisservloeistof / ruitensproeiervloeistof. / Washer fluid.",
+      "explanation": "Ruitenwisservloeistof / ruitensproeiervloeistof. Op de foto is dat de blauwe dop met het ruitensproeiersymbool. / Washer fluid. In the photo it is the blue cap with the windscreen-washer symbol. Foto / Photo: Harald Linden, CC BY-SA 4.0, Wikimedia Commons (elektrische Opel Corsa-e; uitsnede en nummer toegevoegd / electric Opel Corsa-e; cropped, number added).",
       "sourceUrls": [
-        "https://www.kwik-fit.nl/kennisbank/gidsen/hoe-vul-ik-mijn-ruitensproeiervloeistof-bij"
+        "https://www.kwik-fit.nl/kennisbank/gidsen/hoe-vul-ik-mijn-ruitensproeiervloeistof-bij",
+        "https://commons.wikimedia.org/wiki/File:Opel_Corsa-e_engine_bay_seen_from_top.jpg"
       ],
       "acceptedAnswers": [
         "washer fluid",
@@ -1610,8 +1617,8 @@
         "washer reservoir"
       ],
       "image": {
-        "src": "/images/vehicle-check/engine-bay.svg",
-        "alt": "Schematic top view of an engine bay with six numbered parts: 1 oil dipstick, 2 oil filler cap, 3 coolant reservoir, 4 brake fluid reservoir, 5 washer fluid reservoir, 6 battery."
+        "src": "/images/vehicle-check/washer-cap-photo.jpg",
+        "alt": "Photo of part of an engine bay (Opel Corsa-e, seen from above) with a numbered marker: 5 points to the blue washer fluid cap with a windscreen-washer symbol, below the grey coolant reservoir."
       },
       "id": "q-45"
     },

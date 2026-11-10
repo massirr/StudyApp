@@ -4,13 +4,22 @@ import { validateSubject } from '../src/data/subjects/schema.js';
 import { readSubject, commitSubject, listSubjectSlugs } from './github.js';
 import * as m from './core/mutations.js';
 
-// ponytail: own minimal interface so this file is unit-testable without mcp-handler
-type Server = {
-  tool: (name: string, desc: string, schema: unknown, run: (args: any) => Promise<any>) => void;
+export type ToolResult = { content: { type: 'text'; text: string }[]; isError?: boolean };
+
+// ponytail: own minimal interface so this file is unit-testable without mcp-handler.
+// Generic over the zod shape so each handler's args are typed from its own schema.
+export type Server = {
+  tool: <S extends z.ZodRawShape>(
+    name: string,
+    desc: string,
+    schema: S,
+    run: (args: z.infer<z.ZodObject<S>>) => Promise<ToolResult>,
+  ) => void;
 };
 
-const ok = (data: unknown) => ({ content: [{ type: 'text', text: JSON.stringify(data, null, 2) }] });
-const fail = (msg: string) => ({ content: [{ type: 'text', text: `Error: ${msg}` }], isError: true });
+const ok = (data: unknown): ToolResult => ({ content: [{ type: 'text', text: JSON.stringify(data, null, 2) }] });
+const fail = (msg: string): ToolResult => ({ content: [{ type: 'text', text: `Error: ${msg}` }], isError: true });
+const errorMessage = (e: unknown) => (e instanceof Error ? e.message : String(e));
 
 // Read → mutate → validate → commit. validateSubject runs twice (trust boundary on read, policy on write).
 async function edit(slug: string, message: string, fn: (s: Subject) => Subject) {
@@ -39,13 +48,13 @@ export function registerTools(server: Server) {
   server.tool('list_subjects', 'List all subject slugs', {},
     async () => {
       try { return ok(await listSubjectSlugs()); }
-      catch (e: any) { return fail(e.message); }
+      catch (e) { return fail(errorMessage(e)); }
     });
 
   server.tool('get_subject', 'Read a subject by slug', { subject: z.string() },
     async ({ subject }) => {
       try { return ok((await readSubject(subject)).subject); }
-      catch (e: any) { return fail(e.message); }
+      catch (e) { return fail(errorMessage(e)); }
     });
 
   // ── subject ────────────────────────────────────────────────────────────────
@@ -64,7 +73,7 @@ export function registerTools(server: Server) {
         const next = validateSubject(m.createSubject(input));
         await commitSubject(input.slug, next, undefined, `mcp: create subject ${input.slug}`);
         return ok(next);
-      } catch (e: any) { return fail(e.message); }
+      } catch (e) { return fail(errorMessage(e)); }
     });
 
   server.tool('update_subject', 'Update top-level fields on a subject',
@@ -79,7 +88,7 @@ export function registerTools(server: Server) {
     },
     async ({ subject, patch }) => {
       try { return ok(await edit(subject, `mcp: update subject ${subject}`, (s) => m.updateSubject(s, patch))); }
-      catch (e: any) { return fail(e.message); }
+      catch (e) { return fail(errorMessage(e)); }
     });
 
   // ── topics ─────────────────────────────────────────────────────────────────
@@ -98,7 +107,7 @@ export function registerTools(server: Server) {
     },
     async ({ subject, topic }) => {
       try { return ok(await edit(subject, `mcp: add topic`, (s) => m.addTopic(s, topic))); }
-      catch (e: any) { return fail(e.message); }
+      catch (e) { return fail(errorMessage(e)); }
     });
 
   server.tool('update_topic', 'Update fields on a topic',
@@ -116,7 +125,7 @@ export function registerTools(server: Server) {
     },
     async ({ subject, id, patch }) => {
       try { return ok(await edit(subject, `mcp: update topic ${id}`, (s) => m.updateTopic(s, id, patch))); }
-      catch (e: any) { return fail(e.message); }
+      catch (e) { return fail(errorMessage(e)); }
     });
 
   // ── questions ──────────────────────────────────────────────────────────────
@@ -125,7 +134,7 @@ export function registerTools(server: Server) {
     { subject: z.string(), question: QuestionSchema },
     async ({ subject, question }) => {
       try { return ok(await edit(subject, `mcp: add question`, (s) => m.addQuestion(s, question))); }
-      catch (e: any) { return fail(e.message); }
+      catch (e) { return fail(errorMessage(e)); }
     });
 
   server.tool('update_question', 'Update fields on a question',
@@ -145,7 +154,7 @@ export function registerTools(server: Server) {
     },
     async ({ subject, id, patch }) => {
       try { return ok(await edit(subject, `mcp: update question ${id}`, (s) => m.updateQuestion(s, id, patch))); }
-      catch (e: any) { return fail(e.message); }
+      catch (e) { return fail(errorMessage(e)); }
     });
 
   // ── sources ────────────────────────────────────────────────────────────────
@@ -161,7 +170,7 @@ export function registerTools(server: Server) {
     },
     async ({ subject, source }) => {
       try { return ok(await edit(subject, `mcp: add source`, (s) => m.addSource(s, source))); }
-      catch (e: any) { return fail(e.message); }
+      catch (e) { return fail(errorMessage(e)); }
     });
 
   server.tool('update_source', 'Update fields on a source',
@@ -176,7 +185,7 @@ export function registerTools(server: Server) {
     },
     async ({ subject, id, patch }) => {
       try { return ok(await edit(subject, `mcp: update source ${id}`, (s) => m.updateSource(s, id, patch))); }
-      catch (e: any) { return fail(e.message); }
+      catch (e) { return fail(errorMessage(e)); }
     });
 
   // ── notes ──────────────────────────────────────────────────────────────────
@@ -192,7 +201,7 @@ export function registerTools(server: Server) {
     },
     async ({ subject, note }) => {
       try { return ok(await edit(subject, `mcp: add note`, (s) => m.addNote(s, note))); }
-      catch (e: any) { return fail(e.message); }
+      catch (e) { return fail(errorMessage(e)); }
     });
 
   server.tool('update_note', 'Update fields on a note',
@@ -206,6 +215,6 @@ export function registerTools(server: Server) {
     },
     async ({ subject, id, patch }) => {
       try { return ok(await edit(subject, `mcp: update note ${id}`, (s) => m.updateNote(s, id, patch))); }
-      catch (e: any) { return fail(e.message); }
+      catch (e) { return fail(errorMessage(e)); }
     });
 }

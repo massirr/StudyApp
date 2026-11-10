@@ -16,7 +16,7 @@ describe('github layer', () => {
     mockFetchOnce({ content: Buffer.from(JSON.stringify(subject)).toString('base64'), sha: 'abc123' });
     const out = await readSubject('dp-750');
     expect(out.sha).toBe('abc123');
-    expect((out.subject as any).slug).toBe('dp-750');
+    expect((out.subject as { slug: string }).slug).toBe('dp-750');
   });
 
   it('listSubjectSlugs returns slugs from git tree, excluding schema/index', async () => {

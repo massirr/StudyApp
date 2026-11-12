@@ -133,6 +133,12 @@
       "usageNote": "Belgian driver organisation: lower back against the backrest, check distance to pedals."
     },
     {
+      "id": "src-22",
+      "label": "GOCA Doc. 133 - Cat. B praktijkexamen, Vlaams Gewest (versie 18.08.2026, PDF)",
+      "url": "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf",
+      "usageNote": "Official exam brochure; section 3 'Controles' (p. 7) lists what the examiner expects for each random check."
+    },
+    {
       "id": "src-photo-1",
       "label": "Wikimedia Commons - Opel Corsa E Motorraum (KarleHorn, CC BY 3.0)",
       "url": "https://commons.wikimedia.org/wiki/File:Opel_Corsa_E_Motorraum.JPG",
@@ -2655,6 +2661,196 @@
         "alt": "Close-up photo of a car tyre tread; number 1 points to the small letters TWI on the tyre shoulder, marking the tread wear indicator."
       },
       "id": "q-81"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "De examinator vraagt: 'Toon hoe u de bandenspanning nagaat.' Wat wijs je aan? (The examiner asks you to show how you check tyre pressure. What do you point out?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "De TWI-markering op de bandenflank (The TWI mark on the sidewall)"
+        },
+        {
+          "id": "b",
+          "label": "Het ventiel van de band (The tyre valve)"
+        },
+        {
+          "id": "c",
+          "label": "De bandenmaat op de flank (The tyre size on the sidewall)"
+        },
+        {
+          "id": "d",
+          "label": "De wielbouten (The wheel bolts)"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Je toont waar het ventiel zit. / You show where the valve is. Bron / Source: GOCA Doc. 133 (18.08.2026), blz. / p. 7.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+      ],
+      "id": "q-82"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "De computer kiest 'slijtage van de banden'. Wat verwacht de examinator? (The computer picks tyre wear. What does the examiner expect?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je blijft zitten en wijst naar de bandenflank (You stay seated and point at the sidewall)"
+        },
+        {
+          "id": "b",
+          "label": "Je meet het profiel van alle vier de banden (You measure the tread of all four tyres)"
+        },
+        {
+          "id": "c",
+          "label": "Je meet de bandenspanning met een manometer (You measure the pressure with a gauge)"
+        },
+        {
+          "id": "d",
+          "label": "Je draait de wielen, stapt uit en toont de groeven die je nakijkt, bij één voorwiel (You turn the wheels, get out and show the grooves you check, on one front wheel)"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "explanation": "Draai de wielen om het nakijken te vergemakkelijken, stap uit en toon de groeven. De controle beperkt zich tot één voorwiel. Je mag de slijtage-indicatoren (TWI) gebruiken, maar het moet niet. / Turn the wheels to make checking easier, get out and show the grooves. The check is limited to one front wheel. You may use the wear indicators (TWI) but you do not have to. Bron / Source: GOCA Doc. 133 (18.08.2026), blz. / p. 7.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+      ],
+      "id": "q-83"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Je hebt de motorkap geopend en het gevraagde onderdeel aangewezen. Wat doe je daarna? (You opened the bonnet and pointed out the part. What do you do next?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "De motorkap sluiten en nagaan dat hij goed gesloten is, dan terug instappen (Close the bonnet, check it is properly closed, then get back in)"
+        },
+        {
+          "id": "b",
+          "label": "De motorkap sluiten en meteen terug instappen (Close the bonnet and get straight back in)"
+        },
+        {
+          "id": "c",
+          "label": "De motorkap open laten tot het einde van het examen (Leave the bonnet open until the end of the exam)"
+        },
+        {
+          "id": "d",
+          "label": "De examinator vragen om de motorkap te sluiten (Ask the examiner to close the bonnet)"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Je sluit de motorkap zelf en vergewist je ervan dat hij goed gesloten is voor je terug instapt. Doe je een verwacht punt niet of niet correct, dan houdt de examinator een fout aan. / You close the bonnet yourself and make sure it is properly closed before you get back in. If you skip an expected step or do it wrongly, the examiner records a fault. Bron / Source: GOCA Doc. 133 (18.08.2026), blz. / p. 7.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+      ],
+      "id": "q-84"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Je auto heeft voor het gevraagde onderdeel (olie, remvloeistof, koelvloeistof of bandenspanning) enkel een elektronische meter op het dashboard. Wat verwacht de examinator? (For the part asked (oil, brake fluid, coolant or tyre pressure) your car only has an electronic meter on the dashboard. What does the examiner expect?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Dat je toch de motorkap opent en een willekeurig reservoir aanwijst (That you open the bonnet anyway and point at any reservoir)"
+        },
+        {
+          "id": "b",
+          "label": "Dat je zegt dat de controle niet mogelijk is (That you say the check is not possible)"
+        },
+        {
+          "id": "c",
+          "label": "Dat je op het dashboard toont waar de meter zit (That you show on the dashboard where the meter is)"
+        },
+        {
+          "id": "d",
+          "label": "Dat je de waarde van de meter uit het hoofd opzegt (That you recite the meter's value from memory)"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "Dan toon je op het dashboard waar de gevraagde indicator of meter zit. / Then you show on the dashboard where the requested indicator or meter is. Bron / Source: GOCA Doc. 133 (18.08.2026), blz. / p. 7.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+      ],
+      "id": "q-85"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "De computer kiest 'motorolie'. Moet je het oliepeil echt controleren? (The computer picks engine oil. Do you have to actually check the oil level?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nee, je wijst de oliepeilstok aan; men vraagt niet om het peil effectief te controleren (No, you point out the dipstick; you are not asked to actually check the level)"
+        },
+        {
+          "id": "b",
+          "label": "Ja, je trekt de peilstok uit, veegt hem af en leest het peil af (Yes, you pull out the dipstick, wipe it and read the level)"
+        },
+        {
+          "id": "c",
+          "label": "Ja, en je vult olie bij als het peil te laag is (Yes, and you top up the oil if the level is too low)"
+        },
+        {
+          "id": "d",
+          "label": "Nee, je zegt enkel welke olie je auto gebruikt (No, you only say which oil your car uses)"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Je opent de motorkap en wijst de oliepeilstok aan, sluit de motorkap en vergewist je ervan dat hij goed gesloten is. Men zal je niet vragen om het oliepeil effectief te controleren. / You open the bonnet, point out the dipstick, close the bonnet and make sure it is properly closed. You will not be asked to actually check the oil level. Bron / Source: GOCA Doc. 133 (18.08.2026), blz. / p. 7.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+      ],
+      "id": "q-86"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Wat is 'tyre valve' in het Nederlands? (What is 'tyre valve' in Dutch?)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Ventiel. Hier wijs je naar bij de controle van de bandenspanning. / Valve. This is what you point to for the tyre-pressure check. Bron / Source: GOCA Doc. 133 (18.08.2026), blz. / p. 7.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+      ],
+      "acceptedAnswers": [
+        "ventiel",
+        "het ventiel",
+        "bandenventiel",
+        "het bandenventiel",
+        "autoventiel"
+      ],
+      "id": "q-87"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Wat is 'bonnet' in het Nederlands? (What is 'bonnet' in Dutch?)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Motorkap. Die open je voor olie, rem-, koel- en ruitenwisservloeistof. / Bonnet. You open it for oil, brake, coolant and washer fluid. Bron / Source: GOCA Doc. 133 (18.08.2026), blz. / p. 7.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+      ],
+      "acceptedAnswers": [
+        "motorkap",
+        "de motorkap"
+      ],
+      "id": "q-88"
     }
   ],
   "notes": [
@@ -2688,9 +2884,10 @@
     {
       "id": "note-4",
       "topicId": "t-4",
-      "text": "Steekproef: de computer kiest één item: slijtage van een voorband, bandenspanning, motorolie, remvloeistof, koelvloeistof of ruitenwisservloeistof. 2 min 30 s als de motorkap open moet, anders 1 min 30 s. Waar alles zit verschilt per auto: zoek het op de examenwagen zelf. (The layout differs per car; find each part on your own exam car.)",
+      "text": "Steekproef: de computer kiest één item: slijtage van een voorband, bandenspanning, motorolie, remvloeistof, koelvloeistof of ruitenwisservloeistof. 2 min 30 s als de motorkap open moet, anders 1 min 30 s. Wat de examinator verwacht (GOCA Doc. 133): banden: draai de wielen, stap uit en toon de groeven van één voorwiel (TWI mag, moet niet); bandenspanning: toon het ventiel; motorolie: wijs de oliepeilstok aan (het peil moet je niet echt controleren); rem-, koel- en ruitenwisservloeistof: wijs het reservoir en het niveau aan. Na elke controle onder de motorkap: sluit de motorkap en ga na dat hij goed gesloten is voor je instapt. Heeft je auto enkel een elektronische meter op het dashboard, toon dan waar die zit. Waar alles zit verschilt per auto: zoek het op de examenwagen zelf. (The layout differs per car; find each part on your own exam car.)",
       "sourceUrls": [
-        "https://autoveiligheid.be/downloaden/cat-b"
+        "https://autoveiligheid.be/downloaden/cat-b",
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
       ]
     },
     {

@@ -24,6 +24,17 @@ Source: https://codex.vlaanderen.be/PrintDocument.ashx?id=1025928 and https://co
 
 Note: wipers are not in the official list. Washer **fluid** is. Wipers are covered in the subject only as extra vocabulary.
 
+### What the examiner expects for each random check
+
+From GOCA Doc. 133, version 18.08.2026, section "3. Controles" (p. 7). Source: https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf
+
+- **Slijtage van de banden** (tyre wear): turn your wheels to make checking easier, get out and show the grooves you check. You may, but do not have to, use the wear indicators (TWI) on tyres that have them. The check is limited to **one front wheel**.
+- **Bandenspanning** (tyre pressure): show where the **valve (ventiel)** is. If the car only has an electronic system on the dashboard, show where the pressure meter is on the dashboard.
+- **Motorolie** (engine oil): open the bonnet and point out the **dipstick**. You will **not** be asked to actually check the oil level. With only an electronic oil meter on the dashboard, show where it is.
+- **Remvloeistof** (brake fluid) and **koelvloeistof** (coolant): open the bonnet and point out the reservoir and where the **level** is. With only an electronic meter on the dashboard, show where it is.
+- **Product ruitenwissers** (washer fluid): open the bonnet and point out the reservoir where you add the product.
+- **After every check under the bonnet**: close the bonnet and make sure it is properly closed before you get back in. If you skip an expected step or do it wrongly, the examiner records a fault. (Your companion checks the bonnet is properly closed before you drive off.)
+
 ## 3. Lighting rules (Belgium, not the Netherlands)
 
 - **Mistachterlicht** (rear fog light): when fog or snow reduces visibility to **less than 100 m**. (The Netherlands uses 50 m.) Switch it off in queues because it dazzles the driver behind.
@@ -34,6 +45,8 @@ Sources: VRT NWS https://www.vrt.be/vrtnws/nl/2021/12/28/dagrijlichten-en-dimlic
 Not tested because sources disagree: the heavy-rain nuance for the rear fog light, and a minimum visibility for front fog lights.
 
 ## 4. Fluids and tyres (procedures)
+
+General know-how from Kwik-Fit, ANWB and others. The exam itself only asks you to show and point out (see section 2); the steps below are background.
 
 - **Oil (motorolie)**: level ground, engine off. Cold engine is best; after driving wait at least 10 minutes. Pull the dipstick (oliepeilstok), wipe it, push it fully back in, pull it out again and read the film between MIN and MAX. Ideal is about halfway. Too much oil is also harmful. Sources: Kwik-Fit https://www.kwik-fit.nl/kennisbank/gidsen/hoe-controleer-ik-het-oliepeil-van-mijn-auto ; ANWB https://www.anwb.nl/auto/onderhoud-en-reparatie/onderhoud-doe-het-zelf/oliepeil-controleren
 - **Coolant (koelvloeistof)**: check on a cold engine; read the level on the see-through expansion reservoir between MIN and MAX; never open the cap on a hot engine (liquid can spray out and burn). Sources: ANWB https://www.anwb.nl/auto/onderhoud-en-reparatie/vloeistoffen/koelvloeistof-bijvullen and https://www.anwb.nl/auto/onderhoud-en-reparatie/auto-onderdelen/koelvloeistof

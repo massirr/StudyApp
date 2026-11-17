@@ -1,6 +1,7 @@
-import { describe, expect, it, vi, beforeEach } from 'vitest';
+import { describe, expect, expectTypeOf, it, vi, beforeEach } from 'vitest';
 import { z } from 'zod';
-import { registerTools, type ToolResult } from './tools';
+import { registerTools, QuestionSchema, type ToolResult } from './tools';
+import type { NewQuestion } from './core/types';
 import { validateSubject } from '../src/data/subjects/schema';
 
 // Mock the github layer so tests never touch the network
@@ -170,5 +171,180 @@ describe('registerTools', () => {
 
     expect(result.isError).toBe(true);
     expect(vi.mocked(commitSubject)).not.toHaveBeenCalled();
+  });
+});
+
+describe('question types beyond single/multiple', () => {
+  const shortText = {
+    topicId: 't1',
+    prompt: "What is 'headrest' in Dutch?",
+    type: 'shortText',
+    options: [],
+    correctOptionIds: [],
+    explanation: 'Hoofdsteun.',
+    sourceUrls: ['https://example.com/source'],
+    acceptedAnswers: ['hoofdsteun', 'de hoofdsteun'],
+  };
+  const freeText = {
+    ...shortText,
+    type: 'freeText',
+    prompt: 'Explain the preliminary checks.',
+    acceptedAnswers: undefined,
+    sampleAnswer: 'Engine off, get out, get back in, lock the car.',
+  };
+  const single = {
+    topicId: 't1',
+    prompt: 'Which part is number 1?',
+    type: 'single',
+    options: [{ id: 'a', label: 'Headlamp' }, { id: 'b', label: 'Indicator' }],
+    correctOptionIds: ['a'],
+    explanation: 'Number 1 is the headlamp.',
+    sourceUrls: ['https://example.com/source'],
+  };
+  const image = { src: '/images/vehicle-check/front-lights.svg', alt: 'Front of a car with numbered parts.' };
+
+  // The question as it lands in the committed subject
+  const committedQuestion = () => {
+    const [, committed] = vi.mocked(commitSubject).mock.calls[0];
+    return validateSubject(committed).questions.at(-1)!;
+  };
+
+  it('QuestionSchema infers exactly the app question type', () => {
+    // Compile-time: fails `npm run build` if QuizQuestion gains a type or field the tool schema lacks
+    expectTypeOf<z.infer<typeof QuestionSchema>>().toEqualTypeOf<NewQuestion>();
+  });
+
+  it('add_question with a valid shortText question commits it with its acceptedAnswers', async () => {
+    const { server, call } = makeValidatingServer();
+    registerTools(server);
+
+    const result = await call('add_question', { subject: 'test-subject', question: shortText });
+
+    expect(result.isError).toBeUndefined();
+    expect(vi.mocked(commitSubject)).toHaveBeenCalledOnce();
+    expect(committedQuestion()).toMatchObject({ type: 'shortText', acceptedAnswers: ['hoofdsteun', 'de hoofdsteun'] });
+  });
+
+  it('add_question with a shortText question without acceptedAnswers returns isError and does NOT commit', async () => {
+    const { server, call } = makeValidatingServer();
+    registerTools(server);
+
+    const result = await call('add_question', {
+      subject: 'test-subject',
+      question: { ...shortText, acceptedAnswers: undefined },
+    });
+
+    expect(result.isError).toBe(true);
+    expect(result.content[0].text).toContain('acceptedAnswers');
+    expect(vi.mocked(commitSubject)).not.toHaveBeenCalled();
+  });
+
+  it('add_question with a freeText question commits only when sampleAnswer is present', async () => {
+    const { server, call } = makeValidatingServer();
+    registerTools(server);
+
+    const ok = await call('add_question', { subject: 'test-subject', question: freeText });
+    expect(ok.isError).toBeUndefined();
+    expect(committedQuestion()).toMatchObject({ type: 'freeText', sampleAnswer: freeText.sampleAnswer });
+
+    vi.mocked(commitSubject).mockClear();
+    const missing = await call('add_question', {
+      subject: 'test-subject',
+      question: { ...freeText, sampleAnswer: undefined },
+    });
+    expect(missing.isError).toBe(true);
+    expect(missing.content[0].text).toContain('sampleAnswer');
+    expect(vi.mocked(commitSubject)).not.toHaveBeenCalled();
+  });
+
+  it('add_question stores a valid image instead of dropping it', async () => {
+    const { server, call } = makeValidatingServer();
+    registerTools(server);
+
+    const result = await call('add_question', { subject: 'test-subject', question: { ...single, image } });
+
+    expect(result.isError).toBeUndefined();
+    expect(committedQuestion().image).toEqual(image);
+  });
+
+  it('add_question with an image whose alt is empty returns isError and does NOT commit', async () => {
+    const { server, call } = makeValidatingServer();
+    registerTools(server);
+
+    const result = await call('add_question', {
+      subject: 'test-subject',
+      question: { ...single, image: { src: image.src, alt: '  ' } },
+    });
+
+    expect(result.isError).toBe(true);
+    expect(result.content[0].text).toContain('alt');
+    expect(vi.mocked(commitSubject)).not.toHaveBeenCalled();
+  });
+
+  it('add_question with an image that has no alt is rejected by the schema and does NOT commit', async () => {
+    const { server, call } = makeValidatingServer();
+    registerTools(server);
+
+    const result = await call('add_question', {
+      subject: 'test-subject',
+      question: { ...single, image: { src: image.src } },
+    });
+
+    expect(result.isError).toBe(true);
+    expect(vi.mocked(commitSubject)).not.toHaveBeenCalled();
+  });
+
+  describe('update_question', () => {
+    beforeEach(() => {
+      vi.mocked(readSubject).mockResolvedValue({
+        subject: structuredClone({ ...baseSubject, questions: [{ id: 'q-1', ...single }] }),
+        sha: 'sha3',
+      });
+    });
+
+    it('switches a question to shortText and adds an image', async () => {
+      const { server, call } = makeValidatingServer();
+      registerTools(server);
+
+      const result = await call('update_question', {
+        subject: 'test-subject',
+        id: 'q-1',
+        patch: { type: 'shortText', options: [], correctOptionIds: [], acceptedAnswers: ['koplamp'], image },
+      });
+
+      expect(result.isError).toBeUndefined();
+      expect(committedQuestion()).toMatchObject({
+        id: 'q-1', type: 'shortText', options: [], acceptedAnswers: ['koplamp'], image,
+      });
+    });
+
+    it('rejects a switch to shortText without acceptedAnswers and does NOT commit', async () => {
+      const { server, call } = makeValidatingServer();
+      registerTools(server);
+
+      const result = await call('update_question', {
+        subject: 'test-subject',
+        id: 'q-1',
+        patch: { type: 'shortText', options: [], correctOptionIds: [] },
+      });
+
+      expect(result.isError).toBe(true);
+      expect(result.content[0].text).toContain('acceptedAnswers');
+      expect(vi.mocked(commitSubject)).not.toHaveBeenCalled();
+    });
+
+    it('rejects an image with an empty alt and does NOT commit', async () => {
+      const { server, call } = makeValidatingServer();
+      registerTools(server);
+
+      const result = await call('update_question', {
+        subject: 'test-subject',
+        id: 'q-1',
+        patch: { image: { src: image.src, alt: '' } },
+      });
+
+      expect(result.isError).toBe(true);
+      expect(vi.mocked(commitSubject)).not.toHaveBeenCalled();
+    });
   });
 });

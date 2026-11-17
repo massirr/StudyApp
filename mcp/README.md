@@ -1,8 +1,9 @@
 # StudyApp MCP Content-Authoring Server
 
 A remote [MCP](https://modelcontextprotocol.io) server that lets a tool-calling AI
-read and **add/update** StudyApp content — subjects, topics, questions (with code
-snippets and level/tier), sources, and notes — by committing validated JSON to
+read and **add/update** StudyApp content — subjects, topics, questions (every type:
+choice, typed-answer and free-text, with images, code snippets and level/tier),
+sources, and notes — by committing validated JSON to
 this repo. Hosted as a Vercel Function alongside the app, so you can author
 content by chatting with the Claude app, including from your phone.
 
@@ -91,3 +92,33 @@ https://workos.com/blog/vercel-mcp-workos-authkit-template
 Each write commits one change to `master`. Review the resulting commit in your
 git history; revert there if a change was wrong. For a `microsoft-only` subject
 (e.g. `dp-750`), a non-Microsoft source URL is rejected before it can commit.
+
+### Question fields
+
+`add_question` and `update_question` support every question type the app does.
+Every question has `topicId`, `prompt`, `type`, `options`, `correctOptionIds`,
+`explanation` and `sourceUrls`; the rest depends on the type:
+
+| `type` | What the learner does | Required beyond the common fields |
+|--------|-----------------------|-----------------------------------|
+| `single` | Picks one option | `options`, one id in `correctOptionIds` |
+| `multiple` | Picks several options | `options`, the correct ids in `correctOptionIds` |
+| `shortText` | Types a word or short phrase, graded by the app | `acceptedAnswers`: non-empty list of correct answers (compared ignoring case, extra spaces, apostrophe style and trailing punctuation). Send `options: []` and `correctOptionIds: []`. |
+| `freeText` | Writes a longer answer, then grades it themselves | `sampleAnswer`: the model answer shown after submitting. Send `options: []` and `correctOptionIds: []`. |
+
+Optional on any type:
+
+- `image: { src, alt }`: one picture shown above the answer area. `src` is a path
+  under `public/` (e.g. `/images/vehicle-check/front-lights.svg`); the file must
+  already be in the repo, the MCP cannot upload it. `alt` must describe the
+  picture well enough to answer from; an image with an empty `alt` is rejected.
+- `codeSnippet: { language, code }`: a code block shown with the question.
+- `level`: reserved for tiered quizzes.
+
+The tool schemas only check field shapes. The rules above are checked by
+`validateSubject`, the same function the app runs when it loads a subject, so the
+MCP accepts exactly the questions the app can show. `update_question` merges the
+patch into the question and validates the result: to turn a question into
+`shortText`, send `type`, `acceptedAnswers`, `options: []` and
+`correctOptionIds: []` in one call. A patch can set fields but not remove them
+(for example, an `image`); remove fields by hand in the repo.

@@ -30,17 +30,27 @@ async function edit(slug: string, message: string, fn: (s: Subject) => Subject) 
   return next;
 }
 
-const QuestionSchema = z.object({
+// Shape only. Per-type rules (shortText needs acceptedAnswers, freeText needs
+// sampleAnswer, image needs non-empty src and alt) live in validateSubject, which
+// edit() runs on every write. tools.test.ts asserts this infers to NewQuestion,
+// so a field added to QuizQuestion fails the build until it is added here.
+export const QuestionSchema = z.object({
   topicId: z.string(),
   prompt: z.string(),
-  type: z.enum(['single', 'multiple']),
+  type: z.enum(['single', 'multiple', 'shortText', 'freeText']),
   options: z.array(z.object({ id: z.string(), label: z.string() })),
   correctOptionIds: z.array(z.string()),
   explanation: z.string(),
   sourceUrls: z.array(z.string()),
   codeSnippet: z.object({ language: z.string(), code: z.string() }).optional(),
+  image: z.object({ src: z.string(), alt: z.string() }).optional(),
   level: z.number().optional(),
+  sampleAnswer: z.string().optional(),
+  acceptedAnswers: z.array(z.string()).optional(),
 });
+
+// Derived, not hand-written, so it cannot fall behind QuestionSchema again.
+const QuestionPatchSchema = QuestionSchema.omit({ topicId: true }).partial();
 
 export function registerTools(server: Server) {
   // ── reads ──────────────────────────────────────────────────────────────────
@@ -130,28 +140,22 @@ export function registerTools(server: Server) {
 
   // ── questions ──────────────────────────────────────────────────────────────
 
-  server.tool('add_question', 'Add a question to a subject',
+  // The client reads these descriptions, not the README, so the per-type fields are spelled out.
+  const questionFields =
+    'single/multiple: options + correctOptionIds. ' +
+    'shortText (typed answer, auto-graded): options [], correctOptionIds [], non-empty acceptedAnswers. ' +
+    'freeText (self-graded): options [], correctOptionIds [], sampleAnswer. ' +
+    'Optional on any type: image { src, alt } with non-empty alt, codeSnippet, level.';
+
+  server.tool('add_question', `Add a question to a subject. ${questionFields}`,
     { subject: z.string(), question: QuestionSchema },
     async ({ subject, question }) => {
       try { return ok(await edit(subject, `mcp: add question`, (s) => m.addQuestion(s, question))); }
       catch (e) { return fail(errorMessage(e)); }
     });
 
-  server.tool('update_question', 'Update fields on a question',
-    {
-      subject: z.string(),
-      id: z.string(),
-      patch: z.object({
-        prompt: z.string().optional(),
-        type: z.enum(['single', 'multiple']).optional(),
-        options: z.array(z.object({ id: z.string(), label: z.string() })).optional(),
-        correctOptionIds: z.array(z.string()).optional(),
-        explanation: z.string().optional(),
-        sourceUrls: z.array(z.string()).optional(),
-        codeSnippet: z.object({ language: z.string(), code: z.string() }).optional(),
-        level: z.number().optional(),
-      }),
-    },
+  server.tool('update_question', `Update fields on a question; the patched question must still be valid. ${questionFields}`,
+    { subject: z.string(), id: z.string(), patch: QuestionPatchSchema },
     async ({ subject, id, patch }) => {
       try { return ok(await edit(subject, `mcp: update question ${id}`, (s) => m.updateQuestion(s, id, patch))); }
       catch (e) { return fail(errorMessage(e)); }

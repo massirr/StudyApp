@@ -1,0 +1,2367 @@
+{
+  "id": "road-test",
+  "slug": "road-test",
+  "name": "Praktijkexamen: de rit (Road test)",
+  "shortLabel": "ROAD TEST",
+  "tagline": "Borden, fouten die je examen stoppen, rustig rijden en manoeuvres, met video's. Examencentrum Mollem. (Signs, exam-ending mistakes, calm driving and manoeuvres, with videos.)",
+  "sourcePolicy": "any",
+  "sources": [
+    {
+      "id": "src-1",
+      "label": "GOCA Vlaanderen - Op weg naar het rijbewijs B: het praktijkexamen in Vlaanderen toegelicht (16/09/2026)",
+      "url": "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf",
+      "usageNote": "Scoring (13 categories), every 'niet geslaagd' and 'stopgezet' rule, the sign fail list (C1, C3, C31, C33, D1, D3, D5) and the manoeuvre rules."
+    },
+    {
+      "id": "src-2",
+      "label": "GOCA Doc. 133 - Cat. B praktijkexamen, Vlaams Gewest (18.08.2026)",
+      "url": "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf",
+      "usageNote": "Manoeuvre groups, interpreter rules (French, German or English; not the companion; GPS translation), what the examiner says and never does."
+    },
+    {
+      "id": "src-3",
+      "label": "Verkeersreglement (KB 1 december 1975), art. 67-71 - wegcode.be (Vias)",
+      "url": "https://www.wegcode.be/nl/regelgeving/1975120109~hra8v386pu",
+      "usageNote": "Official meaning of the signs. Current rules: the new 2027 road code and its new signs do not apply to exams in 2026."
+    },
+    {
+      "id": "src-4",
+      "label": "Vlaanderen.be - How to obtain a category B driving licence",
+      "url": "https://www.vlaanderen.be/en/mobility/how-to-obtain-a-category-b-driving-licence",
+      "usageNote": "Sworn interpreter for French, German or English: you choose and pay the interpreter yourself and contact the test centre in advance."
+    },
+    {
+      "id": "src-v1",
+      "label": "Video VSV (Vlaamse Stichting Verkeerskunde) - Manoeuvre 1 – Achterwaarts in een parkeervak rijden",
+      "url": "https://www.youtube.com/watch?v=O5dUbpcVSXQ",
+      "usageNote": "YouTube, about 6 years old. Shows the movement; where it differs from the 2026 GOCA brochure, the brochure wins."
+    },
+    {
+      "id": "src-v2",
+      "label": "Video VSV (Vlaamse Stichting Verkeerskunde) - Manoeuvre 2 - Voorwaarts in een parkeervak rijden",
+      "url": "https://www.youtube.com/watch?v=Uzi2x1f_tr8",
+      "usageNote": "YouTube, about 6 years old. Shows the movement; where it differs from the 2026 GOCA brochure, the brochure wins."
+    },
+    {
+      "id": "src-v3",
+      "label": "Video VSV (Vlaamse Stichting Verkeerskunde) - Manoeuvre 3 – Rechts en links parallel parkeren",
+      "url": "https://www.youtube.com/watch?v=HRgemzUo_v0",
+      "usageNote": "YouTube, about 6 years old. Shows the movement; where it differs from the 2026 GOCA brochure, the brochure wins."
+    },
+    {
+      "id": "src-v4",
+      "label": "Video VSV (Vlaamse Stichting Verkeerskunde) - Manoeuvre 4 – In een rechte lijn achteruit rijden",
+      "url": "https://www.youtube.com/watch?v=MwBkosV8t7E",
+      "usageNote": "YouTube, about 6 years old. Shows the movement; where it differs from the 2026 GOCA brochure, the brochure wins."
+    },
+    {
+      "id": "src-v5",
+      "label": "Video VSV (Vlaamse Stichting Verkeerskunde) - Manoeuvre 5 – Keren in een smalle straat",
+      "url": "https://www.youtube.com/watch?v=mNf1Q5imOCE",
+      "usageNote": "YouTube, about 6 years old. Shows the movement; where it differs from the 2026 GOCA brochure, the brochure wins."
+    },
+    {
+      "id": "src-v6",
+      "label": "Video VSV (Vlaamse Stichting Verkeerskunde) - De examenrit",
+      "url": "https://www.youtube.com/watch?v=qWWBP2KVQis",
+      "usageNote": "YouTube, about 4 years old. Shows the movement; where it differs from the 2026 GOCA brochure, the brochure wins."
+    },
+    {
+      "id": "src-v7",
+      "label": "Video VSV (Vlaamse Stichting Verkeerskunde) - Klaar voor het praktijkexamen? - Van Leerling naar Rijbewijs met mijnrijbewijsB.be",
+      "url": "https://www.youtube.com/watch?v=RyzxPmqIEc8",
+      "usageNote": "YouTube, about 4 years old. Shows the movement; where it differs from the 2026 GOCA brochure, the brochure wins."
+    },
+    {
+      "id": "src-v8",
+      "label": "Video VSV (Vlaamse Stichting Verkeerskunde) - Instappen en klaarmaken voor vertrek",
+      "url": "https://www.youtube.com/watch?v=R1imHLyCXlA",
+      "usageNote": "YouTube, about 6 years old. Shows the movement; where it differs from the 2026 GOCA brochure, the brochure wins."
+    },
+    {
+      "id": "src-v9",
+      "label": "Video VSV (Vlaamse Stichting Verkeerskunde) - Rijles 7 – Benadering kruispunten en richtingsverandering",
+      "url": "https://www.youtube.com/watch?v=Ya_2wyvTfsc",
+      "usageNote": "YouTube, about 6 years old. Shows the movement; where it differs from the 2026 GOCA brochure, the brochure wins."
+    },
+    {
+      "id": "src-v10",
+      "label": "Video VSV (Vlaamse Stichting Verkeerskunde) - Een rotonde oprijden - Van Leerling naar Rijbewijs met mijnrijbewijsB.be",
+      "url": "https://www.youtube.com/watch?v=akGQmOFH-48",
+      "usageNote": "YouTube, about 4 years old. Shows the movement; where it differs from the 2026 GOCA brochure, the brochure wins."
+    }
+  ],
+  "topics": [
+    {
+      "id": "t-1",
+      "slug": "examendag-mollem",
+      "title": "Examendag in Mollem (Exam day in Mollem)",
+      "summary": "Je examencentrum, je tolk en hoe de rit beoordeeld wordt. (Your exam centre, your interpreter and how the drive is scored.)",
+      "subtopics": [
+        {
+          "id": "st-1-1",
+          "title": "Examencentrum Mollem (exam centre)",
+          "summary": "Industriezone Z.5 Mollem 80, 1730 Mollem (Asse). Tel. +32 2 452 99 37 · examenmollem@aibv.be"
+        },
+        {
+          "id": "st-1-2",
+          "title": "Tolk (interpreter)",
+          "summary": "Beëdigd tolk Frans, Duits of Engels. Je kiest en betaalt de tolk zelf en verwittigt het examencentrum vooraf. De tolk mag niet je begeleider zijn. (Sworn interpreter for French, German or English: you choose and pay, tell the centre in advance; not your companion.)"
+        },
+        {
+          "id": "st-1-3",
+          "title": "De rit (the drive)",
+          "summary": "Eerst de gevaarherkenningstest op de computer, dan de rit: 2 manoeuvres (één uit elke groep) en minstens 10 tot 15 minuten zelfstandig rijden met gps of wegwijzers. De gps staat in het Nederlands; je tolk vertaalt. (Hazard test on a computer, then the drive: 2 manoeuvres and at least 10–15 minutes of independent driving; the GPS stays in Dutch and your interpreter translates.)"
+        },
+        {
+          "id": "st-1-4",
+          "title": "Beoordeling (scoring)",
+          "summary": "13 rubrieken: goed, voorbehoud, onvoldoende of slecht. Niet geslaagd bij 1× slecht, 2× onvoldoende, 1× onvoldoende + 2× voorbehoud, 4× voorbehoud, of als je iemand direct in gevaar brengt. (13 categories; you fail with 1 poor, 2 insufficient, 1 insufficient + 2 reservations, 4 reservations, or direct danger.)"
+        }
+      ],
+      "sourceLinks": [
+        {
+          "label": "Vlaanderen.be: praktijkexamen en tolk (EN)",
+          "url": "https://www.vlaanderen.be/en/mobility/how-to-obtain-a-category-b-driving-licence"
+        },
+        {
+          "label": "GOCA: het praktijkexamen toegelicht (2026)",
+          "url": "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+        },
+        {
+          "label": "GOCA Doc. 133: Cat. B praktijkexamen (2026)",
+          "url": "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+        },
+        {
+          "label": "Video: De examenrit",
+          "url": "https://www.youtube.com/watch?v=qWWBP2KVQis"
+        },
+        {
+          "label": "Video: Klaar voor het praktijkexamen? - Van Leerling naar Rijbewijs met mijnrijbewijsB.be",
+          "url": "https://www.youtube.com/watch?v=RyzxPmqIEc8"
+        },
+        {
+          "label": "Video: Instappen en klaarmaken voor vertrek",
+          "url": "https://www.youtube.com/watch?v=R1imHLyCXlA"
+        }
+      ],
+      "studyOrder": 1
+    },
+    {
+      "id": "t-2",
+      "slug": "borden-nooit-missen",
+      "title": "Borden die je nooit mag missen (Signs you must never miss)",
+      "summary": "Rij je een verboden richting in (C1, C3) of negeer je C31, C33, D1, D3 of D5, dan ben je meteen niet geslaagd. (Drive into a no-entry street or ignore these signs and you fail straight away.)",
+      "subtopics": [
+        {
+          "id": "st-2-1",
+          "title": "Niet inrijden: C1 en C3 (no entry)",
+          "summary": "C1: verboden richting voor iedere bestuurder. C3: verboden toegang in beide richtingen. Kijk na een stop ook naar de borden van de straat waarin je wil rijden. (C1 no entry; C3 closed both ways. After stopping, also check the signs of the street you want to enter.)"
+        },
+        {
+          "id": "st-2-2",
+          "title": "Afslaan en keren: C31, C33 (turning)",
+          "summary": "C31a/C31b: verbod links/rechts af te slaan aan het volgend kruispunt. C33: verbod te keren tot en met het volgend kruispunt. (No left/right turn at the next junction; no U-turn.)"
+        },
+        {
+          "id": "st-2-3",
+          "title": "Verplichte richting: D1, D3, D5 (mandatory direction)",
+          "summary": "D1: volg de pijl. D3: volg één van de pijlen. D5: verplicht rondgaand verkeer (rotonde). (Follow the arrow; follow one of the arrows; roundabout.)"
+        },
+        {
+          "id": "st-2-4",
+          "title": "Voorrang (priority)",
+          "summary": "B1 voorrang verlenen · B5 stoppen en voorrang verlenen · B9 voorrangsweg · B11 einde van voorrangsweg · B15 voorrang · B17 voorrang van rechts. Ook B19/B21 bij een smalle doorgang. (Give way, stop, priority road, end, priority at next junction, priority to the right.)"
+        },
+        {
+          "id": "st-2-5",
+          "title": "Gps of bord? (GPS or sign?)",
+          "summary": "De wegcode gaat altijd boven de gps. Stuurt de gps je een verboden straat in: niet doen. (The road code always beats the GPS.)"
+        }
+      ],
+      "sourceLinks": [
+        {
+          "label": "Verkeersreglement art. 67–71: de borden (wegcode.be)",
+          "url": "https://www.wegcode.be/nl/regelgeving/1975120109~hra8v386pu"
+        },
+        {
+          "label": "GOCA: het praktijkexamen toegelicht (2026)",
+          "url": "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+        },
+        {
+          "label": "Video: Rijles 7 – Benadering kruispunten en richtingsverandering",
+          "url": "https://www.youtube.com/watch?v=Ya_2wyvTfsc"
+        },
+        {
+          "label": "Video: Een rotonde oprijden - Van Leerling naar Rijbewijs met mijnrijbewijsB.be",
+          "url": "https://www.youtube.com/watch?v=akGQmOFH-48"
+        }
+      ],
+      "studyOrder": 2
+    },
+    {
+      "id": "t-3",
+      "slug": "fouten-examen-stopt",
+      "title": "Fouten die je examen stoppen (Mistakes that end your exam)",
+      "summary": "Volgens GOCA betekenen deze fouten meteen 'niet geslaagd'. (According to GOCA these mean an immediate fail.)",
+      "subtopics": [
+        {
+          "id": "st-3-1",
+          "title": "Borden en lichten (signs and lights)",
+          "summary": "Verboden richting (C1, C3); C31, C33, D1, D3 of D5 negeren; door rood rijden; rijden onder een rood kruis; een overweg op als de rode lichten knipperen of de slagbomen bewegen; bevelen van een bevoegd persoon negeren. (No entry, ignoring these signs, red light, red cross, level crossing, ignoring an authorised person.)"
+        },
+        {
+          "id": "st-3-2",
+          "title": "Je auto (your car)",
+          "summary": "Uitstappen zonder parkeerrem en versnelling (of stand P); de handrem niet volledig op zodat de auto rolt; meer dan 1 meter achteruitrollen op een helling; de lichten niet kunnen aanzetten. (Parking brake, rolling back more than 1 m, not finding the lights.)"
+        },
+        {
+          "id": "st-3-3",
+          "title": "Manoeuvres",
+          "summary": "Op het voetpad of fietspad rijden; een voertuig of vaste hindernis raken, ook met je portier; de controle verliezen. (Pavement or cycle path, hitting a vehicle or obstacle, losing control.)"
+        },
+        {
+          "id": "st-3-4",
+          "title": "Ingrijpen en tempo (intervening and pace)",
+          "summary": "De examinator moet ingrijpen voor de veiligheid; je begeleider komt tussen (aanwijzingen, ruitenwissers of verwarming aanzetten, tekens geven, commentaar); zonder reden veel te traag rijden. (The examiner must intervene; the companion interferes; driving far too slowly.)"
+        },
+        {
+          "id": "st-3-5",
+          "title": "Kwetsbare weggebruikers (vulnerable road users)",
+          "summary": "Door een groep kinderen, een militaire kolonne of een stoet rijden; niet vertragen bij wielrenners in een wedstrijd of bij vee. Minder dan 1 m van een fietser in de bebouwde kom (1,5 m erbuiten) is een zware fout. (Groups, races, animals; 1 m from cyclists in town, 1.5 m outside.)"
+        }
+      ],
+      "sourceLinks": [
+        {
+          "label": "GOCA: het praktijkexamen toegelicht (2026)",
+          "url": "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+        },
+        {
+          "label": "GOCA Doc. 133: Cat. B praktijkexamen (2026)",
+          "url": "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+        }
+      ],
+      "studyOrder": 3
+    },
+    {
+      "id": "t-4",
+      "slug": "rustig-rijden",
+      "title": "Rustig rijden met de examinator (Calm driving with the examiner)",
+      "summary": "Je hoeft de examinator niet te lezen. Hij zegt afslagen op tijd, lokt je nooit in een val en zegt niet wanneer je lichten of ruitenwissers nodig hebt: kijk naar de weg, niet naar hem. (You don't need to read the examiner: turns are announced in time, there are no traps, and you decide about lights and wipers. Look at the road, not at him.)",
+      "subtopics": [
+        {
+          "id": "st-4-1",
+          "title": "Geen valstrik (no traps)",
+          "summary": "De examinator zal je nooit in een valstrik lokken. (The examiner will never try to trick you.)"
+        },
+        {
+          "id": "st-4-2",
+          "title": "Zegt hij niets? (He says nothing?)",
+          "summary": "Volg de rijbaan waarop je rijdt. Afslaan hoor je op tijd: 'Aan het volgende kruispunt links/rechts afslaan'. (Follow your lane; turns are announced in time.)"
+        },
+        {
+          "id": "st-4-3",
+          "title": "Jij beslist (you decide)",
+          "summary": "Lichten, ruitenwissers, ontwaseming, achterruitverwarming: de examinator zegt niet wanneer. Jij kijkt naar de weg en beslist. (The examiner won't tell you; you decide.)"
+        },
+        {
+          "id": "st-4-4",
+          "title": "Stoppen mag (you may stop)",
+          "summary": "Je mag altijd op reglementaire wijze stoppen om je ruiten proper te maken of je spiegels beter te richten. (You may always stop legally to clean windows or adjust mirrors.)"
+        },
+        {
+          "id": "st-4-5",
+          "title": "Gps",
+          "summary": "De wegcode gaat boven de gps. De examinator mag de gps overnemen (file, oude kaart): dat is geen fout van jou. Negeer niet meerdere gps-instructies na elkaar. (The road code beats the GPS; the examiner may take over; don't ignore several instructions in a row.)"
+        },
+        {
+          "id": "st-4-6",
+          "title": "Kijkroutine (looking routine)",
+          "summary": "Voor je links inhaalt: vooruit, binnenspiegel, linkerbuitenspiegel, over je linkerschouder, en richtingaanwijzer. Bij elke richtingsverandering: rondkijken, spiegels, dode hoek, op tijd aangeven. (Ahead, interior mirror, left mirror, left shoulder, indicator.)"
+        },
+        {
+          "id": "st-4-7",
+          "title": "Normaal tempo (normal pace)",
+          "summary": "Rij aan een normale snelheid: zonder reden abnormaal traag rijden stopt het examen. (Drive at a normal speed.)"
+        }
+      ],
+      "sourceLinks": [
+        {
+          "label": "GOCA: het praktijkexamen toegelicht (2026)",
+          "url": "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+        },
+        {
+          "label": "GOCA Doc. 133: Cat. B praktijkexamen (2026)",
+          "url": "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+        },
+        {
+          "label": "Video: De examenrit",
+          "url": "https://www.youtube.com/watch?v=qWWBP2KVQis"
+        }
+      ],
+      "studyOrder": 4
+    },
+    {
+      "id": "t-5",
+      "slug": "manoeuvres-video",
+      "title": "Manoeuvres en video's (Manoeuvres and videos)",
+      "summary": "Je doet 2 manoeuvres: één uit elke groep. Hier staan de officiële regels en de video's van VSV. (You do 2 manoeuvres, one from each group: the official rules and the VSV videos.)",
+      "subtopics": [
+        {
+          "id": "st-5-1",
+          "title": "Groep 1 (group 1)",
+          "summary": "Evenwijdig rechts parkeren · evenwijdig links parkeren · loodrecht achteruit in een vak parkeren. (Parallel park right or left; reverse into a bay.)"
+        },
+        {
+          "id": "st-5-2",
+          "title": "Groep 2 (group 2)",
+          "summary": "Loodrecht vooruit in een vak parkeren · in rechte lijn achteruit rijden · keren in een smalle straat. (Drive forward into a bay; reverse in a straight line; turn in a narrow street.)"
+        },
+        {
+          "id": "st-5-3",
+          "title": "Evenwijdig parkeren (S-parkeren)",
+          "summary": "Ga naast de auto staan waarachter je moet parkeren, dan achteruit in een vloeiende S-beweging. 1× herbeginnen is geen fout. Meld het aan de examinator als je goed staat. Klaar = als je weer deelneemt aan het verkeer, dus ook het wegrijden telt. (Start beside the car, reverse in a smooth S; one restart is fine; tell the examiner; it ends when you rejoin traffic.)"
+        },
+        {
+          "id": "st-5-4",
+          "title": "Altijd tijdens manoeuvres (always)",
+          "summary": "Richtingaanwijzers gebruiken; deuren niet openen; gordel aan, behalve tijdens het achteruitrijden; niet op voetpad of fietspad; niets raken. (Indicators; doors closed; belt on except while reversing; stay off pavements; touch nothing.)"
+        },
+        {
+          "id": "st-5-5",
+          "title": "Rechte lijn achteruit (straight reverse)",
+          "summary": "Ongeveer 20 meter, in één beweging; je mag je één keer opnieuw goed zetten; de boordsteen niet raken. (About 20 m, one movement, one repositioning, don't touch the kerb.)"
+        },
+        {
+          "id": "st-5-6",
+          "title": "Keren in een smalle straat (turning)",
+          "summary": "De volledige breedte van boordsteen tot boordsteen; parkeerplaatsen en bermen op gelijke hoogte mogen; fietspaden, voetpaden en opritten van garages niet. (Kerb to kerb; no cycle paths, pavements or driveways.)"
+        },
+        {
+          "id": "st-5-7",
+          "title": "Loodrecht in een vak (into a bay)",
+          "summary": "Minstens één auto naast het vak; het hoeft niet in één beweging; klaar als de auto volledig in het vak staat. (At least one car beside the bay; several movements are fine; done when fully in the bay.)"
+        }
+      ],
+      "sourceLinks": [
+        {
+          "label": "Video: Manoeuvre 3 – Rechts en links parallel parkeren",
+          "url": "https://www.youtube.com/watch?v=HRgemzUo_v0"
+        },
+        {
+          "label": "Video: Manoeuvre 1 – Achterwaarts in een parkeervak rijden",
+          "url": "https://www.youtube.com/watch?v=O5dUbpcVSXQ"
+        },
+        {
+          "label": "Video: Manoeuvre 2 - Voorwaarts in een parkeervak rijden",
+          "url": "https://www.youtube.com/watch?v=Uzi2x1f_tr8"
+        },
+        {
+          "label": "Video: Manoeuvre 4 – In een rechte lijn achteruit rijden",
+          "url": "https://www.youtube.com/watch?v=MwBkosV8t7E"
+        },
+        {
+          "label": "Video: Manoeuvre 5 – Keren in een smalle straat",
+          "url": "https://www.youtube.com/watch?v=mNf1Q5imOCE"
+        },
+        {
+          "label": "GOCA: het praktijkexamen toegelicht (2026)",
+          "url": "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+        },
+        {
+          "label": "GOCA Doc. 133: Cat. B praktijkexamen (2026)",
+          "url": "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+        }
+      ],
+      "studyOrder": 5
+    }
+  ],
+  "questions": [
+    {
+      "topicId": "t-1",
+      "prompt": "Voor welke talen mag een beëdigd tolk je bijstaan tijdens de rit? (In which languages may a sworn interpreter assist you during the drive?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Frans, Duits of Engels (French, German or English)"
+        },
+        {
+          "id": "b",
+          "label": "Elke taal die je wil (Any language you like)"
+        },
+        {
+          "id": "c",
+          "label": "Alleen Engels (Only English)"
+        },
+        {
+          "id": "d",
+          "label": "Geen: een tolk is niet toegelaten (None: no interpreter allowed)"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Een beëdigd tolk voor Frans, Duits of Engels mag je bijstaan tijdens de rit. / A sworn interpreter for French, German or English may assist you during the drive.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf",
+        "https://www.vlaanderen.be/en/mobility/how-to-obtain-a-category-b-driving-licence"
+      ],
+      "id": "q-1"
+    },
+    {
+      "topicId": "t-1",
+      "prompt": "Wie kiest en betaalt de tolk? (Who chooses and pays the interpreter?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Het examencentrum regelt en betaalt de tolk (The test centre arranges and pays)"
+        },
+        {
+          "id": "b",
+          "label": "GOCA kiest een tolk voor jou (GOCA picks one for you)"
+        },
+        {
+          "id": "c",
+          "label": "Jijzelf, en je verwittigt het examencentrum vooraf (You do, and you tell the test centre in advance)"
+        },
+        {
+          "id": "d",
+          "label": "Je begeleider moet tolken (Your companion must interpret)"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "Je kiest en betaalt de tolk zelf en neemt vooraf contact op met het examencentrum. / You choose and pay the interpreter yourself and contact the test centre in advance.",
+      "sourceUrls": [
+        "https://www.vlaanderen.be/en/mobility/how-to-obtain-a-category-b-driving-licence"
+      ],
+      "id": "q-2"
+    },
+    {
+      "topicId": "t-1",
+      "prompt": "Mag je tolk ook je begeleider zijn? (Can your interpreter also be your companion?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ja, dat is zelfs verplicht (Yes, that is required)"
+        },
+        {
+          "id": "b",
+          "label": "Nee, dat moeten twee verschillende personen zijn (No, they must be two different people)"
+        },
+        {
+          "id": "c",
+          "label": "Ja, als de tolk een rijbewijs heeft (Yes, if the interpreter has a licence)"
+        },
+        {
+          "id": "d",
+          "label": "Alleen met een voorlopig rijbewijs 36m (Only with a 36-month provisional licence)"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Doc. 133: wie beëdigd tolk is tijdens de rit, mag niet optreden als begeleidende persoon. / The sworn interpreter cannot act as your companion.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+      ],
+      "id": "q-3"
+    },
+    {
+      "topicId": "t-1",
+      "prompt": "In welke taal staat de gps tijdens een examen met tolk? (Which language is the GPS set to in an exam with an interpreter?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "In jouw eigen taal (In your own language)"
+        },
+        {
+          "id": "b",
+          "label": "In het Engels (In English)"
+        },
+        {
+          "id": "c",
+          "label": "Je mag dan geen gps gebruiken (You may not use a GPS then)"
+        },
+        {
+          "id": "d",
+          "label": "In het Nederlands; de tolk vertaalt de instructies (In Dutch; the interpreter translates the instructions)"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "explanation": "De gps moet in het Nederlands staan, ook met een tolk; de tolk vertaalt de richtlijnen naar Frans, Duits of Engels. Het geluid moet niet aan. / The GPS must be in Dutch, also with an interpreter, who translates. The sound may be off.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf",
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+      ],
+      "id": "q-4"
+    },
+    {
+      "topicId": "t-1",
+      "prompt": "Hoe lang moet je minstens zelfstandig rijden? (How long must you drive independently at least?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "10 tot 15 minuten (10 to 15 minutes)"
+        },
+        {
+          "id": "b",
+          "label": "2 minuten (2 minutes)"
+        },
+        {
+          "id": "c",
+          "label": "Het hele examen, zonder aanwijzingen (The whole exam, without directions)"
+        },
+        {
+          "id": "d",
+          "label": "Er is geen zelfstandig rijden (There is no independent driving)"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Je rijdt ten minste 10 tot 15 minuten zelfstandig met gps of wegwijzers; dat hoeft niet aaneensluitend. / At least 10 to 15 minutes, not necessarily in one go.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ],
+      "id": "q-5"
+    },
+    {
+      "topicId": "t-1",
+      "prompt": "Hoeveel manoeuvres voer je uit? (How many manoeuvres do you perform?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "1 (1)"
+        },
+        {
+          "id": "b",
+          "label": "Alle 6 (All 6)"
+        },
+        {
+          "id": "c",
+          "label": "2: één uit groep 1 en één uit groep 2 (2: one from group 1 and one from group 2)"
+        },
+        {
+          "id": "d",
+          "label": "Geen, je rijdt alleen (None, you only drive)"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "Uit elke groep wordt door lottrekking 1 manoeuvre gekozen. / One manoeuvre per group is drawn by lot.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf",
+        "https://www.vlaanderen.be/en/mobility/how-to-obtain-a-category-b-driving-licence"
+      ],
+      "id": "q-6"
+    },
+    {
+      "topicId": "t-1",
+      "prompt": "Welke uitslag betekent 'niet geslaagd'? (Which result means you fail?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Eén rubriek met 'voorbehoud' (One category 'with reservation')"
+        },
+        {
+          "id": "b",
+          "label": "Eén rubriek beoordeeld als 'slecht' (One category rated 'poor')"
+        },
+        {
+          "id": "c",
+          "label": "Drie rubrieken met 'voorbehoud' (Three categories 'with reservation')"
+        },
+        {
+          "id": "d",
+          "label": "Eén rubriek 'onvoldoende' (One category 'insufficient')"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Niet geslaagd bij 1× slecht, 2× onvoldoende, 1× onvoldoende + 2× voorbehoud, 4× voorbehoud, of direct gevaar. / You fail with 1 poor, 2 insufficient, 1 insufficient + 2 reservations, 4 reservations, or direct danger.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ],
+      "id": "q-7"
+    },
+    {
+      "topicId": "t-1",
+      "prompt": "Wat is 'tolk' in het Engels? (What is 'tolk' in English?)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Tolk = interpreter (mondeling). Een vertaler (translator) vertaalt geschreven tekst. / A 'tolk' interprets speech; a 'vertaler' translates text.",
+      "sourceUrls": [
+        "https://www.vlaanderen.be/en/mobility/how-to-obtain-a-category-b-driving-licence"
+      ],
+      "acceptedAnswers": [
+        "interpreter",
+        "an interpreter",
+        "the interpreter",
+        "sworn interpreter"
+      ],
+      "id": "q-8"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Wat betekent dit bord? (What does this sign mean?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Verboden toegang, in beide richtingen, voor iedere bestuurder (No access in either direction for any driver)"
+        },
+        {
+          "id": "b",
+          "label": "Openbare weg met eenrichtingsverkeer (One-way street)"
+        },
+        {
+          "id": "c",
+          "label": "Verboden richting voor iedere bestuurder (No entry for any driver)"
+        },
+        {
+          "id": "d",
+          "label": "Stoppen en voorrang verlenen (Stop and give way)"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "C1: Verboden richting voor iedere bestuurder (No entry for any driver). Officiële betekenis uit het verkeersreglement (art. 67–71). / Official meaning from the traffic regulation.",
+      "sourceUrls": [
+        "https://www.wegcode.be/nl/regelgeving/1975120109~hra8v386pu"
+      ],
+      "image": {
+        "src": "/images/road-test/c1.svg",
+        "alt": "Rond bord: rood met een witte horizontale balk. (Round sign: red with a white horizontal bar.)"
+      },
+      "id": "q-9"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Wat betekent dit bord? (What does this sign mean?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Verboden richting voor iedere bestuurder (No entry for any driver)"
+        },
+        {
+          "id": "b",
+          "label": "Verboden toegang, in beide richtingen, voor iedere bestuurder (No access in either direction for any driver)"
+        },
+        {
+          "id": "c",
+          "label": "Voorrangsweg (Priority road)"
+        },
+        {
+          "id": "d",
+          "label": "Verplicht rondgaand verkeer (Roundabout: compulsory direction)"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "C3: Verboden toegang, in beide richtingen, voor iedere bestuurder (No access in either direction for any driver). Officiële betekenis uit het verkeersreglement (art. 67–71). / Official meaning from the traffic regulation.",
+      "sourceUrls": [
+        "https://www.wegcode.be/nl/regelgeving/1975120109~hra8v386pu"
+      ],
+      "image": {
+        "src": "/images/road-test/c3.svg",
+        "alt": "Rond bord: wit met een brede rode rand, zonder symbool. (Round sign: white with a wide red border, no symbol.)"
+      },
+      "id": "q-10"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Wat betekent dit bord? (What does this sign mean?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Verplichting de door de pijl aangeduide richting te volgen (You must follow the direction of the arrow)"
+        },
+        {
+          "id": "b",
+          "label": "Verbod te keren tot en met het volgend kruispunt (No U-turn up to and including the next junction)"
+        },
+        {
+          "id": "c",
+          "label": "Kruispunt waar de voorrang van rechts geldt (Junction with priority to the right)"
+        },
+        {
+          "id": "d",
+          "label": "Verbod aan het volgend kruispunt links af te slaan (No left turn at the next junction)"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "explanation": "C31a: Verbod aan het volgend kruispunt links af te slaan (No left turn at the next junction). Officiële betekenis uit het verkeersreglement (art. 67–71). / Official meaning from the traffic regulation.",
+      "sourceUrls": [
+        "https://www.wegcode.be/nl/regelgeving/1975120109~hra8v386pu"
+      ],
+      "image": {
+        "src": "/images/road-test/c31a.svg",
+        "alt": "Rond bord met rode rand: zwarte pijl die naar links afslaat, met een rode schuine streep. (Round red-bordered sign: black arrow turning left, crossed by a red diagonal bar.)"
+      },
+      "id": "q-11"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Wat betekent dit bord? (What does this sign mean?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Verbod te keren tot en met het volgend kruispunt (No U-turn up to and including the next junction)"
+        },
+        {
+          "id": "b",
+          "label": "Verbod aan het volgend kruispunt links af te slaan (No left turn at the next junction)"
+        },
+        {
+          "id": "c",
+          "label": "Verplicht rondgaand verkeer (Roundabout: compulsory direction)"
+        },
+        {
+          "id": "d",
+          "label": "Verboden richting voor iedere bestuurder (No entry for any driver)"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "C33: Verbod te keren tot en met het volgend kruispunt (No U-turn up to and including the next junction). Officiële betekenis uit het verkeersreglement (art. 67–71). / Official meaning from the traffic regulation.",
+      "sourceUrls": [
+        "https://www.wegcode.be/nl/regelgeving/1975120109~hra8v386pu"
+      ],
+      "image": {
+        "src": "/images/road-test/c33.svg",
+        "alt": "Rond bord met rode rand: zwarte U-vormige pijl, met een rode schuine streep. (Round red-bordered sign: black U-shaped arrow, crossed by a red diagonal bar.)"
+      },
+      "id": "q-12"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Wat betekent dit bord? (What does this sign mean?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Verbod aan het volgend kruispunt links af te slaan (No left turn at the next junction)"
+        },
+        {
+          "id": "b",
+          "label": "Openbare weg met eenrichtingsverkeer (One-way street)"
+        },
+        {
+          "id": "c",
+          "label": "Verplichting de door de pijl aangeduide richting te volgen (You must follow the direction of the arrow)"
+        },
+        {
+          "id": "d",
+          "label": "Verplichting één van de door de pijlen aangeduide richtingen te volgen (You must follow one of the arrows)"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "D1: Verplichting de door de pijl aangeduide richting te volgen (You must follow the direction of the arrow). Officiële betekenis uit het verkeersreglement (art. 67–71). / Official meaning from the traffic regulation.",
+      "sourceUrls": [
+        "https://www.wegcode.be/nl/regelgeving/1975120109~hra8v386pu"
+      ],
+      "image": {
+        "src": "/images/road-test/d1.svg",
+        "alt": "Rond blauw bord met één witte pijl naar rechts. (Round blue sign with one white arrow pointing right.)"
+      },
+      "id": "q-13"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Wat betekent dit bord? (What does this sign mean?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Verplichting de door de pijl aangeduide richting te volgen (You must follow the direction of the arrow)"
+        },
+        {
+          "id": "b",
+          "label": "Verplichting één van de door de pijlen aangeduide richtingen te volgen (You must follow one of the arrows)"
+        },
+        {
+          "id": "c",
+          "label": "Verbod aan het volgend kruispunt links af te slaan (No left turn at the next junction)"
+        },
+        {
+          "id": "d",
+          "label": "Voorrang op het volgende kruispunt (Priority at the next junction)"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "D3: Verplichting één van de door de pijlen aangeduide richtingen te volgen (You must follow one of the arrows). Officiële betekenis uit het verkeersreglement (art. 67–71). / Official meaning from the traffic regulation.",
+      "sourceUrls": [
+        "https://www.wegcode.be/nl/regelgeving/1975120109~hra8v386pu"
+      ],
+      "image": {
+        "src": "/images/road-test/d3.svg",
+        "alt": "Rond blauw bord met twee witte pijlen: rechtdoor en rechts. (Round blue sign with two white arrows: straight on and right.)"
+      },
+      "id": "q-14"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Wat betekent dit bord? (What does this sign mean?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Verbod te keren tot en met het volgend kruispunt (No U-turn up to and including the next junction)"
+        },
+        {
+          "id": "b",
+          "label": "Kruispunt waar de voorrang van rechts geldt (Junction with priority to the right)"
+        },
+        {
+          "id": "c",
+          "label": "Verplichting één van de door de pijlen aangeduide richtingen te volgen (You must follow one of the arrows)"
+        },
+        {
+          "id": "d",
+          "label": "Verplicht rondgaand verkeer (Roundabout: compulsory direction)"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "explanation": "D5: Verplicht rondgaand verkeer (Roundabout: compulsory direction). Officiële betekenis uit het verkeersreglement (art. 67–71). / Official meaning from the traffic regulation.",
+      "sourceUrls": [
+        "https://www.wegcode.be/nl/regelgeving/1975120109~hra8v386pu"
+      ],
+      "image": {
+        "src": "/images/road-test/d5.svg",
+        "alt": "Rond blauw bord met drie witte pijlen in een cirkel. (Round blue sign with three white arrows in a circle.)"
+      },
+      "id": "q-15"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Wat betekent dit bord? (What does this sign mean?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Voorrang verlenen (Give way)"
+        },
+        {
+          "id": "b",
+          "label": "Stoppen en voorrang verlenen (Stop and give way)"
+        },
+        {
+          "id": "c",
+          "label": "Kruispunt waar de voorrang van rechts geldt (Junction with priority to the right)"
+        },
+        {
+          "id": "d",
+          "label": "Einde van voorrangsweg (End of priority road)"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "B1: Voorrang verlenen (Give way). Officiële betekenis uit het verkeersreglement (art. 67–71). / Official meaning from the traffic regulation.",
+      "sourceUrls": [
+        "https://www.wegcode.be/nl/regelgeving/1975120109~hra8v386pu"
+      ],
+      "image": {
+        "src": "/images/road-test/b1.svg",
+        "alt": "Driehoekig bord met de punt naar beneden: wit met rode rand. (Triangular sign pointing down: white with a red border.)"
+      },
+      "id": "q-16"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Wat betekent dit bord? (What does this sign mean?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Voorrang verlenen (Give way)"
+        },
+        {
+          "id": "b",
+          "label": "Verboden richting voor iedere bestuurder (No entry for any driver)"
+        },
+        {
+          "id": "c",
+          "label": "Stoppen en voorrang verlenen (Stop and give way)"
+        },
+        {
+          "id": "d",
+          "label": "Verboden toegang, in beide richtingen, voor iedere bestuurder (No access in either direction for any driver)"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "B5: Stoppen en voorrang verlenen (Stop and give way). Officiële betekenis uit het verkeersreglement (art. 67–71). / Official meaning from the traffic regulation.",
+      "sourceUrls": [
+        "https://www.wegcode.be/nl/regelgeving/1975120109~hra8v386pu"
+      ],
+      "image": {
+        "src": "/images/road-test/b5.svg",
+        "alt": "Achthoekig rood bord met het woord STOP. (Red octagonal sign with the word STOP.)"
+      },
+      "id": "q-17"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Wat betekent dit bord? (What does this sign mean?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Einde van voorrangsweg (End of priority road)"
+        },
+        {
+          "id": "b",
+          "label": "Voorrangsweg (Priority road)"
+        },
+        {
+          "id": "c",
+          "label": "Voorrang op het volgende kruispunt (Priority at the next junction)"
+        },
+        {
+          "id": "d",
+          "label": "Voorrang verlenen (Give way)"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "B9: Voorrangsweg (Priority road). Officiële betekenis uit het verkeersreglement (art. 67–71). / Official meaning from the traffic regulation.",
+      "sourceUrls": [
+        "https://www.wegcode.be/nl/regelgeving/1975120109~hra8v386pu"
+      ],
+      "image": {
+        "src": "/images/road-test/b9.svg",
+        "alt": "Vierkant bord op zijn punt: geel met een witte rand. (Square sign on its point: yellow with a white border.)"
+      },
+      "id": "q-18"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Wat betekent dit bord? (What does this sign mean?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Voorrangsweg (Priority road)"
+        },
+        {
+          "id": "b",
+          "label": "Voorrang verlenen (Give way)"
+        },
+        {
+          "id": "c",
+          "label": "Kruispunt waar de voorrang van rechts geldt (Junction with priority to the right)"
+        },
+        {
+          "id": "d",
+          "label": "Einde van voorrangsweg (End of priority road)"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "explanation": "B11: Einde van voorrangsweg (End of priority road). Officiële betekenis uit het verkeersreglement (art. 67–71). / Official meaning from the traffic regulation.",
+      "sourceUrls": [
+        "https://www.wegcode.be/nl/regelgeving/1975120109~hra8v386pu"
+      ],
+      "image": {
+        "src": "/images/road-test/b11.svg",
+        "alt": "Geel bord op zijn punt met zwarte schuine strepen. (Yellow diamond sign with black diagonal stripes.)"
+      },
+      "id": "q-19"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Wat betekent dit bord? (What does this sign mean?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Voorrang op het volgende kruispunt (Priority at the next junction)"
+        },
+        {
+          "id": "b",
+          "label": "Kruispunt waar de voorrang van rechts geldt (Junction with priority to the right)"
+        },
+        {
+          "id": "c",
+          "label": "Voorrangsweg (Priority road)"
+        },
+        {
+          "id": "d",
+          "label": "Verplichting één van de door de pijlen aangeduide richtingen te volgen (You must follow one of the arrows)"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "B15: Voorrang op het volgende kruispunt (Priority at the next junction). Officiële betekenis uit het verkeersreglement (art. 67–71). / Official meaning from the traffic regulation.",
+      "sourceUrls": [
+        "https://www.wegcode.be/nl/regelgeving/1975120109~hra8v386pu"
+      ],
+      "image": {
+        "src": "/images/road-test/b15.svg",
+        "alt": "Driehoekig bord met rode rand: een dikke zwarte verticale streep met een dunne dwarsstreep. (Red-bordered triangle: a thick black vertical bar with a thin cross bar.)"
+      },
+      "id": "q-20"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Wat betekent dit bord? (What does this sign mean?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Voorrang op het volgende kruispunt (Priority at the next junction)"
+        },
+        {
+          "id": "b",
+          "label": "Voorrang verlenen (Give way)"
+        },
+        {
+          "id": "c",
+          "label": "Kruispunt waar de voorrang van rechts geldt (Junction with priority to the right)"
+        },
+        {
+          "id": "d",
+          "label": "Verboden toegang, in beide richtingen, voor iedere bestuurder (No access in either direction for any driver)"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "B17: Kruispunt waar de voorrang van rechts geldt (Junction with priority to the right). Officiële betekenis uit het verkeersreglement (art. 67–71). / Official meaning from the traffic regulation.",
+      "sourceUrls": [
+        "https://www.wegcode.be/nl/regelgeving/1975120109~hra8v386pu"
+      ],
+      "image": {
+        "src": "/images/road-test/b17.svg",
+        "alt": "Driehoekig bord met rode rand: een zwart kruis (X). (Red-bordered triangle: a black X.)"
+      },
+      "id": "q-21"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Wat betekent dit bord? (What does this sign mean?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Verboden richting voor iedere bestuurder (No entry for any driver)"
+        },
+        {
+          "id": "b",
+          "label": "Openbare weg met eenrichtingsverkeer (One-way street)"
+        },
+        {
+          "id": "c",
+          "label": "Verplichting de door de pijl aangeduide richting te volgen (You must follow the direction of the arrow)"
+        },
+        {
+          "id": "d",
+          "label": "Voorrangsweg (Priority road)"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "F19: Openbare weg met eenrichtingsverkeer (One-way street). Officiële betekenis uit het verkeersreglement (art. 67–71). / Official meaning from the traffic regulation.",
+      "sourceUrls": [
+        "https://www.wegcode.be/nl/regelgeving/1975120109~hra8v386pu"
+      ],
+      "image": {
+        "src": "/images/road-test/f19.svg",
+        "alt": "Vierkant blauw bord met een witte pijl naar boven. (Square blue sign with a white arrow pointing up.)"
+      },
+      "id": "q-22"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Je stopt aan een stopbord. De gps zegt 'rechtsaf', maar in die straat staat bord C1. Wat doe je? (You stop at a stop sign. The GPS says 'turn right', but that street has sign C1. What do you do?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Toch inrijden, want de gps zegt het (Enter anyway, because the GPS says so)"
+        },
+        {
+          "id": "b",
+          "label": "Achteruit de straat inrijden (Reverse into the street)"
+        },
+        {
+          "id": "c",
+          "label": "Inrijden met de alarmlichten aan (Enter with the hazard lights on)"
+        },
+        {
+          "id": "d",
+          "label": "Niet inrijden: de wegcode gaat altijd boven de gps (Don't enter: the road code always beats the GPS)"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "explanation": "De code van de openbare weg gaat altijd boven de instructies van de gps. Een verboden richting inrijden stopt het examen. / The road code always beats the GPS; entering a no-entry street ends the exam.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ],
+      "id": "q-23"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Wat gebeurt er als je tijdens het examen een verboden richting inrijdt? (What happens if you enter a no-entry street during the exam?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Het examen wordt stopgezet en je bent niet geslaagd (The exam is stopped and you fail)"
+        },
+        {
+          "id": "b",
+          "label": "Je krijgt een voorbehoud (You get a reservation)"
+        },
+        {
+          "id": "c",
+          "label": "Niets, als er geen verkeer is (Nothing, if there is no traffic)"
+        },
+        {
+          "id": "d",
+          "label": "Je moet het manoeuvre herbeginnen (You must restart the manoeuvre)"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "GOCA: 'Als je een verboden richting inrijdt, wordt dit streng beoordeeld. Het examen wordt dan ook stopgezet.' / The exam is stopped and you fail.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ],
+      "id": "q-24"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Je hebt gestopt aan een B5-bord en wil afslaan. Waarop let je voor je vertrekt? (You stopped at a B5 sign and want to turn. What do you check before you go?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Alleen de gps (Only the GPS)"
+        },
+        {
+          "id": "b",
+          "label": "Alleen het verkeer van links (Only traffic from the left)"
+        },
+        {
+          "id": "c",
+          "label": "Het verkeer met voorrang én de borden van de straat waarin je rijdt, zoals C1 of C3 (Traffic with priority and the signs of the street you turn into, such as C1 or C3)"
+        },
+        {
+          "id": "d",
+          "label": "Niets: na een stop heb jij voorrang (Nothing: after a stop you have priority)"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "B5 = stoppen en voorrang verlenen. Kijk voldoende rond je (je vergewissen) en let op borden die de toegang verbieden (C1, C3). / Stop, give way, look around and watch for no-entry signs.",
+      "sourceUrls": [
+        "https://www.wegcode.be/nl/regelgeving/1975120109~hra8v386pu",
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ],
+      "id": "q-25"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Wat is 'verboden richting' in het Engels? (What is 'verboden richting' in English?)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Verboden richting (bord C1) = no entry. / Sign C1 means no entry.",
+      "sourceUrls": [
+        "https://www.wegcode.be/nl/regelgeving/1975120109~hra8v386pu"
+      ],
+      "acceptedAnswers": [
+        "no entry",
+        "no entry for any driver",
+        "no entry for all drivers",
+        "do not enter",
+        "no entry sign"
+      ],
+      "id": "q-26"
+    },
+    {
+      "topicId": "t-2",
+      "prompt": "Wat is 'voorrang verlenen' in het Engels? (What is 'voorrang verlenen' in English?)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Voorrang verlenen (bord B1) = give way. / Sign B1 means give way.",
+      "sourceUrls": [
+        "https://www.wegcode.be/nl/regelgeving/1975120109~hra8v386pu"
+      ],
+      "acceptedAnswers": [
+        "give way",
+        "yield",
+        "give priority",
+        "give way sign"
+      ],
+      "id": "q-27"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Welke van deze fouten betekent meteen 'niet geslaagd'? (Which of these mistakes means an immediate fail?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Eén keer herbeginnen bij evenwijdig parkeren (Restarting parallel parking once)"
+        },
+        {
+          "id": "b",
+          "label": "Door een rood licht rijden (Driving through a red light)"
+        },
+        {
+          "id": "c",
+          "label": "Op een reglementaire plaats stoppen om je spiegels bij te stellen (Stopping legally to adjust your mirrors)"
+        },
+        {
+          "id": "d",
+          "label": "Het geluid van de gps uitzetten (Turning the GPS sound off)"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Een rood verkeerslicht negeren = niet geslaagd. De drie andere zijn uitdrukkelijk toegelaten. / Running a red light is a fail; the other three are explicitly allowed.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ],
+      "id": "q-28"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Je stapt uit zonder parkeerrem en zonder versnelling (of stand P). Wat is het gevolg? (You get out without the parking brake and without a gear or P. What happens?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Geen probleem als de motor uit is (No problem if the engine is off)"
+        },
+        {
+          "id": "b",
+          "label": "Alleen een opmerking (Only a remark)"
+        },
+        {
+          "id": "c",
+          "label": "Een voorbehoud (A reservation)"
+        },
+        {
+          "id": "d",
+          "label": "Je bent niet geslaagd (You fail)"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "explanation": "Uitstappen zonder parkeerrem en versnelling (of P), of de handrem niet volledig op zodat de auto rolt = niet geslaagd. / You fail.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ],
+      "id": "q-29"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Hoe ver mag je auto achteruitrollen als je op een helling vertrekt? (How far may the car roll back on a hill start?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Niet meer dan 1 meter: meer is niet geslaagd (Not more than 1 metre: more is a fail)"
+        },
+        {
+          "id": "b",
+          "label": "Tot 3 meter (Up to 3 metres)"
+        },
+        {
+          "id": "c",
+          "label": "Zolang je niets raakt (As long as you hit nothing)"
+        },
+        {
+          "id": "d",
+          "label": "Dat wordt niet beoordeeld (That is not judged)"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Je voertuig mag niet achteruitrijden; meer dan 1 meter achteruit = niet geslaagd. / More than 1 metre back is a fail.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ],
+      "id": "q-30"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Je begeleider zet tijdens de rit de ruitenwissers aan. Wat gebeurt er? (Your companion switches the wipers on during the drive. What happens?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Niets, hij helpt alleen (Nothing, he is just helping)"
+        },
+        {
+          "id": "b",
+          "label": "Je krijgt een voorbehoud (You get a reservation)"
+        },
+        {
+          "id": "c",
+          "label": "Het examen stopt en je bent niet geslaagd (The exam stops and you fail)"
+        },
+        {
+          "id": "d",
+          "label": "De examinator geeft een waarschuwing (The examiner gives a warning)"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "De begeleider mag geen aanwijzingen geven, geen ruitenwissers, ontdooier, ontwaseming of verwarming aanzetten, geen tekens geven en geen commentaar geven. Doet hij dat toch, dan stopt het examen. / If the companion interferes, the exam stops.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf",
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+      ],
+      "id": "q-31"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Tijdens een manoeuvre rijd je met een wiel op het voetpad. Wat is het gevolg? (During a manoeuvre one wheel goes onto the pavement. What happens?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Geen probleem als het kort is (No problem if it is brief)"
+        },
+        {
+          "id": "b",
+          "label": "Je bent meteen niet geslaagd (You fail straight away)"
+        },
+        {
+          "id": "c",
+          "label": "Een voorbehoud (A reservation)"
+        },
+        {
+          "id": "d",
+          "label": "Je herbegint, zonder gevolg (You restart with no consequence)"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Tijdens het manoeuvre op het voetpad of fietspad rijden = onmiddellijk niet geslaagd. / Driving on the pavement or cycle path is an immediate fail.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ],
+      "id": "q-32"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Bij het parkeren raak je lichtjes de auto achter je. Wat is het gevolg? (While parking you lightly touch the car behind you. What happens?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Geen probleem bij lage snelheid (No problem at low speed)"
+        },
+        {
+          "id": "b",
+          "label": "Alleen als er schade is (Only if there is damage)"
+        },
+        {
+          "id": "c",
+          "label": "Je mag gratis herbeginnen (You get a free restart)"
+        },
+        {
+          "id": "d",
+          "label": "Je bent meteen niet geslaagd (You fail straight away)"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "explanation": "Een ander voertuig of vaste hindernis raken (ook bij het openen van het portier) = niet geslaagd. / Touching a vehicle or obstacle is a fail.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ],
+      "id": "q-33"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "De examinator moet voor de veiligheid ingrijpen, bijvoorbeeld remmen. Wat gebeurt er? (The examiner has to intervene for safety, for example by braking. What happens?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Het examen stopt en je bent niet geslaagd (The exam stops and you fail)"
+        },
+        {
+          "id": "b",
+          "label": "Je krijgt een voorbehoud (You get a reservation)"
+        },
+        {
+          "id": "c",
+          "label": "Niets, dat hoort bij het examen (Nothing, that is part of the exam)"
+        },
+        {
+          "id": "d",
+          "label": "Je moet een extra manoeuvre doen (You must do an extra manoeuvre)"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Indien de examinator voor de veiligheid moet tussenkomen, stopt hij het examen en ben je niet geslaagd. / If the examiner must intervene, the exam stops.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ],
+      "id": "q-34"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Je rijdt zonder reden veel te traag. Wat kan er gebeuren? (You drive far too slowly for no reason. What can happen?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je krijgt een pluspunt voor voorzichtigheid (You get a bonus for caution)"
+        },
+        {
+          "id": "b",
+          "label": "Niets: traag is altijd veilig (Nothing: slow is always safe)"
+        },
+        {
+          "id": "c",
+          "label": "Het examen wordt stopgezet en je bent niet geslaagd (The exam is stopped and you fail)"
+        },
+        {
+          "id": "d",
+          "label": "De examinator neemt het stuur over (The examiner takes the wheel)"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "Als je niet voldoende deelneemt aan het verkeer, kan de examinator niet beoordelen: het examen wordt stopgezet. Rij aan een normale snelheid. / Drive at a normal speed.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf",
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+      ],
+      "id": "q-35"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Hoeveel zijdelingse afstand hou je binnen de bebouwde kom tot een fietser? (How much side distance do you keep from a cyclist in a built-up area?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Minstens 50 cm (At least 50 cm)"
+        },
+        {
+          "id": "b",
+          "label": "Minstens 1 meter (At least 1 metre)"
+        },
+        {
+          "id": "c",
+          "label": "Minstens 3 meter (At least 3 metres)"
+        },
+        {
+          "id": "d",
+          "label": "Daar is geen regel voor (There is no rule)"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Minstens 1 meter binnen de bebouwde kom en 1,5 meter erbuiten; minder is een zware fout. / 1 m in town, 1.5 m outside; less is a serious error.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ],
+      "id": "q-36"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "De rode lichten aan de overweg knipperen. Wat doe je? (The red lights at the level crossing are flashing. What do you do?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Snel oversteken als er geen trein is (Cross quickly if there is no train)"
+        },
+        {
+          "id": "b",
+          "label": "Langzaam oprijden (Drive on slowly)"
+        },
+        {
+          "id": "c",
+          "label": "Toeteren en oprijden (Sound the horn and drive on)"
+        },
+        {
+          "id": "d",
+          "label": "Stoppen: oprijden is meteen niet geslaagd (Stop: driving on is an immediate fail)"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "explanation": "Je op een overweg begeven als de rode knipperlichten branden of de slagbomen bewegen of gesloten zijn = niet geslaagd. / Entering then is a fail.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ],
+      "id": "q-37"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Je moet de lichten aanzetten maar je vindt de schakelaar niet. Wat is het gevolg? (You must switch on the lights but cannot find the switch. What happens?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Het examen stopt en je bent niet geslaagd (The exam stops and you fail)"
+        },
+        {
+          "id": "b",
+          "label": "De examinator zet ze voor je aan (The examiner switches them on for you)"
+        },
+        {
+          "id": "c",
+          "label": "Een voorbehoud (A reservation)"
+        },
+        {
+          "id": "d",
+          "label": "Niets, de examinator zegt wanneer het moet (Nothing, the examiner tells you when)"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Als je de lichten niet kan aanzetten, stopt het examen. De examinator zegt ook niet wanneer je ze nodig hebt. / If you cannot switch on the lights, the exam stops.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ],
+      "id": "q-38"
+    },
+    {
+      "topicId": "t-3",
+      "prompt": "Wat is 'niet geslaagd' in het Engels? (What is 'niet geslaagd' in English?)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Niet geslaagd = failed. Geslaagd = passed.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ],
+      "acceptedAnswers": [
+        "failed",
+        "fail",
+        "not passed",
+        "did not pass",
+        "you failed"
+      ],
+      "id": "q-39"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "De examinator zegt niets. Wat doe je? (The examiner says nothing. What do you do?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je stopt en wacht op instructies (You stop and wait for instructions)"
+        },
+        {
+          "id": "b",
+          "label": "Je slaat de eerste straat rechts in (You take the first street on the right)"
+        },
+        {
+          "id": "c",
+          "label": "Je rijdt terug naar het examencentrum (You drive back to the test centre)"
+        },
+        {
+          "id": "d",
+          "label": "Je volgt de rijbaan waarop je rijdt (You follow the lane you are in)"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "explanation": "Zolang de examinator niets zegt, volg je de rijbaan waarop je je bevindt. / As long as he says nothing, follow your lane.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf",
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ],
+      "id": "q-40"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Kan de examinator je bewust in een val lokken? (Can the examiner deliberately try to trick you?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nee, nooit (No, never)"
+        },
+        {
+          "id": "b",
+          "label": "Ja, om je reactie te testen (Yes, to test your reaction)"
+        },
+        {
+          "id": "c",
+          "label": "Alleen tijdens het zelfstandig rijden (Only during independent driving)"
+        },
+        {
+          "id": "d",
+          "label": "Alleen bij de manoeuvres (Only during the manoeuvres)"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "De examinator zal je nooit in een valstrik lokken. / The examiner will never set a trap.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf",
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ],
+      "id": "q-41"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Hoe hoor je dat je moet afslaan? (How are turns announced?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Met een handgebaar (With a hand signal)"
+        },
+        {
+          "id": "b",
+          "label": "Pas als je al op het kruispunt staat (Only once you are at the junction)"
+        },
+        {
+          "id": "c",
+          "label": "Op tijd: 'Aan het volgende kruispunt links/rechts afslaan' (In time: 'At the next junction turn left/right')"
+        },
+        {
+          "id": "d",
+          "label": "Niet: je moet het zelf raden (Not at all: you must guess)"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "De examinator meldt een richtingsverandering tijdig: 'Aan het volgende kruispunt links/rechts afslaan'. / Turns are announced in time.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf",
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ],
+      "id": "q-42"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Wie beslist wanneer je de ruitenwissers of de ontwaseming aanzet? (Who decides when to use the wipers or the demister?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "De examinator zegt het telkens (The examiner tells you each time)"
+        },
+        {
+          "id": "b",
+          "label": "Jij: de examinator zegt het niet (You: the examiner won't tell you)"
+        },
+        {
+          "id": "c",
+          "label": "Je begeleider (Your companion)"
+        },
+        {
+          "id": "d",
+          "label": "Niemand: ze mogen niet aan tijdens het examen (No one: they may not be used during the exam)"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Je beslist zelf wanneer het nodig is; de examinator zal je niet zeggen wanneer. De begeleider mag ze niet aanzetten. / You decide; the companion may not do it.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ],
+      "id": "q-43"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Je ziet slecht door een vuile ruit. Mag je stoppen? (A dirty window blocks your view. May you stop?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nee, stoppen is altijd een fout (No, stopping is always a fault)"
+        },
+        {
+          "id": "b",
+          "label": "Alleen als de examinator het vraagt (Only if the examiner asks)"
+        },
+        {
+          "id": "c",
+          "label": "Alleen na het examen (Only after the exam)"
+        },
+        {
+          "id": "d",
+          "label": "Ja, op reglementaire wijze, om je ruiten proper te maken of je spiegels te richten (Yes, legally, to clean the windows or adjust the mirrors)"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "explanation": "Tijdens de proef mag je steeds op reglementaire wijze stoppen om je zichtbaarheid te verbeteren. / You may always stop legally to improve your view.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf",
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+      ],
+      "id": "q-44"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "De gps zegt iets anders dan een verkeersbord. Wat volg je? (The GPS says something different from a road sign. What do you follow?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Het verkeersbord: de wegcode gaat altijd boven de gps (The sign: the road code always beats the GPS)"
+        },
+        {
+          "id": "b",
+          "label": "De gps, want die kent de route (The GPS, because it knows the route)"
+        },
+        {
+          "id": "c",
+          "label": "Wat de tolk zegt (What the interpreter says)"
+        },
+        {
+          "id": "d",
+          "label": "Wat het snelst is (Whatever is fastest)"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "De code van de openbare weg gaat altijd boven de instructies van de gps. / The road code always comes first.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ],
+      "id": "q-45"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "De examinator neemt het van de gps over. Wat betekent dat? (The examiner takes over from the GPS. What does that mean?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je hebt een zware fout gemaakt (You made a serious error)"
+        },
+        {
+          "id": "b",
+          "label": "Je bent niet geslaagd (You failed)"
+        },
+        {
+          "id": "c",
+          "label": "Niets ergs: dat mag, bijvoorbeeld door file of een oude gps-kaart (Nothing bad: it is allowed, for example because of traffic or an old map)"
+        },
+        {
+          "id": "d",
+          "label": "Je moet stoppen en uitstappen (You must stop and get out)"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "De examinator mag het van de gps overnemen, bijvoorbeeld om de doorgangspunten te respecteren, file te vermijden of omdat de kaart niet actueel is. / This is allowed and is not your fault.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ],
+      "id": "q-46"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Wat is de juiste kijkroutine voor je links inhaalt? (What is the right looking routine before you overtake on the left?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Alleen de binnenspiegel (Only the interior mirror)"
+        },
+        {
+          "id": "b",
+          "label": "Vooruit, binnenspiegel, linkerbuitenspiegel, over de linkerschouder (Ahead, interior mirror, left mirror, over the left shoulder)"
+        },
+        {
+          "id": "c",
+          "label": "Naar de examinator kijken en dan inhalen (Look at the examiner, then overtake)"
+        },
+        {
+          "id": "d",
+          "label": "Alleen over de schouder kijken (Only look over your shoulder)"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Kijktechniek: naar voor kijken, binnenspiegel, linker buitenspiegel, over de linkerschouder (dode hoek), en de richtingaanwijzer gebruiken. / Then use the indicator.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ],
+      "id": "q-47"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Wat als je meerdere gps-instructies na elkaar negeert? (What if you ignore several GPS instructions in a row?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Niets, de gps is maar een hulpmiddel (Nothing, the GPS is only a tool)"
+        },
+        {
+          "id": "b",
+          "label": "Je krijgt een pluspunt voor zelfstandigheid (You get a bonus for independence)"
+        },
+        {
+          "id": "c",
+          "label": "Het examen wordt herstart (The exam restarts)"
+        },
+        {
+          "id": "d",
+          "label": "De examinator besluit dat je rijden nog niet genoeg geautomatiseerd is (The examiner concludes your driving is not automatic enough yet)"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "explanation": "Wie meerdere opeenvolgende instructies van de gps of wegwijzers negeert, rijdt volgens de examinator onvoldoende geautomatiseerd. Eén gemiste afslag is geen ramp. / Missing one turn is not a disaster; ignoring several in a row is.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ],
+      "id": "q-48"
+    },
+    {
+      "topicId": "t-4",
+      "prompt": "Wat is 'dode hoek' in het Engels? (What is 'dode hoek' in English?)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Dode hoek = blind spot. Kijk over je schouder. / Look over your shoulder.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ],
+      "acceptedAnswers": [
+        "blind spot",
+        "the blind spot",
+        "blindspot",
+        "blind spots"
+      ],
+      "id": "q-49"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "Hoe vaak mag je herbeginnen bij evenwijdig parkeren zonder dat het een fout is? (How many times may you restart parallel parking without a fault?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "1 keer (Once)"
+        },
+        {
+          "id": "b",
+          "label": "Geen enkele keer (Not at all)"
+        },
+        {
+          "id": "c",
+          "label": "2 keer (Twice)"
+        },
+        {
+          "id": "d",
+          "label": "Zo vaak als je wil (As often as you like)"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "GOCA: '1x herbeginnen wordt niet als fout beschouwd.' / One restart is not a fault.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf",
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+      ],
+      "id": "q-50"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "Waar zet je je auto bij de start van evenwijdig parkeren? (Where do you position the car to start parallel parking?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Achter de auto waarachter je moet parkeren (Behind that car)"
+        },
+        {
+          "id": "b",
+          "label": "Met de neus al in de vrije plaats (With the nose already in the space)"
+        },
+        {
+          "id": "c",
+          "label": "Naast de auto waarachter je moet parkeren (Beside the car you will park behind)"
+        },
+        {
+          "id": "d",
+          "label": "Op het voetpad, om ruimte te maken (On the pavement, to make room)"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "Je stelt je voertuig op naast het voertuig waarachter je moet parkeren. / Start beside the car you park behind.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf",
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+      ],
+      "id": "q-51"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "Welke beweging maak je bij evenwijdig parkeren? (Which movement do you make when parallel parking?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Vooruit, in één keer (Forward, in one go)"
+        },
+        {
+          "id": "b",
+          "label": "Achteruit, in een vloeiende S-beweging (In reverse, in a smooth S-movement)"
+        },
+        {
+          "id": "c",
+          "label": "Achteruit, in een rechte lijn (In reverse, in a straight line)"
+        },
+        {
+          "id": "d",
+          "label": "Vooruit, in een S-beweging (Forward, in an S-movement)"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Je parkeert achterwaarts in een vloeiende S-beweging. Bekijk de VSV-video 'Manoeuvre 3'. / Reverse in a smooth S; watch VSV 'Manoeuvre 3'.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf",
+        "https://www.youtube.com/watch?v=HRgemzUo_v0"
+      ],
+      "id": "q-52"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "Wanneer is het manoeuvre evenwijdig parkeren beëindigd? (When is the parallel parking manoeuvre finished?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Als de auto stilstaat (When the car stops)"
+        },
+        {
+          "id": "b",
+          "label": "Als je de motor uitzet (When you switch off the engine)"
+        },
+        {
+          "id": "c",
+          "label": "Als je de handrem opzet (When you apply the handbrake)"
+        },
+        {
+          "id": "d",
+          "label": "Als je weer deelneemt aan het verkeer (When you rejoin traffic)"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "explanation": "Het manoeuvre is beëindigd wanneer je opnieuw deelneemt aan het verkeer: het wegrijden (kijken, richtingaanwijzer) hoort erbij. / Pulling out is part of it.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf",
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+      ],
+      "id": "q-53"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "Wat doe je als je vindt dat je goed geparkeerd staat? (What do you do when you think you are parked properly?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je meldt het aan de examinator (You tell the examiner)"
+        },
+        {
+          "id": "b",
+          "label": "Je zet de motor uit (You switch off the engine)"
+        },
+        {
+          "id": "c",
+          "label": "Je stapt uit om te kijken (You get out to check)"
+        },
+        {
+          "id": "d",
+          "label": "Je toetert (You sound the horn)"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "GOCA: 'Als je vindt dat je goed staat, meld je dit aan de examinator.' / Tell the examiner.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ],
+      "id": "q-54"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "Wanneer mag je tijdens de manoeuvres je gordel afdoen? (When may you take off the seat belt during the manoeuvres?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nooit (Never)"
+        },
+        {
+          "id": "b",
+          "label": "Tijdens het hele manoeuvre (During the whole manoeuvre)"
+        },
+        {
+          "id": "c",
+          "label": "Alleen tijdens het achteruitrijden (Only while reversing)"
+        },
+        {
+          "id": "d",
+          "label": "Alleen bij keren in een smalle straat (Only for turning in a narrow street)"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "De veiligheidsgordels moeten gedragen worden, behalve tijdens het achteruitrijden. / Belts on, except while reversing.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+      ],
+      "id": "q-55"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "Mag je tijdens een manoeuvre de deur openen om te kijken? (May you open the door during a manoeuvre to look?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ja, even (Yes, briefly)"
+        },
+        {
+          "id": "b",
+          "label": "Nee, dat is niet toegelaten (No, that is not allowed)"
+        },
+        {
+          "id": "c",
+          "label": "Ja, als je je gordel aanhoudt (Yes, if you keep your belt on)"
+        },
+        {
+          "id": "d",
+          "label": "Alleen bij evenwijdig parkeren (Only for parallel parking)"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Het is niet toegelaten de deur te openen of de bestuurdersplaats te verlaten tijdens een manoeuvre. / Not allowed.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf",
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+      ],
+      "id": "q-56"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "Hoe ver rij je achteruit bij 'in rechte lijn achteruit rijden'? (How far do you reverse in the straight-line manoeuvre?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ongeveer 5 meter (About 5 metres)"
+        },
+        {
+          "id": "b",
+          "label": "Ongeveer 50 meter (About 50 metres)"
+        },
+        {
+          "id": "c",
+          "label": "Zo ver als je wil (As far as you like)"
+        },
+        {
+          "id": "d",
+          "label": "Ongeveer 20 meter (About 20 metres)"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "explanation": "Ongeveer 20 meter, in één beweging; je mag je één keer opnieuw goed zetten en de boordsteen niet raken. / About 20 m.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf",
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+      ],
+      "id": "q-57"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "Keren in een smalle straat: wat mag je NIET gebruiken? (Turning in a narrow street: what may you NOT use?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fietspaden, voetpaden en opritten van garages (Cycle paths, pavements and garage driveways)"
+        },
+        {
+          "id": "b",
+          "label": "De volledige breedte van de rijbaan (The full width of the road)"
+        },
+        {
+          "id": "c",
+          "label": "Parkeerplaatsen op gelijke hoogte met de rijbaan (Parking spaces level with the road)"
+        },
+        {
+          "id": "d",
+          "label": "Een zijstraat (T-kruispunt) met voldoende zicht (A side street with a good view)"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "explanation": "Je mag de rijbaan van boordsteen tot boordsteen gebruiken, parkeerplaatsen en bermen op gelijke hoogte, en deels een zijstraat met voldoende zicht. Fietspaden, voetpaden en opritten niet. / Those three are not allowed.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf",
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+      ],
+      "id": "q-58"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "Loodrecht in een vak parkeren: wanneer is het manoeuvre klaar? (Parking in a bay: when is the manoeuvre finished?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Als de neus in het vak staat (When the nose is in the bay)"
+        },
+        {
+          "id": "b",
+          "label": "Als je weer deelneemt aan het verkeer (When you rejoin traffic)"
+        },
+        {
+          "id": "c",
+          "label": "Als de auto volledig in het vak staat (When the car is fully in the bay)"
+        },
+        {
+          "id": "d",
+          "label": "Als de examinator uitstapt (When the examiner gets out)"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "explanation": "Bij loodrecht parkeren is het manoeuvre beëindigd wanneer het voertuig volledig in het parkeervak staat (anders dan bij evenwijdig parkeren). / Different from parallel parking.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf",
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+      ],
+      "id": "q-59"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "In welke groep zit evenwijdig parkeren? (Which group is parallel parking in?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Groep 2, samen met keren (Group 2, with turning)"
+        },
+        {
+          "id": "b",
+          "label": "Groep 1, samen met loodrecht achteruit in een vak (Group 1, with reversing into a bay)"
+        },
+        {
+          "id": "c",
+          "label": "In beide groepen (In both groups)"
+        },
+        {
+          "id": "d",
+          "label": "In geen enkele: het is optioneel (In neither: it is optional)"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "explanation": "Groep 1: evenwijdig rechts, evenwijdig links, loodrecht achteruit. Groep 2: loodrecht vooruit, rechte lijn achteruit, keren. / One is drawn from each group.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+      ],
+      "id": "q-60"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "Moet je loodrecht in een vak parkeren in één beweging? (Must you park in a bay in one movement?)",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ja, anders ben je niet geslaagd (Yes, otherwise you fail)"
+        },
+        {
+          "id": "b",
+          "label": "Ja, maar 1× herbeginnen mag (Yes, but one restart is allowed)"
+        },
+        {
+          "id": "c",
+          "label": "Alleen achteruit moet in één beweging (Only in reverse must it be one movement)"
+        },
+        {
+          "id": "d",
+          "label": "Nee, dat hoeft niet (No, you don't have to)"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "explanation": "Je moet het manoeuvre niet in één beweging uitvoeren, vooruit of achteruit. / Several movements are fine.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf",
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+      ],
+      "id": "q-61"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "Wat is 'evenwijdig parkeren' in het Engels? (What is 'evenwijdig parkeren' in English?)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Evenwijdig parkeren = parallel parking (ook S-parkeren). / Also called S-parking.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ],
+      "acceptedAnswers": [
+        "parallel parking",
+        "parallel park",
+        "parallel parking between two cars"
+      ],
+      "id": "q-62"
+    },
+    {
+      "topicId": "t-5",
+      "prompt": "Wat is 'keren in een smalle straat' in het Engels? (What is 'keren in een smalle straat' in English?)",
+      "type": "shortText",
+      "options": [],
+      "correctOptionIds": [],
+      "explanation": "Keren in een smalle straat = turning (a U-turn) in a narrow street. / Also called a turn in the road.",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ],
+      "acceptedAnswers": [
+        "turning in a narrow street",
+        "turn in a narrow street",
+        "u-turn",
+        "u turn",
+        "turn in the road",
+        "three-point turn",
+        "turning around in a narrow street"
+      ],
+      "id": "q-63"
+    }
+  ],
+  "notes": [
+    {
+      "id": "note-1",
+      "topicId": "t-1",
+      "text": "Kom je met een tolk? Verwittig het examencentrum vooraf (Mollem: +32 2 452 99 37, examenmollem@aibv.be). Je kiest en betaalt de tolk zelf, en de tolk mag niet je begeleider zijn. (Coming with an interpreter? Tell the test centre in advance. You choose and pay the interpreter yourself, and the interpreter cannot be your companion.)",
+      "sourceUrls": [
+        "https://www.vlaanderen.be/en/mobility/how-to-obtain-a-category-b-driving-licence",
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+      ]
+    },
+    {
+      "id": "note-2",
+      "topicId": "t-2",
+      "text": "Een verboden richting inrijden (C1, C3) = examen stopgezet en niet geslaagd. Na een stopbord: kijk ook naar de borden van de straat waarin je wil rijden en vertrek pas dan. De wegcode gaat altijd boven de gps. (Entering a no-entry street ends the exam. After a stop sign, check the signs of the street you want to enter before you go. The road code always beats the GPS.)",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ]
+    },
+    {
+      "id": "note-3",
+      "topicId": "t-3",
+      "text": "Eén rubriek 'slecht' is al genoeg om te zakken, en een zware overtreding volgens het verkeersreglement telt als 'slecht'. De lijst hiernaast komt rechtstreeks uit de GOCA-brochure van 2026. (One 'poor' is enough to fail, and a serious traffic offence counts as 'poor'. The list comes straight from the 2026 GOCA brochure.)",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf"
+      ]
+    },
+    {
+      "id": "note-4",
+      "topicId": "t-4",
+      "text": "Vertrouw op wat de examinator belooft: afslagen worden op tijd gezegd, er komt geen valstrik, en zegt hij niets, dan volg je gewoon je rijstrook. Je ogen horen op de weg en in je spiegels, niet bij de examinator. (Trust what the examiner promises: turns come in time, there are no traps, and if he says nothing you follow your lane. Your eyes belong on the road and in your mirrors, not on the examiner.)",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf",
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6a843501c512859815a1c8a7_Doc%20133-ABN_V.pdf"
+      ]
+    },
+    {
+      "id": "note-5",
+      "topicId": "t-5",
+      "text": "De VSV-video's zijn een paar jaar oud. Ze tonen de beweging goed, maar volg bij twijfel de GOCA-brochure van 2026. Begin met 'Manoeuvre 3' voor het S-parkeren. (The VSV videos are a few years old: good for the movement, but follow the 2026 GOCA brochure if they differ. Start with 'Manoeuvre 3' for parallel parking.)",
+      "sourceUrls": [
+        "https://cdn.prod.website-files.com/604a00a4df74a7000318621d/6ab528507483c8510399aae6_Op%20weg%20naar%20het%20rijbewijs%20B%20-%20Het%20praktijkexamen%20in%20Vlaanderen%20toegelicht.pdf",
+        "https://www.youtube.com/watch?v=HRgemzUo_v0"
+      ]
+    }
+  ]
+}

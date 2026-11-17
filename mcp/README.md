@@ -1,10 +1,10 @@
 # StudyApp MCP Content-Authoring Server
 
 A remote [MCP](https://modelcontextprotocol.io) server that lets a tool-calling AI
-read and **add/update** StudyApp content — subjects, topics, questions (every type:
-choice, typed-answer and free-text, with images, code snippets and level/tier),
-sources, and notes — by committing validated JSON to
-this repo. Hosted as a Vercel Function alongside the app, so you can author
+read and **add/update** StudyApp content — subjects, topics (with reading passages
+and audio clips), questions (every type: choice, typed-answer and free-text, with
+images, code snippets and level/tier), sources, and notes — by committing validated
+JSON to this repo. Hosted as a Vercel Function alongside the app, so you can author
 content by chatting with the Claude app, including from your phone.
 
 - **Subject-scoped, discovery-first.** Start with `list_subjects`, then every
@@ -92,6 +92,27 @@ https://workos.com/blog/vercel-mcp-workos-authkit-template
 Each write commits one change to `master`. Review the resulting commit in your
 git history; revert there if a change was wrong. For a `microsoft-only` subject
 (e.g. `dp-750`), a non-Microsoft source URL is rejected before it can commit.
+
+### Topic fields
+
+`add_topic` and `update_topic` support every topic field the app does. Every
+topic has `slug`, `title`, `summary`, `subtopics` (`{ id, title, summary }`),
+`sourceLinks` (`{ label, url }`) and `studyOrder`; the `id` is assigned on add.
+
+Optional study media, shown above the topic's questions so the learner can use it
+while answering:
+
+- `passage: { title?, text }`: a reading text. `text` is required, `title` is
+  optional.
+- `audio: { src, title? }`: a listening clip played with the browser's own audio
+  player. `src` is a path under `public/` (e.g. `/audio/dutch/clip.mp3`); the
+  file must already be in the repo, the MCP cannot upload it.
+
+A passage without `text`, or audio without `src`, is rejected and nothing is
+committed. `update_topic` merges the patch into the topic, but `passage` and
+`audio` are replaced as a whole: to change a passage's title, send its `text`
+too. A patch can set a passage or audio but not remove one; remove it by hand in
+the repo.
 
 ### Question fields
 

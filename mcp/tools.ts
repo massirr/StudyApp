@@ -30,6 +30,23 @@ async function edit(slug: string, message: string, fn: (s: Subject) => Subject) 
   return next;
 }
 
+// Shape only. Content rules (a passage needs text, audio needs src) live in
+// validateSubject, which edit() runs on every write. tools.test.ts asserts this
+// infers to NewTopic, so a field added to Topic fails the build until it is added here.
+export const TopicSchema = z.object({
+  slug: z.string(),
+  title: z.string(),
+  summary: z.string(),
+  subtopics: z.array(z.object({ id: z.string(), title: z.string(), summary: z.string() })),
+  sourceLinks: z.array(z.object({ label: z.string(), url: z.string() })),
+  studyOrder: z.number(),
+  passage: z.object({ title: z.string().optional(), text: z.string() }).optional(),
+  audio: z.object({ src: z.string(), title: z.string().optional() }).optional(),
+});
+
+// Derived, not hand-written, so it cannot fall behind TopicSchema again.
+const TopicPatchSchema = TopicSchema.partial();
+
 // Shape only. Per-type rules (shortText needs acceptedAnswers, freeText needs
 // sampleAnswer, image needs non-empty src and alt) live in validateSubject, which
 // edit() runs on every write. tools.test.ts asserts this infers to NewQuestion,
@@ -103,36 +120,21 @@ export function registerTools(server: Server) {
 
   // ── topics ─────────────────────────────────────────────────────────────────
 
-  server.tool('add_topic', 'Add a topic to a subject',
-    {
-      subject: z.string(),
-      topic: z.object({
-        slug: z.string(),
-        title: z.string(),
-        summary: z.string(),
-        subtopics: z.array(z.object({ id: z.string(), title: z.string(), summary: z.string() })),
-        sourceLinks: z.array(z.object({ label: z.string(), url: z.string() })),
-        studyOrder: z.number(),
-      }),
-    },
+  // The client reads these descriptions, not the README, so the optional media fields are spelled out.
+  const topicFields =
+    'Optional study media, shown above the topic\'s questions: ' +
+    'passage { title?, text } (a reading text), ' +
+    'audio { src, title? } (a listening clip; src is a file already in public/, e.g. /audio/dutch/clip.mp3).';
+
+  server.tool('add_topic', `Add a topic to a subject. ${topicFields}`,
+    { subject: z.string(), topic: TopicSchema },
     async ({ subject, topic }) => {
       try { return ok(await edit(subject, `mcp: add topic`, (s) => m.addTopic(s, topic))); }
       catch (e) { return fail(errorMessage(e)); }
     });
 
-  server.tool('update_topic', 'Update fields on a topic',
-    {
-      subject: z.string(),
-      id: z.string(),
-      patch: z.object({
-        slug: z.string().optional(),
-        title: z.string().optional(),
-        summary: z.string().optional(),
-        studyOrder: z.number().optional(),
-        subtopics: z.array(z.object({ id: z.string(), title: z.string(), summary: z.string() })).optional(),
-        sourceLinks: z.array(z.object({ label: z.string(), url: z.string() })).optional(),
-      }),
-    },
+  server.tool('update_topic', `Update fields on a topic; a patched passage or audio replaces the whole object. ${topicFields}`,
+    { subject: z.string(), id: z.string(), patch: TopicPatchSchema },
     async ({ subject, id, patch }) => {
       try { return ok(await edit(subject, `mcp: update topic ${id}`, (s) => m.updateTopic(s, id, patch))); }
       catch (e) { return fail(errorMessage(e)); }

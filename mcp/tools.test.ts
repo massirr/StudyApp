@@ -1,7 +1,7 @@
 import { describe, expect, expectTypeOf, it, vi, beforeEach } from 'vitest';
 import { z } from 'zod';
-import { registerTools, QuestionSchema, type ToolResult } from './tools';
-import type { NewQuestion } from './core/types';
+import { registerTools, QuestionSchema, TopicSchema, type ToolResult } from './tools';
+import type { NewQuestion, NewTopic } from './core/types';
 import { validateSubject } from '../src/data/subjects/schema';
 
 // Mock the github layer so tests never touch the network
@@ -341,6 +341,109 @@ describe('question types beyond single/multiple', () => {
         subject: 'test-subject',
         id: 'q-1',
         patch: { image: { src: image.src, alt: '' } },
+      });
+
+      expect(result.isError).toBe(true);
+      expect(vi.mocked(commitSubject)).not.toHaveBeenCalled();
+    });
+  });
+});
+
+describe('topic passage and audio', () => {
+  const topic = {
+    slug: 'reading-1',
+    title: 'Reading 1',
+    summary: 'Read a short text and answer questions about it.',
+    subtopics: [],
+    sourceLinks: [],
+    studyOrder: 2,
+  };
+  const passage = { title: 'Lees de tekst', text: 'Toen Boris jong was, woonde hij in Rusland.' };
+  const audio = { src: '/audio/dutch/reading-1.mp3', title: 'Luister naar het fragment' };
+
+  // The topic as it lands in the committed subject
+  const committedTopic = (slug: string) => {
+    const [, committed] = vi.mocked(commitSubject).mock.calls[0];
+    return validateSubject(committed).topics.find((t) => t.slug === slug);
+  };
+
+  it('TopicSchema infers exactly the app topic type', () => {
+    // Compile-time: fails `npm run build` if Topic gains a field the tool schema lacks
+    expectTypeOf<z.infer<typeof TopicSchema>>().toEqualTypeOf<NewTopic>();
+  });
+
+  it('add_topic stores a passage and audio instead of dropping them', async () => {
+    const { server, call } = makeValidatingServer();
+    registerTools(server);
+
+    const result = await call('add_topic', { subject: 'test-subject', topic: { ...topic, passage, audio } });
+
+    expect(result.isError).toBeUndefined();
+    expect(vi.mocked(commitSubject)).toHaveBeenCalledOnce();
+    expect(committedTopic('reading-1')).toMatchObject({ passage, audio });
+  });
+
+  it('add_topic with a passage that has no text returns isError and does NOT commit', async () => {
+    const { server, call } = makeValidatingServer();
+    registerTools(server);
+
+    const result = await call('add_topic', {
+      subject: 'test-subject',
+      topic: { ...topic, passage: { title: passage.title } },
+    });
+
+    expect(result.isError).toBe(true);
+    expect(result.content[0].text).toContain('passage');
+    expect(vi.mocked(commitSubject)).not.toHaveBeenCalled();
+  });
+
+  it('add_topic with audio that has no src returns isError and does NOT commit', async () => {
+    const { server, call } = makeValidatingServer();
+    registerTools(server);
+
+    const result = await call('add_topic', {
+      subject: 'test-subject',
+      topic: { ...topic, audio: { title: audio.title } },
+    });
+
+    expect(result.isError).toBe(true);
+    expect(result.content[0].text).toContain('audio');
+    expect(vi.mocked(commitSubject)).not.toHaveBeenCalled();
+  });
+
+  describe('update_topic', () => {
+    it('adds a passage and audio to an existing topic', async () => {
+      const { server, call } = makeValidatingServer();
+      registerTools(server);
+
+      const result = await call('update_topic', { subject: 'test-subject', id: 't1', patch: { passage, audio } });
+
+      expect(result.isError).toBeUndefined();
+      expect(committedTopic('topic-1')).toMatchObject({ id: 't1', passage, audio });
+    });
+
+    it('rejects a passage without text and does NOT commit', async () => {
+      const { server, call } = makeValidatingServer();
+      registerTools(server);
+
+      const result = await call('update_topic', {
+        subject: 'test-subject',
+        id: 't1',
+        patch: { passage: { title: 'Only a title' } },
+      });
+
+      expect(result.isError).toBe(true);
+      expect(vi.mocked(commitSubject)).not.toHaveBeenCalled();
+    });
+
+    it('rejects audio without src and does NOT commit', async () => {
+      const { server, call } = makeValidatingServer();
+      registerTools(server);
+
+      const result = await call('update_topic', {
+        subject: 'test-subject',
+        id: 't1',
+        patch: { audio: { title: 'Only a title' } },
       });
 
       expect(result.isError).toBe(true);

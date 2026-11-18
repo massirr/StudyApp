@@ -1851,9 +1851,9 @@
     },
     {
       "topicId": "t-7",
-      "prompt": "Je hebt geen eigen auto maar de job vraagt weekendwerk. Wat zeg je het best?",
+      "prompt": "Op de selectiesessie van Deltaworx vragen ze: 'Kan je ook in het weekend werken?' Je hebt geen auto. Wat zeg je het best?",
       "type": "single",
-      "explanation": "Blijf positief en bied een oplossing aan. Het slechte voorbeeld op p.68 doet net het omgekeerde: 'Weekend- en avondwerk zijn voor mij onmogelijk, omdat ik geen eigen vervoer heb' (H6 6.4).",
+      "explanation": "Blijf positief en bied een oplossing aan: geen auto, maar wel het openbaar vervoer (H6 6.4).",
       "sourceUrls": [
         "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/06-op-gesprek.md"
       ],
@@ -1861,11 +1861,11 @@
       "options": [
         {
           "id": "a",
-          "label": "In het weekend werken is geen probleem, ik kan met het openbaar vervoer komen."
+          "label": "In het weekend werken is geen probleem, ik kom met de metro of de trein naar Brussel."
         },
         {
           "id": "b",
-          "label": "Weekendwerk is onmogelijk, want ik heb geen vervoer."
+          "label": "Weekendwerk is onmogelijk, want ik heb geen auto."
         },
         {
           "id": "c",

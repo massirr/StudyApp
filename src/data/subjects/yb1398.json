@@ -1788,7 +1788,7 @@
     },
     {
       "topicId": "t-7",
-      "prompt": "Welke zin hoort in het MIDDEN van de brief?",
+      "prompt": "Welke zin hoort in het MIDDEN van je mail aan Deltaworx?",
       "type": "single",
       "explanation": "Het midden beschrijft je studies, je ervaring en waarom je geschikt bent. De andere drie zijn begroeting en slot (H6 6.4).",
       "sourceUrls": [
@@ -1798,7 +1798,7 @@
       "options": [
         {
           "id": "a",
-          "label": "Geachte mevrouw Janssens"
+          "label": "Geachte mevrouw, geachte heer"
         },
         {
           "id": "b",
@@ -1810,7 +1810,7 @@
         },
         {
           "id": "d",
-          "label": "Tijdens mijn opleiding heb ik stage gedaan in restaurant De Toren, waar mijn werkgever vooral mijn klantvriendelijkheid op prijs stelde."
+          "label": "Ik leer zelfstandig programmeren in C# en ik heb ervaring met data-annotatie, dus ik werk nauwkeurig en ik leer snel bij."
         }
       ],
       "correctOptionIds": [

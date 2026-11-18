@@ -1757,9 +1757,9 @@
     },
     {
       "topicId": "t-7",
-      "prompt": "Welke inleiding is het best voor een sollicitatiebrief?",
+      "prompt": "Je schrijft een mail aan Deltaworx voor een studentenjob. Welke inleiding is het best?",
       "type": "single",
-      "explanation": "De tips op p.69 zeggen: begin creatief en wees POSITIEF over jezelf. Nooit vermelden dat je al lang werkloos bent of ontslagen werd - dat staat in de slechte voorbeelden (H6 6.4).",
+      "explanation": "Begin formeel en positief: 'Naar aanleiding van ... zou ik mij graag kandidaat stellen als ...'. Nooit negatief over jezelf beginnen (H6 6.4).",
       "sourceUrls": [
         "https://github.com/massirr/StudyApp/blob/master/content/dutch/cursus-nl3/06-op-gesprek.md"
       ],
@@ -1767,19 +1767,19 @@
       "options": [
         {
           "id": "a",
-          "label": "Ik heb zaterdag de job in de krant gezien, dus daarom schrijf ik u."
+          "label": "Ik heb jullie website gezien, dus daarom schrijf ik jullie."
         },
         {
           "id": "b",
-          "label": "De reden dat ik solliciteer, is dat ik al twee jaar zonder werk zit."
+          "label": "De reden dat ik schrijf, is dat ik nog nooit een job heb gevonden."
         },
         {
           "id": "c",
-          "label": "Naar aanleiding van uw vacature in De Standaard zou ik mij graag kandidaat stellen voor de betrekking van kelner."
+          "label": "Naar aanleiding van uw infosessie in Brussel zou ik mij graag kandidaat stellen als jobstudent bij Deltaworx."
         },
         {
           "id": "d",
-          "label": "Ik heb niets beters gevonden, dus ik probeer het hier."
+          "label": "Ik heb niets beters gevonden, dus ik probeer het bij jullie."
         }
       ],
       "correctOptionIds": [
